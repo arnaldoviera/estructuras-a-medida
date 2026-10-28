@@ -10,13 +10,13 @@
       "largo_compra_mm": 4000.0
     },
     {
-      "id": "rollizo_d17_l3",
-      "descripcion": "Rollizo eucalipto impregnado Ø 16-18 cm × 3,0 m (mín. Ø 17 cm en la punta fina)",
+      "id": "rollizo_d17_l35",
+      "descripcion": "Rollizo eucalipto impregnado Ø 16-18 cm × 3,5 m (mín. Ø 17 cm en la punta fina)",
       "cant": 4,
       "unidad": "u",
       "uso": "Patas",
-      "largo_util_mm": 11800,
-      "largo_compra_mm": 12000.0
+      "largo_util_mm": 12321.429180468042,
+      "largo_compra_mm": 14000.0
     },
     {
       "id": "rollizo_d15_l25",
@@ -24,7 +24,7 @@
       "cant": 1,
       "unidad": "u",
       "uso": "2 tirantes de un rollizo",
-      "largo_util_mm": 2300,
+      "largo_util_mm": 2460,
       "largo_compra_mm": 2500.0
     },
     {
@@ -131,7 +131,7 @@
       "descripcion": "Cetol para madera exterior, 4 L",
       "cant": 1,
       "unidad": "u",
-      "uso": "9,9 m² × 3 manos ≈ 2,5 L"
+      "uso": "10,0 m² × 3 manos ≈ 2,5 L"
     },
     {
       "id": "asfalto_frio_4l",

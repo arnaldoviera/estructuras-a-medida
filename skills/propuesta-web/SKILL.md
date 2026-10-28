@@ -9,7 +9,7 @@ description: Arma y publica la propuesta comercial de una estructura a medida co
 python "${CLAUDE_PLUGIN_ROOT}/motor/correr.py" propuesta <carpeta>
 ```
 
-Toma `ficha.json`, `precios.json` y `auditoria.json` (si existen) y escribe `salida/propuesta.html` (un solo archivo) y `salida/propuesta.txt` (texto plano para el auditor). Plantilla: `assets/plantilla.html` (CSS con tokens claro/oscuro, visor 3D Three.js r128 por CDN, botones de configuración).
+Toma `ficha.json`, `precios.json` y `auditoria.json` (si existen) y escribe `salida/propuesta.html` (un solo archivo) y `salida/propuesta.txt` (texto plano para el auditor). Plantilla: `assets/plantilla.html` (sin doctype ni head: el Artifact la envuelve; CSS con tokens claro/oscuro, visor 3D Three.js r128 por CDN, botones de configuración).
 
 Secciones:
 1. Datos del proyecto (n°, fecha, validez, cliente, contacto, obra)

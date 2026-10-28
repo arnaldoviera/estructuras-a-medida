@@ -1,9 +1,5 @@
-<!doctype html>
-<html lang="es-AR">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{{TITULO}}</title>
+<meta name="claude:viewport-fit-sides" content="cover">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bitter:wght@500;700&family=Source+Sans+3:wght@400;600&display=swap">
 <style>
 /* Una columna: encabezado de marca, 8 secciones numeradas y 2 anexos plegables. Láminas en grilla que cae a 1 columna. */
@@ -16,7 +12,7 @@
 :root[data-theme="dark"] { --bg: #1d1915; --fg: #efe7dc; --muted: #b3a593; --wood: #d08a55; --line: #3a322a; --card: #26211b; --ok: #9fd3a8; --okbg: #22342540; --bad: #f0a59b; --badbg: #4a221d60; --warn: #e8c37a; --warnbg: #47380f60; --view: #2a241e; color-scheme: dark }
 * { box-sizing: border-box }
 body { margin: 0; background: var(--bg); color: var(--fg); font-family: var(--body); font-size: 16px; line-height: 1.5; }
-.wrap { max-width: 1080px; margin: 0 auto; padding: 20px 16px 56px; display: grid; grid-template-columns: minmax(0, 1fr); gap: 10px; }
+.wrap { max-width: 1080px; margin: 0 auto; padding-block: 20px 56px; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); display: grid; grid-template-columns: minmax(0, 1fr); gap: 10px; }
 section { min-width: 0 }
 header { border-bottom: 2px solid var(--wood); padding-bottom: 14px; margin-bottom: 6px }
 .brand { font: 700 .8rem var(--body); letter-spacing: .14em; text-transform: uppercase; color: var(--wood); margin: 0 }
@@ -79,8 +75,6 @@ footer { color: var(--muted); font-size: .85rem; margin-top: 24px; border-top: 1
 .pl .vw{font:700 12px Arial,sans-serif;letter-spacing:.1em;fill:#6f6357}.pl .vw2{font:600 12px "Source Sans 3",Arial,sans-serif;fill:#1f5f8b;paint-order:stroke;stroke:var(--paper);stroke-width:3px}
 @media print { .tabs, .ivat, .viewer, .viewer + .hint { display: none } details { break-inside: avoid } }
 </style>
-</head>
-<body>
 <div class="wrap">
   <header>
     <p class="brand">{{MARCA}}</p>
@@ -164,5 +158,3 @@ document.querySelectorAll(".tabs button").forEach((b) => b.addEventListener("cli
   (function loop() { ctl.update(); ren.render(scene, cam); requestAnimationFrame(loop); })();
 })();
 </script>
-</body>
-</html>

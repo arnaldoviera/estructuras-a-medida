@@ -71,8 +71,8 @@ def pagina(ficha, M, val, desp, obra_, laminas, persp, escena, precios=None, aud
     hang_abs = sorted(set(abs(round(h)) for h in D["hang"]))
     esp = [
         ("Travesaño", f"Rollizo Ø{cm(tr['diametro'])} × {m(tr['largo'])}; eje a {m(tr['z_eje'])} (cara inferior a {m(D['cara_inf_travesano'])}). Apoya en la horqueta (V) de cada A, no atravesado entre patas"),
-        ("Patas", f"{pa['cantidad']} rollizos Ø{cm(pa['diametro'])} × {m(pa['largo'])} (de rollizo de {m(pa['largo_comercial'], 0)}), {cm(pa['enterrado'])} enterrados; {D['ang_lateral']:.0f}° en la vista lateral y {D['ang_frontal']:.0f}° en la frontal"),
-        ("Horqueta", f"Cruce a {m(D['apex'])} a media madera (rebaje 1/3 ≈ {cm(pa['diametro'] * pa['rebaje_cruce_frac'], 1)}); las patas siguen {cm(pa['prolongacion'])} sobre el cruce; varilla {va['horqueta']['d']} mm × {m(va['horqueta']['largo'])} pata–travesaño–pata"),
+        ("Patas", f"{pa['cantidad']} rollizos Ø{cm(pa['diametro'])} × {m(pa['largo'])} (de rollizo de {m(pa['largo_comercial'], 1)}), {cm(pa['enterrado'])} enterrados; {D['ang_lateral']:.0f}° en la vista lateral y {D['ang_frontal']:.0f}° en la frontal"),
+        ("Horqueta", f"Cruce a {m(D['apex'])} a media madera (rebaje 1/3 ≈ {cm(pa['diametro'] * pa['rebaje_cruce_frac'], 1)}); las patas siguen {cm(D['prolongacion'])} sobre el cruce (por el eje){', con la punta cortada horizontal a ' + m(D['z_punta']) if pa.get('punta') == 'horizontal' else ''}; varilla {va['horqueta']['d']} mm × {m(va['horqueta']['largo'])} pata–travesaño–pata"),
         ("Base", f"{m(D['base_A'])} por A en el sentido del vaivén; {m(D['pies_exterior'])} de pie a pie por fuera"),
         ("Tirantes", f"Rollizo Ø{cm(ti['diametro'])} × {m(ti['largo'])} por la cara {ti['cara']} de cada A a {m(ti['z'])}; rebaje {cm(ti['rebaje'], 1)} y varilla {va['tirante']['d']} mm"),
         ("Cartelas", f"Rollizo Ø{cm(ca['diametro'])} × {m(ca['largo'])}, del tirante al travesaño (a {m(ca['x_sup'])} del centro); varilla {va['cartela_inf']['d']} mm vertical en cada punta. Alternativa si se la ve débil: {E(ca['alternativa'].split(': ', 1)[-1])}"),
@@ -166,7 +166,7 @@ def pagina(ficha, M, val, desp, obra_, laminas, persp, escena, precios=None, aud
     cuerpo += f'<section class="anx">{s9}{s10}</section>'
 
     plantilla = open(os.path.join(RAIZ, "skills", "propuesta-web", "assets", "plantilla.html"), encoding="utf-8").read()
-    return (plantilla.replace("{{TITULO}}", E(f"{pr['titulo']} · {pr['numero']}"))
+    return (plantilla.replace("{{TITULO}}", E(f"{pr['titulo']} {pr['numero']}"))
             .replace("{{MARCA}}", E(pr["marca"]))
             .replace("{{H1}}", E(pr["titulo"]))
             .replace("{{SUB}}", E(f"Propuesta {pr['numero']} · {cl['localidad']}, {cl['provincia']} · {f_(fecha)}"))

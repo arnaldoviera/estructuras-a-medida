@@ -43,11 +43,11 @@
     "material": "eucalipto-impregnado",
     "travesano": {"diametro": 200, "largo": 3700, "z_eje": 2100},
     "patas": {
-      "cantidad": 4, "diametro": 170, "largo": 2950, "largo_comercial": 3000, "enterrado": 150,
-      "pie_x": 2065, "cruce_x": 1635, "semibase": 1150, "prolongacion": 560, "desfase_media_madera": 30,
+      "cantidad": 4, "diametro": 170, "largo": 2950, "largo_comercial": 3500, "enterrado": 150, "punta": "horizontal",
+      "pie_x": 2065, "cruce_x": 1635, "semibase": 1300, "prolongacion": null, "desfase_media_madera": 30,
       "rebaje_cruce_frac": 0.3333, "asiento_horqueta": 15
     },
-    "tirante": {"diametro": 150, "largo": 1150, "z": 1100, "rebaje": 25, "cara": "interior"},
+    "tirante": {"diametro": 150, "largo": 1230, "z": 1150, "rebaje": 25, "cara": "interior"},
     "cartela": {"diametro": 120, "largo": 1000, "x_sup": 1350, "rebaje": 20,
                 "alternativa": "Si la cartela se ve como punto débil: 2º tirante cerca de la horqueta."},
     "varillas": {
@@ -83,7 +83,7 @@
   },
   "estado": {
     "validacion_aprobada": true,
-    "aprobada_por": "usuario (diseño cerrado en sesión previa; 2026-10-28: enterrado 15 cm, cama a 0,50 m, pozo 27 × 45 × 30 cm con 2 ladrillos, ayuda de 2 personas también para parar las A)",
-    "vueltas_auditoria": 4
+    "aprobada_por": "usuario (diseño cerrado en sesión previa; 2026-10-28: enterrado 15 cm, cama a 0,50 m, pozo 27 × 45 × 30 cm con 2 ladrillos, ayuda de 2 personas también para parar las A; base abierta a 2,60 m (semibase 1,30 m) por vuelco, con tirante a 1,15 m de 1,23 m de largo; patas de rollizo de 3,5 m con pie y punta horizontales, 2,95 m en todas las fibras)",
+    "vueltas_auditoria": 6
   }
 }

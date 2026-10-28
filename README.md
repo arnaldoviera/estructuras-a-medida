@@ -45,7 +45,7 @@ insumos/portico-v3/          scripts y página originales (referencia)
 
 ## Caso de prueba
 
-`ejemplos/pueblo-andino/`: pórtico para un área libre de 4,50 × 5,50 m, carga de diseño 350 kg (hamaca-cama) con factor dinámico 2,5, travesaño Ø20 × 3,70 m con el eje a 2,10 m, patas Ø17 a 33° / 14°, cruce a 1,76 m, 6 abrazaderas de cuelgue. Las 25 verificaciones cumplen; la zona libre (2,75 m por lado) entra justo.
+`ejemplos/pueblo-andino/`: pórtico para un área libre de 4,50 × 5,50 m, carga de diseño 350 kg (hamaca-cama) con factor dinámico 2,5, travesaño Ø20 × 3,70 m con el eje a 2,10 m, base de 2,60 m por A, patas Ø17 de rollizo de 3,5 m (2,95 m con pie y punta horizontales), cruce a 1,79 m, 6 abrazaderas de cuelgue. Las 32 verificaciones cumplen y la auditoría quedó aprobada en la vuelta 6 (31/31), después de que el cliente decidiera los conflictos escalados. Propuesta publicada: https://claude.ai/artifact/Pa5gp1Bd1KF7vUjEcj3QoX (privada).
 
 ## Notas técnicas
 

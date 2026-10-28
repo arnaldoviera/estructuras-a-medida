@@ -16,7 +16,7 @@ def modelo(ficha):
     tr, pa, ti, ca = d["travesano"], d["patas"], d["tirante"], d["cartela"]
     cu, ac, va = d["cuelgues"], d["accesorios"], d["varillas"]
     beamR, beamZ, beamHalf = tr["diametro"] / 2, tr["z_eje"], tr["largo"] / 2
-    legR, footX, crossX, foot, ext = pa["diametro"] / 2, pa["pie_x"], pa["cruce_x"], pa["semibase"], pa["prolongacion"]
+    legR, footX, crossX, foot = pa["diametro"] / 2, pa["pie_x"], pa["cruce_x"], pa["semibase"]
     lap = pa["desfase_media_madera"]
     # cruce: el travesaño apoya tangente a las dos patas de la V
     apex = beamZ - 400
@@ -24,6 +24,15 @@ def modelo(ficha):
         apex = beamZ - (beamR + legR) / math.sin(math.atan(foot / apex))
     lean = (footX - crossX) / apex
     axisX = lambda z: footX - lean * z
+    cos_v = apex / norm(sub([crossX, 0, apex], [footX, foot, 0]))  # coseno del ángulo real de la pata con la vertical
+    tan_v = math.tan(math.acos(cos_v))
+    if pa.get("punta") == "horizontal":
+        # pie y punta horizontales y paralelos: todas las fibras miden "largo"; el eje termina en z_punta
+        z_punta = pa["largo"] * cos_v - pa["enterrado"]
+        ext = (z_punta - apex) / cos_v
+    else:
+        ext = pa["prolongacion"]
+        z_punta = apex + ext * cos_v
     legDeg = math.degrees(math.atan(foot / apex))
     frontDeg = math.degrees(math.atan(lean))
     tieZ, tieR = ti["z"], ti["diametro"] / 2
@@ -104,10 +113,14 @@ def modelo(ficha):
                         cuerpos.append({"tipo": "soga", "a": [c + s * 210, 0, 350], "b": [c + s * cu["separacion_par"] / 2, 0, pivotZ]})
         configs[cfg["id"]] = cuerpos
 
-    cos_v = apex / norm(sub([crossX, 0, apex], [footX, foot, 0]))  # coseno del ángulo de la pata con la vertical
     ang_real = math.degrees(math.acos(cos_v))
-    # pie cortado horizontal: la fibra más larga suma R·tan(ángulo real)
-    largo_pata = norm(sub(*legs[(1, 1)])) + pa["enterrado"] / cos_v + legR * math.tan(math.radians(ang_real))
+    # largo de rollizo necesario: eje enterrado + eje aéreo, más R·tan por cada corte horizontal (pie y, si corresponde, punta)
+    cortes = 2 if pa.get("punta") == "horizontal" else 1
+    largo_pata = norm(sub(*legs[(1, 1)])) + pa["enterrado"] / cos_v + cortes * legR * tan_v
+    # distancia de la varilla de la horqueta a la punta, sobre la cara exterior (la de abajo, la más larga en el corte horizontal)
+    # (con punta horizontal todas las fibras terminan en z_punta; con punta a escuadra la cara de abajo termina R·sen más abajo)
+    z_fin_ext = z_punta if pa.get("punta") == "horizontal" else z_punta - legR * math.sin(math.acos(cos_v))
+    dist_punta = (z_fin_ext - beamZ) / cos_v  # al centro de la varilla, medido sobre la fibra
     sobre_pata = lambda z: (z + pa["enterrado"]) / cos_v  # distancia sobre el eje de la pata, medida desde el pie
     deriv = {
         "apex": apex, "lean": lean, "ang_lateral": legDeg, "ang_frontal": frontDeg,
@@ -125,7 +138,7 @@ def modelo(ficha):
         "cara_inf_travesano": beamZ - beamR,
         "largo_pata_calc": largo_pata,
         "luz_travesano": 2 * axisX(beamZ),
-        "ang_real": ang_real, "cos_v": cos_v,
+        "ang_real": ang_real, "cos_v": cos_v, "prolongacion": ext, "z_punta": z_punta, "dist_punta": dist_punta,
         "marca_cruce": sobre_pata(apex), "marca_tirante": sobre_pata(tieZ), "marca_horqueta": sobre_pata(beamZ),
         "tirante_oblicuo_grados": math.degrees(math.atan(2 * lap / (2 * yT))),
         "tx": axisX(tieZ) - legR - tieR + ti["rebaje"] * 2,
@@ -201,9 +214,15 @@ def validar(ficha, M=None):
     _chk(out, "geo.largo_pata", "Largo de pata (enterrado + pie cortado horizontal) vs. rollizo comercial",
          m(D["largo_pata_calc"], 3), "≤ " + m(pa["largo_comercial"], 3), D["largo_pata_calc"] <= pa["largo_comercial"])
     _chk(out, "geo.prolongacion", "Prolongación de la pata sobre el cruce cubre el travesaño",
-         cm(pa["prolongacion"]), "≥ " + cm(2 * r["beamR"] + 100), pa["prolongacion"] >= 2 * r["beamR"] + 100)
+         cm(D["prolongacion"]), "≥ " + cm(2 * r["beamR"] + 100), D["prolongacion"] >= 2 * r["beamR"] + 100)
+    dh = d["varillas"]["horqueta"]["d"]
+    _chk(out, "geo.punta", "Distancia de la varilla de la horqueta a la punta de la pata (cara exterior; 7 diámetros, extremo cargado)",
+         cm(D["dist_punta"], 1), "≥ " + cm(7 * dh, 1), D["dist_punta"] >= 7 * dh)
     _chk(out, "geo.voladizo", "El travesaño sobresale de la horqueta en ambos extremos",
          m(d["travesano"]["largo"] / 2 - M["axisX"](r["beamZ"])), "≥ 0,15 m", d["travesano"]["largo"] / 2 - M["axisX"](r["beamZ"]) >= 150)
+    need_t = 2 * (D["yT"] + r["legR"] / math.cos(math.radians(D["ang_lateral"])) + 40)
+    _chk(out, "geo.tirante", "El tirante pasa las dos patas y sobresale 4 cm de cada una",
+         m(d["tirante"]["largo"]), "≥ " + m(need_t), d["tirante"]["largo"] >= need_t)
     _chk(out, "geo.cartela", "Largo de la cartela entre apoyos vs. pieza", m(D["largo_cartela_calc"]), "≤ " + m(d["cartela"]["largo"]),
          D["largo_cartela_calc"] <= d["cartela"]["largo"])
 
@@ -278,14 +297,12 @@ def validar(ficha, M=None):
              f"FS = {num(fs, 2)} (H = {num(H / 1000, 2)} kN a {m(zg)}, a {num(ang, 0)}°)", f"≥ {num(fs_min, 1)}", fs >= fs_min)
 
     # --- compresión / pandeo de patas ---
-    Ntot = req["carga_diseno_kg"] * G * fd + Gp
-    f, e = M["legs"]["1,1"]
-    cosv = (sub([r["crossX"], 0, M["d"]["apex"]], [r["footX"], r["foot"], 0])[2]) / norm(sub([r["crossX"], 0, M["d"]["apex"]], [r["footX"], r["foot"], 0]))
-    N = Ntot / 4 / cosv
+    # envolvente: toda la carga de diseño (con factor dinámico) sobre una sola A, repartida en sus 2 patas
+    N = (req["carga_diseno_kg"] * G * fd / 2 + Gp / 4) / D["cos_v"]
     Il = math.pi * pa["diametro"] ** 4 / 64
     Lp = norm(sub([r["crossX"], 0, M["d"]["apex"]], [r["footX"], r["foot"], 0]))
     Pcr = math.pi ** 2 * E * Il / Lp ** 2
-    _chk(out, "calc.pandeo", "Pandeo de pata (Euler, pie–cruce)", f"N = {num(N / 1000, 2)} kN; FS = {num(Pcr / N, 0)}", "FS ≥ 3", Pcr / N >= 3)
+    _chk(out, "calc.pandeo", "Pandeo de pata (Euler, pie–cruce; toda la carga sobre una A)", f"N = {num(N / 1000, 2)} kN; FS = {num(Pcr / N, 0)}", "FS ≥ 3", Pcr / N >= 3)
 
     # --- varillas: largo suficiente (agarre + arandela, tuerca y contratuerca) ---
     va = d["varillas"]
@@ -340,7 +357,7 @@ def despiece(ficha, M=None):
          "angulos": "Puntas a escuadra", "rebajes": f"Plano de {cm(ca['rebaje'])} abajo, a ±{m(ca['x_sup'])} del centro, para apoyar cada cartela",
          "agujeros": f"2 pasantes Ø{ag(va['horqueta']['d'])} mm horizontales (sentido del vaivén) a ±{m(M['axisX'](tr['z_eje']))} del centro, en el eje; 2 pasantes Ø{ag(va['cartela_sup']['d'])} mm verticales a ±{m(ca['x_sup'])} del centro (cartelas)"},
         {"id": "P1–P4", "pieza": "Patas", "cant": pa["cantidad"], "material": mad["nombre"], "seccion": f"Ø{cm(pa['diametro'])}", "largo": pa["largo"],
-         "angulos": f"Pie cortado horizontal: la pata forma {num(D['ang_real'], 1)}° con la vertical ({num(D['ang_lateral'], 0)}° en vista lateral y {num(D['ang_frontal'], 0)}° en vista frontal)",
+         "angulos": ("Pie y punta cortados horizontales y paralelos (" + m(pa["largo"]) + " en todas las fibras); " if pa.get("punta") == "horizontal" else "Pie cortado horizontal; ") + f"la pata forma {num(D['ang_real'], 1)}° con la vertical ({num(D['ang_lateral'], 0)}° en vista lateral y {num(D['ang_frontal'], 0)}° en vista frontal)",
          "rebajes": f"Media madera en el cruce (1/3 Ø ≈ {cm(pa['diametro'] * pa['rebaje_cruce_frac'], 1)}); asiento de {cm(pa['asiento_horqueta'], 1)} para el travesaño; plano de {cm(ti['rebaje'], 1)} para el tirante; asiento plano para la arandela donde sale cada varilla",
          "agujeros": f"Medidas SOBRE la pata desde el pie: cruce Ø{ag(va['cruce']['d'])} a {m(D['marca_cruce'])} (altura {m(D['apex'])}); tirante Ø{ag(va['tirante']['d'])} a {m(D['marca_tirante'])} (altura {m(ti['z'])}); horqueta Ø{ag(va['horqueta']['d'])} a {m(D['marca_horqueta'])} (altura {m(tr['z_eje'])})"},
         {"id": "R1–R2", "pieza": "Tirantes", "cant": 2, "material": mad["nombre"], "seccion": f"Ø{cm(ti['diametro'])}", "largo": ti["largo"],
@@ -356,10 +373,11 @@ def despiece(ficha, M=None):
         lo, hi = _rollizo_comercial(d_mm, largo_mm, mad)
         Lc = min(x for x in mad["largos_comerciales_m"] if x * 1000 >= largo_mm * por_rollizo + 20 * por_rollizo)
         n = math.ceil(cant_piezas / por_rollizo)
+        id_ = f"rollizo_d{round(d_mm / 10)}_l{num(Lc, 1).replace(',', '').rstrip('0')}"
         madera.append({"id": id_, "descripcion": f"{desc} Ø {lo}-{hi} cm × {num(Lc, 1)} m (mín. Ø {num(d_mm / 10, 0)} cm en la punta fina)", "cant": n, "unidad": "u", "uso": uso,
                        "largo_util_mm": largo_mm * cant_piezas, "largo_compra_mm": Lc * 1000 * n})
     add_madera("rollizo_d20_l4", "Rollizo eucalipto impregnado", tr["diametro"], tr["largo"], 1, 1, "Travesaño")
-    add_madera("rollizo_d17_l3", "Rollizo eucalipto impregnado", pa["diametro"], pa["largo"], pa["cantidad"], 1, "Patas")
+    add_madera("rollizo_patas", "Rollizo eucalipto impregnado", pa["diametro"], D["largo_pata_calc"], pa["cantidad"], 1, "Patas")
     add_madera("rollizo_d15_l25", "Rollizo eucalipto impregnado", ti["diametro"], ti["largo"], 2, 2, "2 tirantes de un rollizo")
     add_madera("rollizo_d12_l25", "Rollizo eucalipto impregnado", ca["diametro"], ca["largo"], 2, 2, "2 cartelas de un rollizo")
 

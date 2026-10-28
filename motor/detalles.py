@@ -17,14 +17,28 @@ def laminas(ficha, M):
 
     # ===== 1. Horqueta: vista lateral =====
     z0 = cz - 280
-    f = Fig(-560, 560, z0, beamZ + 230)
-    ext = pa["prolongacion"]
+    f = Fig(-560, 560, z0, max(beamZ + 230, D["z_punta"] + 60))
+    ext = D["prolongacion"]
     for s in (-1, 1):
         a = (s * foot * (1 - z0 / cz), z0)
         u = (-s * foot, cz); L = math.hypot(*u); u = (u[0] / L, u[1] / L)
-        b = (u[0] * ext, cz + u[1] * ext)
-        q = f.log_side(a, b, pa["diametro"])
-        f.poly([q[1], q[2], (q[2][0] - u[0] * 4, q[2][1] - u[1] * 4), (q[1][0] - u[0] * 4, q[1][1] - u[1] * 4)], CAP, WOODEDGE, 1.2)
+        if pa.get("punta") == "horizontal":
+            # recortar cada cara en el plano horizontal de la punta
+            nrm = (-u[1], u[0])
+            zt = D["z_punta"]
+            caras = []
+            for k in (1, -1):
+                p0 = (a[0] + nrm[0] * legR * k, a[1] + nrm[1] * legR * k)
+                t = (zt - p0[1]) / u[1]
+                caras.append((p0, (p0[0] + u[0] * t, zt)))
+            (pa0, pa1), (pb0, pb1) = caras
+            f.poly([pa0, pa1, pb1, pb0], WOOD, "none", 0)
+            f.line(pa0, pa1); f.line(pb0, pb1)
+            f.line(pa1, pb1, WOODEDGE, 2)
+        else:
+            b = (u[0] * ext, cz + u[1] * ext)
+            q = f.log_side(a, b, pa["diametro"])
+            f.poly([q[1], q[2], (q[2][0] - u[0] * 4, q[2][1] - u[1] * 4), (q[1][0] - u[0] * 4, q[1][1] - u[1] * 4)], CAP, WOODEDGE, 1.2)
     f.section((0, beamZ), beamR)
     yTop = D["yTop"]
     Lh = va["horqueta"]["largo"]
@@ -37,6 +51,8 @@ def laminas(ficha, M):
     f.tag((-yTop + 40, beamZ - 20), -150, 70, f"Agujero Ø{ag(dh)} pasante:|pata – travesaño – pata", "end")
     f.tag((0, cz), 150, 30, f"Cruce a media madera|varilla {dc} mm a lo largo|del travesaño (ver vista B)")
     f.dim((0, beamZ), (0, cz), -330, cm(beamZ - cz), 12)
+    if pa.get("punta") == "horizontal":
+        f.tag((foot * 0 + (D["z_punta"] - cz) * math.tan(math.radians(A)), D["z_punta"]), 60, -25, f"Punta cortada horizontal|a {m(D['z_punta'])} (varilla a {cm(D['dist_punta'], 1)} del extremo)")
     f.text((0, z0 + 20), f"{A:.0f}° en esta vista ({num(D['ang_real'], 1)}° real)", "vw2")
     f.title_txt = "A · VISTA LATERAL"
     out.append(("Horqueta y apoyo del travesaño",

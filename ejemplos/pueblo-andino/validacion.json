@@ -67,7 +67,7 @@
     {
       "id": "geo.cruce",
       "requisito": "Altura del cruce: zc = z_eje − (R_trav + R_pata)/sin(atan(semibase/zc))",
-      "valor": "1,762 m",
+      "valor": "1,786 m",
       "limite": "tangencia del travesaño en la V",
       "estado": "cumple",
       "nota": ""
@@ -75,7 +75,7 @@
     {
       "id": "geo.angulos",
       "requisito": "Ángulos de las patas",
-      "valor": "33° lateral · 14° frontal",
+      "valor": "36° lateral · 14° frontal",
       "limite": "—",
       "estado": "cumple",
       "nota": ""
@@ -83,31 +83,47 @@
     {
       "id": "geo.largo_pata",
       "requisito": "Largo de pata (enterrado + pie cortado horizontal) vs. rollizo comercial",
-      "valor": "2,949 m",
-      "limite": "≤ 3,000 m",
+      "valor": "3,080 m",
+      "limite": "≤ 3,500 m",
       "estado": "cumple",
       "nota": ""
     },
     {
       "id": "geo.prolongacion",
       "requisito": "Prolongación de la pata sobre el cruce cubre el travesaño",
-      "valor": "56 cm",
+      "valor": "51 cm",
       "limite": "≥ 30 cm",
+      "estado": "cumple",
+      "nota": ""
+    },
+    {
+      "id": "geo.punta",
+      "requisito": "Distancia de la varilla de la horqueta a la punta de la pata (cara exterior; 7 diámetros, extremo cargado)",
+      "valor": "11,5 cm",
+      "limite": "≥ 11,2 cm",
       "estado": "cumple",
       "nota": ""
     },
     {
       "id": "geo.voladizo",
       "requisito": "El travesaño sobresale de la horqueta en ambos extremos",
-      "valor": "0,30 m",
+      "valor": "0,29 m",
       "limite": "≥ 0,15 m",
+      "estado": "cumple",
+      "nota": ""
+    },
+    {
+      "id": "geo.tirante",
+      "requisito": "El tirante pasa las dos patas y sobresale 4 cm de cada una",
+      "valor": "1,23 m",
+      "limite": "≥ 1,22 m",
       "estado": "cumple",
       "nota": ""
     },
     {
       "id": "geo.cartela",
       "requisito": "Largo de la cartela entre apoyos vs. pieza",
-      "valor": "0,93 m",
+      "valor": "0,88 m",
       "limite": "≤ 1,00 m",
       "estado": "cumple",
       "nota": ""
@@ -116,7 +132,7 @@
       "id": "geo.pozo",
       "requisito": "El pozo contiene el tramo enterrado de la pata (con 2 cm de holgura)",
       "valor": "27 cm × 45 cm",
-      "limite": "≥ 25 cm × 34 cm",
+      "limite": "≥ 25 cm × 36 cm",
       "estado": "cumple",
       "nota": ""
     },
@@ -139,7 +155,7 @@
     {
       "id": "calc.flexion",
       "requisito": "Flexión del travesaño — Carga de diseño en las abrazaderas exteriores (cama)",
-      "valor": "σ = 2,0 MPa (M = 1,56 kN·m)",
+      "valor": "σ = 2,0 MPa (M = 1,59 kN·m)",
       "limite": "≤ 10 MPa",
       "estado": "cumple",
       "nota": ""
@@ -148,14 +164,14 @@
       "id": "calc.flecha",
       "requisito": "Flecha del travesaño — Carga de diseño en las abrazaderas exteriores (cama)",
       "valor": "2,0 mm",
-      "limite": "≤ L/300 = 10,3 mm",
+      "limite": "≤ L/300 = 10,4 mm",
       "estado": "cumple",
       "nota": ""
     },
     {
       "id": "calc.flexion",
       "requisito": "Flexión del travesaño — Un adulto por puesto en los 3 puestos",
-      "valor": "σ = 4,3 MPa (M = 3,41 kN·m)",
+      "valor": "σ = 4,4 MPa (M = 3,43 kN·m)",
       "limite": "≤ 10 MPa",
       "estado": "cumple",
       "nota": ""
@@ -163,7 +179,7 @@
     {
       "id": "calc.flexion",
       "requisito": "Flexión del travesaño — Toda la carga de diseño en el puesto central (envolvente)",
-      "valor": "σ = 8,5 MPa (M = 6,66 kN·m)",
+      "valor": "σ = 8,5 MPa (M = 6,69 kN·m)",
       "limite": "≤ 10 MPa",
       "estado": "cumple",
       "nota": ""
@@ -171,31 +187,31 @@
     {
       "id": "calc.flecha",
       "requisito": "Flecha del travesaño — Toda la carga de diseño en el puesto central (envolvente)",
-      "valor": "5,7 mm",
-      "limite": "≤ L/300 = 10,3 mm",
+      "valor": "5,8 mm",
+      "limite": "≤ L/300 = 10,4 mm",
       "estado": "cumple",
       "nota": ""
     },
     {
       "id": "calc.vuelco",
       "requisito": "Vuelco sin anclaje — 2 hamacas + trapecio (todos en fase, peor instante del ciclo)",
-      "valor": "FS = 1,37 (H = 2,21 kN a 1,94 m, a 48°)",
+      "valor": "FS = 1,57 (H = 2,22 kN a 1,94 m, a 48°)",
       "limite": "≥ 1,5",
-      "estado": "no cumple",
+      "estado": "cumple",
       "nota": ""
     },
     {
       "id": "calc.vuelco",
       "requisito": "Vuelco sin anclaje — Hamaca-cama (3 puestos) (todos en fase, peor instante del ciclo)",
-      "valor": "FS = 3,31 (H = 1,10 kN a 1,94 m, a 20°)",
+      "valor": "FS = 3,77 (H = 1,10 kN a 1,94 m, a 20°)",
       "limite": "≥ 1,5",
       "estado": "cumple",
       "nota": ""
     },
     {
       "id": "calc.pandeo",
-      "requisito": "Pandeo de pata (Euler, pie–cruce)",
-      "valor": "N = 3,57 kN; FS = 295",
+      "requisito": "Pandeo de pata (Euler, pie–cruce; toda la carga sobre una A)",
+      "valor": "N = 6,41 kN; FS = 150",
       "limite": "FS ≥ 3",
       "estado": "cumple",
       "nota": ""
@@ -204,7 +220,7 @@
       "id": "varilla.horqueta",
       "requisito": "Varilla horqueta (16 mm): agarre + 2 × (arandela + tuerca + contratuerca)",
       "valor": "0,77 m",
-      "limite": "≥ 0,70 m",
+      "limite": "≥ 0,73 m",
       "estado": "cumple",
       "nota": ""
     },
@@ -241,8 +257,8 @@
       "nota": ""
     }
   ],
-  "peso_propio_kg": 317.8268877958765,
-  "peso_total_kg": 334.31110541524987,
-  "volumen_madera_m3": 0.4237691837278353,
-  "resumen": "29/30 verificaciones cumplen.\n- NO CUMPLE: Vuelco sin anclaje — 2 hamacas + trapecio (todos en fase, peor instante del ciclo) → FS = 1,37 (H = 2,21 kN a 1,94 m, a 48°) (límite ≥ 1,5)"
+  "peso_propio_kg": 322.7617881258355,
+  "peso_total_kg": 344.50970696944995,
+  "volumen_madera_m3": 0.4303490508344473,
+  "resumen": "32/32 verificaciones cumplen."
 }

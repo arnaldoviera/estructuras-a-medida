@@ -9,7 +9,7 @@
       "largo": 3700,
       "angulos": "Puntas a escuadra",
       "rebajes": "Plano de 2 cm abajo, a ±1,35 m del centro, para apoyar cada cartela",
-      "agujeros": "2 pasantes Ø18 mm horizontales (sentido del vaivén) a ±1,55 m del centro, en el eje; 2 pasantes Ø15 mm verticales a ±1,35 m del centro (cartelas)"
+      "agujeros": "2 pasantes Ø18 mm horizontales (sentido del vaivén) a ±1,56 m del centro, en el eje; 2 pasantes Ø15 mm verticales a ±1,35 m del centro (cartelas)"
     },
     {
       "id": "P1–P4",
@@ -18,9 +18,9 @@
       "material": "Rollizo de eucalipto impregnado (CCA)",
       "seccion": "Ø17 cm",
       "largo": 2950,
-      "angulos": "Pie cortado horizontal: la pata forma 34,9° con la vertical (33° en vista lateral y 14° en vista frontal)",
+      "angulos": "Pie y punta cortados horizontales y paralelos (2,95 m en todas las fibras); la pata forma 37,5° con la vertical (36° en vista lateral y 14° en vista frontal)",
       "rebajes": "Media madera en el cruce (1/3 Ø ≈ 5,7 cm); asiento de 1,5 cm para el travesaño; plano de 2,5 cm para el tirante; asiento plano para la arandela donde sale cada varilla",
-      "agujeros": "Medidas SOBRE la pata desde el pie: cruce Ø18 a 2,33 m (altura 1,76 m); tirante Ø18 a 1,52 m (altura 1,10 m); horqueta Ø18 a 2,74 m (altura 2,10 m)"
+      "agujeros": "Medidas SOBRE la pata desde el pie: cruce Ø18 a 2,44 m (altura 1,79 m); tirante Ø18 a 1,64 m (altura 1,15 m); horqueta Ø18 a 2,84 m (altura 2,10 m)"
     },
     {
       "id": "R1–R2",
@@ -28,8 +28,8 @@
       "cant": 2,
       "material": "Rollizo de eucalipto impregnado (CCA)",
       "seccion": "Ø15 cm",
-      "largo": 1150,
-      "angulos": "Puntas a escuadra; queda oblicuo 4,0° en planta (sigue el desfase de la media madera)",
+      "largo": 1230,
+      "angulos": "Puntas a escuadra; queda oblicuo 3,7° en planta (sigue el desfase de la media madera)",
       "rebajes": "2 planos de 2,5 cm contra las patas; plano de 2 cm arriba al centro para la cartela",
       "agujeros": "2 × Ø18 horizontales (patas) + 1 × Ø15 vertical al centro"
     },
@@ -134,13 +134,13 @@
         "largo_compra_mm": 4000.0
       },
       {
-        "id": "rollizo_d17_l3",
-        "descripcion": "Rollizo eucalipto impregnado Ø 16-18 cm × 3,0 m (mín. Ø 17 cm en la punta fina)",
+        "id": "rollizo_d17_l35",
+        "descripcion": "Rollizo eucalipto impregnado Ø 16-18 cm × 3,5 m (mín. Ø 17 cm en la punta fina)",
         "cant": 4,
         "unidad": "u",
         "uso": "Patas",
-        "largo_util_mm": 11800,
-        "largo_compra_mm": 12000.0
+        "largo_util_mm": 12321.429180468042,
+        "largo_compra_mm": 14000.0
       },
       {
         "id": "rollizo_d15_l25",
@@ -148,7 +148,7 @@
         "cant": 1,
         "unidad": "u",
         "uso": "2 tirantes de un rollizo",
-        "largo_util_mm": 2300,
+        "largo_util_mm": 2460,
         "largo_compra_mm": 2500.0
       },
       {
@@ -255,7 +255,7 @@
         "descripcion": "Cetol para madera exterior, 4 L",
         "cant": 1,
         "unidad": "u",
-        "uso": "9,9 m² × 3 manos ≈ 2,5 L"
+        "uso": "10,0 m² × 3 manos ≈ 2,5 L"
       },
       {
         "id": "asfalto_frio_4l",
@@ -280,6 +280,6 @@
       }
     ]
   },
-  "desperdicio_madera_pct": 5.714285714285716,
-  "area_madera_m2": 9.89442819087074
+  "desperdicio_madera_pct": 10.950307911008528,
+  "area_madera_m2": 10.047101056617729
 }

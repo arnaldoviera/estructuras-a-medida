@@ -3,7 +3,7 @@ import os, zipfile
 
 RAIZ = os.path.dirname(os.path.abspath(__file__))
 FUERA_DIRS = {".git", ".claude", "dist", "insumos", "__pycache__", "proyectos"}
-FUERA_ARCH = {"memoria.md", "CLAUDE.md", "insumos-portico.zip", "empaquetar.py"}
+FUERA_ARCH = {"memoria.md", "CLAUDE.md", "insumos-portico.zip", "empaquetar.py", ".gitignore"}
 
 os.makedirs(os.path.join(RAIZ, "dist"), exist_ok=True)
 dest = os.path.join(RAIZ, "dist", "estructuras-a-medida.plugin")
