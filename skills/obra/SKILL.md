@@ -7,6 +7,8 @@ description: Recomendaciones de obra, herramientas, paso a paso de instalación 
 
 Lo hace `correr.py todo <carpeta>` (`motor/obra.py`) → `salida/obra.json` con `herramientas`, `recomendaciones`, `pasos` y `mantenimiento`. Todas las medidas de los pasos salen de la ficha.
 
+Solo `portico-hamacas`. En `jaula-cerdas` el mantenimiento, las pruebas de prototipo y los pendientes de taller salen en la página técnica (secciones «Lo que falta definir» y «Condiciones»).
+
 Criterios:
 - El armado lo hace 1 persona; la ayuda puntual se reserva para subir el travesaño (3 personas). Las A se arman y perforan acostadas en el piso.
 - Orden: replanteo → pozos → patas → A en el piso (cruce, tirante, asientos de horqueta) → levantar las A → travesaño → cartelas → compactar → abrazaderas → accesorios y prueba de carga → reajuste a la semana.

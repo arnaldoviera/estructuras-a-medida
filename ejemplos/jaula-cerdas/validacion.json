@@ -1,0 +1,183 @@
+{
+  "checks": [
+    {
+      "id": "dim.ancho",
+      "requisito": "Ancho libre interior dentro del rango de las fuentes",
+      "valor": "560 mm",
+      "limite": "520–600 mm",
+      "estado": "cumple",
+      "nota": "fuente: Gestal 3G 520 (solo comer); The Pig Site 600 si la cerda también descansa adentro"
+    },
+    {
+      "id": "dim.largo",
+      "requisito": "Largo útil entre parantes trasero y delantero",
+      "valor": "2.189 mm",
+      "limite": "≥ 2.100 mm",
+      "estado": "cumple",
+      "nota": "fuente: The Pig Site, longitud mínima 2,10 m"
+    },
+    {
+      "id": "bien.luz_lateral",
+      "requisito": "Luz entre largueros (no pasa pata ni cabeza)",
+      "valor": "77–92 mm",
+      "limite": "≤ 100 mm",
+      "estado": "cumple",
+      "nota": "criterio: no pasa una pata ni una cabeza"
+    },
+    {
+      "id": "bien.luz_frontal",
+      "requisito": "Luz entre barrotes del frente",
+      "valor": "92 mm",
+      "limite": "≤ 100 mm",
+      "estado": "cumple",
+      "nota": "criterio: la cerda no saca la cabeza al pasillo"
+    },
+    {
+      "id": "bien.pellizco",
+      "requisito": "Holgura puerta–parante fuera de la franja de pellizco",
+      "valor": "25,9 mm",
+      "limite": "< 8 o > 25 mm",
+      "estado": "cumple",
+      "nota": "criterio: holgura de piezas móviles fuera de 8–25 mm (cola, oreja, piel)"
+    },
+    {
+      "id": "bien.vulva",
+      "requisito": "Panel ciego de la puerta a la altura de la vulva",
+      "valor": "z 400–950",
+      "limite": "cubre z 550–750",
+      "estado": "cumple",
+      "nota": "criterio: la cerda que espera afuera no alcanza la vulva"
+    },
+    {
+      "id": "mec.arco",
+      "requisito": "La puerta abierta a 90° pasa sobre el lomo",
+      "valor": "pivote a 1.060 mm",
+      "limite": "≥ 980 mm",
+      "estado": "cumple",
+      "nota": "criterio: altura de lomo de una cerda adulta + margen"
+    },
+    {
+      "id": "mec.eje",
+      "requisito": "Lugar para la oreja del eje bajo el travesaño trasero",
+      "valor": "19,6 mm libres",
+      "limite": "> 0 mm",
+      "estado": "cumple",
+      "nota": "oreja de 50 mm centrada en el pivote"
+    },
+    {
+      "id": "mec.traba",
+      "requisito": "Reacción por trinquete con el empuje de la cerda de afuera",
+      "valor": "0,80 kN",
+      "limite": "≤ 1,0 kN",
+      "estado": "cumple",
+      "nota": "dos trinquetes bajos, uno por lado"
+    },
+    {
+      "id": "res.larguero",
+      "requisito": "Larguero: 1,5 kN a media luz del vano de 747 (apoyado)",
+      "valor": "FS 1,63",
+      "limite": "≥ 1,15",
+      "estado": "cumple",
+      "nota": "criterio: empuje puntual de una cerda a media luz"
+    },
+    {
+      "id": "res.barrote",
+      "requisito": "Barrote frontal: empuje a media luz del vano de 430 (apoyado)",
+      "valor": "FS 1,16",
+      "limite": "≥ 1,15",
+      "estado": "cumple",
+      "nota": "criterio: la barra de cabeza parte el vano"
+    },
+    {
+      "id": "res.puerta",
+      "requisito": "Travesaño de puerta: empuje a media luz",
+      "valor": "FS 2,59",
+      "limite": "≥ 1,15",
+      "estado": "cumple",
+      "nota": ""
+    },
+    {
+      "id": "res.pasamanos",
+      "requisito": "Pasamanos: empuje a media luz",
+      "valor": "FS 3,02",
+      "limite": "≥ 1,15",
+      "estado": "cumple",
+      "nota": ""
+    },
+    {
+      "id": "res.parante",
+      "requisito": "Parante en la base: 0,9 kN·m",
+      "valor": "FS 1,40",
+      "limite": "≥ 1,15",
+      "estado": "cumple",
+      "nota": "criterio: empuje de 1,5 kN a 600 mm de altura"
+    },
+    {
+      "id": "res.dosificador",
+      "requisito": "Travesaño del dosificador: 40 kg × 2",
+      "valor": "FS 3,82",
+      "limite": "≥ 1,15",
+      "estado": "cumple",
+      "nota": "criterio: dosificador + alimento, factor dinámico 2"
+    },
+    {
+      "id": "pie.invasion",
+      "requisito": "El pie no achica el ancho libre a ras del piso",
+      "valor": "24,6 mm por lado",
+      "limite": "≤ 30 mm",
+      "estado": "cumple",
+      "nota": "criterio: el pie no debe achicar el ancho libre a ras del piso más de 30 mm por lado"
+    },
+    {
+      "id": "pie.vigas",
+      "requisito": "La pletina abraza al menos 2 vigas del slat",
+      "valor": "300 mm",
+      "limite": "≥ 220 mm",
+      "estado": "cumple",
+      "nota": ""
+    },
+    {
+      "id": "pie.bulones",
+      "requisito": "Separación entre bulones M10 (y ±55) y M12 (y ±20) del pie",
+      "valor": "35 mm",
+      "limite": "≥ 19,5 mm",
+      "estado": "cumple",
+      "nota": "los M12 quedan libres para cualquier posición de la ranura"
+    },
+    {
+      "id": "elec.antena",
+      "requisito": "Antena RFID separada del metal",
+      "valor": "56,3 mm",
+      "limite": "≥ 50 mm",
+      "estado": "cumple",
+      "nota": "fuente: separar de masas metálicas; mínimo a confirmar con el proveedor"
+    },
+    {
+      "id": "elec.linea",
+      "requisito": "Altura y diámetro de la línea de alimento",
+      "valor": "Ø60 a 2.500 mm",
+      "limite": "Ø60 a 2.500 mm",
+      "estado": "cumple",
+      "nota": "fuente: Gestal 3G, línea Ø60 a 2.500 mm del piso"
+    },
+    {
+      "id": "fab.tubos",
+      "requisito": "Todos los tubos son medidas comerciales de tubo estructural",
+      "valor": "ninguno fuera",
+      "limite": "catálogo",
+      "estado": "cumple",
+      "nota": "No confundir con caño de cañería (Ø33,7, Ø42,4…, que viene en 2,6 mm o más). Pedir siempre Ø exterior × espesor con certificado. Algunos corralones venden barras de 6,40 m: confirmar con el proveedor."
+    },
+    {
+      "id": "fab.peso",
+      "requisito": "Peso del subconjunto más pesado (lateral) para 2 personas",
+      "valor": "64 kg",
+      "limite": "≤ 80 kg",
+      "estado": "cumple",
+      "nota": ""
+    }
+  ],
+  "peso_propio_kg": 211.1,
+  "peso_total_kg": 211.1,
+  "resumen": "22/22 verificaciones cumplen."
+}

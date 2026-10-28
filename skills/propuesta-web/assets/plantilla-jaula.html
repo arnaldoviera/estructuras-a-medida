@@ -1,0 +1,249 @@
+<title>{{TITULO_CORTO}}</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: hoja de taller — rótulo de plano arriba, láminas a ancho completo, tabla de medidas con origen, principios en dos columnas que se apilan. */
+:root {
+  --papel: #eef1f2; --hoja: #f9fafa; --tinta: #1d2a33; --tenue: #5a6a74; --linea: #c9d2d7;
+  --zinc: #7f8f99; --acento: #d9961a; --fuente: #2f7d5b; --supuesto: #a8571f; --cota: #2b5f86;
+  --display: "Barlow Condensed", "Arial Narrow", sans-serif;
+  --texto: "IBM Plex Sans", system-ui, sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --papel: #12191e; --hoja: #18222a; --tinta: #dbe4e9; --tenue: #93a4ae; --linea: #2c3a44;
+  --zinc: #8fa0aa; --acento: #f0b03a; --fuente: #5cc293; --supuesto: #e48a4c; --cota: #79b4de; color-scheme: dark } }
+:root[data-theme="dark"] {
+  --papel: #12191e; --hoja: #18222a; --tinta: #dbe4e9; --tenue: #93a4ae; --linea: #2c3a44;
+  --zinc: #8fa0aa; --acento: #f0b03a; --fuente: #5cc293; --supuesto: #e48a4c; --cota: #79b4de; color-scheme: dark }
+body { background: var(--papel); color: var(--tinta); font: 15px/1.55 var(--texto); }
+.envoltura { max-width: 1080px; margin: 0 auto; padding-block: 28px 56px;
+  padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px));
+  display: grid; gap: 28px; }
+h1, h2, h3 { font-family: var(--display); font-weight: 600; letter-spacing: .01em; text-wrap: balance; margin: 0; line-height: 1.1; }
+h1 { font-size: clamp(30px, 6vw, 46px); }
+h2 { font-size: 26px; }
+h3 { font-size: 19px; }
+p { margin: 0; max-width: 68ch; }
+.rotulo { border: 2px solid var(--tinta); background: var(--hoja); display: grid; grid-template-columns: 1fr auto; }
+.rotulo > div { padding: 16px 18px; min-width: 0; }
+.rotulo .der { border-left: 2px solid var(--tinta); font: 12px/1.6 var(--mono); color: var(--tenue); display: grid; align-content: center; }
+.rotulo .der b { color: var(--tinta); font-weight: 500; }
+.eyebrow { font: 600 12px var(--mono); letter-spacing: .08em; text-transform: uppercase; color: var(--tenue); margin-bottom: 6px; }
+.cifras { display: flex; flex-wrap: wrap; gap: 8px 22px; margin-top: 12px; font: 500 14px var(--mono); }
+.cifras span { white-space: nowrap; } .cifras em { font-style: normal; color: var(--tenue); }
+.lamina { background: var(--hoja); border: 1px solid var(--linea); display: grid; gap: 0; }
+.lamina > header { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; flex-wrap: wrap; padding: 12px 16px; border-bottom: 1px solid var(--linea); }
+.lamina > header small { font: 12px var(--mono); color: var(--tenue); }
+#v3d { height: min(70vh, 520px); min-height: 340px; touch-action: none; position: relative; }
+#v3d canvas { display: block; width: 100%; height: 100%; }
+.leyenda { display: flex; flex-wrap: wrap; gap: 6px 16px; padding: 10px 16px; border-top: 1px solid var(--linea); font: 12px var(--mono); color: var(--tenue); }
+.leyenda i { display: inline-block; width: 11px; height: 11px; border-radius: 2px; margin-right: 6px; vertical-align: -1px; }
+.planos { display: grid; grid-template-columns: 1fr 1fr; }
+.planos figure { margin: 0; padding: 12px 12px 6px; min-width: 0; }
+.planos figure + figure { border-left: 1px solid var(--linea); }
+.planos figcaption { font: 600 12px var(--mono); letter-spacing: .06em; text-transform: uppercase; color: var(--tenue); padding: 4px 4px 0; }
+.planos svg { width: 100%; height: auto; display: block; }
+svg .tubo { fill: var(--zinc); } svg .parante { fill: var(--tinta); }
+svg .pie { fill: none; stroke: var(--tinta); stroke-width: 6; stroke-dasharray: 18 10; }
+svg .comedero { fill: var(--linea); stroke: var(--tinta); stroke-width: 6; }
+svg .dosif { fill: none; stroke: var(--tenue); stroke-width: 6; stroke-dasharray: 24 14; }
+svg .rfid { fill: var(--fuente); }
+svg .puerta { stroke: var(--acento); stroke-width: 26; stroke-linecap: round; }
+svg .pivote { fill: var(--hoja); stroke: var(--acento); stroke-width: 10; }
+svg .arco { fill: none; stroke-linejoin: round; stroke: var(--acento); stroke-width: 6; stroke-dasharray: 20 14; }
+svg .zocalo { fill: var(--zinc); }
+svg .panel { fill: var(--acento); opacity: .35; }
+svg .trinq { fill: var(--tinta); }
+svg .caida { stroke: var(--tenue); stroke-width: 50; stroke-linecap: round; opacity: .6; }
+svg .tubo-l { stroke: var(--zinc); stroke-width: 27; }
+svg .bajada { stroke: var(--tenue); stroke-width: 30; stroke-linecap: round; opacity: .6; }
+svg .linea { fill: var(--tenue); }
+svg .slat { fill: url(#hatch); stroke: var(--tenue); stroke-width: 3; }
+svg .hatch { stroke: var(--tenue); stroke-width: 3; }
+svg .cota { stroke: var(--cota); stroke-width: 4; }
+svg .flecha { fill: var(--cota); }
+svg .ct { fill: var(--cota); font: 500 78px var(--mono); }
+svg .ct.ch { font-size: 62px; }
+svg .rot { fill: var(--tinta); font: 500 70px var(--texto); }
+svg .rot.ac { fill: var(--acento); font-weight: 600; }
+.tabla { overflow-x: auto; }
+table { border-collapse: collapse; width: 100%; font-size: 14px; }
+th, td { text-align: left; padding: 9px 14px; border-bottom: 1px solid var(--linea); vertical-align: top; }
+th { font: 600 12px var(--mono); letter-spacing: .06em; text-transform: uppercase; color: var(--tenue); }
+td.v { font-family: var(--mono); white-space: nowrap; font-variant-numeric: tabular-nums; }
+tr.grupo th { background: var(--papel); color: var(--tinta); font-family: var(--display); font-size: 16px; letter-spacing: .02em; text-transform: none; }
+table.desp td small, table td small { color: var(--tenue); font-size: 12px; }
+h3.sub { padding: 16px 16px 6px; }
+.hint { padding: 0 16px; color: var(--tenue); font-size: 13px; }
+.cortes { border-top: 1px solid var(--linea); border-bottom: 1px solid var(--linea); padding-bottom: 14px; display: grid; gap: 4px; }
+.corte { padding: 6px 16px 0; display: grid; gap: 5px; }
+.corte h3 { font-size: 16px; }
+.barra { display: grid; grid-template-columns: 20px 1fr; gap: 8px; align-items: center; font: 11px var(--mono); }
+.barra b { color: var(--tenue); font-weight: 500; text-align: right; }
+.tira { display: flex; gap: 2px; min-width: 0; height: 22px; }
+.seg { background: var(--zinc); color: var(--hoja); display: flex; align-items: center; justify-content: center; overflow: hidden; white-space: nowrap; border-radius: 2px; min-width: 0; font-variant-numeric: tabular-nums; }
+.sobra { background: var(--linea); color: var(--tenue); display: flex; align-items: center; justify-content: center; overflow: hidden; white-space: nowrap; border-radius: 2px; min-width: 0; }
+dl.datos { display: grid; grid-template-columns: max-content 1fr; gap: 6px 18px; margin: 0; padding: 14px 16px; }
+dl.datos dt { font: 600 12px var(--mono); letter-spacing: .05em; text-transform: uppercase; color: var(--tenue); padding-top: 2px; }
+dl.datos dd { margin: 0; min-width: 0; }
+.tbd { color: var(--supuesto); font-style: italic; }
+.st { font: 600 11px var(--mono); letter-spacing: .05em; text-transform: uppercase; padding: 2px 7px; border-radius: 3px; border: 1px solid currentColor; white-space: nowrap; }
+.st.ok { color: var(--fuente); } .st.bad { color: #c0392b; } .st.warn { color: var(--supuesto); }
+.texto { padding: 14px 16px; display: grid; gap: 10px; }
+.tag { font: 600 11px var(--mono); letter-spacing: .05em; text-transform: uppercase; padding: 2px 7px; border-radius: 3px; border: 1px solid currentColor; white-space: nowrap; }
+.tag.f { color: var(--fuente); } .tag.s { color: var(--supuesto); }
+.principios { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--linea); border: 1px solid var(--linea); }
+.principios article { background: var(--hoja); padding: 16px 18px; display: grid; gap: 8px; align-content: start; min-width: 0; }
+.principios ul { margin: 0; padding-left: 18px; display: grid; gap: 6px; }
+blockquote { margin: 0; padding: 6px 0 6px 12px; border-left: 3px solid var(--linea); color: var(--tenue); font-size: 13.5px; font-style: italic; }
+blockquote cite { display: block; font: normal 11px var(--mono); margin-top: 3px; }
+.etapas { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; padding: 0; margin: 0; list-style: none; counter-reset: e; }
+.etapas li { background: var(--hoja); border: 1px solid var(--linea); border-top: 4px solid var(--acento); padding: 14px; display: grid; gap: 6px; align-content: start; counter-increment: e; min-width: 0; }
+.etapas li::before { content: "Etapa " counter(e); font: 600 12px var(--mono); color: var(--acento); letter-spacing: .06em; text-transform: uppercase; }
+.etapas p { font-size: 13.5px; }
+.nota { border: 1px dashed var(--supuesto); padding: 14px 16px; background: var(--hoja); display: grid; gap: 8px; }
+.nota ul { margin: 0; padding-left: 18px; display: grid; gap: 4px; }
+a { color: var(--cota); }
+footer { font: 12px var(--mono); color: var(--tenue); }
+@media (max-width: 760px) {
+  .planos, .principios { grid-template-columns: 1fr; }
+  .planos figure + figure { border-left: 0; border-top: 1px solid var(--linea); }
+  .etapas { grid-template-columns: 1fr 1fr; }
+  .rotulo { grid-template-columns: 1fr; } .rotulo .der { border-left: 0; border-top: 2px solid var(--tinta); }
+}
+@media (max-width: 440px) { .etapas { grid-template-columns: 1fr; } }
+@media (max-width: 760px) {
+  table.desp thead { display: none; }
+  table.desp tr { display: grid; grid-template-columns: auto 1fr auto; gap: 2px 10px; padding: 10px 16px; border-bottom: 1px solid var(--linea); }
+  table.desp tr.grupo { display: block; padding: 0; }
+  table.desp tr.grupo th { display: block; padding: 8px 16px; }
+  table.desp td { border: 0; padding: 0; }
+  table.desp td:nth-child(2) { font-weight: 600; }
+  table.desp td:nth-child(3)::before { content: "× "; color: var(--tenue); }
+  table.desp td:nth-child(4), table.desp td:nth-child(5) { grid-column: 1 / -1; white-space: normal; }
+}
+</style>
+
+<div class="envoltura">
+  <section class="rotulo">
+    <div>
+      <div class="eyebrow">{{EYEBROW}}</div>
+      <h1>{{TITULO}}</h1>
+      <p style="margin-top:8px">{{BAJADA}}</p>
+      <div class="cifras">{{CIFRAS}}</div>
+    </div>
+    <div class="der">{{ROTULO_DER}}</div>
+  </section>
+
+  <section class="lamina">
+    <header><h2>Datos del proyecto</h2><small>{{MARCA}}</small></header>
+    {{DATOS}}
+  </section>
+
+  <section class="lamina">
+    <header><h2>Croquis 3D</h2><small>girá con el dedo o el mouse · siempre armado</small></header>
+    <div id="v3d"></div>
+    <div class="leyenda">
+      <span><i style="background:#a3b0b8"></i>caño galvanizado en caliente</span>
+      <span><i style="background:#e4e9ec"></i>acero inoxidable 304</span>
+      <span><i style="background:#e0a42a"></i>puerta basculante</span>
+      <span><i style="background:#3d4a54"></i>dosificador / traba</span>
+      <span><i style="background:#3fa275"></i>antena RFID</span>
+      <span><i style="background:#f3efe6"></i>PEAD (panel ciego, separador)</span>
+    </div>
+  </section>
+
+  <section class="lamina">
+    <header><h2>Planta y vista lateral</h2><small>cotas en mm · la cerda entra por la izquierda</small></header>
+    <div class="planos">
+      <figure><figcaption>Planta</figcaption>{{PLANTA}}</figure>
+      <figure><figcaption>Vista lateral</figcaption>{{LATERAL}}</figure>
+    </div>
+  </section>
+
+  <section class="lamina">
+    <header><h2>Medidas y materiales</h2><small>cada dato dice de dónde sale</small></header>
+    <div class="tabla"><table>
+      <thead><tr><th>Elemento</th><th>Valor</th><th>Origen</th><th>Respaldo</th></tr></thead>
+      <tbody>{{FILAS_MEDIDAS}}</tbody>
+    </table></div>
+  </section>
+
+  <section class="lamina">
+    <header><h2>Verificaciones</h2><small>{{RESUMEN_VALIDACION}}</small></header>
+    <div class="tabla"><table>
+      <thead><tr><th>Requisito</th><th>Valor</th><th>Límite</th><th>Estado</th></tr></thead>
+      <tbody>{{VERIFICACIONES}}</tbody>
+    </table></div>
+  </section>
+
+  <section class="lamina">
+    <header><h2>Despiece</h2><small>sale de la ficha · sin precios</small></header>
+    {{DESPIECE}}
+  </section>
+
+  <section style="display:grid;gap:12px">
+    <h2>Principios de diseño</h2>
+    <div class="principios">{{PRINCIPIOS}}</div>
+  </section>
+
+  <section style="display:grid;gap:12px">
+    <h2>Automatización por etapas</h2>
+    <ol class="etapas">{{ETAPAS}}</ol>
+  </section>
+
+  <section class="nota">
+    <h3>Lo que falta definir</h3>
+    <ul>{{PENDIENTES}}</ul>
+  </section>
+
+  <section class="lamina">
+    <header><h2>Condiciones</h2><small>propuesta técnica, sin presupuesto</small></header>
+    <div class="texto">{{CONDICIONES}}</div>
+  </section>
+
+  {{AUDITORIA}}
+
+  <footer>{{FUENTES}}</footer>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+<script>
+const ESCENA = {{ESCENA}};
+(function () {
+  const el = document.getElementById("v3d");
+  if (!el || !window.THREE) { if (el) el.innerHTML = '<p style="padding:16px">No se pudo cargar el visor 3D.</p>'; return; }
+  const scene = new THREE.Scene();
+  const cam = new THREE.PerspectiveCamera(30, 4 / 3, 50, 60000);
+  cam.up.set(0, 0, 1); cam.position.set(-3400, -4600, 3000);
+  const ren = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+  ren.setPixelRatio(Math.min(devicePixelRatio, 2)); el.appendChild(ren.domElement);
+  const ctl = new THREE.OrbitControls(cam, ren.domElement);
+  ctl.target.set(1120, 0, 1000); ctl.enableDamping = true; ctl.maxPolarAngle = Math.PI * 0.495; ctl.minDistance = 1500; ctl.maxDistance = 14000;
+  scene.add(new THREE.HemisphereLight(0xf2f6ff, 0x5b5f63, 0.9));
+  const sun = new THREE.DirectionalLight(0xffffff, 0.7); sun.position.set(-3000, -5000, 8000); scene.add(sun);
+  const std = (c, m, r) => new THREE.MeshStandardMaterial({ color: c, metalness: m, roughness: r });
+  const MAT = { galva: std(0xa3b0b8, .25, .5), inox: std(0xe4e9ec, .2, .3), puerta: std(0xe0a42a, .3, .5),
+    oscuro: std(0x3d4a54, .4, .5), electro: std(0x3d4a54, .3, .6), rfid: std(0x3fa275, .1, .6), linea: std(0xb7c0c5, .2, .4),
+    slat: std(0xa8a49c, 0, 1), pead: std(0xf3efe6, 0, .8) };
+  const V = (p) => new THREE.Vector3(p[0], p[1], p[2]);
+  function cil(a, b, r, mat) {
+    const A = V(a), B = V(b), d = B.clone().sub(A), L = d.length();
+    const m = new THREE.Mesh(new THREE.CylinderGeometry(r, r, L, 18), mat);
+    m.position.copy(A.clone().add(B).multiplyScalar(.5));
+    m.quaternion.setFromUnitVectors(new THREE.Vector3(0, 1, 0), d.normalize()); return m;
+  }
+  function caja(x, y, z, mat) {
+    const m = new THREE.Mesh(new THREE.BoxGeometry(x[1] - x[0], y[1] - y[0], z[1] - z[0]), mat);
+    m.position.set((x[0] + x[1]) / 2, (y[0] + y[1]) / 2, (z[0] + z[1]) / 2); return m;
+  }
+  ESCENA.slats.forEach((s) => scene.add(caja(s, [-1100, 1100], [-90, 0], MAT.slat)));
+  ESCENA.piezas.forEach((p) => scene.add(cil(p.a, p.b, p.r, MAT[p.m] || MAT.galva)));
+  ESCENA.cajas.forEach((c) => scene.add(caja(c.x, c.y, c.z, MAT[c.m] || MAT.galva)));
+  function tam() { const w = el.clientWidth, h = el.clientHeight; ren.setSize(w, h, false); cam.aspect = w / h; cam.updateProjectionMatrix(); }
+  new ResizeObserver(tam).observe(el); tam();
+  (function loop() { ctl.update(); ren.render(scene, cam); requestAnimationFrame(loop); })();
+})();
+</script>

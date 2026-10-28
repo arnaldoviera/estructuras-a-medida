@@ -14,6 +14,11 @@
 - 2026-10-28 · Pueblo Andino, por vuelco y punta de pata: base abierta a 2,60 m (semibase 1,30 m), tirante 1,23 m a 1,15 m, patas de rollizo de 3,5 m con pie y punta horizontales paralelos (2,95 m en todas las fibras).
 - 2026-10-28 · Precios sin fuente publicada (ej. rollizo Ø16-18 × 3 m, arandelas anchas): no estimar; la propuesta muestra "total parcial" y se cotizan aparte.
 
+- 2026-10-28 · Plugin multipropósito (madera y hierro): cada tipología es un módulo del motor con su ficha de catálogo; `presupuesto: false` saltea compras y presupuesto.
+- 2026-10-28 · Tipología jaula-cerdas (hierro, tipo Gestal 3G): solo despiece y pedido, sin presupuesto. Decisiones del cliente: salida de culata, 1 cerda por box sin RFID y 15–18 con RFID, parantes cada ~750 mm, pie galvanizado + pletina inox aislada, 8 largueros y antena con separador de PEAD.
+
 ## Errores a no repetir
+- 2026-10-28 · Hierro: pedir tubo estructural por Ø exterior en pulgadas × espesor; las medidas de cañería (Ø33,7, Ø42,4) no vienen en 2 mm.
+- 2026-10-28 · Al corregir una pieza, revisar las vecinas en todas las vistas: varias correcciones de la jaula metieron errores nuevos (placa descentrada, barrotes sin barra intermedia, bulones que chocan).
 
 ## En curso (borrar al retomar)

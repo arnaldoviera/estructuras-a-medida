@@ -1,0 +1,801 @@
+{
+  "piezas": [
+    {
+      "id": "L1",
+      "pieza": "Parante",
+      "cant": 8,
+      "subconjunto": "Lateral",
+      "material": "tubo estructural redondo Ø50,8 × 3,2 (2\"), con cartelas en la base",
+      "tubo": "parante",
+      "seccion": "Ø50,8 × 3,2",
+      "largo": 1085,
+      "operaciones": "Pie a escuadra con tapa soldada; cabeza con boca de pescado contra el pasamanos; venteo Ø10 cerca de cada punta, cara exterior"
+    },
+    {
+      "id": "L2",
+      "pieza": "Pasamanos",
+      "cant": 2,
+      "subconjunto": "Lateral",
+      "material": "tubo estructural redondo Ø50,8 × 2,0 (2\") para pasamanos y travesaños superiores",
+      "tubo": "pasamanos",
+      "seccion": "Ø50,8 × 2,0",
+      "largo": 2291,
+      "operaciones": "Puntas a escuadra con tapa soldada; venteos Ø10; oreja para actuador (un lateral)"
+    },
+    {
+      "id": "L3.1",
+      "pieza": "Larguero, vano 1",
+      "cant": 16,
+      "subconjunto": "Lateral",
+      "material": "tubo estructural redondo Ø38,1 × 2,0 (1½\")",
+      "tubo": "larguero",
+      "seccion": "Ø38,1 × 2,0",
+      "largo": 696,
+      "operaciones": "Boca de pescado en las dos puntas; a z 150 · 265 · 380 · 495 · 610 · 740 · 870 · 1.000; venteo Ø10 por tramo, cara exterior"
+    },
+    {
+      "id": "L3.2",
+      "pieza": "Larguero, vano 2",
+      "cant": 16,
+      "subconjunto": "Lateral",
+      "material": "tubo estructural redondo Ø38,1 × 2,0 (1½\")",
+      "tubo": "larguero",
+      "seccion": "Ø38,1 × 2,0",
+      "largo": 695,
+      "operaciones": "Boca de pescado en las dos puntas; a z 150 · 265 · 380 · 495 · 610 · 740 · 870 · 1.000; venteo Ø10 por tramo, cara exterior"
+    },
+    {
+      "id": "L3.3",
+      "pieza": "Larguero, vano 3",
+      "cant": 16,
+      "subconjunto": "Lateral",
+      "material": "tubo estructural redondo Ø38,1 × 2,0 (1½\")",
+      "tubo": "larguero",
+      "seccion": "Ø38,1 × 2,0",
+      "largo": 696,
+      "operaciones": "Boca de pescado en las dos puntas; a z 150 · 265 · 380 · 495 · 610 · 740 · 870 · 1.000; venteo Ø10 por tramo, cara exterior"
+    },
+    {
+      "id": "L4",
+      "pieza": "Soporte de dosificador",
+      "cant": 2,
+      "subconjunto": "Lateral",
+      "material": "tubo estructural redondo Ø38,1 × 2,0 (1½\")",
+      "tubo": "larguero",
+      "seccion": "Ø38,1 × 2,0",
+      "largo": 776,
+      "operaciones": "Sobre el pasamanos en x 2.240; boca de pescado en las dos puntas"
+    },
+    {
+      "id": "F1",
+      "pieza": "Travesaño inferior frontal (apoyo comedero)",
+      "cant": 1,
+      "subconjunto": "Frente",
+      "material": "tubo estructural redondo Ø38,1 × 2,0 (1½\")",
+      "tubo": "larguero",
+      "seccion": "Ø38,1 × 2,0",
+      "largo": 560,
+      "operaciones": "z 100; boca de pescado; se une a los parantes delanteros con planchuela y 2 M10"
+    },
+    {
+      "id": "F2",
+      "pieza": "Travesaño frontal z 330",
+      "cant": 1,
+      "subconjunto": "Frente",
+      "material": "tubo estructural redondo Ø38,1 × 2,0 (1½\")",
+      "tubo": "larguero",
+      "seccion": "Ø38,1 × 2,0",
+      "largo": 560,
+      "operaciones": "z 330; boca de pescado; se une a los parantes delanteros con planchuela y 2 M10"
+    },
+    {
+      "id": "F3",
+      "pieza": "Barra de cabeza z 700",
+      "cant": 1,
+      "subconjunto": "Frente",
+      "material": "tubo estructural redondo Ø38,1 × 2,0 (1½\")",
+      "tubo": "larguero",
+      "seccion": "Ø38,1 × 2,0",
+      "largo": 560,
+      "operaciones": "z 700; boca de pescado; se une a los parantes delanteros con planchuela y 2 M10"
+    },
+    {
+      "id": "F4",
+      "pieza": "Travesaño frontal superior",
+      "cant": 1,
+      "subconjunto": "Frente",
+      "material": "tubo estructural redondo Ø50,8 × 2,0 (2\") para pasamanos y travesaños superiores",
+      "tubo": "pasamanos",
+      "seccion": "Ø50,8 × 2,0",
+      "largo": 560,
+      "operaciones": "z 1.130; boca de pescado; planchuela y 2 M10"
+    },
+    {
+      "id": "F5",
+      "pieza": "Barrote frontal, tramo inferior",
+      "cant": 4,
+      "subconjunto": "Frente",
+      "material": "tubo estructural redondo Ø25,4 × 2,0 (1\")",
+      "tubo": "barrote",
+      "seccion": "Ø25,4 × 2,0",
+      "largo": 332,
+      "operaciones": "Entre z 330 y 700; boca de pescado"
+    },
+    {
+      "id": "F6",
+      "pieza": "Barrote frontal, tramo superior",
+      "cant": 4,
+      "subconjunto": "Frente",
+      "material": "tubo estructural redondo Ø25,4 × 2,0 (1\")",
+      "tubo": "barrote",
+      "seccion": "Ø25,4 × 2,0",
+      "largo": 386,
+      "operaciones": "Entre z 700 y 1.130; boca de pescado"
+    },
+    {
+      "id": "F7",
+      "pieza": "Travesaño del dosificador",
+      "cant": 1,
+      "subconjunto": "Frente",
+      "material": "tubo estructural redondo Ø38,1 × 2,0 (1½\")",
+      "tubo": "larguero",
+      "seccion": "Ø38,1 × 2,0",
+      "largo": 573,
+      "operaciones": "z 1.950; boca de pescado; 2 planchuelas para el dosificador"
+    },
+    {
+      "id": "F8",
+      "pieza": "Apoyo trasero del comedero",
+      "cant": 1,
+      "subconjunto": "Frente",
+      "material": "tubo estructural redondo Ø38,1 × 2,0 (1½\")",
+      "tubo": "larguero",
+      "seccion": "Ø38,1 × 2,0",
+      "largo": 573,
+      "operaciones": "x 1.860, z 100; se cuelga del larguero inferior de cada lateral con planchuela y 2 M10"
+    },
+    {
+      "id": "F9",
+      "pieza": "Zócalo frontal",
+      "cant": 1,
+      "subconjunto": "Frente",
+      "material": "Chapa galvanizada 2 mm",
+      "tubo": null,
+      "seccion": "560 × 280",
+      "largo": null,
+      "operaciones": "Abulonado a parantes y travesaños; cantos protegidos",
+      "kg_u": 2.46176
+    },
+    {
+      "id": "R1",
+      "pieza": "Travesaño trasero superior",
+      "cant": 1,
+      "subconjunto": "Trasero",
+      "material": "tubo estructural redondo Ø50,8 × 2,0 (2\") para pasamanos y travesaños superiores",
+      "tubo": "pasamanos",
+      "seccion": "Ø50,8 × 2,0",
+      "largo": 560,
+      "operaciones": "z 1.130; boca de pescado; planchuela y 2 M10"
+    },
+    {
+      "id": "P1",
+      "pieza": "Lateral de puerta",
+      "cant": 2,
+      "subconjunto": "Puerta",
+      "material": "tubo estructural redondo Ø38,1 × 2,0 (1½\")",
+      "tubo": "puerta",
+      "seccion": "Ø38,1 × 2,0",
+      "largo": 810,
+      "operaciones": "Arriba planchuela con agujero Ø21 para el eje y pasador"
+    },
+    {
+      "id": "P2",
+      "pieza": "Travesaño de puerta",
+      "cant": 3,
+      "subconjunto": "Puerta",
+      "material": "tubo estructural redondo Ø38,1 × 2,0 (1½\")",
+      "tubo": "puerta",
+      "seccion": "Ø38,1 × 2,0",
+      "largo": 432,
+      "operaciones": "z 250 · 400 · 950; boca de pescado"
+    },
+    {
+      "id": "P3",
+      "pieza": "Panel ciego",
+      "cant": 1,
+      "subconjunto": "Puerta",
+      "material": "PEAD 10 mm",
+      "tubo": null,
+      "seccion": "432 × 550",
+      "largo": null,
+      "operaciones": "6 M8 inox con arandelas grandes; cantos redondeados",
+      "kg_u": 2.2572
+    },
+    {
+      "id": "P4",
+      "pieza": "Eje de puerta",
+      "cant": 1,
+      "subconjunto": "Puerta",
+      "material": "Barra inox 304 maciza",
+      "tubo": null,
+      "seccion": "Ø20 × 584",
+      "largo": null,
+      "operaciones": "Entra 12 mm en cada buje; leva en un extremo",
+      "kg_u": 1.4494051866601871
+    },
+    {
+      "id": "P5",
+      "pieza": "Oreja del eje",
+      "cant": 2,
+      "subconjunto": "Trasero",
+      "material": "Planchuela 2\" × ¼\" galvanizada",
+      "tubo": null,
+      "seccion": "50,8 × 6,35 × 100",
+      "largo": null,
+      "operaciones": "Soldada al parante trasero; agujero Ø30 para buje",
+      "kg_u": 0.25
+    },
+    {
+      "id": "P6",
+      "pieza": "Buje",
+      "cant": 2,
+      "subconjunto": "Trasero",
+      "material": "PEAD",
+      "tubo": null,
+      "seccion": "Ø30 × Ø20 × 15",
+      "largo": null,
+      "operaciones": "Aísla el eje inox del galvanizado",
+      "kg_u": 0.0
+    },
+    {
+      "id": "P7",
+      "pieza": "Trinquete con tope",
+      "cant": 2,
+      "subconjunto": "Trasero",
+      "material": "Planchuela 2\" × ¼\" galvanizada",
+      "tubo": null,
+      "seccion": "50,8 × 6,35 × 80 + tope",
+      "largo": null,
+      "operaciones": "A z 300; pivote M10; tope de goma; taco plano de apoyo",
+      "kg_u": 0.45
+    },
+    {
+      "id": "P8",
+      "pieza": "Varilla de mando",
+      "cant": 2,
+      "subconjunto": "Trasero",
+      "material": "Barra redonda maciza galvanizada",
+      "tubo": null,
+      "seccion": "Ø10 × 710",
+      "largo": null,
+      "operaciones": "Detrás del parante; ojal en cada punta",
+      "kg_u": 0.43807
+    },
+    {
+      "id": "P9",
+      "pieza": "Guarda de la varilla",
+      "cant": 2,
+      "subconjunto": "Trasero",
+      "material": "Chapa galvanizada 2 mm",
+      "tubo": null,
+      "seccion": "100 × 710",
+      "largo": null,
+      "operaciones": "Doblada en U, abulonada al parante",
+      "kg_u": 1.1146999999999998
+    },
+    {
+      "id": "P10",
+      "pieza": "Resorte regulable y topes de goma",
+      "cant": 1,
+      "subconjunto": "Puerta",
+      "material": "Juego",
+      "tubo": null,
+      "seccion": "1 resorte + 4 topes",
+      "largo": null,
+      "operaciones": "Topes en parantes traseros y en el pasamanos (90°)",
+      "kg_u": 0.0
+    },
+    {
+      "id": "C1",
+      "pieza": "Comedero",
+      "cant": 1,
+      "subconjunto": "Frente",
+      "material": "Inox 304 1,5 mm",
+      "tubo": null,
+      "seccion": "375 × 460 × 210",
+      "largo": null,
+      "operaciones": "Sin bordes filosos; M8 inox con bujes de nylon; nunca soldado",
+      "kg_u": 6.1999200000000005
+    },
+    {
+      "id": "C2",
+      "pieza": "Caída de alimento",
+      "cant": 1,
+      "subconjunto": "Frente",
+      "material": "Caño inox 304 Ø50 × 1,5",
+      "tubo": null,
+      "seccion": "900",
+      "largo": null,
+      "operaciones": "Abrazadera inox con buje de nylon al travesaño frontal superior",
+      "kg_u": 1.6249966540509546
+    },
+    {
+      "id": "C3",
+      "pieza": "Separador de antena",
+      "cant": 1,
+      "subconjunto": "Lateral",
+      "material": "PEAD",
+      "tubo": null,
+      "seccion": "60 × 56 × 30",
+      "largo": null,
+      "operaciones": "2 agujeros Ø9 al larguero",
+      "kg_u": 0.0
+    },
+    {
+      "id": "B1",
+      "pieza": "Placa base",
+      "cant": 8,
+      "subconjunto": "Lateral",
+      "material": "Chapa 9,5 mm galvanizada",
+      "tubo": null,
+      "seccion": "150 × 150 × 9,5",
+      "largo": null,
+      "operaciones": "Concéntrica con la pletina; parante corrido 25 mm hacia adentro; 4 agujeros Ø11 a ±55",
+      "kg_u": 1.6779374999999999
+    },
+    {
+      "id": "B2",
+      "pieza": "Cartela",
+      "cant": 32,
+      "subconjunto": "Lateral",
+      "material": "Chapa 6 mm galvanizada",
+      "tubo": null,
+      "seccion": "60 × 60 × 6",
+      "largo": null,
+      "operaciones": "4 por parante, en cruz",
+      "kg_u": 0.08478
+    },
+    {
+      "id": "B3",
+      "pieza": "Tapa de caño",
+      "cant": 12,
+      "subconjunto": "Lateral",
+      "material": "Chapa 3 mm galvanizada",
+      "tubo": null,
+      "seccion": "Ø50,8 × 3",
+      "largo": null,
+      "operaciones": "Pie de cada parante y puntas de pasamanos",
+      "kg_u": 0.04773184453098428
+    },
+    {
+      "id": "B4",
+      "pieza": "Pletina de apoyo",
+      "cant": 8,
+      "subconjunto": "Pie",
+      "material": "Inox 304 10 mm",
+      "tubo": null,
+      "seccion": "300 × 150 × 10",
+      "largo": null,
+      "operaciones": "Chaflanes 2 × 45°, esquinas R15; 4 agujeros M10 a ±55; 2 colisos avellanados para M12 en y ±20",
+      "kg_u": 3.555
+    },
+    {
+      "id": "B5",
+      "pieza": "Contrapletina",
+      "cant": 8,
+      "subconjunto": "Pie",
+      "material": "Inox 304 8 mm",
+      "tubo": null,
+      "seccion": "300 × 100 × 8",
+      "largo": null,
+      "operaciones": "Abraza 2 vigas del slat; 2 colisos Ø13 en y ±20",
+      "kg_u": 1.8960000000000001
+    },
+    {
+      "id": "B6",
+      "pieza": "Junta aislante",
+      "cant": 8,
+      "subconjunto": "Pie",
+      "material": "Fenólico 3 mm",
+      "tubo": null,
+      "seccion": "160 × 160 × 3",
+      "largo": null,
+      "operaciones": "Entre placa base y pletina; sobresale 5 mm",
+      "kg_u": 0.0
+    },
+    {
+      "id": "U1",
+      "pieza": "Planchuela de unión",
+      "cant": 10,
+      "subconjunto": "Uniones",
+      "material": "Planchuela 2\" × ¼\" galvanizada",
+      "tubo": null,
+      "seccion": "50,8 × 6,35 × 80",
+      "largo": null,
+      "operaciones": "2 agujeros Ø11; frente, trasero y apoyo del comedero",
+      "kg_u": 0.2
+    },
+    {
+      "id": "U2",
+      "pieza": "Planchuela del dosificador",
+      "cant": 2,
+      "subconjunto": "Frente",
+      "material": "Planchuela 2\" × ¼\" galvanizada",
+      "tubo": null,
+      "seccion": "50,8 × 6,35 × 120",
+      "largo": null,
+      "operaciones": "2 agujeros Ø13 a 100 mm",
+      "kg_u": 0.3
+    },
+    {
+      "id": "U3",
+      "pieza": "Oreja del actuador",
+      "cant": 1,
+      "subconjunto": "Lateral",
+      "material": "Planchuela 2\" × ¼\" galvanizada",
+      "tubo": null,
+      "seccion": "50,8 × 6,35 × 80",
+      "largo": null,
+      "operaciones": "Agujero Ø13; previsión etapa 4",
+      "kg_u": 0.2
+    }
+  ],
+  "barras_corte": {
+    "parante": [
+      {
+        "cortes": [
+          1085,
+          1085,
+          1085,
+          1085,
+          1085
+        ],
+        "libre": 560
+      },
+      {
+        "cortes": [
+          1085,
+          1085,
+          1085
+        ],
+        "libre": 2736
+      }
+    ],
+    "pasamanos": [
+      {
+        "cortes": [
+          2291,
+          2291,
+          560,
+          560
+        ],
+        "libre": 286
+      }
+    ],
+    "larguero": [
+      {
+        "cortes": [
+          810,
+          810,
+          776,
+          776,
+          696,
+          696,
+          696,
+          696
+        ],
+        "libre": 20
+      },
+      {
+        "cortes": [
+          696,
+          696,
+          696,
+          696,
+          696,
+          696,
+          696,
+          696
+        ],
+        "libre": 408
+      },
+      {
+        "cortes": [
+          696,
+          696,
+          696,
+          696,
+          696,
+          696,
+          696,
+          696
+        ],
+        "libre": 408
+      },
+      {
+        "cortes": [
+          696,
+          696,
+          696,
+          696,
+          696,
+          696,
+          696,
+          696
+        ],
+        "libre": 408
+      },
+      {
+        "cortes": [
+          696,
+          696,
+          696,
+          696,
+          695,
+          695,
+          695,
+          695
+        ],
+        "libre": 412
+      },
+      {
+        "cortes": [
+          695,
+          695,
+          695,
+          695,
+          695,
+          695,
+          695,
+          695
+        ],
+        "libre": 416
+      },
+      {
+        "cortes": [
+          695,
+          695,
+          695,
+          695,
+          573,
+          573,
+          560,
+          560,
+          560
+        ],
+        "libre": 367
+      },
+      {
+        "cortes": [
+          432,
+          432,
+          432
+        ],
+        "libre": 4695
+      }
+    ],
+    "barrote": [
+      {
+        "cortes": [
+          386,
+          386,
+          386,
+          386,
+          332,
+          332,
+          332,
+          332
+        ],
+        "libre": 3104
+      }
+    ]
+  },
+  "pedido": {
+    "tubo": [
+      {
+        "id": "tubo_parante",
+        "descripcion": "tubo estructural redondo Ø50,8 × 3,2 (2\"), con cartelas en la base, barra de 6 m",
+        "cant": 2,
+        "unidad": "barra",
+        "uso": "8.680 mm útiles",
+        "desperdicio_pct": 27.7
+      },
+      {
+        "id": "tubo_pasamanos",
+        "descripcion": "tubo estructural redondo Ø50,8 × 2,0 (2\") para pasamanos y travesaños superiores, barra de 6 m",
+        "cant": 1,
+        "unidad": "barra",
+        "uso": "5.702 mm útiles",
+        "desperdicio_pct": 5.0
+      },
+      {
+        "id": "tubo_larguero",
+        "descripcion": "tubo estructural redondo Ø38,1 × 2,0 (1½\"), barra de 6 m",
+        "cant": 8,
+        "unidad": "barra",
+        "uso": "40.686 mm útiles",
+        "desperdicio_pct": 15.2
+      },
+      {
+        "id": "tubo_barrote",
+        "descripcion": "tubo estructural redondo Ø25,4 × 2,0 (1\"), barra de 6 m",
+        "cant": 1,
+        "unidad": "barra",
+        "uso": "2.872 mm útiles",
+        "desperdicio_pct": 52.1
+      }
+    ],
+    "chapa_y_planchuela": [
+      {
+        "id": "planch_2x14",
+        "descripcion": "Planchuela 2\" × ¼\" (50,8 × 6,35)",
+        "cant": 1,
+        "unidad": "barra de 6 m",
+        "uso": "orejas, trinquetes, uniones, dosificador, actuador"
+      },
+      {
+        "id": "chapa_95",
+        "descripcion": "Chapa 9,5 mm, placas base 150 × 150",
+        "cant": 8,
+        "unidad": "u",
+        "uso": "B1"
+      },
+      {
+        "id": "chapa_6",
+        "descripcion": "Chapa 6 mm, cartelas 60 × 60",
+        "cant": 32,
+        "unidad": "u",
+        "uso": "B2"
+      },
+      {
+        "id": "chapa_3",
+        "descripcion": "Chapa 3 mm, tapas Ø50,8",
+        "cant": 12,
+        "unidad": "u",
+        "uso": "B3"
+      },
+      {
+        "id": "chapa_2",
+        "descripcion": "Chapa galvanizada 2 mm: zócalo 560 × 280 y 2 guardas 100 × 710",
+        "cant": 1,
+        "unidad": "juego",
+        "uso": "F9, P9"
+      },
+      {
+        "id": "barra_10",
+        "descripcion": "Barra redonda maciza Ø10, 2 × 710 mm",
+        "cant": 1,
+        "unidad": "juego",
+        "uso": "P8"
+      }
+    ],
+    "inox": [
+      {
+        "id": "inox_pletina",
+        "descripcion": "Pletina inox 304 300 × 150 × 10, corte láser",
+        "cant": 8,
+        "unidad": "u",
+        "uso": "B4"
+      },
+      {
+        "id": "inox_contra",
+        "descripcion": "Contrapletina inox 304 300 × 100 × 8",
+        "cant": 8,
+        "unidad": "u",
+        "uso": "B5"
+      },
+      {
+        "id": "inox_eje",
+        "descripcion": "Barra inox 304 maciza Ø20 × 584",
+        "cant": 1,
+        "unidad": "u",
+        "uso": "P4"
+      },
+      {
+        "id": "inox_comedero",
+        "descripcion": "Comedero inox 304 375 × 460 × 210 (a medida)",
+        "cant": 1,
+        "unidad": "u",
+        "uso": "C1"
+      },
+      {
+        "id": "inox_caida",
+        "descripcion": "Caño inox 304 Ø50 × 1,5 × 900 + abrazadera",
+        "cant": 1,
+        "unidad": "juego",
+        "uso": "C2"
+      }
+    ],
+    "bulones_y_aislacion": [
+      {
+        "id": "m12_avell",
+        "descripcion": "Bulón M12 × 140 inox, cabeza avellanada DIN 7991, tuerca autofrenante y arandela",
+        "cant": 32,
+        "unidad": "u",
+        "uso": "anclaje al slat (largo según el espesor real del slat)"
+      },
+      {
+        "id": "m10_inox_pie",
+        "descripcion": "Bulón M10 × 40 inox con vaina y 2 arandelas aislantes",
+        "cant": 32,
+        "unidad": "juego",
+        "uso": "pie"
+      },
+      {
+        "id": "fenolico",
+        "descripcion": "Junta fenólica 160 × 160 × 3",
+        "cant": 8,
+        "unidad": "u",
+        "uso": "B6"
+      },
+      {
+        "id": "m10_galv",
+        "descripcion": "Bulón M10 × 70 galvanizado con tuerca autofrenante y 2 arandelas",
+        "cant": 22,
+        "unidad": "u",
+        "uso": "uniones (20) y trinquetes (2)"
+      },
+      {
+        "id": "m8_inox",
+        "descripcion": "Bulón M8 inox con buje y arandelas de nylon",
+        "cant": 12,
+        "unidad": "juego",
+        "uso": "comedero (6) y panel ciego (6)"
+      },
+      {
+        "id": "m8_galv",
+        "descripcion": "Bulón M8 galvanizado con arandela",
+        "cant": 8,
+        "unidad": "u",
+        "uso": "zócalo (6) y separador de antena (2)"
+      },
+      {
+        "id": "pasador",
+        "descripcion": "Pasador elástico Ø6 galvanizado con vaina aislante",
+        "cant": 2,
+        "unidad": "u",
+        "uso": "puerta–eje"
+      }
+    ],
+    "otros": [
+      {
+        "id": "pead_10",
+        "descripcion": "Placa PEAD 10 mm 432 × 550",
+        "cant": 1,
+        "unidad": "u",
+        "uso": "P3"
+      },
+      {
+        "id": "pead_buje",
+        "descripcion": "Barra PEAD Ø30 para bujes y separador de antena",
+        "cant": 1,
+        "unidad": "juego",
+        "uso": "P6, C3"
+      },
+      {
+        "id": "resorte",
+        "descripcion": "Resorte de tracción regulable + 4 topes de goma",
+        "cant": 1,
+        "unidad": "juego",
+        "uso": "P10"
+      },
+      {
+        "id": "galvanizado",
+        "descripcion": "Servicio de galvanizado por inmersión en caliente (subconjuntos ya soldados)",
+        "cant": 149,
+        "unidad": "kg aprox.",
+        "uso": "laterales, frente, trasero, puerta, chapas y planchuelas"
+      }
+    ]
+  },
+  "peso": {
+    "total_kg": 211.1,
+    "galvanizado_kg": 156.0,
+    "otros_kg": 55.1,
+    "tubo_kg": 122.1,
+    "lateral_kg": 64.3
+  },
+  "barra_comercial_mm": 6000,
+  "corte_mm": 3,
+  "nota": "Largos entre caras para uniones a tope con boca de pescado; verificar en el plano de taller. Sin precios ni presupuesto."
+}
