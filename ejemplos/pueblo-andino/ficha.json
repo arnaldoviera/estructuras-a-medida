@@ -54,7 +54,7 @@
       "holgura_agujero": 2,
       "horqueta": {"d": 16, "largo": 770, "cant": 2},
       "cruce": {"d": 16, "largo": 350, "cant": 2},
-      "tirante": {"d": 16, "largo": 330, "cant": 4},
+      "tirante": {"d": 16, "largo": 350, "cant": 4},
       "cartela_inf": {"d": 12, "largo": 330, "cant": 2},
       "cartela_sup": {"d": 12, "largo": 385, "cant": 2},
       "abrazadera": {"d": 10, "largo": 90, "cant_por_abrazadera": 2}
@@ -84,6 +84,6 @@
   "estado": {
     "validacion_aprobada": true,
     "aprobada_por": "usuario (diseño cerrado en sesión previa)",
-    "vueltas_auditoria": 0
+    "vueltas_auditoria": 2
   }
 }

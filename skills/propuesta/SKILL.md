@@ -27,7 +27,7 @@ Idioma de todo lo que ve el cliente: español rioplatense, cotas en metros con c
 5. **Emitir**: `correr.py propuesta <carpeta>` (incorpora el informe como anexo) y publicar `salida/propuesta.html` como Artifact (página privada, compartible, se ve en el celular). Dar el enlace.
 
 ## Reglas
-- Presupuesto SOLO de materiales, sin flete. Mano de obra en renglón aparte, no calculada. IVA configurable en `comercial.iva_pct` y `comercial.mostrar_con_iva`; la página trae botón con/sin IVA.
+- Presupuesto SOLO de materiales, sin flete. Mano de obra en renglón aparte, no calculada. IVA configurable en `comercial.iva_pct` y `comercial.mostrar_con_iva` (qué total va resaltado; la página muestra sin IVA, IVA y con IVA).
 - Datos que falten (cliente, garantía, plazo): preguntar o dejar en null. La página los muestra como "a completar". No rellenar con supuestos.
 - Croquis 3D SIEMPRE armado; nunca vista desarmada.
 - Texto para copiar/pegar, siempre en bloque de código.

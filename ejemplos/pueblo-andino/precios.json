@@ -131,12 +131,13 @@
     {
       "id": "arandela_10",
       "descripcion": "Arandela 3/8 x 10 Un TEL (hierro)",
-      "unidad": "u",
-      "precio": 247.0,
+      "unidad": "pack de 10",
+      "precio": 2470,
       "iva_incluido": true,
       "fuente": "Easy Argentina",
       "url": "https://www.easy.com.ar/b-arandela-hº-3-8-10un-mbl/p",
-      "nota": "Precio del pack de 10 u = $2.470, convertido a $247 por unidad. La ficha no aclara si es galvanizada/zincada. Ropelato vende la galvanizada 3/8\" solo por kilo ($7.637/kg, sin stock)."
+      "nota": "Precio del pack de 10 u = $2.470, convertido a $247 por unidad. La ficha no aclara si es galvanizada/zincada. Ropelato vende la galvanizada 3/8\" solo por kilo ($7.637/kg, sin stock). Se vende en pack de 10: precio del pack.",
+      "contenido": 10
     },
     {
       "id": "planchuela_40x5",

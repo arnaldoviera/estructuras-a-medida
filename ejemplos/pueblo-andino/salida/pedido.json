@@ -40,70 +40,70 @@
   "ferreteria": [
     {
       "id": "varilla_16",
-      "descripcion": "Varilla roscada galvanizada 16 mm × 1 m",
+      "descripcion": "Varilla roscada galvanizada 16 mm (5/8\") × 1 m",
       "cant": 5,
       "unidad": "u",
-      "uso": "8 tramos: 2 × 0,77 m, 2 × 0,35 m, 4 × 0,33 m"
+      "uso": "8 tramos: 2 × 0,77 m, 4 × 0,35 m, 2 × 0,35 m"
     },
     {
       "id": "tuerca_16",
-      "descripcion": "Tuerca galvanizada 16 mm",
+      "descripcion": "Tuerca galvanizada 5/8\" (misma rosca que la varilla)",
       "cant": 32,
       "unidad": "u",
       "uso": "Tuerca + contratuerca en cada punta"
     },
     {
       "id": "arandela_ancha_16",
-      "descripcion": "Arandela ancha galvanizada 16 mm (Ø ext. 50-60 mm)",
+      "descripcion": "Arandela ancha galvanizada 5/8\" (Ø ext. 50-60 mm)",
       "cant": 16,
       "unidad": "u",
       "uso": "Una por punta"
     },
     {
       "id": "varilla_12",
-      "descripcion": "Varilla roscada galvanizada 12 mm × 1 m",
+      "descripcion": "Varilla roscada galvanizada 12 mm (1/2\") × 1 m",
       "cant": 2,
       "unidad": "u",
       "uso": "4 tramos: 2 × 0,39 m, 2 × 0,33 m"
     },
     {
       "id": "tuerca_12",
-      "descripcion": "Tuerca galvanizada 12 mm",
+      "descripcion": "Tuerca galvanizada 1/2\" (misma rosca que la varilla)",
       "cant": 16,
       "unidad": "u",
       "uso": "Tuerca + contratuerca en cada punta"
     },
     {
       "id": "arandela_ancha_12",
-      "descripcion": "Arandela ancha galvanizada 12 mm (Ø ext. 50-60 mm)",
+      "descripcion": "Arandela ancha galvanizada 1/2\" (Ø ext. 50-60 mm)",
       "cant": 8,
       "unidad": "u",
       "uso": "Una por punta"
     },
     {
       "id": "varilla_10",
-      "descripcion": "Varilla roscada galvanizada 10 mm × 1 m",
+      "descripcion": "Varilla roscada galvanizada 10 mm (3/8\") × 1 m",
       "cant": 2,
       "unidad": "u",
       "uso": "12 tramos: 12 × 0,09 m"
     },
     {
       "id": "tuerca_10",
-      "descripcion": "Tuerca galvanizada 10 mm",
+      "descripcion": "Tuerca galvanizada 3/8\" (misma rosca que la varilla)",
       "cant": 48,
       "unidad": "u",
       "uso": "Tuerca + contratuerca en cada punta"
     },
     {
       "id": "arandela_10",
-      "descripcion": "Arandela galvanizada 10 mm",
+      "descripcion": "Arandela galvanizada 3/8\"",
       "cant": 24,
       "unidad": "u",
       "uso": "Una por punta"
     },
     {
       "id": "planchuela_40x5",
-      "descripcion": "Planchuela galvanizada 40x5 mm × 6 m",
+      "descripcion": "Planchuela 40x5 mm × 6 m (galvanizada; si es de hierro negro, la herrería la termina con galvanizado en frío)",
       "cant": 1,
       "unidad": "barra 6 m",
       "uso": "6 abrazaderas × 2 medias cañas de 0,42 m = 5,6 m con desperdicio",
@@ -119,7 +119,7 @@
     },
     {
       "id": "grillete_10",
-      "descripcion": "Grillete galvanizado 10 mm o gancho giratorio",
+      "descripcion": "Grillete galvanizado 3/8\" (10 mm) o gancho giratorio, carga de trabajo ≥ 0,5 t",
       "cant": 6,
       "unidad": "u",
       "uso": "Uno por abrazadera"

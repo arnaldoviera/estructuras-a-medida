@@ -8,8 +8,8 @@
       "seccion": "Ø20 cm",
       "largo": 3700,
       "angulos": "Puntas a escuadra",
-      "rebajes": "—",
-      "agujeros": "2 pasantes Ø18 mm horizontales, a ±1,55 m del centro, en el eje"
+      "rebajes": "Plano de 2 cm abajo, a ±1,35 m del centro, para apoyar cada cartela",
+      "agujeros": "2 pasantes Ø18 mm horizontales (sentido del vaivén) a ±1,55 m del centro, en el eje; 2 pasantes Ø14 mm verticales a ±1,35 m del centro (cartelas)"
     },
     {
       "id": "P1–P4",
@@ -18,9 +18,9 @@
       "material": "Rollizo de eucalipto impregnado (CCA)",
       "seccion": "Ø17 cm",
       "largo": 2950,
-      "angulos": "Pie cortado horizontal; pata a 33° lateral y 14° frontal",
-      "rebajes": "Media madera en el cruce (1/3 Ø ≈ 5,7 cm); asiento de 1,5 cm para el travesaño; plano de 2,5 cm para el tirante",
-      "agujeros": "Cruce: Ø18 a 1,76 m; horqueta: Ø18 a 2,10 m; tirante: Ø18 a 1,10 m"
+      "angulos": "Pie cortado horizontal: la pata forma 34,9° con la vertical (33° en vista lateral y 14° en vista frontal)",
+      "rebajes": "Media madera en el cruce (1/3 Ø ≈ 5,7 cm); asiento de 1,5 cm para el travesaño; plano de 2,5 cm para el tirante; asiento plano para la arandela donde sale cada varilla",
+      "agujeros": "Medidas SOBRE la pata desde el pie: cruce Ø18 a 2,39 m (altura 1,76 m); tirante Ø18 a 1,58 m (altura 1,10 m); horqueta Ø18 a 2,80 m (altura 2,10 m)"
     },
     {
       "id": "R1–R2",
@@ -29,7 +29,7 @@
       "material": "Rollizo de eucalipto impregnado (CCA)",
       "seccion": "Ø15 cm",
       "largo": 1150,
-      "angulos": "Puntas a escuadra",
+      "angulos": "Puntas a escuadra; queda oblicuo 4,0° en planta (sigue el desfase de la media madera)",
       "rebajes": "2 planos de 2,5 cm contra las patas; plano de 2 cm arriba al centro para la cartela",
       "agujeros": "2 × Ø18 horizontales (patas) + 1 × Ø14 vertical al centro"
     },
@@ -68,17 +68,17 @@
       },
       {
         "cortes": [
-          330,
-          330,
-          330
+          350,
+          350
         ],
-        "libre": 1
+        "libre": 294
       },
       {
         "cortes": [
-          330
+          350,
+          350
         ],
-        "libre": 667
+        "libre": 294
       }
     ],
     "12": [
@@ -164,70 +164,70 @@
     "ferreteria": [
       {
         "id": "varilla_16",
-        "descripcion": "Varilla roscada galvanizada 16 mm × 1 m",
+        "descripcion": "Varilla roscada galvanizada 16 mm (5/8\") × 1 m",
         "cant": 5,
         "unidad": "u",
-        "uso": "8 tramos: 2 × 0,77 m, 2 × 0,35 m, 4 × 0,33 m"
+        "uso": "8 tramos: 2 × 0,77 m, 4 × 0,35 m, 2 × 0,35 m"
       },
       {
         "id": "tuerca_16",
-        "descripcion": "Tuerca galvanizada 16 mm",
+        "descripcion": "Tuerca galvanizada 5/8\" (misma rosca que la varilla)",
         "cant": 32,
         "unidad": "u",
         "uso": "Tuerca + contratuerca en cada punta"
       },
       {
         "id": "arandela_ancha_16",
-        "descripcion": "Arandela ancha galvanizada 16 mm (Ø ext. 50-60 mm)",
+        "descripcion": "Arandela ancha galvanizada 5/8\" (Ø ext. 50-60 mm)",
         "cant": 16,
         "unidad": "u",
         "uso": "Una por punta"
       },
       {
         "id": "varilla_12",
-        "descripcion": "Varilla roscada galvanizada 12 mm × 1 m",
+        "descripcion": "Varilla roscada galvanizada 12 mm (1/2\") × 1 m",
         "cant": 2,
         "unidad": "u",
         "uso": "4 tramos: 2 × 0,39 m, 2 × 0,33 m"
       },
       {
         "id": "tuerca_12",
-        "descripcion": "Tuerca galvanizada 12 mm",
+        "descripcion": "Tuerca galvanizada 1/2\" (misma rosca que la varilla)",
         "cant": 16,
         "unidad": "u",
         "uso": "Tuerca + contratuerca en cada punta"
       },
       {
         "id": "arandela_ancha_12",
-        "descripcion": "Arandela ancha galvanizada 12 mm (Ø ext. 50-60 mm)",
+        "descripcion": "Arandela ancha galvanizada 1/2\" (Ø ext. 50-60 mm)",
         "cant": 8,
         "unidad": "u",
         "uso": "Una por punta"
       },
       {
         "id": "varilla_10",
-        "descripcion": "Varilla roscada galvanizada 10 mm × 1 m",
+        "descripcion": "Varilla roscada galvanizada 10 mm (3/8\") × 1 m",
         "cant": 2,
         "unidad": "u",
         "uso": "12 tramos: 12 × 0,09 m"
       },
       {
         "id": "tuerca_10",
-        "descripcion": "Tuerca galvanizada 10 mm",
+        "descripcion": "Tuerca galvanizada 3/8\" (misma rosca que la varilla)",
         "cant": 48,
         "unidad": "u",
         "uso": "Tuerca + contratuerca en cada punta"
       },
       {
         "id": "arandela_10",
-        "descripcion": "Arandela galvanizada 10 mm",
+        "descripcion": "Arandela galvanizada 3/8\"",
         "cant": 24,
         "unidad": "u",
         "uso": "Una por punta"
       },
       {
         "id": "planchuela_40x5",
-        "descripcion": "Planchuela galvanizada 40x5 mm × 6 m",
+        "descripcion": "Planchuela 40x5 mm × 6 m (galvanizada; si es de hierro negro, la herrería la termina con galvanizado en frío)",
         "cant": 1,
         "unidad": "barra 6 m",
         "uso": "6 abrazaderas × 2 medias cañas de 0,42 m = 5,6 m con desperdicio",
@@ -243,7 +243,7 @@
       },
       {
         "id": "grillete_10",
-        "descripcion": "Grillete galvanizado 10 mm o gancho giratorio",
+        "descripcion": "Grillete galvanizado 3/8\" (10 mm) o gancho giratorio, carga de trabajo ≥ 0,5 t",
         "cant": 6,
         "unidad": "u",
         "uso": "Uno por abrazadera"
@@ -281,5 +281,5 @@
     ]
   },
   "desperdicio_madera_pct": 5.714285714285716,
-  "area_madera_m2": 9.891816589517473
+  "area_madera_m2": 9.89442819087074
 }

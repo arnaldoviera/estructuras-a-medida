@@ -29,7 +29,7 @@ def validar(dirp):
     ficha, t = _cargar(dirp)
     M = t.modelo(ficha)
     v = t.validar(ficha, M)
-    escribir_json(os.path.join(dirp, "validacion.json"), {k: v[k] for k in ("checks", "peso_propio_kg", "volumen_madera_m3", "resumen")})
+    escribir_json(os.path.join(dirp, "validacion.json"), {k: v[k] for k in ("checks", "peso_propio_kg", "peso_total_kg", "volumen_madera_m3", "resumen")})
     print(v["resumen"])
     return v
 
@@ -45,7 +45,7 @@ def todo(dirp, solo_propuesta=False):
     persp = {c["id"]: perspectiva.svg(ficha, M, c["id"]) for c in ficha["requisitos"]["configuraciones"]}
     esc = croquis3d.escena(ficha, M)
     if not solo_propuesta:
-        escribir_json(os.path.join(dirp, "validacion.json"), {k: v[k] for k in ("checks", "peso_propio_kg", "volumen_madera_m3", "resumen")})
+        escribir_json(os.path.join(dirp, "validacion.json"), {k: v[k] for k in ("checks", "peso_propio_kg", "peso_total_kg", "volumen_madera_m3", "resumen")})
         escribir_json(os.path.join(sal, "despiece.json"), desp)
         escribir_json(os.path.join(sal, "pedido.json"), desp["pedido"])
         escribir_json(os.path.join(sal, "obra.json"), ob)

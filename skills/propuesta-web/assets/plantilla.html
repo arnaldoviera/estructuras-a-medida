@@ -56,7 +56,7 @@ th { font-size: .75rem; letter-spacing: .06em; text-transform: uppercase; color:
 td small { display: block; color: var(--muted); font-size: .82rem }
 td.n { text-align: right; white-space: nowrap }
 tr.grp td { font: 700 .78rem var(--body); letter-spacing: .1em; text-transform: uppercase; color: var(--wood); background: var(--bg) }
-table.tot td { font-size: 1.05rem } table.tot tr:first-child td { font-weight: 700; font-size: 1.2rem }
+table.tot td { font-size: 1.05rem } table.tot tr.hl td { font-weight: 700; font-size: 1.2rem }
 @media (max-width: 560px) {
   table.mat thead { display: none }
   table.mat tr { display: grid; grid-template-columns: 1fr auto; padding: 8px 10px; border-bottom: 1px solid var(--line) }
@@ -100,13 +100,6 @@ document.querySelectorAll(".tabs button").forEach((b) => b.addEventListener("cli
   document.querySelectorAll(".tabs button").forEach((x) => x.setAttribute("aria-pressed", String(x === b)));
   document.querySelectorAll("[data-persp]").forEach((p) => (p.hidden = p.dataset.persp !== b.dataset.cfg));
   cfgActual = b.dataset.cfg; if (window.armar3d) window.armar3d(cfgActual);
-}));
-// IVA
-document.querySelectorAll(".ivat button").forEach((b) => b.addEventListener("click", () => {
-  document.querySelectorAll(".ivat button").forEach((x) => x.setAttribute("aria-pressed", String(x === b)));
-  const con = b.dataset.iva === "1";
-  document.querySelectorAll("[data-sin]").forEach((c) => (c.textContent = con ? c.dataset.con : c.dataset.sin));
-  document.querySelectorAll(".ivar").forEach((r) => (r.hidden = !con));
 }));
 // croquis 3D (z arriba, mm)
 (function () {

@@ -15,7 +15,9 @@ def presupuesto(ficha, desp, precios):
             fila = {"grupo": titulo, "id": it["id"], "desc": it["descripcion"], "uso": it["uso"], "cant": it["cant"], "unidad": it["unidad"]}
             if p and p.get("precio") is not None:
                 cont = p.get("contenido", 1) or 1
-                cant_v = math.ceil(round(it["cant"] / cont, 6))
+                bruto = it["cant"] / cont
+                # por metro se compra lo justo (al décimo); por unidad o envase, se redondea para arriba
+                cant_v = math.ceil(round(bruto * 10, 6)) / 10 if p.get("unidad") == "m" else math.ceil(round(bruto, 6))
                 unit_sin = p["precio"] / (1 + iva) if p.get("iva_incluido", True) else p["precio"]
                 sub = cant_v * unit_sin
                 total += sub
@@ -78,7 +80,7 @@ def pagina(ficha, M, val, desp, obra_, laminas, persp, escena, precios=None, aud
         ("Accesorios", f"Asientos a {m(ac['asiento_z'])} ({ac['asiento_ancho']} mm de ancho); trapecio a {m(ac['trapecio_z'])}; {m(D['libre_asiento'])} libres entre patas a la altura del asiento"),
         ("Hamaca-cama", f"{num(ac['cama']['largo'] / 1000, 1)} × {num(ac['cama']['ancho'] / 1000, 1)} m a {m(ac['cama']['z'])}, de las 2 abrazaderas exteriores; solo para mecerse"),
         ("Varilla", f"Galvanizada, siempre con arandela ancha {d['arandela_ancha_mm']}-60 mm, tuerca y contratuerca; agujeros {va['holgura_agujero']} mm mayores que la varilla"),
-        ("Carga de diseño", f"{req['carga_diseno_kg']} kg ({E(req['carga_diseno_desc'])}) con factor dinámico {num(req['factor_dinamico'], 1)}; peso propio ≈ {num(val['peso_propio_kg'], 0)} kg"),
+        ("Carga de diseño", f"{req['carga_diseno_kg']} kg ({E(req['carga_diseno_desc'])}) con factor dinámico {num(req['factor_dinamico'], 1)}; peso de la madera ≈ {num(val['peso_total_kg'], 0)} kg ({num(val['peso_propio_kg'], 0)} kg sobre el terreno, usado en el vuelco)"),
         ("Terminación", E(req.get("terminacion", ""))),
     ]
     filas_v = "".join(f"<tr><td>{E(c['requisito'])}</td><td>{E(c['valor'])}</td><td>{E(c['limite'])}</td><td>{_estado(c['estado'])}</td></tr>" for c in val["checks"])
@@ -97,7 +99,7 @@ def pagina(ficha, M, val, desp, obra_, laminas, persp, escena, precios=None, aud
         cant = num(f["cant"], 1 if isinstance(f["cant"], float) and f["cant"] % 1 else 0) + " " + E(f["unidad"])
         if "sub_sin" in f:
             fuente = f'<a href="{E(f["url"])}" target="_blank" rel="noopener">{E(f["fuente"])}</a>' if f.get("url") else E(f.get("fuente") or "")
-            venta = f'{f["cant_venta"]} × {E(f["unidad_venta"])}' if f["unidad_venta"] != f["unidad"] or f["cant_venta"] != f["cant"] else ""
+            venta = f'{num(f["cant_venta"], 1 if f["cant_venta"] % 1 else 0)} × {E(f["unidad_venta"])}' if f["unidad_venta"] != f["unidad"] or f["cant_venta"] != f["cant"] else ""
             rows.append(f'<tr><td><b>{E(f["desc"])}</b><small>{E(f["uso"])}</small></td><td class="n">{cant}{"<small>" + venta + "</small>" if venta else ""}</td>'
                         f'<td class="n">{pesos(f["unit_sin"])}</td><td class="n">{pesos(f["sub_sin"])}</td><td><small>{fuente}{" · " + E(f["nota"]) if f.get("nota") else ""}</small></td></tr>')
         else:
@@ -108,28 +110,28 @@ def pagina(ficha, M, val, desp, obra_, laminas, persp, escena, precios=None, aud
 
     # 6. instalación
     pasos = "".join(f"<li><b>{E(t)}.</b> {E(x)}</li>" for t, x in obra_["pasos"])
-    s6 = (f'<p>Armado pensado para {E(obra_["personas"] or "1 persona con ayuda puntual")}.</p>'
+    s6 = (f'<p>Armado pensado para {E((obra_["personas"] or "1 persona con ayuda puntual").rstrip("."))}.</p>'
           '<h3>Recomendaciones</h3><ul>' + "".join(f"<li>{E(x)}</li>" for x in obra_["recomendaciones"]) + "</ul>"
           f'<h3>Paso a paso</h3><ol class="steps">{pasos}</ol>'
           f'<p class="note">Mano de obra (MOD): {E(co["mod"]["texto"])}</p>')
 
     # 7. presupuesto
     iva = co["iva_pct"]
-    s7 = (f'<div class="ivat" role="group" aria-label="Mostrar precios"><button type="button" data-iva="0" aria-pressed="{str(not co["mostrar_con_iva"]).lower()}">Sin IVA</button>'
-          f'<button type="button" data-iva="1" aria-pressed="{str(co["mostrar_con_iva"]).lower()}">Con IVA {iva} %</button></div>'
-          '<div class="tw"><table class="tot"><tbody>'
-          f'<tr><td>Materiales (sin flete)</td><td class="n" data-sin="{pesos(pres["subtotal_sin_iva"])}" data-con="{pesos(pres["total_con_iva"])}">{pesos(pres["total_con_iva"] if co["mostrar_con_iva"] else pres["subtotal_sin_iva"])}</td></tr>'
-          f'<tr class="ivar"{"" if co["mostrar_con_iva"] else " hidden"}><td>Incluye IVA {iva} %</td><td class="n">{pesos(pres["iva"])}</td></tr>'
+    con = co["mostrar_con_iva"]
+    s7 = ('<div class="tw"><table class="tot"><tbody>'
+          f'<tr{" class=\"hl\"" if not con else ""}><td>Materiales sin IVA (sin flete)</td><td class="n">{pesos(pres["subtotal_sin_iva"])}</td></tr>'
+          f'<tr><td>IVA {iva} %</td><td class="n">{pesos(pres["iva"])}</td></tr>'
+          f'<tr{" class=\"hl\"" if con else ""}><td>Materiales con IVA</td><td class="n">{pesos(pres["total_con_iva"])}</td></tr>'
           f'<tr><td>Mano de obra de armado</td><td class="n">{"Incluida" if co["mod"]["incluida"] else "Se cotiza aparte"}</td></tr>'
           '</tbody></table></div>'
-          + (f'<p class="note">Sin precio de referencia: {E(", ".join(pres["faltan"]))}. No se suman al total.</p>' if pres["faltan"] else ""))
+          + (f'<p class="note">Total parcial: sin precio de referencia publicado para {E(", ".join(pres["faltan"]))}. No se suman; se cotizan aparte.</p>' if pres["faltan"] else ""))
 
     # 8. condiciones
     s8 = _dl([
         ("Validez", f"{pr['validez_dias']} días desde la fecha de la propuesta; los precios de materiales son de referencia y pueden cambiar."),
         ("Plazo", val_(co.get("plazo_entrega"))),
         ("Incluye", "Diseño, verificación, planos de detalle, despiece, pedido de materiales con precios de referencia e instructivo de armado."),
-        ("No incluye", "Flete, mano de obra de armado (se cotiza aparte), accesorios (asientos, sogas, trapecio, cama) salvo que se indique, permisos." + ("" if not co.get("incluye_flete") else "")),
+        ("No incluye", "Flete, mano de obra de armado (se cotiza aparte), trabajo de herrería de las abrazaderas (curvado, perforado y galvanizado en frío), accesorios (asientos, sogas, trapecio, cama) salvo que se indique, permisos." + ("" if not co.get("incluye_flete") else "")),
         ("Garantía", val_(co.get("garantia"))),
         ("Mantenimiento", "<ul>" + "".join(f"<li>{E(x)}</li>" for x in obra_["mantenimiento"]) + "</ul>"),
         ("Importante", "Esta propuesta usa un cálculo simplificado y no reemplaza el cálculo de un ingeniero matriculado."),

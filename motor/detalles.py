@@ -37,7 +37,7 @@ def laminas(ficha, M):
     f.tag((-yTop + 40, beamZ - 20), -150, 70, f"Agujero Ø{dh + hol} pasante:|pata – travesaño – pata", "end")
     f.tag((0, cz), 150, 30, f"Cruce a media madera|varilla {dc} mm a lo largo|del travesaño (ver vista B)")
     f.dim((0, beamZ), (0, cz), -330, cm(beamZ - cz), 12)
-    f.text((0, z0 + 20), f"{A:.0f}° respecto de la vertical", "vw2")
+    f.text((0, z0 + 20), f"{A:.0f}° en esta vista ({num(D['ang_real'], 1)}° real)", "vw2")
     f.title_txt = "A · VISTA LATERAL"
     out.append(("Horqueta y apoyo del travesaño",
                 f"El travesaño apoya en la V que forman las patas arriba del cruce. En cada pata se rebaja un asiento de {cm(pa['asiento_horqueta'], 1)} donde toca el travesaño. Una varilla de {dh} mm atraviesa pata, travesaño y pata a la altura del eje.",
