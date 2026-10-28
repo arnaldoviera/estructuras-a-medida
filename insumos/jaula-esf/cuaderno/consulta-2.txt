@@ -1,0 +1,10 @@
+Con base estricta en las fuentes, sintetizá PRINCIPIOS, CONSEJOS y RECOMENDACIONES para diseñar UNA sola jaula/box de alimentación individual para cerdas gestantes en grupo, pensada para fabricarse en Argentina con caño estructural y herrería estándar para pequeños productores, y que pueda automatizarse por etapas (primero manual/mecánica, luego con identificación RFID y dosificador electrónico como Gestal 3G o una estación ESF).
+Organizá la respuesta en viñetas técnicas con citas textuales y la fuente de cada una:
+A. Ergonomía y bienestar de la cerda (medidas mínimas, comportamiento, agresión en la entrada, protección de vulva, flujo entrada/salida).
+B. Estructura y materiales para durabilidad en ambiente con amoníaco (qué partes en inoxidable, qué en galvanizado, uniones, puntos débiles conocidos).
+C. Puertas y trancas: soluciones mecánicas simples (actuadas por la cerda, resorte, contrapeso, pestillo) vs actuadas (neumáticas/eléctricas) y cómo dejar prevista la automatización.
+D. Comedero, tolva/dosificador y línea de alimento: alturas, montaje, previsión para RFID y sensores.
+E. Instalación: anclaje al piso, modularidad, adaptación a galpones existentes (retrofit), mantenimiento y limpieza.
+F. Errores frecuentes y lecciones aprendidas de productores y de extensión universitaria.
+G. Capacidad: cuántas cerdas por box/estación según el sistema.
+Indicá explícitamente qué recomendaciones NO están respaldadas por las fuentes.
