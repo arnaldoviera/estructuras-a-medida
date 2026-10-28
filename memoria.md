@@ -4,6 +4,7 @@
 
 ## Preferencias y reglas de trabajo
 - 2026-10-28 · Gráficos y textos en español rioplatense, cotas en metros con coma decimal; el croquis 3D va siempre armado, nunca desarmado.
+- 2026-10-28 · Cotizar solo en Argentina, con MercadoLibre Argentina, tiendas argentinas en Tiendanube y tiendas online argentinas con precio publicado; nunca por WhatsApp, teléfono ni "consultar precio".
 - 2026-10-28 · Presupuesto solo de materiales, sin flete; MOD en renglón aparte sin calcular; precios buscados en la web en cada corrida, nunca fijos.
 
 ## Decisiones tomadas
