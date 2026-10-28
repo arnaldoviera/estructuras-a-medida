@@ -1,0 +1,198 @@
+{
+  "tubo": [
+    {
+      "id": "tubo_parante",
+      "descripcion": "tubo estructural redondo Ø50,8 × 3,2 (2\"), con cartelas en la base, barra de 6 m",
+      "cant": 2,
+      "unidad": "barra",
+      "uso": "8.680 mm útiles",
+      "desperdicio_pct": 27.7
+    },
+    {
+      "id": "tubo_pasamanos",
+      "descripcion": "tubo estructural redondo Ø50,8 × 2,0 (2\") para pasamanos y travesaños superiores, barra de 6 m",
+      "cant": 1,
+      "unidad": "barra",
+      "uso": "5.702 mm útiles",
+      "desperdicio_pct": 5.0
+    },
+    {
+      "id": "tubo_larguero",
+      "descripcion": "tubo estructural redondo Ø38,1 × 2,0 (1½\"), barra de 6 m",
+      "cant": 8,
+      "unidad": "barra",
+      "uso": "40.686 mm útiles",
+      "desperdicio_pct": 15.2
+    },
+    {
+      "id": "tubo_barrote",
+      "descripcion": "tubo estructural redondo Ø25,4 × 2,0 (1\"), barra de 6 m",
+      "cant": 1,
+      "unidad": "barra",
+      "uso": "2.872 mm útiles",
+      "desperdicio_pct": 52.1
+    }
+  ],
+  "chapa_y_planchuela": [
+    {
+      "id": "planch_2x14",
+      "descripcion": "Planchuela 2\" × ¼\" (50,8 × 6,35)",
+      "cant": 1,
+      "unidad": "barra de 6 m",
+      "uso": "orejas, trinquetes, uniones, dosificador, actuador"
+    },
+    {
+      "id": "chapa_95",
+      "descripcion": "Chapa 9,5 mm, placas base 150 × 150",
+      "cant": 8,
+      "unidad": "u",
+      "uso": "B1"
+    },
+    {
+      "id": "chapa_6",
+      "descripcion": "Chapa 6 mm, cartelas 60 × 60",
+      "cant": 32,
+      "unidad": "u",
+      "uso": "B2"
+    },
+    {
+      "id": "chapa_3",
+      "descripcion": "Chapa 3 mm, tapas Ø50,8",
+      "cant": 12,
+      "unidad": "u",
+      "uso": "B3"
+    },
+    {
+      "id": "chapa_2",
+      "descripcion": "Chapa galvanizada 2 mm: zócalo 560 × 280 y 2 guardas 100 × 710",
+      "cant": 1,
+      "unidad": "juego",
+      "uso": "F9, P9"
+    },
+    {
+      "id": "barra_10",
+      "descripcion": "Barra redonda maciza Ø10, 2 × 710 mm",
+      "cant": 1,
+      "unidad": "juego",
+      "uso": "P8"
+    }
+  ],
+  "inox": [
+    {
+      "id": "inox_pletina",
+      "descripcion": "Pletina inox 304 300 × 150 × 10, corte láser",
+      "cant": 8,
+      "unidad": "u",
+      "uso": "B4"
+    },
+    {
+      "id": "inox_contra",
+      "descripcion": "Contrapletina inox 304 300 × 100 × 8",
+      "cant": 8,
+      "unidad": "u",
+      "uso": "B5"
+    },
+    {
+      "id": "inox_eje",
+      "descripcion": "Barra inox 304 maciza Ø20 × 584",
+      "cant": 1,
+      "unidad": "u",
+      "uso": "P4"
+    },
+    {
+      "id": "inox_comedero",
+      "descripcion": "Comedero inox 304 375 × 460 × 210 (a medida)",
+      "cant": 1,
+      "unidad": "u",
+      "uso": "C1"
+    },
+    {
+      "id": "inox_caida",
+      "descripcion": "Caño inox 304 Ø50 × 1,5 × 900 + abrazadera",
+      "cant": 1,
+      "unidad": "juego",
+      "uso": "C2"
+    }
+  ],
+  "bulones_y_aislacion": [
+    {
+      "id": "m12_avell",
+      "descripcion": "Bulón M12 × 140 inox, cabeza avellanada DIN 7991, tuerca autofrenante y arandela",
+      "cant": 32,
+      "unidad": "u",
+      "uso": "anclaje al slat (largo según el espesor real del slat)"
+    },
+    {
+      "id": "m10_inox_pie",
+      "descripcion": "Bulón M10 × 40 inox con vaina y 2 arandelas aislantes",
+      "cant": 32,
+      "unidad": "juego",
+      "uso": "pie"
+    },
+    {
+      "id": "fenolico",
+      "descripcion": "Junta fenólica 160 × 160 × 3",
+      "cant": 8,
+      "unidad": "u",
+      "uso": "B6"
+    },
+    {
+      "id": "m10_galv",
+      "descripcion": "Bulón M10 × 70 galvanizado con tuerca autofrenante y 2 arandelas",
+      "cant": 22,
+      "unidad": "u",
+      "uso": "uniones (20) y trinquetes (2)"
+    },
+    {
+      "id": "m8_inox",
+      "descripcion": "Bulón M8 inox con buje y arandelas de nylon",
+      "cant": 12,
+      "unidad": "juego",
+      "uso": "comedero (6) y panel ciego (6)"
+    },
+    {
+      "id": "m8_galv",
+      "descripcion": "Bulón M8 galvanizado con arandela",
+      "cant": 8,
+      "unidad": "u",
+      "uso": "zócalo (6) y separador de antena (2)"
+    },
+    {
+      "id": "pasador",
+      "descripcion": "Pasador elástico Ø6 galvanizado con vaina aislante",
+      "cant": 2,
+      "unidad": "u",
+      "uso": "puerta–eje"
+    }
+  ],
+  "otros": [
+    {
+      "id": "pead_10",
+      "descripcion": "Placa PEAD 10 mm 432 × 550",
+      "cant": 1,
+      "unidad": "u",
+      "uso": "P3"
+    },
+    {
+      "id": "pead_buje",
+      "descripcion": "Barra PEAD Ø30 para bujes y separador de antena",
+      "cant": 1,
+      "unidad": "juego",
+      "uso": "P6, C3"
+    },
+    {
+      "id": "resorte",
+      "descripcion": "Resorte de tracción regulable + 4 topes de goma",
+      "cant": 1,
+      "unidad": "juego",
+      "uso": "P10"
+    },
+    {
+      "id": "galvanizado",
+      "descripcion": "Servicio de galvanizado por inmersión en caliente (subconjuntos ya soldados)",
+      "cant": 149,
+      "unidad": "kg aprox.",
+      "uso": "laterales, frente, trasero, puerta, chapas y planchuelas"
+    }
+  ]
+}

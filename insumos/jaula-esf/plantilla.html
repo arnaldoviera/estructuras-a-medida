@@ -1,0 +1,318 @@
+<title>Box de Alimentación Cerdas</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: hoja de taller — rótulo de plano arriba, láminas a ancho completo, tabla de medidas con origen, principios en dos columnas que se apilan. */
+:root {
+  --papel: #eef1f2; --hoja: #f9fafa; --tinta: #1d2a33; --tenue: #5a6a74; --linea: #c9d2d7;
+  --zinc: #7f8f99; --acento: #d9961a; --fuente: #2f7d5b; --supuesto: #a8571f; --cota: #2b5f86;
+  --display: "Barlow Condensed", "Arial Narrow", sans-serif;
+  --texto: "IBM Plex Sans", system-ui, sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --papel: #12191e; --hoja: #18222a; --tinta: #dbe4e9; --tenue: #93a4ae; --linea: #2c3a44;
+  --zinc: #8fa0aa; --acento: #f0b03a; --fuente: #5cc293; --supuesto: #e48a4c; --cota: #79b4de; color-scheme: dark } }
+:root[data-theme="dark"] {
+  --papel: #12191e; --hoja: #18222a; --tinta: #dbe4e9; --tenue: #93a4ae; --linea: #2c3a44;
+  --zinc: #8fa0aa; --acento: #f0b03a; --fuente: #5cc293; --supuesto: #e48a4c; --cota: #79b4de; color-scheme: dark }
+body { background: var(--papel); color: var(--tinta); font: 15px/1.55 var(--texto); }
+.envoltura { max-width: 1080px; margin: 0 auto; padding-block: 28px 56px;
+  padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px));
+  display: grid; gap: 28px; }
+h1, h2, h3 { font-family: var(--display); font-weight: 600; letter-spacing: .01em; text-wrap: balance; margin: 0; line-height: 1.1; }
+h1 { font-size: clamp(30px, 6vw, 46px); }
+h2 { font-size: 26px; }
+h3 { font-size: 19px; }
+p { margin: 0; max-width: 68ch; }
+.rotulo { border: 2px solid var(--tinta); background: var(--hoja); display: grid; grid-template-columns: 1fr auto; }
+.rotulo > div { padding: 16px 18px; min-width: 0; }
+.rotulo .der { border-left: 2px solid var(--tinta); font: 12px/1.6 var(--mono); color: var(--tenue); display: grid; align-content: center; }
+.rotulo .der b { color: var(--tinta); font-weight: 500; }
+.eyebrow { font: 600 12px var(--mono); letter-spacing: .08em; text-transform: uppercase; color: var(--tenue); margin-bottom: 6px; }
+.cifras { display: flex; flex-wrap: wrap; gap: 8px 22px; margin-top: 12px; font: 500 14px var(--mono); }
+.cifras span { white-space: nowrap; } .cifras em { font-style: normal; color: var(--tenue); }
+.lamina { background: var(--hoja); border: 1px solid var(--linea); display: grid; gap: 0; }
+.lamina > header { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; flex-wrap: wrap; padding: 12px 16px; border-bottom: 1px solid var(--linea); }
+.lamina > header small { font: 12px var(--mono); color: var(--tenue); }
+#v3d { height: min(70vh, 520px); min-height: 340px; touch-action: none; position: relative; }
+#v3d canvas { display: block; width: 100%; height: 100%; }
+.leyenda { display: flex; flex-wrap: wrap; gap: 6px 16px; padding: 10px 16px; border-top: 1px solid var(--linea); font: 12px var(--mono); color: var(--tenue); }
+.leyenda i { display: inline-block; width: 11px; height: 11px; border-radius: 2px; margin-right: 6px; vertical-align: -1px; }
+.planos { display: grid; grid-template-columns: 1fr 1fr; }
+.planos figure { margin: 0; padding: 12px 12px 6px; min-width: 0; }
+.planos figure + figure { border-left: 1px solid var(--linea); }
+.planos figcaption { font: 600 12px var(--mono); letter-spacing: .06em; text-transform: uppercase; color: var(--tenue); padding: 4px 4px 0; }
+.planos svg { width: 100%; height: auto; display: block; }
+svg .tubo { fill: var(--zinc); } svg .parante { fill: var(--tinta); }
+svg .pie { fill: none; stroke: var(--tinta); stroke-width: 6; stroke-dasharray: 18 10; }
+svg .comedero { fill: var(--linea); stroke: var(--tinta); stroke-width: 6; }
+svg .dosif { fill: none; stroke: var(--tenue); stroke-width: 6; stroke-dasharray: 24 14; }
+svg .rfid { fill: var(--fuente); }
+svg .puerta { stroke: var(--acento); stroke-width: 26; stroke-linecap: round; }
+svg .pivote { fill: var(--hoja); stroke: var(--acento); stroke-width: 10; }
+svg .arco { fill: none; stroke-linejoin: round; stroke: var(--acento); stroke-width: 6; stroke-dasharray: 20 14; }
+svg .zocalo { fill: var(--zinc); }
+svg .panel { fill: var(--acento); opacity: .35; }
+svg .trinq { fill: var(--tinta); }
+svg .caida { stroke: var(--tenue); stroke-width: 50; stroke-linecap: round; opacity: .6; }
+svg .tubo-l { stroke: var(--zinc); stroke-width: 27; }
+svg .bajada { stroke: var(--tenue); stroke-width: 30; stroke-linecap: round; opacity: .6; }
+svg .linea { fill: var(--tenue); }
+svg .slat { fill: url(#hatch); stroke: var(--tenue); stroke-width: 3; }
+svg .hatch { stroke: var(--tenue); stroke-width: 3; }
+svg .cota { stroke: var(--cota); stroke-width: 4; }
+svg .flecha { fill: var(--cota); }
+svg .ct { fill: var(--cota); font: 500 78px var(--mono); }
+svg .ct.ch { font-size: 62px; }
+svg .rot { fill: var(--tinta); font: 500 70px var(--texto); }
+svg .rot.ac { fill: var(--acento); font-weight: 600; }
+.tabla { overflow-x: auto; }
+table { border-collapse: collapse; width: 100%; font-size: 14px; }
+th, td { text-align: left; padding: 9px 14px; border-bottom: 1px solid var(--linea); vertical-align: top; }
+th { font: 600 12px var(--mono); letter-spacing: .06em; text-transform: uppercase; color: var(--tenue); }
+td.v { font-family: var(--mono); white-space: nowrap; font-variant-numeric: tabular-nums; }
+tr.grupo th { background: var(--papel); color: var(--tinta); font-family: var(--display); font-size: 16px; letter-spacing: .02em; text-transform: none; }
+table.desp td small, table td small { color: var(--tenue); font-size: 12px; }
+h3.sub { padding: 16px 16px 6px; }
+.hint { padding: 0 16px; color: var(--tenue); font-size: 13px; }
+.cortes { border-top: 1px solid var(--linea); border-bottom: 1px solid var(--linea); padding-bottom: 14px; display: grid; gap: 4px; }
+.corte { padding: 6px 16px 0; display: grid; gap: 5px; }
+.corte h3 { font-size: 16px; }
+.barra { display: grid; grid-template-columns: 20px 1fr; gap: 8px; align-items: center; font: 11px var(--mono); }
+.barra b { color: var(--tenue); font-weight: 500; text-align: right; }
+.tira { display: flex; gap: 2px; min-width: 0; height: 22px; }
+.seg { background: var(--zinc); color: var(--hoja); display: flex; align-items: center; justify-content: center; overflow: hidden; white-space: nowrap; border-radius: 2px; min-width: 0; font-variant-numeric: tabular-nums; }
+.sobra { background: var(--linea); color: var(--tenue); display: flex; align-items: center; justify-content: center; overflow: hidden; white-space: nowrap; border-radius: 2px; min-width: 0; }
+.tag { font: 600 11px var(--mono); letter-spacing: .05em; text-transform: uppercase; padding: 2px 7px; border-radius: 3px; border: 1px solid currentColor; white-space: nowrap; }
+.tag.f { color: var(--fuente); } .tag.s { color: var(--supuesto); }
+.principios { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--linea); border: 1px solid var(--linea); }
+.principios article { background: var(--hoja); padding: 16px 18px; display: grid; gap: 8px; align-content: start; min-width: 0; }
+.principios ul { margin: 0; padding-left: 18px; display: grid; gap: 6px; }
+blockquote { margin: 0; padding: 6px 0 6px 12px; border-left: 3px solid var(--linea); color: var(--tenue); font-size: 13.5px; font-style: italic; }
+blockquote cite { display: block; font: normal 11px var(--mono); margin-top: 3px; }
+.etapas { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; padding: 0; margin: 0; list-style: none; counter-reset: e; }
+.etapas li { background: var(--hoja); border: 1px solid var(--linea); border-top: 4px solid var(--acento); padding: 14px; display: grid; gap: 6px; align-content: start; counter-increment: e; min-width: 0; }
+.etapas li::before { content: "Etapa " counter(e); font: 600 12px var(--mono); color: var(--acento); letter-spacing: .06em; text-transform: uppercase; }
+.etapas p { font-size: 13.5px; }
+.nota { border: 1px dashed var(--supuesto); padding: 14px 16px; background: var(--hoja); display: grid; gap: 8px; }
+.nota ul { margin: 0; padding-left: 18px; display: grid; gap: 4px; }
+a { color: var(--cota); }
+footer { font: 12px var(--mono); color: var(--tenue); }
+@media (max-width: 760px) {
+  .planos, .principios { grid-template-columns: 1fr; }
+  .planos figure + figure { border-left: 0; border-top: 1px solid var(--linea); }
+  .etapas { grid-template-columns: 1fr 1fr; }
+  .rotulo { grid-template-columns: 1fr; } .rotulo .der { border-left: 0; border-top: 2px solid var(--tinta); }
+}
+@media (max-width: 440px) { .etapas { grid-template-columns: 1fr; } }
+@media (max-width: 760px) {
+  table.desp thead { display: none; }
+  table.desp tr { display: grid; grid-template-columns: auto 1fr auto; gap: 2px 10px; padding: 10px 16px; border-bottom: 1px solid var(--linea); }
+  table.desp tr.grupo { display: block; padding: 0; }
+  table.desp tr.grupo th { display: block; padding: 8px 16px; }
+  table.desp td { border: 0; padding: 0; }
+  table.desp td:nth-child(2) { font-weight: 600; }
+  table.desp td:nth-child(3)::before { content: "× "; color: var(--tenue); }
+  table.desp td:nth-child(4), table.desp td:nth-child(5) { grid-column: 1 / -1; white-space: normal; }
+}
+</style>
+
+<div class="envoltura">
+  <section class="rotulo">
+    <div>
+      <div class="eyebrow">Anteproyecto · lámina 1/1</div>
+      <h1>Box de alimentación individual para cerdas gestantes</h1>
+      <p style="margin-top:8px">Una jaula tubular tipo Gestal 3G, pensada para fabricarla en un taller de herrería argentino y automatizarla por etapas. Medidas cruzadas entre catálogos de fabricantes y guías universitarias del cuaderno de NotebookLM.</p>
+      <div class="cifras">
+        <span>2.240 <em>largo</em></span><span>560 <em>ancho libre</em></span><span>{{EXT}} <em>ancho ext.</em></span><span>1.130 <em>alto</em></span><span>2.500 <em>a la línea</em></span><span>1 <em>cerda por box sin RFID</em></span><span>15–18 <em>con RFID</em></span>
+      </div>
+    </div>
+    <div class="der">
+      <span>Medidas <b>mm</b></span>
+      <span>Uso <b>gestación en grupo</b></span>
+      <span>Puerta <b>mecánica, sin aire</b></span>
+      <span>Estado <b>{{ESTADO}}</b></span>
+    </div>
+  </section>
+
+  <section class="lamina">
+    <header><h2>Croquis 3D</h2><small>girá con el dedo o el mouse · siempre armado</small></header>
+    <div id="v3d"></div>
+    <div class="leyenda">
+      <span><i style="background:#8d9aa3"></i>caño galvanizado en caliente</span>
+      <span><i style="background:#d7dde0"></i>acero inoxidable 304</span>
+      <span><i style="background:#e0a42a"></i>puerta basculante</span>
+      <span><i style="background:#3d4a54"></i>dosificador / traba</span>
+      <span><i style="background:#3fa275"></i>antena RFID</span>
+      <span><i style="background:#f3efe6"></i>PEAD (panel ciego, separador)</span>
+    </div>
+  </section>
+
+  <section class="lamina">
+    <header><h2>Planta y vista lateral</h2><small>cotas en mm · la cerda entra por la izquierda</small></header>
+    <div class="planos">
+      <figure><figcaption>Planta</figcaption>{{PLANTA}}</figure>
+      <figure><figcaption>Vista lateral</figcaption>{{LATERAL}}</figure>
+    </div>
+  </section>
+
+  <section class="lamina">
+    <header><h2>Medidas y materiales</h2><small>cada dato dice de dónde sale</small></header>
+    <div class="tabla"><table>
+      <thead><tr><th>Elemento</th><th>Valor</th><th>Origen</th><th>Respaldo</th></tr></thead>
+      <tbody>
+        <tr><td>Largo del box</td><td class="v">2.240</td><td><span class="tag f">fuente</span></td><td>Gestal 3G 2.235 mm (Ojefer); Big Dutchman 7,55 ft ≈ 2.300 mm; mínimo 2.100 mm (The Pig Site).</td></tr>
+        <tr><td>Ancho libre interior</td><td class="v">560</td><td><span class="tag s">criterio</span></td><td>Entre los 520 del Gestal 3G (solo comer) y los 600 recomendados si la cerda también descansa adentro. Ajustar al tamaño de las cerdas del cliente.</td></tr>
+        <tr><td>Alto de paneles</td><td class="v">1.130</td><td><span class="tag f">fuente</span></td><td>Gestal 3G 1.132 mm.</td></tr>
+        <tr><td>Parantes por lado</td><td class="v">4, cada 747</td><td><span class="tag s">criterio</span></td><td>Con 3 parantes el larguero se plastifica ante el empuje de una cerda. Con 4 y tubo de 1½", FS 1,63 apoyado (vano extremo con continuidad ≈ 2,0).</td></tr>
+        <tr><td>Largueros laterales</td><td class="v">150 · 265 · 380 · 495<br>610 · 740 · 870 · 1.000</td><td><span class="tag s">criterio</span></td><td>Luces de 77 a 92 mm: no pasa una pata ni una cabeza. Las fuentes no dan la luz entre barrotes.</td></tr>
+        <tr><td>Parantes</td><td class="v">Ø50,8 × 3,2</td><td><span class="tag s">criterio</span></td><td>Tubo estructural redondo de 2" con 4 cartelas en la base. Con 2,0 mm la base plastifica ante el momento de un empuje (FS 0,94); con 3,2 mm, FS 1,40.</td></tr>
+        <tr><td>Pasamanos y travesaños superiores</td><td class="v">Ø50,8 × 2,0</td><td><span class="tag s">supuesto</span></td><td>Tubo estructural redondo de 2". Pedir siempre por diámetro exterior y espesor, con certificado.</td></tr>
+        <tr><td>Largueros</td><td class="v">Ø38,1 × 2,0</td><td><span class="tag s">criterio</span></td><td>Tubo estructural redondo de 1½". Big Dutchman usa tubo de 1" (Ø25,4), que con estas luces no resiste el empuje de una cerda.</td></tr>
+        <tr><td>Puerta trasera</td><td class="v">470 × 810</td><td><span class="tag s">supuesto</span></td><td>Mecanismo de fuente: basculante, resorte regulable y topes de goma, se destraba solo desde adentro (Big Dutchman Free Access); autocerrante accionado por la cerda (Gestal 3G). Tubo Ø38,1 × 2,0, panel ciego de PEAD entre z 400 y 950, pivote a 1.060, holgura 26 mm a los parantes.</td></tr>
+        <tr><td>Traba</td><td class="v">2 trinquetes a z 300</td><td><span class="tag s">criterio</span></td><td>Uno por lado sobre topes fijos. Se arman cuando la puerta pasa los 70° hacia adentro y se liberan a 70° hacia afuera: una cerda que solo mete la cabeza o hoza desde afuera no los mueve. Varilla de mando galvanizada por detrás del parante, con guarda. Con 1,5 kN cada trinquete toma unos 0,8 kN.</td></tr>
+        <tr><td>Frente</td><td class="v">4 barrotes, luz 90</td><td><span class="tag s">supuesto</span></td><td>Barrotes Ø25,4 × 2,0 centrados entre travesaños a z 330, 700 y 1.130: vanos de 370 y 430 mm. La barra de z 700 es necesaria; sin ella los barrotes no aguantan el empuje; zócalo de chapa de 2 mm de z 50 a 330 para que nadie robe del comedero desde afuera.</td></tr>
+        <tr><td>Pie</td><td class="v">placa 150 × 150 × 9,5 + pletina 300 × 150 × 10</td><td><span class="tag s">criterio</span></td><td>Placa base galvanizada con cartelas, concéntrica con la pletina inox 304 chaflanada; las dos desplazadas 25 mm hacia afuera (invaden 24,6 mm a ras del piso). Unidas con 4 M10 inox, junta fenólica, vainas y arandelas aislantes. Gestal: pletinas ranuradas abulonadas al slat.</td></tr>
+        <tr><td>Anclaje al slat</td><td class="v">4 M12 pasantes + contrapletina</td><td><span class="tag s">supuesto</span></td><td>Bulones inox de cabeza avellanada embutida, por las ranuras del slat, en colisos a y ±20 (no chocan con los M10 en ninguna posición de la ranura), con una contrapletina inferior 300 × 100 × 8 por pie que abraza 2 vigas, como las pletinas superiores e inferiores de la fuente. Un gancho J no alcanza: la base recibe hasta 0,9 kN·m.</td></tr>
+        <tr><td>Comedero</td><td class="v">375 × 460 × 210</td><td><span class="tag s">supuesto</span></td><td>Material de fuente: inoxidable 304 sin bordes filosos (Schauer, Pericoli). Apoya en dos travesaños a z 100 (frente y x 1.860) y se abulona al zócalo con M8 inox y bujes de nylon, nunca soldado.</td></tr>
+        <tr><td>Caída de alimento</td><td class="v">inox Ø50 × 1,5</td><td><span class="tag s">criterio</span></td><td>Cae dentro del comedero, pegada al borde frontal, fuera del lugar de la cabeza. Abrazadera inox con buje de nylon al travesaño frontal.</td></tr>
+        <tr><td>Dosificador</td><td class="v">240 × 300 × 600</td><td><span class="tag s">supuesto</span></td><td>Montaje rígido en el marco frontal superior (Gestal 3G). El Gestal mide 1.235 de alto propio.</td></tr>
+        <tr><td>Línea de alimento</td><td class="v">Ø60 a 2.500</td><td><span class="tag f">fuente</span></td><td>Gestal 3G: línea de Ø60 mm a 2.500 mm del piso.</td></tr>
+        <tr><td>Antena RFID</td><td class="v">56 al metal</td><td><span class="tag s">criterio</span></td><td>Fuente: cerca del comedero, a la altura de la oreja y separada de masas metálicas. Separador de PEAD; distancia mínima y lectura del box vecino a confirmar con el proveedor del lector.</td></tr>
+        <tr><td>Peso</td><td class="v">≈ 215 kg</td><td><span class="tag s">cálculo</span></td><td>Bastidor galvanizado ≈ 160 kg y pletinas inox ≈ 42 kg, más puerta y comedero. Se fabrica en subconjuntos abulonados: 2 laterales de unos 68 kg, frente con comedero, travesaño trasero y puerta. Cada pieza la mueven 2 personas.</td></tr>
+        <tr><td>Capacidad</td><td class="v">1 → 15–18 cerdas</td><td><span class="tag f">fuente</span></td><td>Gestal 3G: 15 a 18 cerdas por box con electrónica. Sin identificación, 1 cerda por box: no hay forma de dar ración individual ni de frenar a las que repiten.</td></tr>
+      </tbody>
+    </table></div>
+  </section>
+
+  <section class="lamina">
+    <header><h2>Despiece</h2><small>sale de las mismas medidas · sin precios</small></header>
+    {{DESPIECE}}
+  </section>
+
+  <section style="display:grid;gap:12px">
+    <h2>Principios de diseño</h2>
+    <div class="principios">
+      <article>
+        <h3>La cerda primero</h3>
+        <ul>
+          <li>El box tiene que cubrir a la cerda entera, cola incluida. La entrada es el punto de más peleas y donde se muerden vulvas.</li>
+          <li>Separar cerdas comidas de no comidas. Este box es de salida de culata, como el Gestal: el pasillo de atrás tiene que estar despejado (unos 3 m) para que la cerda salga sin chocar.</li>
+          <li>Un recorrido largo entre la salida y la entrada evita que una cerda se quede cuidando el box.</li>
+        </ul>
+        <blockquote>“The feeder entrance is the most common source of tension in a group gestation pen.”<cite>cuaderno NotebookLM, fuentes de manejo ESF</cite></blockquote>
+      </article>
+      <article>
+        <h3>Materiales contra el amoníaco</h3>
+        <ul>
+          <li>Pletinas de apoyo, contrapletinas y comedero en inoxidable 304: es la zona de purín y humedad, donde todo se rompe primero.</li>
+          <li>El resto, en caño negro soldado completo en taller y <b>galvanizado en caliente después de soldar</b>. Soldar sobre galvanizado quema el zinc y larga humo tóxico.</li>
+          <li>Inoxidable y galvanizado nunca soldados entre sí: se abulonan con bujes y arandelas de nylon para que no haya corrosión galvánica.</li>
+          <li>Venteos de Ø10 en cada caño cerrado y en cada nudo, si no el caño revienta o queda sin zinc por dentro en el baño.</li>
+        </ul>
+        <blockquote>“Pig manure contains a variety of corrosion-inducing chemicals, such as sulfates, nitrates, chlorides, hydrogen sulfide, and ammonia.”<cite>Termotecnica Pericoli</cite></blockquote>
+      </article>
+      <article>
+        <h3>Puerta simple, sin aire comprimido</h3>
+        <ul>
+          <li>Sin cerda adentro, la puerta abre libre hacia adentro. La cerda entra empujando y la puerta sube hasta 90° sobre el lomo. Al pasar los 70° un gatillo arma la traba (para salvar el lomo hacen falta 77–85°, así que una cerda que solo mete la cabeza no la arma); cuando la puerta vuelve a vertical, dos trinquetes bloquean el giro hacia adentro.</li>
+          <li>Para salir, la cerda retrocede y empuja la puerta hacia afuera. Recién a partir de 70° la leva del eje levanta los trinquetes y los deja abiertos para la próxima. Un empujón chico o una cerda que hoza desde afuera no liberan nada.</li>
+          <li>Panel ciego a la altura de la vulva: la que espera afuera no alcanza a morder.</li>
+          <li>Puerta solidaria a un eje inox Ø20 que gira en orejas de 2" × ¼" con buje de PEAD, que además lo aísla del galvanizado; resorte regulable y topes de goma. Palanca de destrabe desde el pasillo para revisar o vacunar.</li>
+        </ul>
+        <blockquote>“The crate is activated by the sow so no moving parts that are hard to replace.”<cite>Jyga Technologies, Gestal 3G</cite></blockquote>
+      </article>
+      <article>
+        <h3>Dejar previsto lo electrónico</h3>
+        <ul>
+          <li>Planchuelas soldadas desde el principio: dos en el travesaño del dosificador y una oreja en el pasamanos, a 450 mm de la puerta, para el actuador futuro.</li>
+          <li>Antena RFID a la altura de la oreja, cerca del comedero, separada de masas de hierro que bloquean la lectura.</li>
+          <li>Si después se motoriza la puerta, acople flojo o sensor de bloqueo: nunca más que el peso de la puerta sobre el animal.</li>
+          <li>Tableros y cajas IP66 para resistir la hidrolavadora.</li>
+        </ul>
+      </article>
+      <article>
+        <h3>Montaje en galpones existentes</h3>
+        <ul>
+          <li>Pletinas ranuradas que abrazan las vigas del slat con bulones: no se rompe el piso y se puede reubicar.</li>
+          <li>Se fabrica en subconjuntos abulonados (dos laterales, frente, puerta): entran en el baño de galvanizado, se transportan en una camioneta y los arman 2 personas.</li>
+          <li>Pensado para reconvertir galpones de jaulas fijas sin tocar fosas.</li>
+        </ul>
+      </article>
+      <article>
+        <h3>Errores que se repiten</h3>
+        <ul>
+          <li>Cargar más cerdas por box de las previstas: las jóvenes y sumisas quedan sin comer.</li>
+          <li>No entrenar a las cachorras antes del servicio.</li>
+          <li>Rebabas y soldaduras filosas que lastiman cabeza y flancos.</li>
+          <li>Caravanas RFID perdidas: sin identificación no hay ración.</li>
+        </ul>
+      </article>
+    </div>
+  </section>
+
+  <section style="display:grid;gap:12px">
+    <h2>Automatización por etapas</h2>
+    <ol class="etapas">
+      <li><h3>Box mecánico</h3><p>Bastidor, puerta con trinquetes y comedero inox. Ración a mano. Una cerda por box: comen sin pelear y descansan ahí.</p></li>
+      <li><h3>Dosis volumétrica</h3><p>Dosificador mecánico en el marco frontal, conectado a la línea. Misma ración para todas; sigue una cerda por box.</p></li>
+      <li><h3>Identificación</h3><p>Caravana RFID, antena junto al comedero y dosificador electrónico. Ración individual por curva: recién acá el box pasa a 15–18 cerdas.</p></li>
+      <li><h3>Puerta actuada</h3><p>Actuador lineal o neumático en la oreja prevista del pasamanos, con sensor anti-atrapamiento. Habilita salida con selección.</p></li>
+    </ol>
+  </section>
+
+  <section class="nota">
+    <h3>Lo que falta definir</h3>
+    <ul>
+      <li>Auditoría independiente: 5 vueltas (10/34 → 23/39 → 27/39 → 35/40 → 35/37). Los 2 hallazgos de la quinta (posición de los bulones de anclaje y una cifra del frente) están corregidos sin una sexta revisión.</li>
+      <li>Para el plano de taller: taco plano en el trinquete, eje corto pasante para la leva y altura del pie con la junta (22,5 mm).</li>
+      <li>Espesores de caño, luz entre barrotes, métrica de bulones y resortes no están en las fuentes. Los valores de esta lámina son una propuesta, verificada por un auditor independiente con cálculo simplificado, que hay que validar con un ingeniero matriculado y con un productor.</li>
+      <li>Probar un prototipo con cerdas reales: entradas abortadas (la cerda mete la cabeza y retrocede), hozado desde afuera, fuerza del resorte, arco de la puerta sobre la cerda más grande y lectura de la antena y del box vecino.</li>
+      <li>Peso y tamaño de la cerda de referencia de los clientes (genética local), que define el ancho libre final.</li>
+      <li>Para producir planos de taller, despiece y presupuesto con el plugin «estructuras-a-medida» hace falta agregarle la tipología de jaula metálica (su v3, todavía no hecha).</li>
+    </ul>
+  </section>
+
+  <footer>Fuentes: cuaderno NotebookLM «ESF — Jaulas mecánicas y estructuras tubulares» (Ojefer/Jyga Gestal 3G, Big Dutchman, Schauer, Fancom, Skiold, Indiv, AP, Termotecnica Pericoli, Unified Alloys, The Pig Site, Iowa State, KSU/Nebraska, patentes AU2016425292 y US10506793). <a href="https://notebooklm.google.com/notebook/a543a6b6-bcf8-4c34-b602-5330eda9cbfb">Abrir el cuaderno</a>. Anteproyecto: no reemplaza el cálculo de un ingeniero matriculado.</footer>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+<script>
+const ESCENA = {{ESCENA}};
+(function () {
+  const el = document.getElementById("v3d");
+  if (!el || !window.THREE) { if (el) el.innerHTML = '<p style="padding:16px">No se pudo cargar el visor 3D.</p>'; return; }
+  const scene = new THREE.Scene();
+  const cam = new THREE.PerspectiveCamera(30, 4 / 3, 50, 60000);
+  cam.up.set(0, 0, 1); cam.position.set(-3400, -4600, 3000);
+  const ren = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+  ren.setPixelRatio(Math.min(devicePixelRatio, 2)); el.appendChild(ren.domElement);
+  const ctl = new THREE.OrbitControls(cam, ren.domElement);
+  ctl.target.set(1120, 0, 1000); ctl.enableDamping = true; ctl.maxPolarAngle = Math.PI * 0.495; ctl.minDistance = 1500; ctl.maxDistance = 14000;
+  scene.add(new THREE.HemisphereLight(0xf2f6ff, 0x5b5f63, 0.9));
+  const sun = new THREE.DirectionalLight(0xffffff, 0.7); sun.position.set(-3000, -5000, 8000); scene.add(sun);
+  const std = (c, m, r) => new THREE.MeshStandardMaterial({ color: c, metalness: m, roughness: r });
+  const MAT = { galva: std(0xa3b0b8, .25, .5), inox: std(0xe4e9ec, .2, .3), puerta: std(0xe0a42a, .3, .5),
+    oscuro: std(0x3d4a54, .4, .5), electro: std(0x3d4a54, .3, .6), rfid: std(0x3fa275, .1, .6), linea: std(0xb7c0c5, .2, .4),
+    slat: std(0xa8a49c, 0, 1), pead: std(0xf3efe6, 0, .8) };
+  const V = (p) => new THREE.Vector3(p[0], p[1], p[2]);
+  function cil(a, b, r, mat) {
+    const A = V(a), B = V(b), d = B.clone().sub(A), L = d.length();
+    const m = new THREE.Mesh(new THREE.CylinderGeometry(r, r, L, 18), mat);
+    m.position.copy(A.clone().add(B).multiplyScalar(.5));
+    m.quaternion.setFromUnitVectors(new THREE.Vector3(0, 1, 0), d.normalize()); return m;
+  }
+  function caja(x, y, z, mat) {
+    const m = new THREE.Mesh(new THREE.BoxGeometry(x[1] - x[0], y[1] - y[0], z[1] - z[0]), mat);
+    m.position.set((x[0] + x[1]) / 2, (y[0] + y[1]) / 2, (z[0] + z[1]) / 2); return m;
+  }
+  ESCENA.slats.forEach((s) => scene.add(caja(s, [-1100, 1100], [-90, 0], MAT.slat)));
+  ESCENA.piezas.forEach((p) => scene.add(cil(p.a, p.b, p.r, MAT[p.m] || MAT.galva)));
+  ESCENA.cajas.forEach((c) => scene.add(caja(c.x, c.y, c.z, MAT[c.m] || MAT.galva)));
+  function tam() { const w = el.clientWidth, h = el.clientHeight; ren.setSize(w, h, false); cam.aspect = w / h; cam.updateProjectionMatrix(); }
+  new ResizeObserver(tam).observe(el); tam();
+  (function loop() { ctl.update(); ren.render(scene, cam); requestAnimationFrame(loop); })();
+})();
+</script>

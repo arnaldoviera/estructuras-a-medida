@@ -1,0 +1,222 @@
+{
+  "version": 1,
+  "proyecto": {
+    "marca": "Estructuras a medida",
+    "numero": "EAM-2026-002",
+    "fecha": "2026-10-28",
+    "validez_dias": 30,
+    "titulo": "Box de alimentación individual para cerdas gestantes"
+  },
+  "cliente": {
+    "nombre": null,
+    "contacto": null,
+    "localidad": "a definir",
+    "provincia": "a definir",
+    "zona_compras": null,
+    "direccion_obra": null
+  },
+  "tipologia": "jaula-cerdas",
+  "requisitos": {
+    "uso": "Gestación en grupo: una cerda come aislada en el box; automatizable por etapas hasta RFID y dosificador electrónico (tipo Gestal 3G).",
+    "cantidad_boxes": 1,
+    "decisiones": {
+      "salida": "de culata, como Gestal 3G (entra y sale por la puerta trasera); requiere pasillo trasero despejado",
+      "capacidad": "etapas 1-2: 1 cerda por box; desde la etapa 3 (RFID + dosificador): 15-18 cerdas por box",
+      "largueros": "tubo estructural redondo 1½\" (Ø38,1) con parantes intermedios cada ~750 mm",
+      "pies": "pie galvanizado con el bastidor + pletina inox abulonada con aislante",
+      "lateral_vs_antena": "8 largueros con luces <= 100 mm; antena separada del metal con separador de PEAD"
+    },
+    "galpon": {
+      "piso": "slats de hormigón",
+      "slat": {
+        "ancho": 100,
+        "ranura": 20,
+        "orientacion": "vigas transversales al box (a lo largo de y)",
+        "_origen": "supuesto típico; verificar en el galpón"
+      },
+      "pasillo_trasero_m": 3
+    },
+    "linea_alimento": {
+      "z": 2500,
+      "diam": 60,
+      "_origen": "fuente: Gestal 3G, línea Ø60 a 2.500 mm del piso"
+    },
+    "etapa_inicial": 1,
+    "fabricacion": "taller de herrería estándar en Argentina; galvanizado en caliente tercerizado"
+  },
+  "diseno": {
+    "box": {
+      "largo": 2240,
+      "ancho_libre": 560,
+      "alto": 1130,
+      "_origen": "fuente: Gestal 3G (Ojefer) 2235 x 520 libre (599 ext.) x 1132; Big Dutchman Free Access 2300 x 620; The Pig Site mín. 600 x 2100. Ancho 560 = criterio intermedio"
+    },
+    "tubos": {
+      "parante": {
+        "diam": 50.8,
+        "esp": 3.2,
+        "nombre": "tubo estructural redondo Ø50,8 × 3,2 (2\"), con cartelas en la base",
+        "_origen": "criterio: con 2,0 mm la base plastifica ante 0,9 kN·m (FS 0,94); con 3,2 mm FS 1,40"
+      },
+      "larguero": {
+        "diam": 38.1,
+        "esp": 2.0,
+        "nombre": "tubo estructural redondo Ø38,1 × 2,0 (1½\")",
+        "_origen": "criterio: Big Dutchman usa tubo de 1\" (Ø25,4), que no resiste el empuje de una cerda; se sube a 1½\""
+      },
+      "puerta": {
+        "diam": 38.1,
+        "esp": 2.0,
+        "nombre": "tubo estructural redondo Ø38,1 × 2,0 (1½\")",
+        "_origen": "supuesto"
+      },
+      "barrote": {
+        "diam": 25.4,
+        "esp": 2.0,
+        "nombre": "tubo estructural redondo Ø25,4 × 2,0 (1\")",
+        "_origen": "supuesto"
+      },
+      "pasamanos": {
+        "diam": 50.8,
+        "esp": 2.0,
+        "nombre": "tubo estructural redondo Ø50,8 × 2,0 (2\") para pasamanos y travesaños superiores",
+        "_origen": "supuesto: medida comercial de tubo estructural; FS 3,0 ante el empuje de una cerda"
+      }
+    },
+    "largueros_z": [
+      150,
+      265,
+      380,
+      495,
+      610,
+      740,
+      870,
+      1000
+    ],
+    "parantes_x": [
+      0,
+      747,
+      1493,
+      2240
+    ],
+    "puerta": {
+      "ancho": 470,
+      "pivote_z": 1060,
+      "borde_inf_z": 250,
+      "apertura_max_grados": 90,
+      "panel_ciego": {
+        "z0": 400,
+        "z1": 950,
+        "material": "PEAD 10 mm abulonado"
+      },
+      "eje": {
+        "diam": 20,
+        "material": "inox 304 macizo, aislado por los bujes de PEAD",
+        "apoyo": "orejas de planchuela 2\" × ¼\" soldadas a los parantes traseros; la puerta es solidaria al eje por planchuela y pasador galvanizado con vaina aislante"
+      },
+      "traba": "dos trinquetes por gravedad, uno por lado, a z 300 sobre topes fijos en los parantes traseros; varilla de mando Ø10 maciza galvanizada, por detrás del parante (x −45, en el eje y del parante) con guarda de chapa",
+      "mecanismo": "Sin cerda: los trinquetes quedan retenidos arriba y la puerta abre libre hacia adentro. La cerda entra: al pasar los 70° hacia adentro (para salvar el lomo hacen falta 77–85°, así que toda cerda que entra lo pasa y una que solo mete la cabeza no) un gatillo suelta la retención, y cuando la puerta vuelve a vertical los trinquetes caen y bloquean el giro hacia adentro. La cerda sale de culata empujando hacia afuera: recién a partir de 70° la leva del eje tira de la varilla, levanta los trinquetes y los deja retenidos para la próxima. Empujes chicos o el hozado desde afuera (≈ 43 N en la punta) no llegan a 70°. Destrabe manual con palanca desde el pasillo.",
+      "_origen": "fuente del mecanismo: Big Dutchman Free Access (basculante, resorte regulable, topes de goma, destrabe solo desde adentro) y Gestal 3G (autocerrante activado por la cerda); medidas supuestas",
+      "pruebas_prototipo": [
+        "entradas abortadas (cerda que mete la cabeza y retrocede)",
+        "hozado desde afuera",
+        "fuerza del resorte y velocidad de cierre",
+        "arco sobre el lomo de la cerda más grande",
+        "lectura de la antena y del box vecino"
+      ],
+      "trinquete_z": 300,
+      "travesanos_z": [
+        250,
+        400,
+        950
+      ]
+    },
+    "frente": {
+      "barrotes": "4 verticales Ø25,4 × 2,0 centrados, luz 90 mm, entre los travesaños z 330 y 1.130",
+      "travesano_330": "Ø38,1 × 2,0 a z 330: sujeta los barrotes y tapa el canto del zócalo",
+      "zocalo": "chapa galvanizada 2 mm de z 50 a 330, abulonada: nadie roba del comedero desde afuera",
+      "travesano_inferior": "Ø38,1 × 2,0 a z 100, apoyo delantero del comedero",
+      "_origen": "supuesto",
+      "barra_cabeza": "Ø38,1 × 2,0 a z 700: divide los barrotes en vanos de 370 y 430 mm entre ejes (sin ella, FS 0,63; con ella, FS 1,16 apoyado y 1,46 continuo)",
+      "travesanos_z": [
+        100,
+        330,
+        700
+      ],
+      "barrotes_cant": 4
+    },
+    "pie": {
+      "placa_base": "150 × 150 × 9,5 galvanizada, concéntrica con la pletina (el parante queda corrido 25 mm hacia adentro sobre ella), soldada con 4 cartelas; extremo del parante con tapa soldada",
+      "pletina": {
+        "largo": 300,
+        "ancho": 150,
+        "esp": 10,
+        "desplazamiento_afuera": 25,
+        "material": "inox 304, cantos chaflanados 2 × 45°, esquinas R15, 2 colisos en y ±20 del centro para los bulones de anclaje"
+      },
+      "union": "kit de aislación: junta fenólica de 3 mm (sobresale 5 mm de los cantos), vainas y arandelas aislantes en 4 bulones M10 inox a ±55 del centro de la pletina",
+      "_origen": "criterio (fuente: Big Dutchman pies galvanizados; Gestal pletinas ranuradas abulonadas; Schauer inox en contacto con el piso). Pletina y placa desplazadas 25 mm hacia afuera: invaden 24,6 mm el ancho libre a ras del piso"
+    },
+    "bulon_anclaje": "4 bulones pasantes M12 inox de cabeza avellanada (DIN 7991) embutida en la pletina de 10 mm, en colisos sobre y ±20 del centro (35 mm libres a los M10 para cualquier posición de la ranura), 2 por ranura del slat, con 1 contrapletina inferior 300 × 100 × 8 inox por pie que abraza 2 vigas. Un gancho J no alcanza: el momento en la base llega a 0,9 kN·m.",
+    "comedero": {
+      "x0": 1840,
+      "x1": 2215,
+      "ancho": 460,
+      "z0": 120,
+      "z1": 330,
+      "fijacion": "bulones M8 inox con bujes y arandelas de nylon; nunca soldado al bastidor",
+      "_origen": "material inox 304 (fuente: Schauer, Pericoli); medidas supuestas",
+      "soportes": "adelante apoya en el travesaño z 100 y se abulona al zócalo; atrás apoya en un travesaño Ø38,1 a x 1.860, z 100. Bulones M8 inox con bujes de nylon, nunca soldado",
+      "apoyo_trasero_x": 1860
+    },
+    "caida": {
+      "x": 2185,
+      "z0": 400,
+      "z1": 1300,
+      "cano": "inox Ø50 × 1,5",
+      "sujecion": "abrazadera inox con buje de nylon al travesaño frontal z 1.130",
+      "_origen": "criterio: cae dentro del comedero, junto al borde frontal"
+    },
+    "dosificador": {
+      "x0": 1990,
+      "x1": 2230,
+      "ancho": 300,
+      "z0": 1300,
+      "z1": 1900,
+      "montaje": "rígido sobre el marco frontal superior",
+      "_origen": "montaje: fuente Gestal 3G; caja 240 × 300 × 600 supuesta (el Gestal tiene 1.235 de alto propio)",
+      "travesano_z": 1950
+    },
+    "rfid": {
+      "x0": 1880,
+      "x1": 1940,
+      "z0": 600,
+      "z1": 800,
+      "y_cara": 230,
+      "separador": "PEAD 56 mm al larguero",
+      "_origen": "criterio: separación propia; la fuente pide la antena cerca del comedero, a la altura de la oreja y separada de masas metálicas. Pendiente con el proveedor: distancia mínima a metal y que no lea a la cerda del box vecino (el separador reduce el ancho a 488 solo en 60 mm a la altura de la cabeza)."
+    },
+    "galvanizado": "inmersión en caliente después de soldar todo; agujeros de venteo Ø10 en cada extremo de caño cerrado y en cada nudo, en caras no expuestas al animal; desbarbar soldaduras antes",
+    "previsiones": {
+      "planchuelas_dosificador": "2 × planchuela 2\" × ¼\" con 2 agujeros Ø13 a 100 mm, soldadas al travesaño z 1.950",
+      "oreja_actuador": "planchuela 2\" × ¼\" con agujero Ø13 en el pasamanos lateral a x 450, para un actuador lineal que empuje una palanca soldada a la puerta",
+      "soporte_antena": "2 agujeros Ø9 en el larguero z 740 para el separador de PEAD"
+    }
+  },
+  "comercial": {
+    "iva_pct": 21,
+    "mostrar_con_iva": false,
+    "incluye_flete": false,
+    "mod": {
+      "incluida": false,
+      "texto": "Fabricación y montaje se cotizan aparte."
+    },
+    "plazo_entrega": null,
+    "garantia": null,
+    "anexo_autoconstruccion": false
+  },
+  "estado": {
+    "validacion_aprobada": true,
+    "vueltas_auditoria": 5
+  }
+}

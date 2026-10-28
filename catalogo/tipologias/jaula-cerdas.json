@@ -1,0 +1,62 @@
+{
+  "id": "jaula-cerdas",
+  "nombre": "Box de alimentación individual para cerdas gestantes (tipo Gestal 3G)",
+  "version_plugin": "v1.1",
+  "material_base": "hierro",
+  "presupuesto": false,
+  "materiales_admitidos": ["tubo-estructural-redondo", "inox-304", "chapa-acero", "planchuela-galvanizada"],
+  "criterios": {
+    "_nota": "Cada criterio dice de dónde sale. 'fuente' = documentado (cuaderno NotebookLM de estaciones ESF y boxes tipo Gestal 3G); 'criterio' = regla de diseño adoptada y auditada.",
+    "ancho_libre_mm": {"min": 520, "max": 600, "origen": "fuente: Gestal 3G 520 (solo comer); The Pig Site 600 si la cerda también descansa adentro"},
+    "largo_min_mm": {"valor": 2100, "origen": "fuente: The Pig Site, longitud mínima 2,10 m"},
+    "luz_lateral_max_mm": {"valor": 100, "origen": "criterio: no pasa una pata ni una cabeza"},
+    "luz_frontal_max_mm": {"valor": 100, "origen": "criterio: la cerda no saca la cabeza al pasillo"},
+    "pellizco_mm": {"prohibido": [8, 25], "origen": "criterio: holgura de piezas móviles fuera de 8–25 mm (cola, oreja, piel)"},
+    "lomo_mm": {"rango": [850, 950], "margen": 30, "origen": "criterio: altura de lomo de una cerda adulta + margen"},
+    "empuje_lateral_kN": {"valor": 1.5, "origen": "criterio: empuje puntual de una cerda a media luz"},
+    "dosificador_kg": {"valor": 40, "factor": 2, "origen": "criterio: dosificador + alimento, factor dinámico 2"},
+    "momento_base_kNm": {"valor": 0.9, "origen": "criterio: empuje de 1,5 kN a 600 mm de altura"},
+    "fs_min": {"valor": 1.15, "origen": "criterio de anteproyecto con fy nominal; el cálculo definitivo lo hace un ingeniero matriculado"},
+    "invasion_pie_max_mm": {"valor": 30, "origen": "criterio: el pie no debe achicar el ancho libre a ras del piso más de 30 mm por lado"},
+    "capacidad_con_rfid": {"rango": [15, 18], "origen": "fuente: Gestal 3G, 15 a 18 cerdas gestantes por box"},
+    "linea_alimento": {"z_mm": 2500, "diam_mm": 60, "origen": "fuente: Gestal 3G, línea Ø60 a 2.500 mm del piso"}
+  },
+  "principios": [
+    {"titulo": "La cerda primero", "items": [
+      "El box cubre a la cerda entera, cola incluida. La entrada es el punto de más peleas y donde se muerden vulvas.",
+      "Separar cerdas comidas de no comidas. En un box de salida de culata, como el Gestal, el pasillo de atrás tiene que estar despejado (unos 3 m).",
+      "Un recorrido largo entre la salida y la entrada evita que una cerda se quede cuidando el box."],
+     "cita": {"texto": "The feeder entrance is the most common source of tension in a group gestation pen.", "fuente": "cuaderno NotebookLM, fuentes de manejo ESF"}},
+    {"titulo": "Materiales contra el amoníaco", "items": [
+      "Pletinas de apoyo, contrapletinas y comedero en inoxidable 304: es la zona de purín y humedad, donde todo se rompe primero.",
+      "El resto en hierro negro soldado completo en taller y galvanizado en caliente después de soldar. Soldar sobre galvanizado quema el zinc y larga humo tóxico.",
+      "Inoxidable y galvanizado nunca soldados entre sí: se abulonan con bujes y arandelas de nylon.",
+      "Venteos de Ø10 en cada caño cerrado y en cada nudo, si no el caño revienta o queda sin zinc por dentro."],
+     "cita": {"texto": "Pig manure contains a variety of corrosion-inducing chemicals, such as sulfates, nitrates, chlorides, hydrogen sulfide, and ammonia.", "fuente": "Termotecnica Pericoli"}},
+    {"titulo": "Puerta simple, sin aire comprimido", "items": [
+      "La cerda acciona la puerta con el cuerpo: entra empujando, la puerta sube sobre el lomo y al volver a vertical dos trinquetes bloquean el giro hacia adentro.",
+      "La traba se arma y se libera recién a 70°: una cerda que solo mete la cabeza o hoza desde afuera no la mueve.",
+      "Panel ciego a la altura de la vulva y holgura de piezas móviles fuera de la franja de pellizco."],
+     "cita": {"texto": "The crate is activated by the sow so no moving parts that are hard to replace.", "fuente": "Jyga Technologies, Gestal 3G"}},
+    {"titulo": "Dejar previsto lo electrónico", "items": [
+      "Planchuelas soldadas desde el principio para el dosificador y para un actuador futuro.",
+      "Antena RFID a la altura de la oreja, cerca del comedero, separada del metal.",
+      "Si se motoriza la puerta: acople flojo o sensor de bloqueo; tableros IP66 para la hidrolavadora."]},
+    {"titulo": "Montaje en galpones existentes", "items": [
+      "Pletinas inox que abrazan las vigas del slat con bulones pasantes y contrapletina: no se rompe el piso y se puede reubicar.",
+      "Subconjuntos abulonados (dos laterales, frente, puerta): entran en el baño de galvanizado y los mueven 2 personas."]},
+    {"titulo": "Errores que se repiten", "items": [
+      "Cargar más cerdas por box de las previstas: las jóvenes y sumisas quedan sin comer.",
+      "No entrenar a las cachorras antes del servicio.",
+      "Rebabas y soldaduras filosas que lastiman cabeza y flancos.",
+      "Caravanas RFID perdidas: sin identificación no hay ración."]}
+  ],
+  "etapas": [
+    {"titulo": "Box mecánico", "texto": "Bastidor, puerta con trinquetes y comedero inox. Ración a mano. Una cerda por box: comen sin pelear y descansan ahí."},
+    {"titulo": "Dosis volumétrica", "texto": "Dosificador mecánico en el marco frontal, conectado a la línea. Misma ración para todas; sigue una cerda por box."},
+    {"titulo": "Identificación", "texto": "Caravana RFID, antena junto al comedero y dosificador electrónico. Ración individual por curva: recién acá el box pasa a 15–18 cerdas."},
+    {"titulo": "Puerta actuada", "texto": "Actuador lineal o neumático en la oreja prevista del pasamanos, con sensor anti-atrapamiento."}
+  ],
+  "fuentes": "Cuaderno NotebookLM «ESF — Jaulas mecánicas y estructuras tubulares de estaciones de alimentación de cerdas»: Ojefer/Jyga Gestal 3G, Big Dutchman, Schauer, Fancom, Skiold, Indiv, AP, Termotecnica Pericoli, Unified Alloys, The Pig Site, Iowa State, KSU/Nebraska, patentes AU2016425292 y US10506793.",
+  "preguntas": "skills/relevamiento/references/preguntas-por-tipologia.md#jaula-cerdas"
+}

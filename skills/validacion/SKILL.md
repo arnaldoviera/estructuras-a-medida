@@ -11,7 +11,13 @@ python "${CLAUDE_PLUGIN_ROOT}/motor/correr.py" validar <carpeta>
 
 Escribe `validacion.json` (todas las verificaciones con valor, límite y estado) e imprime el resumen.
 
-Qué verifica (pórtico de hamacas; detalle en `references/`):
+Qué verifica en `jaula-cerdas` (`motor/jaula_cerdas.py`; criterios con su origen en `catalogo/tipologias/jaula-cerdas.json`):
+- Bienestar: ancho libre 520–600, largo útil ≥ 2.100, luces entre largueros y barrotes ≤ 100 mm, holgura puerta–parante fuera de 8–25 mm (pellizco), panel ciego a la altura de la vulva.
+- Mecánica: puerta a 90° sobre el lomo (≥ 980 mm), lugar para el eje, reacción en los trinquetes.
+- Resistencia (cálculo simplificado, fy 235 MPa, FS ≥ 1,15): larguero, barrote, travesaño de puerta y pasamanos con 1,5 kN a media luz; parante en la base con 0,9 kN·m; travesaño del dosificador.
+- Montaje y fabricación: invasión del pie ≤ 30 mm, pletina sobre 2 vigas de slat, bulones del pie sin choque, antena ≥ 50 mm del metal, línea de alimento, tubos comerciales, peso del lateral ≤ 80 kg.
+
+Qué verifica en `portico-hamacas` (detalle en `references/`):
 - Espacio: pies por fuera contra el largo disponible; zona libre de vaivén EN 1176-2 contra el largo de vaivén.
 - Norma: separación entre asientos, asiento–pata, altura de asiento, caída del trapecio (`references/normas-hamacas.md`).
 - Geometría: altura del cruce (tangencia del travesaño en la V), ángulos, largo de pata contra el rollizo comercial, voladizos, largo de cartela.

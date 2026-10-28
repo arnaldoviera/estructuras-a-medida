@@ -1,6 +1,6 @@
 ---
 name: graficado
-description: Genera los gráficos de una estructura a medida desde ficha.json — perspectiva cónica acotada (SVG), láminas de detalles de uniones con agujeros y rebajes (SVG) y la escena del croquis 3D interactivo, siempre armado. Usar en la corrida completa o cuando el usuario pida ver, corregir o regenerar un plano, detalle o el 3D.
+description: Genera los gráficos de una estructura a medida desde ficha.json — en madera, perspectiva cónica acotada y láminas de detalles; en hierro, planta y vista lateral acotadas — y la escena del croquis 3D interactivo, siempre armado. Usar en la corrida completa o cuando el usuario pida ver, corregir o regenerar un plano, detalle o el 3D.
 ---
 
 # Graficado
@@ -9,6 +9,8 @@ Lo hace `correr.py todo <carpeta>`. Salidas en `salida/`:
 - `perspectiva-<config>.svg`: perspectiva cónica acotada, una por configuración (`motor/perspectiva.py`). Cilindros por tramos con orden de pintado por profundidad, cotas 3D proyectadas (líneas de referencia, flechas, texto rotado con halo), rótulos con línea guía, área libre, muro y pozos.
 - `detalle_1..6.svg`: horqueta (vista lateral), cruce a media madera (vista frontal), tirante–pata (corte horizontal), cartela, abrazadera de cuelgue, apoyo en pozo (`motor/detalles.py`). Agujeros en línea de trazos; varillas con arandela, tuerca y contratuerca.
 - `escena3d.json`: piezas del croquis 3D (`motor/croquis3d.py`). La página lo dibuja con Three.js y se gira con el dedo o el mouse.
+
+En `jaula-cerdas` (`motor/jaula_cerdas.py`): `planta.svg` y `lateral.svg` acotadas en mm (puerta con arco de apertura a 90° en los dos sentidos, panel ciego, trinquetes, pletinas, comedero, dosificador, línea y slats en corte) y `escena3d.json` (tubos como cilindros a→b, chapas y piezas como cajas; colores por material: galvanizado, inox, puerta, PEAD, electrónica).
 
 Reglas fijas:
 - El 3D va SIEMPRE ARMADO. No existe vista desarmada: el cliente no puede evaluar piezas sueltas.

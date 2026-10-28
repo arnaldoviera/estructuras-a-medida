@@ -6,3 +6,6 @@ Material del pórtico cerrado con el usuario antes del plugin (portico-v3). El p
 - `detalles/detalles.py` → `motor/detalles.py` + `motor/_fig.py`
 - `pagina/index.html` → base de `skills/propuesta-web/assets/plantilla.html`
 - `croquis-3d/`: adaptación de la skill "anatomy-reveal" (repo annnguyentt/anatomy-reveal-skill, commit dd01e1c, licencia MIT; kit Anatomy de wheresryan22, MIT). Requería Node 20+, Chrome headless, ffmpeg e ImageMagick; en el plugin se reemplazó por un visor Three.js.
+
+## jaula-esf/
+Investigación, anteproyecto y auditorías de la tipología `jaula-cerdas` (hierro). Ver `jaula-esf/README.md`.

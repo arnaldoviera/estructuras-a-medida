@@ -7,8 +7,46 @@
       "E_MPa": 12000,
       "tension_flexion_adm_MPa": 10,
       "tension_compresion_adm_MPa": 8,
-      "largos_comerciales_m": [2.0, 2.5, 3.0, 3.5, 4.0, 4.5, 5.0, 6.0],
-      "rangos_diametro_cm": [[10, 12], [12, 14], [14, 16], [16, 18], [18, 20], [20, 22], [22, 25]],
+      "largos_comerciales_m": [
+        2.0,
+        2.5,
+        3.0,
+        3.5,
+        4.0,
+        4.5,
+        5.0,
+        6.0
+      ],
+      "rangos_diametro_cm": [
+        [
+          10,
+          12
+        ],
+        [
+          12,
+          14
+        ],
+        [
+          14,
+          16
+        ],
+        [
+          16,
+          18
+        ],
+        [
+          18,
+          20
+        ],
+        [
+          20,
+          22
+        ],
+        [
+          22,
+          25
+        ]
+      ],
       "nota": "Valores admisibles conservadores para rollizo de E. grandis argentino (orden de magnitud CIRSOC 601). Diámetro comercial = rango (ej. 18-20 cm). Se compra el rango que contiene al diámetro de proyecto (si coincide con un borde, el rango que arranca en él) y se exige ese diámetro como mínimo en la punta fina."
     },
     "pino-impregnado": {
@@ -17,8 +55,41 @@
       "E_MPa": 9000,
       "tension_flexion_adm_MPa": 7.5,
       "tension_compresion_adm_MPa": 6,
-      "largos_comerciales_m": [2.0, 2.5, 3.0, 3.5, 4.0, 5.0, 6.0],
-      "rangos_diametro_cm": [[8, 10], [10, 12], [12, 14], [14, 16], [16, 18], [18, 20]],
+      "largos_comerciales_m": [
+        2.0,
+        2.5,
+        3.0,
+        3.5,
+        4.0,
+        5.0,
+        6.0
+      ],
+      "rangos_diametro_cm": [
+        [
+          8,
+          10
+        ],
+        [
+          10,
+          12
+        ],
+        [
+          12,
+          14
+        ],
+        [
+          14,
+          16
+        ],
+        [
+          16,
+          18
+        ],
+        [
+          18,
+          20
+        ]
+      ],
       "nota": "Más liviano y blando que el eucalipto: revisar flexión del travesaño."
     }
   },
@@ -26,22 +97,98 @@
     "varilla-roscada-galvanizada": {
       "nombre": "Varilla roscada galvanizada",
       "largo_barra_mm": 1000,
-      "diametros_mm": [10, 12, 16, 20],
+      "diametros_mm": [
+        10,
+        12,
+        16,
+        20
+      ],
       "corte_mm": 3,
       "regla": "Siempre arandela ancha (50-60 mm en 12 y 16 mm), tuerca y contratuerca en cada punta. Agujero = diámetro + 2 mm."
     },
     "planchuela-galvanizada": {
       "nombre": "Planchuela de hierro galvanizada",
       "largo_barra_mm": 6000,
-      "secciones_mm": ["32x5", "40x5", "50x6"]
+      "secciones_mm": [
+        "32x5",
+        "40x5",
+        "50x6"
+      ]
     },
-    "_v3": "Caño estructural y perfiles (uniones soldadas y abulonadas): pendiente para v3."
+    "tubo-estructural-redondo": {
+      "nombre": "Tubo estructural redondo con costura (acero F-24, se pide por diámetro exterior en pulgadas × espesor)",
+      "fy_MPa": 235,
+      "densidad_kg_m3": 7850,
+      "largo_barra_mm": 6000,
+      "corte_mm": 3,
+      "diametros_mm": {
+        "3/4\"": 19.05,
+        "7/8\"": 22.2,
+        "1\"": 25.4,
+        "1 1/4\"": 31.75,
+        "1 1/2\"": 38.1,
+        "2\"": 50.8,
+        "2 1/2\"": 63.5,
+        "3\"": 76.2
+      },
+      "espesores_mm": [
+        1.6,
+        2.0,
+        2.5,
+        3.2
+      ],
+      "nota": "No confundir con caño de cañería (Ø33,7, Ø42,4…, que viene en 2,6 mm o más). Pedir siempre Ø exterior × espesor con certificado. Algunos corralones venden barras de 6,40 m: confirmar con el proveedor."
+    },
+    "inox-304": {
+      "nombre": "Acero inoxidable AISI 304",
+      "fy_MPa": 205,
+      "densidad_kg_m3": 7900,
+      "uso": "Partes en contacto con purín, humedad o alimento (pletinas de apoyo, contrapletinas, comederos, ejes).",
+      "regla": "Nunca soldado a piezas galvanizadas: se abulona con vainas, arandelas y juntas aislantes (corrosión galvánica)."
+    },
+    "chapa-acero": {
+      "nombre": "Chapa de acero (negra para galvanizar, o galvanizada)",
+      "espesores_mm": [
+        2,
+        3,
+        6,
+        9.5
+      ],
+      "densidad_kg_m3": 7850
+    }
   },
   "insumos": {
-    "goma-3mm": {"nombre": "Goma de 3 mm (banda bajo abrazaderas)"},
-    "cetol": {"nombre": "Cetol (protector para madera exterior)", "rendimiento_m2_l_mano": 12, "manos": 3, "envase_l": 4},
-    "asfalto-frio": {"nombre": "Pintura asfáltica / asfalto en frío", "rendimiento_m2_l_mano": 3, "manos": 2, "envase_l": 4},
-    "ripio": {"nombre": "Ripio / piedra partida", "densidad_kg_m3": 1600},
-    "ladrillo-macizo": {"nombre": "Ladrillo común macizo", "medidas_mm": [250, 120, 55]}
+    "goma-3mm": {
+      "nombre": "Goma de 3 mm (banda bajo abrazaderas)"
+    },
+    "cetol": {
+      "nombre": "Cetol (protector para madera exterior)",
+      "rendimiento_m2_l_mano": 12,
+      "manos": 3,
+      "envase_l": 4
+    },
+    "asfalto-frio": {
+      "nombre": "Pintura asfáltica / asfalto en frío",
+      "rendimiento_m2_l_mano": 3,
+      "manos": 2,
+      "envase_l": 4
+    },
+    "ripio": {
+      "nombre": "Ripio / piedra partida",
+      "densidad_kg_m3": 1600
+    },
+    "ladrillo-macizo": {
+      "nombre": "Ladrillo común macizo",
+      "medidas_mm": [
+        250,
+        120,
+        55
+      ]
+    },
+    "galvanizado-en-caliente": {
+      "nombre": "Galvanizado por inmersión en caliente",
+      "regla": "Se galvaniza después de soldar todo el subconjunto. Venteos Ø10 en cada caño cerrado y en cada nudo, en caras no expuestas; desbarbar soldaduras antes. Nunca soldar sobre galvanizado (humo de óxido de zinc).",
+      "unidad": "kg"
+    }
   }
 }

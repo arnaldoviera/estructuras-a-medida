@@ -5,6 +5,8 @@ description: Busca en la web, en cada corrida, productos sugeridos y precios de 
 
 # Compras → precios.json
 
+Solo para tipologías con `presupuesto: true` en `catalogo/tipologias/<id>.json` (hoy, `portico-hamacas`). En `jaula-cerdas` no se buscan precios: el motor ignora `precios.json`.
+
 Entrada: `salida/pedido.json` y `cliente.zona_compras` / `cliente.localidad` de la ficha.
 
 1. Fuentes admitidas, SOLO estas y SOLO de Argentina (precio en pesos, venta en el país): publicaciones de MercadoLibre Argentina (mercadolibre.com.ar), tiendas argentinas hechas en Tiendanube y otras tiendas online argentinas con carrito y precio publicado (ej. Easy, Sodimac, ferreterías o madereras con tienda web). Nunca cotizar por WhatsApp, teléfono, mail ni formularios de "consultar precio", y no usar páginas sin precio publicado. Por cada `id` del pedido, buscar en esas fuentes priorizando la zona de compras. Si se puede, lanzar un subagente con todos los ítems en una sola tanda.
