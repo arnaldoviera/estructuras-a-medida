@@ -8,32 +8,33 @@
       "descripcion": "Poste de Eucalipto Impregnado CCA Ø18-20 x metro lineal, curado y tratado (se corta a medida; se necesitan 4 m)",
       "unidad": "m",
       "contenido": 0.25,
-      "precio": 9900.0,
+      "precio": null,
       "iva_incluido": true,
-      "fuente": "MercadoLibre Argentina (publicación 'x Ml')",
-      "url": "https://www.mercadolibre.com.ar/poste-de-eucalipto-impregnado-cca-1820-x-ml-curado-tratado/up/MLAU204956390",
-      "nota": "Referencia de Ø18-20 (no se encontró Ø20-22 publicado): el Ø20-22 cuesta más. Precio por METRO LINEAL, leído del resumen de un buscador (ML pide login, no pude abrir la ficha; mismo dato de la pasada anterior). Es Ø18-20, algo menor al Ø20-22 pedido: no encontré Ø20-22 con precio en ninguna fuente argentina. Vendedor y localidad no verificados. Referencias de la misma pasada: ML Ø14-16 x metro $8.300 (listado Rosario, resumen de buscador); ML Ø14-16 x 4 m ~$34.773 (~$8.700/m). Maderas Pueblo Esther (Pueblo Esther, Gran Rosario) y Rizzotto (Funes/Roldán) venden rollizos pero no publican precio: cotizar por WhatsApp (Pueblo Esther 341 610-2381)."
+      "fuente": "",
+      "url": "",
+      "nota": "Sin precio verificable (revisado 2026-10-28). El valor anterior ($9.900/m, Ø18-20) venía del resumen de un buscador y se descarta. Mercado Libre (publicaciones Ø20 x 4 m, p. ej. Mader Shop; Ø14-16 x 4 m MLAU204189873) pide login/captcha: no se pudo abrir ninguna ficha. Maderas Pueblo Esther (Pueblo Esther, Santa Fe, Tiendanube): la ficha de postes impregnados muestra $0,00 / \"Consultar\" (Ø18-20 para 6-9 m). Los Conejos San Vicente (Tiendanube) vende \"poste mediano 18-21 cm\" a $35.000 y \"grueso más de 22 cm\" a $48.000, pero es eucalipto reciclado, sin CCA ni largo declarado: no cumple. Se necesita 1 poste de 4 m."
     },
     {
       "id": "rollizo_d17_l35",
       "descripcion": "Rollizo eucalipto impregnado Ø16-18 × 3,5 m",
       "unidad": "m",
-      "contenido": 0.3333,
+      "contenido": 0.2857,
       "precio": null,
       "iva_incluido": true,
       "fuente": "",
       "url": "",
-      "nota": "Sin precio publicado para Ø16-18 de 3 ni de 3,5 m (madereras de Gran Rosario: 'consultar'). No encontré precio publicado para Ø16-18. Sumadera (Escobar, Buenos Aires; https://sumadera.com.ar/producto/postes-impregnados-3/) vende Ø15-18 por metro lineal pero la ficha muestra $0 (consultar). Pueblo Esther: 'consultar'. Referencias para acotar: ML Ø14-16 ~$8.300-8.700/m (resumen de buscador) y ML Ø18-20 $9.900/m, o sea Ø16-18 caería entre ~$8.700 y ~$9.900/m (interpolación, NO es un precio publicado). Cotizar por WhatsApp a Pueblo Esther."
+      "nota": "Sin precio verificable (revisado 2026-10-28). Mercado Libre (publicación Ø14-16 x 4 m, MLAU204189873) pide login/captcha: no se pudo leer la ficha. Tiendas con carrito sin precio publicado: Maderas Pueblo Esther (Tiendanube, Pueblo Esther, Santa Fe: la ficha muestra $0,00 / \"Consultar\"; solo declara Ø12-14 y 18-20), Sumadera (Escobar, Buenos Aires: ficha en $0), Maderas Ragone y La Casa del Alambre (sin precio ni carrito). DickHaus (Córdoba) solo publica Ø10-12 y Ø12-14. Los Conejos San Vicente (Tiendanube) publica poste \"fino 14-16\" $17.500 y \"mediano 18-21\" $35.000, pero es eucalipto RECICLADO, sin certificar impregnado CCA ni largo: no cumple la especificación. Se necesitan 4 u."
     },
     {
       "id": "rollizo_d15_l25",
       "descripcion": "Poste Eucalipto Impregnado CCA 2.5 m Ø14-16 cm Tratado Curado",
       "unidad": "u",
-      "precio": 13600.0,
+      "precio": null,
       "iva_incluido": true,
-      "fuente": "MercadoLibre Argentina (listado de postes de eucalipto impregnados)",
-      "url": "https://listado.mercadolibre.com.ar/postes-eucalipto-impregnados",
-      "nota": "Publicación de listado: confirmar diámetro y largo con el vendedor. Precio leído del resumen de un buscador sobre el listado (no pude abrir la página, ML pide login). Vendedor y localidad no verificados. Otra publicación del mismo listado: 14-16 x metro a $8.300/m."
+      "fuente": "",
+      "url": "",
+      "nota": "Sin precio verificable en página de producto (revisado 2026-10-28). Se descarta la página de listado de Mercado Libre usada antes ($13.600 leído de un resumen de buscador): ML pide login/captcha y no se pudo abrir la ficha MLAU/shorts de \"Poste Eucalipto Impregnado CCA 2.5 m Ø14-16\". Alternativas con ficha y precio pero que no cumplen: DickHaus (Villa General Belgrano, Córdoba) Ø10-12 x 2,5 m $9.899,55 (https://dickhaus.com/detalle/11455-poste-de-eucalipto-impregnado-2-5-metros-de-) y Ø12-14 x 4 m $21.764,17 (ver item rollizo_d12_l25); Los Conejos San Vicente (Tiendanube) \"poste fino 14-16\" $17.500 pero reciclado, sin CCA ni largo declarado. Se necesitan 4 u.",
+      "contenido": 1
     },
     {
       "id": "rollizo_d12_l25",
@@ -108,25 +109,25 @@
     },
     {
       "id": "arandela_ancha_16",
-      "descripcion": "Arandela plana ancha galvanizada 5/8\" (OD 50-60 mm)",
+      "descripcion": "Arandela chapista (vuelo grande) zincada 5/8\" (Ø int. 16,5 mm, Ø ext. 70 mm)",
       "unidad": "u",
       "contenido": 1,
-      "precio": null,
+      "precio": 889.47,
       "iva_incluido": true,
-      "fuente": "",
-      "url": "",
-      "nota": "No encontré arandela ancha / de carrocero / DIN 9021 5/8\" con precio por unidad en comercios argentinos con ficha legible (los resultados fueron Amazon, tiendas de México/El Salvador/Uruguay o neopreno). Referencias de arandela PLANA común 5/8\" (NO ancha): Extrabrut (Mendoza) $115,58/u https://extrabrut.com.ar/product/arandela-galvanizada-58-802cebc5 ; Ferretería Le-al (03402, zona Arroyo Seco, Santa Fe) $163/u https://www.ferreterialeal.com.ar/index.php?pagina=detalle&idp=6276 ; Ropelato por kilo $7.756. Cotizar en bulonería de Rosario pidiendo 'arandela de carrocero / guardabarro 5/8 x 50 mm' o cortarla de chapa galvanizada."
+      "fuente": "Abrafer SRL (tienda online, Pilar, Buenos Aires)",
+      "url": "https://www.abrafersrl.com.ar/product/arandela-chapista-5-8-70-16-5mm-x-u/",
+      "nota": "Ficha leída en vivo 2026-10-28: $889,47 por unidad (lista); $800,52 contado/transferencia. Disponible. Diámetro exterior 70 mm (título \"70-16.5MM\"), mayor que el rango ideal de 50-60 mm pero cumple ≥45 mm; zincada (acero bajo carbono), no se declara galvanizado en caliente. Vendedor en Pilar, provincia de Buenos Aires (no hay vendedor de Santa Fe con ficha y precio). Se necesitan 16 u. Referencia de arandela plana común (no ancha): Ropelato/Extrabrut/Le-al en notas anteriores."
     },
     {
       "id": "arandela_ancha_12",
-      "descripcion": "Arandela plana ancha galvanizada 1/2\" (OD 45-50 mm)",
+      "descripcion": "Arandela chapista (vuelo grande) zincada 1/2\" (Ø int. 13,5 mm, Ø ext. 55 mm)",
       "unidad": "u",
       "contenido": 1,
-      "precio": null,
+      "precio": 410.93,
       "iva_incluido": true,
-      "fuente": "",
-      "url": "",
-      "nota": "No encontré arandela ancha 1/2\" con precio por unidad en comercios argentinos. Referencia de arandela plana común 1/2\": Ropelato por kilo $7.629 (https://www.ropelato.com.ar/tuercas-arandelas-y-varillas/53828-arandela-de-hierro-galvanizada-1-2-x-kg.html) y Easy 'Arandela 1/2 2 Un' $2.100 (~$1.050/u). Estimar por analogía con 5/8\" (Le-al $163/u, Extrabrut $116/u) sería inventar; cotizar la ancha en bulonería."
+      "fuente": "Abrafer SRL (tienda online, Pilar, Buenos Aires)",
+      "url": "https://www.abrafersrl.com.ar/product/arandela-chapista-1-2-55-13-5mm-x-u/",
+      "nota": "Ficha leída en vivo 2026-10-28: $410,93 por unidad (lista); $369,84 contado/transferencia. Disponible. Diámetro exterior 55 mm (título \"55-13.5MM\"), cumple ≥45 mm; zincada, no se declara galvanizado en caliente. Vendedor en Pilar, provincia de Buenos Aires. Se necesitan 8 u."
     },
     {
       "id": "arandela_10",
