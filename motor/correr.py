@@ -58,7 +58,9 @@ def todo(dirp, solo_propuesta=False):
     page = propuesta_web.pagina(ficha, M, v, desp, ob, lam, persp, esc, precios, aud)
     escribir_txt(os.path.join(sal, "propuesta.html"), page)
     # versión en texto plano para el auditor (no ve el razonamiento previo, solo lo que lee el cliente)
-    txt = re.sub(r"<svg.*?</svg>", "[gráfico]", page, flags=re.S)
+    # el auditor no ve informes anteriores: el texto se arma sin el anexo de auditoría
+    base = propuesta_web.pagina(ficha, M, v, desp, ob, lam, persp, esc, precios, None)
+    txt = re.sub(r"<svg.*?</svg>", "[gráfico]", base, flags=re.S)
     txt = re.sub(r"<script.*?</script>|<style.*?</style>", "", txt, flags=re.S)
     txt = html.unescape(re.sub(r"<[^>]+>", " ", txt))
     escribir_txt(os.path.join(sal, "propuesta.txt"), re.sub(r"[ \t]+", " ", re.sub(r"\n\s*\n+", "\n", txt)))

@@ -1,273 +1,283 @@
 {
  "fecha": "2026-10-28",
- "vueltas": 2,
+ "vueltas": 4,
  "estado": "escalada",
  "items": [
   {
-   "requisito": "Uso y configuraciones (2 hamacas + trapecio; hamaca-cama de 3 puestos, solo mecerse; escalera de soga intercambiable)",
+   "requisito": "Uso y configuraciones (2 hamacas + trapecio; hamaca-cama de 3 puestos, solo mecerse)",
    "tipo": "explícito",
    "estado": "cumple",
-   "evidencia": "Las dos configuraciones de la ficha están verificadas (separaciones, flexión, flecha, vuelco). Cuelgues en x = ±0,25 / ±0,69 / ±1,19 m (pares a 0,50 m, puestos a 0,94 m), igual que la ficha y que la cadena de cotas de las perspectivas (0,50 | 0,44 | 0,50 | 0,44 | 0,50). La escalera de soga (400 mm, amplitud 30°) queda cubierta por la hamaca y el trapecio: es más angosta y se mueve menos.",
+   "evidencia": "La propuesta cubre ambas configuraciones con perspectiva y verificaciones separadas; cama de las abrazaderas exteriores (±1,19 m), amplitud 20°.",
    "correccion": ""
   },
   {
    "requisito": "Carga de diseño 350 kg con factor dinámico 2,5",
    "tipo": "explícito",
    "estado": "cumple",
-   "evidencia": "350·2,5·9,81 = 8,58 kN, aplicada en los casos de flexión y pandeo. Recalculé N = 3,57 kN por pata (la propuesta da 3,57).",
+   "evidencia": "Recalculado: 350·9,81·2,5 = 8,58 kN, usado en flexión, flecha y pandeo; coincide con la propuesta.",
    "correccion": ""
   },
   {
-   "requisito": "Espacio a lo largo del travesaño ≤ 4,50 m (muro en un extremo)",
-   "tipo": "explícito",
-   "estado": "dudoso",
-   "evidencia": "La propuesta dice «4,30 m de pie a pie por fuera» (2·2,065 + 0,17), pero deja afuera el desfase de media madera (±30 mm) y la inclinación. Recalculado: 4,36 m a nivel del suelo y 4,46 m en el pie enterrado (z = −0,20, corrido 49 mm hacia afuera). Si el pozo de 0,30 m se centra sobre la pata enterrada, de pozo a pozo da ≈ 4,54 m: con el pórtico centrado en los 4,50 m, el pozo del lado del muro se mete ≈ 2 cm en la línea del muro. La diferencia con el 4,30 publicado es del 1,4 % en el suelo y del 3,8 % en el pie.",
-   "correccion": "Corregir la verificación a «4,36 m en el suelo / 4,46 m en el pie enterrado». En el replanteo, poner el centro del travesaño a ≥ 2,32 m del muro (correr el pórtico ≈ 7 cm hacia el césped) y revisar que el pozo no toque el cimiento del muro."
-  },
-  {
-   "requisito": "Orientación: vaivén paralelo al muro, travesaño del muro al césped",
+   "requisito": "Espacio 4,50 m (eje travesaño) × 5,50 m (vaivén) y orientación (vaivén paralelo al muro)",
    "tipo": "explícito",
    "estado": "cumple",
-   "evidencia": "El vaivén va en y y el travesaño en x, desde el muro. Las perspectivas rotulan MURO / CÉSPED → y «ÁREA LIBRE 4,50 × 5,50 m».",
+   "evidencia": "Pies por fuera 2·(2,095 + 0,0875) = 4,365 m (prop. 4,36); pozos por fuera 2·(2,113 + 0,135) = 4,496 m ≤ 4,50 (prop. 4,50; borde a 0,2 cm del muro, advertido en el replanteo). Zona libre 2·2,748 = 5,497 m ≤ 5,50.",
    "correccion": ""
   },
   {
-   "requisito": "Anclaje apoyado sin hormigón: cada pata en un pozo con ladrillo/laja y ripio",
+   "requisito": "Anclaje apoyado sin hormigón: pozo 27 × 45 × 30 cm, 2 ladrillos, ripio, centrado en el tramo enterrado",
+   "tipo": "explícito",
+   "estado": "cumple",
+   "evidencia": "Desplazamiento del tramo enterrado: 3,66 cm (x) y 9,79 cm (y) → centro del pozo a 1,8 / 4,9 cm del pie marcado (prop. 1,8 / 4,9). Pie inferior: semiejes 8,75 × 10,15 cm; queda dentro del pozo con 2,9 cm (x) y 7,5 cm (y, lado exterior) de holgura. Profundidad 15 + 5,5 + ripio ≤ 30 cm.",
+   "correccion": ""
+  },
+  {
+   "requisito": "Materiales disponibles (rollizo de eucalipto impregnado, varilla roscada galvanizada)",
+   "tipo": "explícito",
+   "estado": "cumple",
+   "evidencia": "Todo el pedido es rollizo de eucalipto impregnado y varilla galvanizada; la planchuela de hierro negro está rotulada con galvanizado en frío.",
+   "correccion": ""
+  },
+  {
+   "requisito": "Herramientas declaradas por el cliente",
    "tipo": "explícito",
    "estado": "no cumple",
-   "evidencia": "Pie cortado horizontal: elipse de 20,7 × 17 cm. Por la inclinación de 34,9°, en los 20 cm enterrados el eje se corre 13,9 cm (13,1 cm en el vaivén y 4,9 cm a lo largo del travesaño). La huella barrida mide 33,4 cm en y × 22,4 cm en x. La propuesta solo mira la elipse del pie («30 cm ≥ huella + 5 cm»). Si el pozo de 30 × 30 cm se cava centrado en la marca del replanteo (±1,15 m), el pie enterrado llega hasta y = 1,382 m y el borde del pozo queda en 1,30 m: el pie cae 8 cm fuera del pozo. Además, el ladrillo macizo mide 12 cm de ancho (catálogo 250 × 120 × 55) y el pie tiene 17 × 20,7 cm, así que apoya en voladizo. Y 20 cm enterrados + 5,5 cm de ladrillo = 25,5 cm, más que el pozo de 25 cm.",
-   "correccion": "Ficha apoyo.pozo = [450 (en y), 350 (en x), 250 + lo que pida el ladrillo], centrado en el punto medio entre la marca en el suelo y el pie enterrado (y = ±1,215 m; x = ±2,09 m). apoyo.base = 2 ladrillos macizos lado a lado (25 × 24 cm) o laja ≥ 25 × 30 cm. Ripio ≈ 0,122 m³ (≈ 196 kg: 7 bolsas de 20 L o 1 bolsón). En el paso «Pozos», decir dónde va el centro de cada pozo. Ver conflictos."
+   "evidencia": "Cliente: mecha larga de 18 mm, motosierra/serrucho, formón, llaves, nivel, escalera. El anexo exige además mecha de 15 mm (agujeros de las varillas de 12 mm en travesaño, tirante y cartelas) y maza, sin marcarlas '(a conseguir)' como sí hace con pala, pisón, caballetes y pincel.",
+   "correccion": "En el anexo, rotular 'Mecha para madera de 15 mm, larga (a conseguir)' y 'Maza (a conseguir)'. Alternativa sin herramienta nueva: pasar varillas.cartela_inf y cartela_sup a d = 16 (agujero Ø18, la mecha que ya tiene) y recalcular el pedido."
   },
   {
-   "requisito": "Materiales: rollizo de eucalipto impregnado y varilla roscada galvanizada",
-   "tipo": "explícito",
-   "estado": "no cumple",
-   "evidencia": "Madera y varillas, bien. Pero la planchuela figura «galvanizada 40x5» en el pedido y en el detalle 5, y se cotiza hierro negro 38,1 × 4,8 (Ropelato) con la nota «galvanizar o pintar con antióxido». El pedido no incluye antióxido, esmalte ni galvanizado en frío. La sección baja un 8,6 % (183 contra 200 mm²).",
-   "correccion": "Elegir una de dos: a) cotizar planchuela galvanizada de verdad, o b) dejar hierro negro, corregir la descripción del pedido y del detalle 5 («hierro negro 1 1/2\" × 3/16\", con antióxido + esmalte») y sumar al pedido antióxido y esmalte (≈ 0,5 L de cada uno) o galvanizado en frío en aerosol."
-  },
-  {
-   "requisito": "Herramientas disponibles (taladro con mecha larga de 18 mm, motosierra o serrucho, formón, llaves, nivel, escalera)",
-   "tipo": "explícito",
-   "estado": "dudoso",
-   "evidencia": "El anexo pide además mecha de 14 mm, mecha ≥ 45 cm, maza, plomada, escuadra, pala, pisón, 2 caballetes, sogas o cinchas y pincel. Las abrazaderas (curvar planchuela de 5 mm a R ≈ 108 mm y perforar las orejas) se mandan a una herrería. El anexo lo lista bien, pero el trabajo de herrería no tiene costo ni figura en «No incluye».",
-   "correccion": "En «No incluye», agregar «trabajo de herrería de las 6 abrazaderas (curvado y perforado), a cotizar», o sumarlo al presupuesto como ítem a cotizar. Marcar en el anexo cuáles herramientas no están en la lista del cliente (mecha de 14 mm, pala y pisón, plomada, caballetes)."
-  },
-  {
-   "requisito": "Armado por 1 persona con ayuda puntual de 2 personas para subir el travesaño",
-   "tipo": "explícito",
-   "estado": "dudoso",
-   "evidencia": "Travesaño 87,2 kg entre 3 personas ≈ 29 kg cada una: cumple. Pero el paso «Levantar las A» pide «pararla entre 2 personas». Cada A pesa ≈ 117 kg (2 × 50,2 + 15,2 + varillas), con el centro de gravedad a 1,49 m del pie. Levantada desde la horqueta (2,80 m), la fuerza inicial es ≈ 62 kg: no la para una persona sola y la ayuda de 2 personas se usa también en este paso, cosa que el requisito no prevé. Además, la varilla horizontal de la horqueta (agarre 0,64 m) atraviesa tres piezas que se perforaron por separado y se alinean en altura, con solo 2 mm de holgura.",
-   "correccion": "Ver conflictos (alcance de la ayuda puntual). Agregar al paso 9: «si los agujeros de la horqueta no alinean, repasar con la mecha larga desde cada lado con el travesaño presentado»."
-  },
-  {
-   "requisito": "Terminación: rollizo impregnado + Cetol",
+   "requisito": "Personas para armar: 1 persona + ayuda puntual de 2 para parar las A y subir el travesaño",
    "tipo": "explícito",
    "estado": "cumple",
-   "evidencia": "Área expuesta recalculada: 10,2 m² (la propuesta dice 9,9 m², 3 % menos). 10,2·3/12 = 2,55 L ≤ 4 L: 1 envase alcanza igual. Asfalto: 4·π·0,17·0,40 = 0,85 m² × 2 manos / 3 m²/L = 0,57 L, 1 envase de 4 L.",
-   "correccion": "Opcional: actualizar a 10,2 m² (no cambia la compra)."
-  },
-  {
-   "requisito": "Validez de la propuesta 15 días",
-   "tipo": "explícito",
-   "estado": "cumple",
-   "evidencia": "28/10/2026 + 15 días = 12/11/2026, igual que la propuesta.",
+   "evidencia": "Peso de cada A = 2·50,2 + 15,2 = 115,7 kg (prop. ≈ 116); travesaño 87,2 kg (prop. ≈ 87); ambos pasos con 3 personas. El resto de las piezas pesa ≤ 50 kg y se trabaja en el piso.",
    "correccion": ""
   },
   {
-   "requisito": "IVA configurable (21 %, mostrar sin IVA)",
-   "tipo": "explícito",
-   "estado": "dudoso",
-   "evidencia": "Suma sin IVA recalculada: $ 277.710 (la propuesta dice $ 277.712, diferencia de redondeo). IVA = $ 58.319, cuenta correcta. La columna «Con IVA 21 %» está vacía: no muestra el total con IVA ($ 336.029), y el rótulo «IVA 21 % (vista con IVA)» es confuso con mostrar_con_iva = false.",
-   "correccion": "Rotular «IVA 21 % (no incluido) $ 58.319» y poner en la columna con IVA el total $ 336.029, o sacar la columna."
-  },
-  {
-   "requisito": "Solo materiales, sin flete",
+   "requisito": "Terminación rollizo impregnado + Cetol",
    "tipo": "explícito",
    "estado": "cumple",
-   "evidencia": "«Materiales (sin flete)» y «No incluye: flete». Ojo: varias fuentes son de otras provincias (DickHaus en Córdoba, Ropelato en Entre Ríos, CP Goma en Buenos Aires), así que el flete real puede pesar.",
+   "evidencia": "Superficie lateral sin los 40 cm asfaltados = 9,61 m² + cabezas ≈ 9,9 m² (prop. 9,9); 3 manos / 12 m²/L = 2,4–2,5 L → 1 lata de 4 L.",
    "correccion": ""
   },
   {
-   "requisito": "Mano de obra (MOD) cotizada aparte",
+   "requisito": "Validez 15 días",
    "tipo": "explícito",
    "estado": "cumple",
-   "evidencia": "«Mano de obra de armado: se cotiza aparte», igual a comercial.mod.texto.",
+   "evidencia": "28/10/2026 + 15 días = 12/11/2026 (prop. 'hasta el 12/11/2026').",
    "correccion": ""
   },
   {
-   "requisito": "EN 1176-2: zona libre por lado, configuración de hamacas",
+   "requisito": "IVA configurable (21 %) y totales",
+   "tipo": "explícito",
+   "estado": "cumple",
+   "evidencia": "Suma de subtotales recalculada = $ 309.018 (prop. $ 309.019, redondeo); IVA 21 % = $ 64.894; total $ 373.912–373.913. Subtotales unitario × cantidad verificados (diferencias ≤ $ 18 por redondeo de unitarios).",
+   "correccion": ""
+  },
+  {
+   "requisito": "Solo materiales, sin flete; MOD aparte",
+   "tipo": "explícito",
+   "estado": "cumple",
+   "evidencia": "Encabezado y condiciones: 'sin IVA, sin flete'; MOD 'se cotiza aparte' en presupuesto y condiciones; herrería de abrazaderas excluida explícitamente.",
+   "correccion": ""
+  },
+  {
+   "requisito": "Ítems sin precio publicado (patas, arandelas anchas) como total parcial rotulado sin estimar",
+   "tipo": "explícito",
+   "estado": "cumple",
+   "evidencia": "Presupuesto: 'Total parcial: sin precio de referencia publicado para … patas; arandela ancha 5/8\"; arandela ancha 1/2\". No se suman'. Coincide con la decisión del cliente.",
+   "correccion": ""
+  },
+  {
+   "requisito": "Precios de referencia web con fuente, fecha y nota",
+   "tipo": "explícito",
+   "estado": "cumple",
+   "evidencia": "Cada fila tiene fuente y nota; fecha 2026-10-28. Las referencias aproximadas (travesaño Ø18-20 por metro, tirantes de listado, cartelas con poste de 4 m, planchuela negra 38,1 × 4,8) están rotuladas como tales en su nota. Conversión c/IVA → s/IVA verificada (goma 27.152,40/1,21 = 22.440; cartela 21.764,17/1,21 = 17.987; pack de arandelas 2.470/1,21 = 2.041).",
+   "correccion": ""
+  },
+  {
+   "requisito": "EN 1176-2: separación entre accesorios ≥ 0,20·L + 0,20 m",
    "tipo": "implícito",
    "estado": "cumple",
-   "evidencia": "(1,94 − 0,50)·0,867 + 1,50 = 2,748 m por lado → 5,497 m ≤ 5,50 m (la propuesta da 2,75 y 5,50). El margen es de 3 mm.",
-   "correccion": ""
-  },
-  {
-   "requisito": "EN 1176-2: zona libre por lado, configuración hamaca-cama (cama a 0,45 m)",
-   "tipo": "implícito",
-   "estado": "no cumple",
-   "evidencia": "L = 1,94 − 0,45 = 1,49 m → 1,49·0,867 + 1,50 = 2,792 m por lado → 5,584 m > 5,50 m. La propuesta llega al mismo resultado y lo publica como «no cumple».",
-   "correccion": "Opción 1: accesorios.cama.z = 500 (zona 5,497 m, entra). Opción 2: mantener 0,45 m y justificar por amplitud máxima de 20°: 0,70 + 1,49·sen20° + 1,50 = 2,71 m por lado → 5,42 m, dejado escrito como criterio propio, distinto de la fórmula. Opción 3: conseguir 9 cm más en el sentido del vaivén. Ver conflictos."
-  },
-  {
-   "requisito": "EN 1176-2: separación entre asientos ≥ 0,20·L + 0,20 m",
-   "tipo": "implícito",
-   "estado": "cumple",
-   "evidencia": "L = 1,44 → exigido 0,488 m. Hamaca–trapecio: 0,94 − 0,215 − 0,230 = 0,495 m (la propuesta da 0,495 ≥ 0,488). El margen es de 7 mm.",
+   "evidencia": "L = 1,94 − 0,50 = 1,44 m → 0,488 m; del borde del trapecio (0,230) al borde de la hamaca (0,940 − 0,215 = 0,725) → 0,495 m (prop. 0,495 ≥ 0,488).",
    "correccion": ""
   },
   {
    "requisito": "EN 1176-2: separación asiento–pata ≥ 0,20·L + 0,30 m",
    "tipo": "implícito",
    "estado": "cumple",
-   "evidencia": "Cara interior de la pata más cercana a z = 0,50: x = 2,065 − 0,430·0,5/1,7616 − 0,030 − 0,087 = 1,826 m. Borde de la hamaca: 1,155 m → 0,671 m ≥ 0,588 m (la propuesta da 0,67 ≥ 0,59). Libre entre patas: 3,65 m (la propuesta da 3,66).",
+   "evidencia": "Cara interior de la pata a z = 0,50 m: x = 1,826 m; borde del asiento 1,155 m → 0,671 m ≥ 0,588 (prop. 0,67 ≥ 0,59); libre entre patas 3,65 m (prop. 3,66).",
    "correccion": ""
   },
   {
-   "requisito": "Altura de asiento 0,35–0,50 m y caída del trapecio ≤ 1,50 m",
+   "requisito": "EN 1176-2: zona libre por lado = L·0,867 + 1,50 m",
    "tipo": "implícito",
    "estado": "cumple",
-   "evidencia": "Asiento a 0,50 m (en el límite), cama a 0,45 m, trapecio a 1,30 m.",
+   "evidencia": "1,44·0,867 + 1,50 = 2,748 m por lado → 5,497 m ≤ 5,50 (prop. 2,75 / 5,50).",
    "correccion": ""
   },
   {
-   "requisito": "Geometría: cruce por tangencia, ángulos, horquetas y marcas sobre la pata",
+   "requisito": "Altura del asiento 0,35–0,50 m y caída del trapecio ≤ 1,50 m",
    "tipo": "implícito",
    "estado": "cumple",
-   "evidencia": "zc = 2,100 − 0,185/sen(atan(1,15/zc)) = 1,7616 m (la propuesta da 1,762). Ángulos: lateral 33,1°, frontal 13,7°, compuesto 34,9°. Horquetas en x = ±1,552 m, luz 3,105 m, voladizo 0,298 m. Medido sobre la pata desde el pie: cruce 2,391 m, tirante 1,585 m, horqueta 2,804 m (la propuesta da 2,39 / 1,58 / 2,80). Detalle 1: «34 cm» = 2,100 − 1,762 = 0,338 m. Detalle 2: «23 cm» = 2·17 − 2·5,67. Cartela: eje 0,90 m, fibra larga 0,94 m ≤ 1,00 m (la propuesta da ≈ 0,93).",
+   "evidencia": "Asiento 0,50 m; trapecio 1,30 m.",
    "correccion": ""
   },
   {
-   "requisito": "Flexión y flecha del travesaño (viga apoyada en las horquetas)",
+   "requisito": "Hamaca-cama a 0,50 m: zona libre y separación con las patas",
    "tipo": "implícito",
    "estado": "cumple",
-   "evidencia": "W = 7,854e-4 m³; I = 7,854e-5 m⁴; E = 12.000 MPa. Cama: M = 1,555 kN·m, σ = 1,98 MPa, flecha 1,95 mm. Tres puestos: M = 3,41 kN·m, σ = 4,34 MPa. Carga central (envolvente): M = 6,66 kN·m, σ = 8,48 MPa (8,82 con el peso propio) ≤ 10 MPa; flecha 5,68 mm ≤ L/300 = 10,35 mm. Todo coincide con la propuesta.",
+   "evidencia": "Misma L = 1,44 m → 2,748 m por lado. Con 20°: desplazamiento 1,44·sen 20° = 0,49 m + medio ancho 0,70 = 1,19 m < 2,75. Cama hasta ±1,00 m en x contra cara de pata a 1,83 m.",
    "correccion": ""
   },
   {
-   "requisito": "Vuelco sin anclaje con los accesorios en fase (FS ≥ 1,5)",
+   "requisito": "Escalera de soga como puesto intercambiable",
    "tipo": "implícito",
    "estado": "cumple",
-   "evidencia": "Hamacas (3 × 100 kg, 60°): máximo en θ = 37,3°, H = 2,473 kN, V = 3,245 kN. FS = (3,129 + 3,245)·1,15/(2,473·1,94) = 1,53 (la propuesta da 1,52). Si se toma el giro en el pie enterrado (brazo 1,28 m, altura 2,14 m) con la madera completa, da 1,58. Cama (350 kg, 20°): H = 1,104 kN, FS = 3,31. El margen en hamacas es chico (2 %).",
+   "evidencia": "Ancho 400 mm < asiento 430 mm y amplitud 30° < 60°: queda cubierta por las verificaciones de separación, flexión y vuelco de la configuración hamacas.",
+   "correccion": ""
+  },
+  {
+   "requisito": "Geometría: cruce por tangencia del travesaño en la V, ángulos y marcas sobre la pata",
+   "tipo": "implícito",
+   "estado": "cumple",
+   "evidencia": "Iteración (2,10 − zc)·sen(atan(1,15/zc)) = 0,185 → zc = 1,762 m (prop. 1,762); ángulos 33,1° lateral, 13,7° frontal, 34,9° real (prop. 33° / 14° / 34,9°); marcas desde el pie 2,330 / 1,524 / 2,743 m (prop. 2,33 / 1,52 / 2,74); largo 2,330 + 0,560 + 0,085·tg 34,9° = 2,949 m ≤ 3,0 (prop. 2,949). Luz entre horquetas 3,105 m (prop. ±1,55).",
+   "correccion": ""
+  },
+  {
+   "requisito": "Flexión y flecha del travesaño — cama en abrazaderas exteriores",
+   "tipo": "implícito",
+   "estado": "cumple",
+   "evidencia": "P = 4,29 kN en cada una, a = 0,362 m: M = 1,56 kN·m; W = π·0,2³/32 = 7,85e-4 m³ → σ = 1,98 MPa ≤ 10 (prop. 2,0 / 1,56). Flecha 1,95 mm ≤ L/300 = 10,35 mm (prop. 2,0 / 10,3).",
+   "correccion": ""
+  },
+  {
+   "requisito": "Flexión y flecha del travesaño — envolvente (toda la carga en el centro) y 3 adultos",
+   "tipo": "implícito",
+   "estado": "cumple",
+   "evidencia": "Envolvente: M = 8,58·3,105/4 = 6,66 kN·m, σ = 8,48 MPa ≤ 10, flecha 5,68 mm (prop. 6,66 / 8,5 / 5,7). 3 × 100 kg × 2,5 puntuales en −0,94 / 0 / +0,94: M = 3,41 kN·m, σ = 4,3 MPa (prop. 3,41 / 4,3).",
+   "correccion": ""
+  },
+  {
+   "requisito": "Vuelco sin anclaje — 2 hamacas + trapecio en fase (FS ≥ 1,5)",
+   "tipo": "implícito",
+   "estado": "no cumple",
+   "evidencia": "En el instante de H máximo (θ = 37,3°): H = 2,47 kN, V = 3,24 kN, FS = (3,12 + 3,24)·1,15 / (2,47·1,94) = 1,53 (coincide con la propuesta). Pero la propuesta suma el peso de los usuarios como estabilizante, y con esa misma convención el FS mínimo del ciclo no está en H máx: θ = 45° → H = V = 2,33 kN, FS = 1,385; θ = 50° → H = 2,09, V = 1,76 kN, FS = 1,381 < 1,5. Con pivote en el borde exterior del pie (y = 1,349 m, z = −0,15) el mínimo es 1,495; en el borde exterior de los ladrillos centrados bajo el pie, 1,52.",
+   "correccion": "Verificar el FS en todo el barrido de θ (0–60°), no solo en H máx, y adoptar una de las opciones de 'conflictos'. Con la convención actual hace falta semibase ≥ 1,26 m (con 1,30 m el FS mínimo es 1,55)."
+  },
+  {
+   "requisito": "Vuelco sin anclaje — hamaca-cama (20°)",
+   "tipo": "implícito",
+   "estado": "cumple",
+   "evidencia": "H máx en θ0 = 20°: H = 1,10 kN, V = 3,03 kN; FS mínimo del ciclo = 3,30 (prop. 3,31).",
    "correccion": ""
   },
   {
    "requisito": "Pandeo de patas",
    "tipo": "implícito",
    "estado": "cumple",
-   "evidencia": "N = (8,58 + 3,13)/4/cos34,9° = 3,57 kN; Pcr de Euler (pie–cruce 2,148 m, Ø17) = 1.053 kN; FS = 295.",
+   "evidencia": "N = (8,58 + 3,12)/4 / cos 34,9° = 3,57 kN (prop. 3,57); Euler con 2,15 m: FS = 295 (prop. 295); con 2,33 m desde el pie, 251. Muy por encima de 3.",
    "correccion": ""
   },
   {
-   "requisito": "Varillas de largo suficiente, con arandela ancha + tuerca + contratuerca",
+   "requisito": "Largo de varillas: agarre + 2 × (arandela + tuerca + contratuerca)",
    "tipo": "implícito",
    "estado": "cumple",
-   "evidencia": "Agarre + 2 × 30 mm (arandela 4 + tuerca 13 + contratuerca 13). Horqueta: 0,442 entre ejes + 0,201 de cuerda en y por pata = 0,643 → 0,703 ≤ 0,77 m. Cruce: 2·0,1735 − 2·0,0567 = 0,234 → 0,294 ≤ 0,35 m. Tirante: 0,125 + 0,1485 = 0,274 → 0,334 ≤ 0,35 m. Cartelas: con el asiento plano de la arandela a ≤ 0,10 m de la punta, inferior ≈ 0,28 ≤ 0,33 y superior ≈ 0,33 ≤ 0,385. El despiece de las patas ya incluye el asiento plano donde sale cada varilla.",
+   "evidencia": "Agarres recalculados: horqueta 0,645 m (+ ≈ 0,07 → 0,72 ≤ 0,77); cruce 0,234 (→ 0,31 ≤ 0,35); tirante 0,274 (→ 0,34 ≤ 0,35, margen chico); cartelas con asiento plano ≈ 0,23 / 0,28 (→ 0,30 ≤ 0,33; 0,35 ≤ 0,385). Prop.: 0,70 / 0,29 / 0,33 / 0,32 / 0,37, todas ≤ largo cortado.",
    "correccion": ""
   },
   {
-   "requisito": "Sistema de rosca coherente entre varilla y tuercas",
+   "requisito": "Arandela ancha + tuerca + contratuerca y cantidades de ferretería",
    "tipo": "implícito",
-   "estado": "no cumple",
-   "evidencia": "La varilla de 12 mm se cotiza en 1/2\" (12,7 mm, Ropelato) y la de 10 mm en 3/8\" (9,5 mm), pero las tuercas se cotizan como «Tuerca galvanizada 12 mm» y «10 mm». Una tuerca métrica M12 o M10 no entra en una varilla de 1/2\" o 3/8\" (Whitworth o UNC). Las llaves del anexo (19 y 17) son de métrica.",
-   "correccion": "Cotizar varilla, tuercas y arandelas de 12 y de 10 en el mismo sistema: todo métrico (M12 y M10, varilla métrica) o todo en pulgadas (1/2\" y 3/8\", con sus tuercas). Ajustar las llaves del anexo y aclarar el sistema en el pedido. Confirmar lo mismo para la de 16 mm (M16 contra 5/8\")."
+   "estado": "cumple",
+   "evidencia": "16 mm: 8 tramos → 32 tuercas, 16 arandelas anchas; 12 mm: 4 tramos → 16 / 8; 10 mm: 12 tramos → 48 tuercas, 24 arandelas (3 packs de 10). Coincide con el pedido. Llaves 15/16\", 3/4\" y 9/16\" correctas para 5/8\", 1/2\" y 3/8\".",
+   "correccion": ""
+  },
+  {
+   "requisito": "Barras de varilla de 1 m (corte 3 mm)",
+   "tipo": "implícito",
+   "estado": "cumple",
+   "evidencia": "16 mm: 2 × 0,77 + 3 × (2 × 0,35) = 5 barras (libre 227 / 294 mm); 12 mm: 2 barras (224 / 334); 10 mm: 10 + 2 tramos de 0,09 = 2 barras (70 / 814). Coincide.",
+   "correccion": ""
   },
   {
    "requisito": "No perforar el travesaño para colgar",
    "tipo": "implícito",
    "estado": "cumple",
-   "evidencia": "Los cuelgues son 6 abrazaderas de planchuela con goma. Los únicos agujeros del travesaño son de unión: Ø18 horizontal en x = ±1,55 y Ø14 vertical en ±1,35, donde M ≤ 0,87 kN·m (σ neta 1,3 MPa). El cuelgue exterior (x = 1,19) queda a 0,12 m del borde de la cartela a la altura del giro: no hay interferencia. Las abrazaderas solo cierran abajo, así que no giran sobre el rollizo mientras las tuercas estén bien ajustadas: el reajuste ya figura en el mantenimiento.",
+   "evidencia": "Cuelgues con 6 abrazaderas de planchuela; el travesaño solo se perfora en horquetas (±1,55) y cartelas (±1,35). σ en la sección de la cartela con agujero Ø15 ≈ 1,2 MPa.",
    "correccion": ""
   },
   {
-   "requisito": "Disponibilidad comercial de diámetros y largos",
-   "tipo": "implícito",
-   "estado": "cumple",
-   "evidencia": "Rangos según la regla del catálogo: Ø20 → 20-22, Ø17 → 16-18, Ø15 → 14-16, Ø12 → 12-14. Largos 4,0 / 3,0 / 2,5 / 2,5 m del catálogo. Travesaño 3,70 de 4,0 m; tirantes 2 × 1,15 = 2,30 de 2,5 m; cartelas 2 × 1,00 de 2,5 m. Varillas de 10, 12 y 16 mm y planchuela 40 × 5 en el catálogo.",
-   "correccion": ""
-  },
-  {
-   "requisito": "Cada pata sale del rollizo comprado (2,95 m de rollizo de 3,0 m)",
+   "requisito": "Abrazadera de cuelgue: cierre de las dos medias cañas",
    "tipo": "implícito",
    "estado": "no cumple",
-   "evidencia": "Sobre el eje: 0,244 enterrados + 2,147 hasta el cruce + 0,56 = 2,951 m. Con el pie cortado horizontal a 34,9°, la fibra larga suma 0,085·tan34,9° = 0,059 m, así que hacen falta 3,010 m sin contar el emparejado de la punta. La propuesta lo publica como «no cumple» (3,010 > 3,000).",
-   "correccion": "Opción 1: patas.largo_comercial = 3500. Opción 2: patas.enterrado = 150 (fibra larga 2,949 m, deja 5 cm para emparejar la punta). Opción 3: patas.prolongacion = 500 (no recomendada: la pata terminaría 3 cm por debajo de la cara superior del travesaño y quedarían 87 mm de borde sobre la varilla de la horqueta, < 7d). Ver conflictos."
+   "evidencia": "Detalle 5 y texto: las 2 varillas de 10 mm están ambas en la oreja inferior, y el largo por media caña (π·0,106 + 0,09 = 0,423 m; despiece 5,58 m / 12 con 10 %) confirma una sola oreja por media caña: la junta superior queda abierta. Sin continuidad arriba la planchuela no puede trabajar a tracción y el cuelgue se sostiene por flexión: M ≈ P/2·r = 2,15 kN · 0,106 m ≈ 0,23 kN·m frente a un momento elástico de la planchuela 40 × 5 (W = 167 mm³, 250 MPa) de 0,042 kN·m → se abre bajo la carga de diseño de la cama o la envolvente.",
+   "correccion": "Cambiar ficha.diseno.cuelgues.abrazadera: opción A) orejas arriba y abajo, 1 varilla de 10 mm en cada junta (se mantienen 2 varillas por abrazadera) y agujero aparte para el grillete en la oreja inferior; planchuela 12 × (0,333 + 0,09 + 0,045) = 5,62 m → comprar 2 barras de 6 m o verificar que entra justo en 1. Opción B) anillo de una sola pieza (2π·0,106 + 2 × 0,09 = 0,85 m c/u, 5,08 m → 1 barra) con las dos orejas abajo, colocado en el travesaño en el piso antes de subirlo (mover el paso 'Abrazaderas' antes de 'Subir el travesaño'). Actualizar detalle 5, texto y pedido."
   },
   {
-   "requisito": "Peso propio declarado (≈ 338 kg; 318 kg sobre el terreno)",
+   "requisito": "Grillete con carga de trabajo ≥ 0,5 t",
    "tipo": "implícito",
    "estado": "cumple",
-   "evidencia": "Recalculado: travesaño 87,2 + patas 4 × 50,2 + tirantes 2 × 15,2 + cartelas 2 × 8,5 = 335,6 kg (la propuesta da 338, diferencia de 0,7 %). Sobre el terreno: 319,0 kg (la propuesta da 318).",
+   "evidencia": "Máximo por abrazadera: 350·2,5/2 = 437 kg (cama o envolvente) ≤ 500 kg.",
    "correccion": ""
   },
   {
-   "requisito": "Cantidades de tuercas, arandelas, barras y plan de corte de varillas",
+   "requisito": "Disponibilidad: rangos de diámetro y largos comerciales de rollizo",
    "tipo": "implícito",
    "estado": "cumple",
-   "evidencia": "16 mm: 8 tramos, 16 puntas → 32 tuercas y 16 arandelas anchas. Barras: 770 + 3 → sobran 227; 2·350 + 6 → sobran 294; 5 barras. 12 mm: 4 tramos → 16 tuercas y 8 arandelas; 2·385 + 6 → sobran 224 y 2·330 + 6 → sobran 334; 2 barras. 10 mm: 12 tramos → 48 tuercas y 24 arandelas; 10·90 + 30 → sobran 70 y 2·90 + 6 → sobran 814; 2 barras. Todo coincide con el despiece.",
+   "evidencia": "Ø20 → 20-22 × 4,0 m (pieza 3,70); Ø17 → 16-18 × 3,0 m (2,95); Ø15 → 14-16 × 2,5 m (2 × 1,15 + cortes); Ø12 → 12-14 × 2,5 m (2 × 1,00). Comprado 21,0 m, usado 19,8 m → desperdicio 5,7 % (prop. 6 %).",
    "correccion": ""
   },
   {
-   "requisito": "Cantidades de consumibles (planchuela, goma, ripio, ladrillos)",
+   "requisito": "Peso de la madera y peso estabilizante",
    "tipo": "implícito",
    "estado": "cumple",
-   "evidencia": "Planchuela: 12 × (π·0,1055 + 0,09)·1,1 = 5,56 m ≤ 6 m (la propuesta da 5,58). En el detalle 5, una oreja de ≈ 90 mm por media caña, consistente. Goma: 6 × 2π·0,1015 = 3,83 m ≤ 4,5 m. Ripio: 0,061 m³ neto (la propuesta da 0,065, del lado seguro); 4 bolsas de 20 L = 0,08 m³. Ladrillos: 4. Vale para el pozo actual; si cambia el pozo, ver el ítem de anclaje.",
+   "evidencia": "Recalculado 335,5 kg (prop. ≈ 334); enterrado ≈ 12,5 kg → 323 kg sobre el terreno (la propuesta usa 318, del lado seguro, 1,6 %).",
    "correccion": ""
   },
   {
-   "requisito": "Presupuesto: unitarios × cantidades y suma",
-   "tipo": "implícito",
-   "estado": "cumple",
-   "evidencia": "Suma de los 17 subtotales: $ 277.710 (la propuesta da $ 277.712, redondeo). Revisados: travesaño 4 × 8.182; cartela 2,5 × 4.497 = 11.242; varilla 16 mm 5 × 3.940; tuerca 16 mm 32 × 210,75; arandela 10 mm 3 packs × 2.470/1,21 = 6.124; Cetol 1 × 72.314; ripio 4 × 5.785.",
-   "correccion": ""
-  },
-  {
-   "requisito": "Presupuesto completo (todas las partidas con precio)",
+   "requisito": "Ubicación de los ladrillos dentro del pozo",
    "tipo": "implícito",
    "estado": "no cumple",
-   "evidencia": "Las 4 patas (rollizo Ø16-18 × 3 m) y las 24 arandelas anchas (16 de 16 mm y 8 de 12 mm) quedan «sin precio de referencia» y fuera del total. Con la referencia de la propia propuesta (≈ $ 8.300/m con IVA), las patas suman ≈ 4 × 3 × 8.300/1,21 = $ 82.314 sin IVA: el total publicado queda ≈ 30 % corto. Ese precio solo se consigue cotizando a aserraderos que no lo publican (Maderas Pueblo Esther, Rizzotto).",
-   "correccion": "Ver conflictos. Mientras tanto, mostrar el total como «parcial» y, en el mismo nivel, una estimación de lo que falta (patas ≈ $ 82.300 sin IVA + arandelas anchas)."
+   "evidencia": "Paso 'Pozos': ladrillos 'contra la pared exterior del pozo (justo bajo el pie)'. El pie inferior ocupa de 7,5 a 27,8 cm desde la pared exterior; con los ladrillos contra esa pared (0–25 cm, o 0–24) quedan 2,8–3,8 cm del pie sin apoyo del lado interior. El detalle 6 los dibuja centrados bajo el pie (de 5,1 a 30,1 cm desde la pared): texto y gráfico no coinciden.",
+   "correccion": "Reemplazar en el paso 'Pozos': 'asentar 2 ladrillos macizos (o una laja) centrados bajo el pie, con unos 5 cm de ripio entre los ladrillos y la pared exterior del pozo (ver detalle 6)'."
   },
   {
-   "requisito": "Presupuesto: precios de referencia de la madera coherentes con lo pedido",
+   "requisito": "Cartela: largo entre apoyos",
    "tipo": "implícito",
-   "estado": "dudoso",
-   "evidencia": "1) Travesaño: cotizado con rollizo Ø18-20 a $ 8.182/m, y el pedido es Ø20-22 (probablemente subestimado). 2) Tirantes Ø14-16 × 2,5 m: $ 11.240 (= 13.600/1,21, o sea $ 5.440/m), casi idéntico al precio derivado de la cartela Ø12-14 ($ 11.242 = 2,5 × 5.441/1,21), que viene de otra fuente y otro diámetro. La referencia de la misma publicación ($ 8.300/m) da 2,5 × 8.300/1,21 = $ 17.149, 53 % más. 3) Cartelas: DickHaus no vende 12-14 × 2,5 m. Comprando el de 4 m, el costo real es $ 21.764/1,21 = $ 17.987, 60 % más que lo cotizado.",
-   "correccion": "Rehacer el precio del tirante con una fuente propia (o usar $ 17.149 sin IVA con la referencia de $ 8.300/m). Cotizar la cartela por un largo que realmente se vende (4 m a $ 17.987, o 2,5 m en un comercio de Rosario). Pedir precio de Ø20-22 junto con las patas."
+   "estado": "cumple",
+   "evidencia": "Del centro del tirante (x = 1,684 m, z = 1,155) a la cara rebajada del travesaño (x = 1,35, z = 2,02): eje 0,927 m, 21° con la vertical; con puntas horizontales ≈ 0,95 m ≤ 1,00 (prop. 0,93). Tirante oblicuo 3,97° (prop. 4,0°).",
+   "correccion": ""
   },
   {
-   "requisito": "Grillete con carga de trabajo suficiente",
+   "requisito": "Ripio, ladrillos y asfalto",
    "tipo": "implícito",
-   "estado": "dudoso",
-   "evidencia": "En la configuración cama, cada abrazadera exterior lleva 350·2,5/2 = 437 kgf (4,29 kN). El grillete de 10 mm cotizado (Dogo, $ 2.202) no indica carga de trabajo, y la propia propuesta aclara que no es un accesorio certificado.",
-   "correccion": "En el pedido, especificar «grillete galvanizado 3/8\" con carga de trabajo marcada ≥ 0,5 t (preferible 0,75 t)» y cotizar uno que la marque."
+   "estado": "cumple",
+   "evidencia": "Ripio: 4 × (0,27·0,45·0,30 − 2 ladrillos − pata) = 0,119 m³ × 1,2 × 1.600 = 228 kg; 0,143 m³ / 0,02 = 7,1 → 8 bolsas (prop. 0,119 / 228 / 8). Ladrillos 8. Asfalto 0,85 m² × 2 / 3 = 0,57 L → 1 lata.",
+   "correccion": ""
   },
   {
-   "requisito": "Coherencia despiece ↔ detalles (rebaje bajo el travesaño para la cartela)",
+   "requisito": "Planchuela y goma",
    "tipo": "implícito",
-   "estado": "dudoso",
-   "evidencia": "El detalle 4 rotula «Rebaje plano 2 cm bajo el travesaño», pero en el despiece T1 dice «Rebajes: —». No queda claro si el plano de 2 cm se hace en el travesaño o solo en la punta de la cartela (que ya va cortada horizontal y tiene que apoyar en una superficie redonda).",
-   "correccion": "Agregar a T1: «2 planos de 2 cm en la cara inferior a ±1,35 m del centro (apoyo de cartelas)», o corregir el rótulo del detalle 4 si el plano va en la cartela."
+   "estado": "cumple",
+   "evidencia": "Con el diseño actual: 12 × 0,423 × 1,1 = 5,58 m → 1 barra (prop. 5,58); goma 6 × 0,628 × 1,1 = 4,15 → 4,5 m × 5 cm = 0,225 m² (prop. 0,223). Revisar si cambia la abrazadera.",
+   "correccion": ""
   },
   {
-   "requisito": "Coherencia de la propuesta: anexo de auditoría vigente",
+   "requisito": "Coherencia de cotas en gráficos (perspectivas y detalles)",
    "tipo": "implícito",
-   "estado": "no cumple",
-   "evidencia": "La propuesta publica el «Anexo · Informe de auditoría (19/37 cumple · 1 vuelta)», que contradice el texto actual. Por ejemplo: dice que las cartelas se cotizan «3 × m $ 4.497 = $ 13.490» (hoy son 2,5 × m = $ 11.242), que el total es $ 278.735 (hoy $ 277.712), que la separación declarada es 0,51 m (hoy 0,495), que las marcas de las patas son alturas (hoy son distancias sobre la pata) y que faltan los agujeros Ø14 en T1 (hoy están). El cliente lee observaciones que ya no aplican.",
-   "correccion": "Reemplazar el anexo por el resultado de esta vuelta 2, o sacarlo de la versión para el cliente."
+   "estado": "cumple",
+   "evidencia": "Perspectivas: 3,70 / 2,10 / 2,30 / 4,36 / 1,76 / 1,10 / 0,50 / 1,30 / 3,66 y pares 0,50–0,44–0,50–0,44–0,50 (suma 2,38 = 2 × 1,19). Detalle 1: 34 cm = 2,10 − 1,762; detalle 2: 23 cm = 2·17 − 2·5,7; detalle 4: 0,93; detalle 6: 45 / 30 / 15 cm, escala verificada.",
+   "correccion": ""
   },
   {
-   "requisito": "Idioma rioplatense, coma decimal y gráficos coherentes",
+   "requisito": "Idioma rioplatense y coma decimal",
    "tipo": "implícito",
-   "estado": "dudoso",
-   "evidencia": "Cotas y rótulos de los 8 SVG revisados: coinciden con la ficha y el despiece (3,70 / 2,10 / 2,30 / 1,76 / 1,10 / 0,45-0,50 / 1,30 / 3,66 / 33° y 14°). Pero en el detalle 1 dice «34.9° real», con punto decimal, y en Instalación sigue el doble punto «subir el travesaño..». La cota «4,30 m pies (exterior)» de las perspectivas arrastra la subestimación del ítem de espacio.",
-   "correccion": "Cambiar «34.9°» por «34,9°» en el detalle 1, corregir el «..» y actualizar la cota exterior a 4,36 m."
+   "estado": "cumple",
+   "evidencia": "Texto y SVG con coma decimal y voseo ('Arrastrá', 'pellizcá', 'usá').",
+   "correccion": ""
   }
  ],
  "conflictos": [
-  "Zona libre de la hamaca-cama (EN 1176-2, 5,58 m) vs. espacio disponible de 5,50 m vs. cama a 0,45 m acordada con el cliente: opciones 1) subir la cama a 0,50 m (zona 5,497 m, entra); 2) mantener 0,45 m y justificar con la amplitud máxima de 20° (≈ 5,42 m), dejándolo escrito como desvío a la fórmula; 3) conseguir 9 cm más de terreno en el sentido del vaivén.",
-  "Largo de pata (fibra larga 3,010 m) vs. rollizo comercial de 3,0 m acordado: opciones 1) comprar rollizos de 3,5 m (más costo y desperdicio); 2) enterrar 15 cm en lugar de 20 (fibra larga 2,949 m; menos empotramiento, que igual no se usa en el vuelco); 3) bajar la prolongación a 0,50 m (no recomendada: menos borde sobre la varilla de la horqueta).",
-  "Tamaño y posición del pozo acordados (30 × 30 × 25 cm, 1 ladrillo) vs. huella real de la pata inclinada (33,4 × 22,4 cm barrida en 20 cm; pie de 17 × 20,7 cm sobre un ladrillo de 12 cm): opciones 1) pozo de 45 (vaivén) × 35 × 25 cm, centrado en y = ±1,215 m / x = ±2,09 m, con 2 ladrillos lado a lado y ≈ 0,12 m³ de ripio; 2) pozo mínimo de 40 × 30 cm orientado en el vaivén, con laja ≥ 25 × 30 cm (poco lugar para apisonar); 3) con la opción 2 del largo de pata (15 cm enterrados), la huella barrida baja a ≈ 30 × 21 cm y alcanza un pozo de 40 × 30.",
-  "Presupuesto completo vs. precios no publicados (patas Ø16-18 × 3 m, arandelas anchas de 16 y 12 mm, travesaño Ø20-22 real): opciones 1) que el usuario o el cliente pidan cotización por WhatsApp a Maderas Pueblo Esther (341 610-2381) o a Rizzotto, y a una bulonería por las arandelas; 2) publicar con una estimación rotulada (patas ≈ $ 82.300 sin IVA con la referencia de $ 8.300/m) y el total marcado como estimado; 3) publicar con el total «parcial» bien visible.",
-  "Personas de armado (ayuda puntual de 2 personas solo para el travesaño) vs. paso «Levantar las A» (≈ 117 kg; ≈ 62 kg en la horqueta al despegarla): opciones 1) extender la ayuda puntual de las 2 personas a parar las A (≈ 31 kg cada una), confirmándolo con el cliente; 2) sumar un aparejo o malacate de soga desde un punto fijo para que la pare una persona; 3) parar las patas de a una con puntales y armar la A de pie (más trabajo en altura)."
+  "Vuelco FS ≥ 1,5 en todo el ciclo (2 hamacas + trapecio, 3 × 100 kg en fase a 60°) vs. patas de rollizo comercial de 3,0 m, presupuesto y uso previsto: con la convención de la propuesta (pivote en el pie a nivel del terreno) el FS mínimo es 1,38. Opciones: 1) semibase 1,30 m (FS mín. 1,55): la pata pasa a 3,06 m → rollizos de 3,5 m (más costo) o prolongación sobre el cruce reducida a ≈ 0,49 m para seguir en 3,0 m (el tope de la pata queda bajo la cara superior del travesaño y a ≈ 11 cm del agujero de la horqueta: verificar); 2) justificar el pivote en el borde exterior de los ladrillos centrados bajo el pie (FS mín. 1,52), sin cambiar piezas pero con un criterio menos conservador; 3) limitar el uso: trapecio solo para chicos o no más de 2 adultos hamacándose a la vez (rotulado en la propuesta); 4) agregar anclaje sin hormigón (estacas o grampas al suelo en cada pie)."
  ]
 }

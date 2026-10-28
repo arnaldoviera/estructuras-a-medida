@@ -104,10 +104,10 @@
     {
       "id": "planchuela_40x5",
       "descripcion": "Planchuela 40x5 mm × 6 m (galvanizada; si es de hierro negro, la herrería la termina con galvanizado en frío)",
-      "cant": 1,
+      "cant": 2,
       "unidad": "barra 6 m",
-      "uso": "6 abrazaderas × 2 medias cañas de 0,42 m = 5,6 m con desperdicio",
-      "metros": 5.5837164409028395
+      "uso": "6 abrazaderas × 2 medias cañas de 0,47 m = 6,2 m con desperdicio",
+      "metros": 6.243716440902839
     },
     {
       "id": "goma_3mm",
@@ -143,16 +143,16 @@
     {
       "id": "ladrillo_macizo",
       "descripcion": "Ladrillo común macizo",
-      "cant": 4,
+      "cant": 8,
       "unidad": "u",
-      "uso": "Uno en el fondo de cada pozo (o laja)"
+      "uso": "2 en el fondo de cada pozo (o una laja)"
     },
     {
       "id": "ripio_bolsa",
       "descripcion": "Ripio / piedra partida",
-      "cant": 104,
+      "cant": 228,
       "unidad": "kg",
-      "uso": "4 pozos de 30 cm × 30 cm × 25 cm: 0,065 m³"
+      "uso": "4 pozos de 27 cm × 45 cm × 30 cm: 0,119 m³ + 20 % por apisonado"
     }
   ]
 }

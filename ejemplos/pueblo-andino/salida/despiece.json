@@ -9,7 +9,7 @@
       "largo": 3700,
       "angulos": "Puntas a escuadra",
       "rebajes": "Plano de 2 cm abajo, a ±1,35 m del centro, para apoyar cada cartela",
-      "agujeros": "2 pasantes Ø18 mm horizontales (sentido del vaivén) a ±1,55 m del centro, en el eje; 2 pasantes Ø14 mm verticales a ±1,35 m del centro (cartelas)"
+      "agujeros": "2 pasantes Ø18 mm horizontales (sentido del vaivén) a ±1,55 m del centro, en el eje; 2 pasantes Ø15 mm verticales a ±1,35 m del centro (cartelas)"
     },
     {
       "id": "P1–P4",
@@ -20,7 +20,7 @@
       "largo": 2950,
       "angulos": "Pie cortado horizontal: la pata forma 34,9° con la vertical (33° en vista lateral y 14° en vista frontal)",
       "rebajes": "Media madera en el cruce (1/3 Ø ≈ 5,7 cm); asiento de 1,5 cm para el travesaño; plano de 2,5 cm para el tirante; asiento plano para la arandela donde sale cada varilla",
-      "agujeros": "Medidas SOBRE la pata desde el pie: cruce Ø18 a 2,39 m (altura 1,76 m); tirante Ø18 a 1,58 m (altura 1,10 m); horqueta Ø18 a 2,80 m (altura 2,10 m)"
+      "agujeros": "Medidas SOBRE la pata desde el pie: cruce Ø18 a 2,33 m (altura 1,76 m); tirante Ø18 a 1,52 m (altura 1,10 m); horqueta Ø18 a 2,74 m (altura 2,10 m)"
     },
     {
       "id": "R1–R2",
@@ -31,7 +31,7 @@
       "largo": 1150,
       "angulos": "Puntas a escuadra; queda oblicuo 4,0° en planta (sigue el desfase de la media madera)",
       "rebajes": "2 planos de 2,5 cm contra las patas; plano de 2 cm arriba al centro para la cartela",
-      "agujeros": "2 × Ø18 horizontales (patas) + 1 × Ø14 vertical al centro"
+      "agujeros": "2 × Ø18 horizontales (patas) + 1 × Ø15 vertical al centro"
     },
     {
       "id": "C1–C2",
@@ -42,7 +42,7 @@
       "largo": 1000,
       "angulos": "Puntas cortadas horizontales",
       "rebajes": "Planos de 2 cm en las dos puntas; asiento plano para la arandela donde sale la varilla",
-      "agujeros": "1 × Ø14 vertical en cada punta"
+      "agujeros": "1 × Ø15 vertical en cada punta"
     }
   ],
   "varillas_corte": {
@@ -228,10 +228,10 @@
       {
         "id": "planchuela_40x5",
         "descripcion": "Planchuela 40x5 mm × 6 m (galvanizada; si es de hierro negro, la herrería la termina con galvanizado en frío)",
-        "cant": 1,
+        "cant": 2,
         "unidad": "barra 6 m",
-        "uso": "6 abrazaderas × 2 medias cañas de 0,42 m = 5,6 m con desperdicio",
-        "metros": 5.5837164409028395
+        "uso": "6 abrazaderas × 2 medias cañas de 0,47 m = 6,2 m con desperdicio",
+        "metros": 6.243716440902839
       },
       {
         "id": "goma_3mm",
@@ -267,16 +267,16 @@
       {
         "id": "ladrillo_macizo",
         "descripcion": "Ladrillo común macizo",
-        "cant": 4,
+        "cant": 8,
         "unidad": "u",
-        "uso": "Uno en el fondo de cada pozo (o laja)"
+        "uso": "2 en el fondo de cada pozo (o una laja)"
       },
       {
         "id": "ripio_bolsa",
         "descripcion": "Ripio / piedra partida",
-        "cant": 104,
+        "cant": 228,
         "unidad": "kg",
-        "uso": "4 pozos de 30 cm × 30 cm × 25 cm: 0,065 m³"
+        "uso": "4 pozos de 27 cm × 45 cm × 30 cm: 0,119 m³ + 20 % por apisonado"
       }
     ]
   },

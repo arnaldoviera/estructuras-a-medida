@@ -36,14 +36,14 @@
     "anclaje": "Apoyado, sin hormigón: cada pata en un pozo con ladrillo/laja y ripio.",
     "materiales_disponibles": "Rollizo de eucalipto impregnado; varilla roscada galvanizada.",
     "herramientas": "Taladro con mecha larga de 18 mm, motosierra o serrucho, formón, llaves, nivel, escalera.",
-    "personas_armado": "1 persona con ayuda puntual de 2 personas para subir el travesaño.",
+    "personas_armado": "1 persona con ayuda puntual de 2 personas para parar las dos A y subir el travesaño",
     "terminacion": "Rollizo impregnado + Cetol"
   },
   "diseno": {
     "material": "eucalipto-impregnado",
     "travesano": {"diametro": 200, "largo": 3700, "z_eje": 2100},
     "patas": {
-      "cantidad": 4, "diametro": 170, "largo": 2950, "largo_comercial": 3000, "enterrado": 200,
+      "cantidad": 4, "diametro": 170, "largo": 2950, "largo_comercial": 3000, "enterrado": 150,
       "pie_x": 2065, "cruce_x": 1635, "semibase": 1150, "prolongacion": 560, "desfase_media_madera": 30,
       "rebaje_cruce_frac": 0.3333, "asiento_horqueta": 15
     },
@@ -62,14 +62,14 @@
     "arandela_ancha_mm": 50,
     "cuelgues": {
       "puestos_x": [-940, 0, 940], "separacion_par": 500, "z_giro": 1940,
-      "abrazadera": {"planchuela": "40x5", "radio_interior": 103, "goma_mm": 3, "oreja": 90, "accesorio": "grillete 10 mm o gancho giratorio"}
+      "abrazadera": {"planchuela": "40x5", "radio_interior": 103, "goma_mm": 3, "oreja": 90, "oreja_sup": 50, "accesorio": "grillete 10 mm o gancho giratorio"}
     },
     "accesorios": {
       "asiento_z": 500, "asiento_ancho": 430, "asiento_prof": 180,
       "trapecio_z": 1300, "trapecio_ancho": 460,
-      "cama": {"largo": 2000, "ancho": 1400, "z": 450, "cuelga_de": "abrazaderas exteriores"}
+      "cama": {"largo": 2000, "ancho": 1400, "z": 500, "cuelga_de": "abrazaderas exteriores"}
     },
-    "apoyo": {"pozo": [300, 300, 250], "base": "ladrillo macizo o laja", "relleno": "ripio apisonado", "proteccion_largo": 400, "proteccion": "asfalto en frío"},
+    "apoyo": {"pozo": [270, 450, 300], "_pozo": "a lo largo del travesaño × sentido del vaivén × profundidad; centrado en el tramo enterrado de la pata", "ladrillos_por_pozo": 2, "base": "2 ladrillos macizos (o una laja)", "relleno": "ripio apisonado", "proteccion_largo": 400, "proteccion": "asfalto en frío"},
     "desperdicio_pct": 10
   },
   "comercial": {
@@ -83,7 +83,7 @@
   },
   "estado": {
     "validacion_aprobada": true,
-    "aprobada_por": "usuario (diseño cerrado en sesión previa)",
-    "vueltas_auditoria": 2
+    "aprobada_por": "usuario (diseño cerrado en sesión previa; 2026-10-28: enterrado 15 cm, cama a 0,50 m, pozo 27 × 45 × 30 cm con 2 ladrillos, ayuda de 2 personas también para parar las A)",
+    "vueltas_auditoria": 4
   }
 }

@@ -142,7 +142,7 @@ document.querySelectorAll(".tabs button").forEach((b) => b.addEventListener("cli
   borde.position.z = 4; scene.add(borde);
   const muro = new THREE.Mesh(new THREE.BoxGeometry(150, ay + 1000, 1800), new THREE.MeshStandardMaterial({ color: 0xe4dccf, roughness: 1 }));
   muro.position.set(-ax / 2 - 75, 0, 900); scene.add(muro);
-  ESCENA.pozos.forEach(([x, y]) => { const c = new THREE.Mesh(new THREE.CircleGeometry(150, 24), new THREE.MeshStandardMaterial({ color: 0xd6cab7 })); c.position.set(x, y, 6); scene.add(c); });
+  ESCENA.pozos.forEach(([x, y]) => { const c = new THREE.Mesh(new THREE.PlaneGeometry(ESCENA.pozo[0], ESCENA.pozo[1]), new THREE.MeshStandardMaterial({ color: 0xd6cab7 })); c.position.set(x, y, 6); scene.add(c); });
   ESCENA.piezas.forEach((p) => scene.add(cil(p.a, p.b, p.r, MAT[p.m] || MAT.madera, p.m === "madera" ? 28 : 16)));
   let grupo = null;
   window.armar3d = function (id) {

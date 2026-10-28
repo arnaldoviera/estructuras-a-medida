@@ -130,9 +130,11 @@ def svg(ficha, M, config_id=None):
     ground.append(f'<text x="{czp[0]:.1f}" y="{czp[1]:.1f}" class="lbl soft" text-anchor="start">CÉSPED →</text>')
     al = P([0, -AY, 0])
     ground.append(f'<text x="{al[0]:.1f}" y="{al[1]+22:.1f}" class="lbl soft" text-anchor="middle">ÁREA LIBRE {num(esp["largo_eje_travesano_m"])} × {num(esp["largo_vaiven_m"])} m</text>')
-    for k, (f, e) in legs.items():
-        ring = [P(add(f, [150 * math.cos(t), 150 * math.sin(t), 0])) for t in [i * 2 * math.pi / 24 for i in range(24)]]
-        ground.append(f'<polygon points="{fmt(ring)}" fill="var(--hole)" stroke="none"/>')
+    px_, py_ = d["apoyo"]["pozo"][0] / 2, d["apoyo"]["pozo"][1] / 2
+    for (sx, s_), (f, e) in legs.items():
+        c = [f[0] + sx * D["pozo_dx"], f[1] + s_ * D["pozo_dy"], 0]
+        rect = [P([c[0] + a * px_, c[1] + b * py_, 0]) for a, b in ((-1, -1), (1, -1), (1, 1), (-1, 1))]
+        ground.append(f'<polygon points="{fmt(rect)}" fill="var(--hole)" stroke="none"/>')
 
     # ---- cotas ----
     dims = []
@@ -163,7 +165,7 @@ def svg(ficha, M, config_id=None):
     fA, fB = legs[(1, -1)][0], legs[(1, 1)][0]
     dimline([fA[0] + legR, fA[1], 0], [fA[0] + legR, fB[1], 0], [620, 0, 0], m(2 * foot) + " base", size=15)
     fL, fR = legs[(-1, -1)][0], legs[(1, -1)][0]
-    dimline([fL[0] - legR, fL[1], 0], [fR[0] + legR, fR[1], 0], [0, -700, 0], m(fR[0] - fL[0] + 2 * legR) + " pies (exterior)", size=15)
+    dimline([fL[0] - legR, fL[1], 0], [fR[0] + legR, fR[1], 0], [0, -700, 0], m(D["pies_exterior"]) + " pies (exterior)", size=15)
     dimline([crossX, 0, 0], [crossX, 0, apex], [1400, 0, 0], m(apex) + " cruce", size=13, ext_from=([fB[0], 0, 0], [crossX + legR, 0, apex]))
     yT = D["yT"]
     tB = [D["tx"], d["tirante"]["largo"] / 2, tieZ]

@@ -24,7 +24,7 @@ def presupuesto(ficha, desp, precios):
                 fila.update({"cant_venta": cant_v, "unidad_venta": p.get("unidad", it["unidad"]), "unit_sin": unit_sin, "sub_sin": sub,
                              "fuente": p.get("fuente"), "url": p.get("url"), "producto": p.get("descripcion"), "nota": p.get("nota", "")})
             else:
-                faltan.append(it["id"])
+                faltan.append(it["descripcion"].split(" (")[0] + f" ({it['uso'].lower()})")
             filas.append(fila)
     return {"filas": filas, "subtotal_sin_iva": total, "iva": total * iva, "total_con_iva": total * (1 + iva), "faltan": faltan,
             "fecha": (precios or {}).get("fecha_consulta"), "localidad": (precios or {}).get("localidad")}
@@ -124,7 +124,7 @@ def pagina(ficha, M, val, desp, obra_, laminas, persp, escena, precios=None, aud
           f'<tr{" class=\"hl\"" if con else ""}><td>Materiales con IVA</td><td class="n">{pesos(pres["total_con_iva"])}</td></tr>'
           f'<tr><td>Mano de obra de armado</td><td class="n">{"Incluida" if co["mod"]["incluida"] else "Se cotiza aparte"}</td></tr>'
           '</tbody></table></div>'
-          + (f'<p class="note">Total parcial: sin precio de referencia publicado para {E(", ".join(pres["faltan"]))}. No se suman; se cotizan aparte.</p>' if pres["faltan"] else ""))
+          + (f'<p class="note">Total parcial: sin precio de referencia publicado para {E("; ".join(pres["faltan"]))}. No se suman; se cotizan aparte.</p>' if pres["faltan"] else ""))
 
     # 8. condiciones
     s8 = _dl([

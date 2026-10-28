@@ -12,7 +12,7 @@
       "iva_incluido": true,
       "fuente": "MercadoLibre Argentina (publicación 'x Ml')",
       "url": "https://www.mercadolibre.com.ar/poste-de-eucalipto-impregnado-cca-1820-x-ml-curado-tratado/up/MLAU204956390",
-      "nota": "Precio por METRO LINEAL, leído del resumen de un buscador (ML pide login, no pude abrir la ficha; mismo dato de la pasada anterior). Es Ø18-20, algo menor al Ø20-22 pedido: no encontré Ø20-22 con precio en ninguna fuente argentina. Vendedor y localidad no verificados. Referencias de la misma pasada: ML Ø14-16 x metro $8.300 (listado Rosario, resumen de buscador); ML Ø14-16 x 4 m ~$34.773 (~$8.700/m). Maderas Pueblo Esther (Pueblo Esther, Gran Rosario) y Rizzotto (Funes/Roldán) venden rollizos pero no publican precio: cotizar por WhatsApp (Pueblo Esther 341 610-2381)."
+      "nota": "Referencia de Ø18-20 (no se encontró Ø20-22 publicado): el Ø20-22 cuesta más. Precio por METRO LINEAL, leído del resumen de un buscador (ML pide login, no pude abrir la ficha; mismo dato de la pasada anterior). Es Ø18-20, algo menor al Ø20-22 pedido: no encontré Ø20-22 con precio en ninguna fuente argentina. Vendedor y localidad no verificados. Referencias de la misma pasada: ML Ø14-16 x metro $8.300 (listado Rosario, resumen de buscador); ML Ø14-16 x 4 m ~$34.773 (~$8.700/m). Maderas Pueblo Esther (Pueblo Esther, Gran Rosario) y Rizzotto (Funes/Roldán) venden rollizos pero no publican precio: cotizar por WhatsApp (Pueblo Esther 341 610-2381)."
     },
     {
       "id": "rollizo_d17_l3",
@@ -33,18 +33,18 @@
       "iva_incluido": true,
       "fuente": "MercadoLibre Argentina (listado de postes de eucalipto impregnados)",
       "url": "https://listado.mercadolibre.com.ar/postes-eucalipto-impregnados",
-      "nota": "Precio leído del resumen de un buscador sobre el listado (no pude abrir la página, ML pide login). Vendedor y localidad no verificados. Otra publicación del mismo listado: 14-16 x metro a $8.300/m."
+      "nota": "Publicación de listado: confirmar diámetro y largo con el vendedor. Precio leído del resumen de un buscador sobre el listado (no pude abrir la página, ML pide login). Vendedor y localidad no verificados. Otra publicación del mismo listado: 14-16 x metro a $8.300/m."
     },
     {
       "id": "rollizo_d12_l25",
       "descripcion": "Poste de Eucalipto Impregnado 12-14 Ø (precio por metro, derivado de poste de 4 m)",
-      "unidad": "m",
-      "contenido": 0.4,
-      "precio": 5441.04,
+      "unidad": "poste 4 m",
+      "contenido": 1,
+      "precio": 21764.17,
       "iva_incluido": true,
       "fuente": "DickHaus (Villa General Belgrano, Córdoba)",
       "url": "https://dickhaus.com/detalle/11454-poste-de-eucalipto-impregnado-4-metros-de-12",
-      "nota": "PRECIO DERIVADO: poste 12-14 x 4 m = $21.764,17 (ficha leída en vivo) / 4 m = $5.441,04 por metro. Coherente con el poste 12-14 x 6 m del mismo comercio ($32.646,26 = $5.441/m). DickHaus no vende 12-14 x 2,5 m (solo 10-12 x 2,5 m a $9.899,55, ya visto). Comercio de Córdoba (otra provincia); la ficha no aclara IVA ni flete. Para 2,5 m: 2,5 x $5.441 = ~$13.600."
+      "nota": "La fuente no vende 2,5 m: se cotiza el poste Ø12-14 × 4 m (sobran 1,5 m). PRECIO DERIVADO: poste 12-14 x 4 m = $21.764,17 (ficha leída en vivo) / 4 m = $5.441,04 por metro. Coherente con el poste 12-14 x 6 m del mismo comercio ($32.646,26 = $5.441/m). DickHaus no vende 12-14 x 2,5 m (solo 10-12 x 2,5 m a $9.899,55, ya visto). Comercio de Córdoba (otra provincia); la ficha no aclara IVA ni flete. Para 2,5 m: 2,5 x $5.441 = ~$13.600."
     },
     {
       "id": "varilla_16",
@@ -170,7 +170,7 @@
       "iva_incluido": true,
       "fuente": "Dogo Herramientas (tienda online)",
       "url": "https://www.dogoherramientas.com.ar/tienda/construccion/accesorios-de-cable-de-acero/grilletes/grillete-recto-38-galvanizado",
-      "nota": "Ficha leída en vivo, 'En stock'. Localidad del comercio no verificada. Alternativas: Maqpro grillete corazón c/perno 3/8\" galvanizado $3.178,13 (https://www.maqpro.com.ar/product/grillete-corazon-c-perno-rojo-3-8-galvanizado/); ML Foxtter recto 3/8\" $5.999 (resumen de buscador). No es gancho giratorio para hamaca: si se quiere giratorio, es otro producto (Easy gancho para hamaca N°2 cromatizado $14.030, no giratorio). Verificar carga de trabajo del grillete elegido (no es un accesorio certificado para personas salvo que lo indique el fabricante)."
+      "nota": "Exigir marcado de carga de trabajo (WLL) ≥ 0,5 t al comprar. Ficha leída en vivo, 'En stock'. Localidad del comercio no verificada. Alternativas: Maqpro grillete corazón c/perno 3/8\" galvanizado $3.178,13 (https://www.maqpro.com.ar/product/grillete-corazon-c-perno-rojo-3-8-galvanizado/); ML Foxtter recto 3/8\" $5.999 (resumen de buscador). No es gancho giratorio para hamaca: si se quiere giratorio, es otro producto (Easy gancho para hamaca N°2 cromatizado $14.030, no giratorio). Verificar carga de trabajo del grillete elegido (no es un accesorio certificado para personas salvo que lo indique el fabricante)."
     },
     {
       "id": "asfalto_frio_4l",

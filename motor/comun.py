@@ -48,6 +48,17 @@ def pesos(v):
     return "$ " + num(v, 0)
 
 
+# ---- varilla roscada (se vende en pulgadas) ----
+PULG = {10: '3/8"', 12: '1/2"', 16: '5/8"', 20: '3/4"'}
+D_REAL = {10: 9.53, 12: 12.7, 16: 15.88, 20: 19.05}
+LLAVE = {10: '9/16" (14 mm)', 12: '3/4" (19 mm)', 16: '15/16" (24 mm)', 20: '1 1/8" (29 mm)'}
+
+
+def ag(d, holgura=2):
+    """Diámetro de mecha (mm entero) = diámetro real de la varilla + holgura, redondeado para arriba."""
+    return math.ceil(D_REAL.get(d, d) + holgura - 1e-9)
+
+
 # ---- vectores ----
 def add(a, b): return [a[i] + b[i] for i in range(3)]
 def sub(a, b): return [a[i] - b[i] for i in range(3)]

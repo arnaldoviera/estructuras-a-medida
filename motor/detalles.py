@@ -2,7 +2,7 @@
 con arandela + tuerca + contratuerca. Todo sale de ficha.json + modelo."""
 import math
 from _fig import Fig, WOOD, WOODHI, WOODEDGE, CAP, STEEL, STEELD
-from comun import m, cm, num
+from comun import m, cm, num, ag
 
 
 def laminas(ficha, M):
@@ -28,13 +28,13 @@ def laminas(ficha, M):
     f.section((0, beamZ), beamR)
     yTop = D["yTop"]
     Lh = va["horqueta"]["largo"]
-    f.hole((-(yTop + legR), beamZ), (yTop + legR, beamZ), dh + hol)
+    f.hole((-(yTop + legR), beamZ), (yTop + legR, beamZ), ag(dh))
     f.rod((-Lh / 2 + 30, beamZ), (Lh / 2 - 30, beamZ), dh, wash=wash)
     f.circle((0, cz), 25, "#c4cbd1", STEELD, 0.9)
     f.circle((0, cz), dc / 2, STEEL, STEELD, 0.9)
     f.dim((-Lh / 2 + 30, beamZ), (Lh / 2 - 30, beamZ), 150, f"varilla {dh} mm × {m(Lh)}", 12)
     f.tag((0, beamZ + 60), 150, -20, f"Travesaño Ø{cm(tr['diametro'])}|apoya en la V (asiento|rebajado {cm(pa['asiento_horqueta'], 1)} en cada pata)")
-    f.tag((-yTop + 40, beamZ - 20), -150, 70, f"Agujero Ø{dh + hol} pasante:|pata – travesaño – pata", "end")
+    f.tag((-yTop + 40, beamZ - 20), -150, 70, f"Agujero Ø{ag(dh)} pasante:|pata – travesaño – pata", "end")
     f.tag((0, cz), 150, 30, f"Cruce a media madera|varilla {dc} mm a lo largo|del travesaño (ver vista B)")
     f.dim((0, beamZ), (0, cz), -330, cm(beamZ - cz), 12)
     f.text((0, z0 + 20), f"{A:.0f}° en esta vista ({num(D['ang_real'], 1)}° real)", "vw2")
@@ -54,7 +54,7 @@ def laminas(ficha, M):
     f.poly([(cx - reb, cz - 90), (cx + reb, cz - 90), (cx + reb, cz + 90), (cx - reb, cz + 90)], "#b77a48", WOODEDGE, 1, 'stroke-dasharray="4 3"')
     grip = 2 * pa["diametro"] - 2 * reb
     Lc = va["cruce"]["largo"]
-    f.hole((cx - grip / 2 - 10, cz), (cx + grip / 2 + 10, cz), dc + hol)
+    f.hole((cx - grip / 2 - 10, cz), (cx + grip / 2 + 10, cz), ag(dc))
     f.rod((cx - Lc / 2, cz), (cx + Lc / 2, cz), dc, wash=wash)
     f.dim((cx - grip / 2, cz - 120), (cx + grip / 2, cz - 120), -40, f"{cm(grip)} (2 × Ø{cm(pa['diametro'])} − 2 rebajes)", 11)
     f.tag((cx, cz + 60), 120, -60, f"Rebaje de 1/3 del diámetro|(≈ {cm(reb, 1)}) en cada pata;|quedan encastradas")
@@ -84,12 +84,12 @@ def laminas(ficha, M):
     f.circle((ax + 10, yT), legR * 0.55, "none", "#b98c62", 0.7)
     Lt = va["tirante"]["largo"]
     xa = ax + legR + 25
-    f.hole((tx - tieR - 5, yT), (ax + legR + 5, yT), dt + hol)
+    f.hole((tx - tieR - 5, yT), (ax + legR + 5, yT), ag(dt))
     f.rod((xa - Lt, yT), (xa + 30, yT), dt, wash=wash)
     f.dim((tx - tieR, y0), (flat, y0), -30, f"Ø{cm(ti['diametro'])} − {cm(ti['rebaje'], 1)}", 11)
     f.tag((flat, yT + 120), 70, -40, f"Rebaje plano {cm(ti['rebaje'], 1)}|en tirante y en pata")
     f.tag((ax, yT - 40), 40, 70, f"Pata Ø{cm(pa['diametro'])} (corte)")
-    f.tag((tx - tieR - 40, yT), -10, -80, f"Varilla {dt} mm|agujero Ø{dt + hol}", "end")
+    f.tag((tx - tieR - 40, yT), -10, -80, f"Varilla {dt} mm|agujero Ø{ag(dt)}", "end")
     f.text((tx - 40, y1 - 40), "TIRANTE", "vw2")
     f.title_txt = f"CORTE HORIZONTAL A {m(tieZ)}"
     f.text((ax + legR + 95, y0 + 10), "← interior del pórtico", "vw2", "end")
@@ -118,9 +118,9 @@ def laminas(ficha, M):
     f.poly([(a[0] - w, a[1]), (a[0] + w, a[1]), (b[0] + w, b[1]), (b[0] - w, b[1])], WOOD, WOODEDGE, 1.3)
     f.poly([(a[0] - w * 0.65, a[1]), (a[0] - w * 0.15, a[1]), (b[0] - w * 0.15, b[1]), (b[0] - w * 0.65, b[1])], WOODHI, "none", 0)
     Li, Ls = va["cartela_inf"]["largo"], va["cartela_sup"]["largo"]
-    f.hole((txc, tieZ - tieR), (txc, zt + 165), dca + hol)
+    f.hole((txc, tieZ - tieR), (txc, zt + 165), ag(dca))
     f.rod((txc, tieZ - tieR - 25), (txc, tieZ - tieR - 25 + Li), dca, wash=wash)
-    f.hole((bx, beamZ + beamR), (bx, b[1] - 165), dca + hol)
+    f.hole((bx, beamZ + beamR), (bx, b[1] - 165), ag(dca))
     f.rod((bx, beamZ + beamR + 30), (bx, beamZ + beamR + 30 - Ls), dca, wash=wash)
     f.tag((bx + 20, b[1] - 10), 120, 30, f"Rebaje plano {cm(ca['rebaje'])}|bajo el travesaño")
     f.tag((txc + 20, zt + 5), 80, -10, f"Rebaje plano {cm(ca['rebaje'])}|sobre el tirante")
@@ -134,14 +134,22 @@ def laminas(ficha, M):
 
     # ===== 4. Abrazadera de cuelgue =====
     ab = cu["abrazadera"]
-    f = Fig(-260, 260, beamZ - 340, beamZ + 140)
+    f = Fig(-260, 260, beamZ - 340, beamZ + 190)
     f.section((0, beamZ), beamR)
     f.circle((0, beamZ), beamR + ab["goma_mm"], "none", "#2b2b2b", ab["goma_mm"] * f.k)
     ring_r = ab["radio_interior"] + ab["goma_mm"] + 2
     f.circle((0, beamZ), ring_r, "none", "#7d868e", 5 * f.k)
     for s in (-1, 1):
         f.poly([(s * 6, beamZ - ring_r - 2), (s * 11, beamZ - ring_r - 2), (s * 11, beamZ - ring_r - ab["oreja"]), (s * 6, beamZ - ring_r - ab["oreja"])], "#7d868e", STEELD, 0.9)
-    for zz in (beamZ - ring_r - 25, beamZ - ring_r - 55):
+    osup = ab.get("oreja_sup", 0)
+    if osup:  # junta de arriba: orejas y una varilla
+        for s in (-1, 1):
+            f.poly([(s * 6, beamZ + ring_r + 2), (s * 11, beamZ + ring_r + 2), (s * 11, beamZ + ring_r + osup), (s * 6, beamZ + ring_r + osup)], "#7d868e", STEELD, 0.9)
+        zz = beamZ + ring_r + osup / 2
+        f.line((-30, zz), (30, zz), STEELD, 4)
+        f.poly([(14, zz - 7), (24, zz - 7), (24, zz + 7), (14, zz + 7)], "#5b636a", STEELD, 0.8)
+        f.poly([(-24, zz - 7), (-14, zz - 7), (-14, zz + 7), (-24, zz + 7)], "#5b636a", STEELD, 0.8)
+    for zz in ((beamZ - ring_r - 35,) if osup else (beamZ - ring_r - 25, beamZ - ring_r - 55)):
         f.line((-30, zz), (30, zz), STEELD, 4)
         f.poly([(14, zz - 7), (24, zz - 7), (24, zz + 7), (14, zz + 7)], "#5b636a", STEELD, 0.8)
         f.poly([(-24, zz - 7), (-14, zz - 7), (-14, zz + 7), (-24, zz + 7)], "#5b636a", STEELD, 0.8)
@@ -149,31 +157,35 @@ def laminas(ficha, M):
     pts = [(18 * math.cos(t), gz - 30 - 30 * math.sin(t)) for t in [math.pi * i / 20 for i in range(21)]]
     f.g.append(f'<polyline points="{f.pts([(-18, gz)] + pts[::-1] + [(18, gz)])}" fill="none" stroke="#454c53" stroke-width="{10*f.k:.1f}" stroke-linecap="round"/>')
     f.line((0, gz - 60), (0, beamZ - 330), "#9c958a", 6 * f.k)
-    f.tag((70, beamZ + 75), 70, -30, f"Planchuela galvanizada {ab['planchuela'].replace('x', ' × ')} mm|en dos medias cañas")
+    f.tag((70, beamZ + 75), 70, -30, f"Planchuela {ab['planchuela'].replace('x', ' × ')} mm galvanizada|(o hierro negro + galvanizado|en frío), en dos medias cañas")
     f.tag((-100, beamZ - 20), -50, -90, f"Banda de goma {ab['goma_mm']} mm|(no marca ni resbala)", "end")
-    f.tag((24, beamZ - ring_r - 25), 80, -5, f"Cierre: {va['abrazadera']['cant_por_abrazadera']} varillas {dab} mm|con tuerca y contratuerca")
+    f.tag((24, beamZ - ring_r - 35), 80, -5, (f"Cierre: 1 varilla {dab} mm arriba|y 1 abajo, con tuerca y contratuerca" if osup else f"Cierre: {va['abrazadera']['cant_por_abrazadera']} varillas {dab} mm|con tuerca y contratuerca"))
     f.tag((18, gz - 20), 80, 30, f"{ab['accesorio'][0].upper() + ab['accesorio'][1:]}|para la soga")
     f.text((0, beamZ - 325), "soga / cadena", "vw2")
     f.title_txt = "CORTE TRANSVERSAL"
     n = len(D["hang"])
     out.append((f"Abrazadera de cuelgue (×{n})",
-                f"{n} abrazaderas de planchuela en dos medias cañas, con goma, sin perforar el travesaño. Se cierran con {va['abrazadera']['cant_por_abrazadera']} varillas de {dab} mm y abajo llevan un grillete o gancho giratorio. Al sacar los accesorios, la abrazadera queda o se afloja y se corre.",
+                f"{n} abrazaderas de planchuela en dos medias cañas, con goma, sin perforar el travesaño. Cada media caña tiene oreja arriba y abajo; las juntas se cierran con una varilla de {dab} mm cada una, y abajo llevan un grillete o gancho giratorio. Al sacar los accesorios, la abrazadera queda o se afloja y se corre.",
                 f.svg("Detalle de la abrazadera de cuelgue")))
 
-    # ===== 5. Apoyo =====
+    # ===== 5. Apoyo (vista lateral: sentido del vaivén) =====
     px, py, pz = ap["pozo"]
-    f = Fig(-520, 520, -420, 420)
-    f.poly([(-520, -420), (520, -420), (520, 0), (-520, 0)], "var(--soil)", "none", 0)
-    f.line((-520, 0), (520, 0), "#7a6a55", 1.5)
-    f.poly([(-px / 2, -pz), (px / 2, -pz), (px / 2, 0), (-px / 2, 0)], "var(--gravel)", "#7a6a55", 1)
-    for i in range(70):
-        x = -px / 2 + 10 + (i * 37) % (px - 20); y = -pz + 10 + (i * 53) % (pz - 20)
-        f.circle((x, y), 7, "#b3a58f", "#8d7f69", 0.5)
-    f.poly([(-110, -pz), (110, -pz), (110, -pz + 55), (-110, -pz + 55)], "#b0574a", "#6e3027", 1)
+    ent = pa["enterrado"]
     ang = math.radians(A)
     u = (math.sin(ang), math.cos(ang))
-    base = (0, -pz + 55)
-    top = (base[0] + u[0] * 700, base[1] + u[1] * 700)
+    cxp = ent * math.tan(ang) / 2  # el pozo se centra en el tramo enterrado
+    f = Fig(-520, 620, -pz - 120, 460)
+    f.poly([(-520, -pz - 120), (620, -pz - 120), (620, 0), (-520, 0)], "var(--soil)", "none", 0)
+    f.line((-520, 0), (620, 0), "#7a6a55", 1.5)
+    x0, x1 = cxp - py / 2, cxp + py / 2
+    f.poly([(x0, -pz), (x1, -pz), (x1, 0), (x0, 0)], "var(--gravel)", "#7a6a55", 1)
+    for i in range(90):
+        x = x0 + 10 + (i * 37) % (py - 20); y = -pz + 10 + (i * 53) % (pz - 20)
+        f.circle((x, y), 7, "#b3a58f", "#8d7f69", 0.5)
+    # ladrillos acostados bajo el pie (en esta vista se ve su largo, 25 cm)
+    f.poly([(-125, -ent - 55), (125, -ent - 55), (125, -ent), (-125, -ent)], "#b0574a", "#6e3027", 1)
+    base = (0, -ent)
+    top = (base[0] + u[0] * (ent / u[1] + 520), base[1] + u[1] * (ent / u[1] + 520))
     rr = legR
     nx, ny = -u[1], u[0]
     p1 = (base[0] - rr / u[1], base[1]); p2 = (base[0] + rr / u[1], base[1])
@@ -182,15 +194,15 @@ def laminas(ficha, M):
     f.line(p1, p2, WOODEDGE, 2)
     pl = ap["proteccion_largo"]
     f.poly([p1, p2, (p2[0] + u[0] * pl, p2[1] + u[1] * pl), (p1[0] + u[0] * pl, p1[1] + u[1] * pl)], "#3b2a1c", "none", 0, 'opacity=".35"')
-    f.dim((-px / 2, -pz), (px / 2, -pz), -40, cm(px), 12)
-    f.dim((px / 2, -pz), (px / 2, 0), -50, cm(pz), 12)
-    f.dim((-110, -pz + 55), (-110, 0), 60, f"≈ {cm(pa['enterrado'])} enterrado", 11)
-    f.tag((p2[0] + 10, -100), 170, 60, "Pie cortado horizontal|(apoya plano)")
-    f.tag((-80, -pz + 25), -80, 40, ap["base"][0].upper() + ap["base"][1:], "end")
-    f.tag((100, -60), 120, -20, ap["relleno"][0].upper() + ap["relleno"][1:])
+    f.dim((x0, -pz), (x1, -pz), -40, cm(py), 12)
+    f.dim((x1, -pz), (x1, 0), -50, cm(pz), 12)
+    f.dim((-160, -ent), (-160, 0), 60, f"{cm(ent)} enterrado", 11)
+    f.tag((p2[0] + 10, -ent + 10), 170, 40, "Pie cortado horizontal|(apoya plano)")
+    f.tag((-60, -ent - 30), -110, 50, ap["base"][0].upper() + ap["base"][1:], "end")
+    f.tag((x1 - 40, -pz + 30), 110, 10, ap["relleno"][0].upper() + ap["relleno"][1:] + "|también debajo de los ladrillos")
     f.tag((p1[0] + u[0] * 300, p1[1] + u[1] * 300), -150, -60, f"Últimos {cm(pl)} con|{ap['proteccion']}", "end")
-    f.title_txt = "APOYO DE CADA PATA"
+    f.title_txt = "APOYO DE CADA PATA · VISTA LATERAL"
     out.append(("Apoyo de cada pata",
-                f"Cada pata apoya sola en un pozo de {cm(px)} × {cm(py)} × {cm(pz)}, sobre {ap['base']} y {ap['relleno']}. El pie se corta horizontal para que apoye plano. Los últimos {cm(pl)} llevan {ap['proteccion']}.",
+                f"Cada pata apoya sola en un pozo de {cm(px)} (a lo largo del travesaño) × {cm(py)} (sentido del vaivén) × {cm(pz)} de profundidad, centrado en el tramo enterrado: algo corrido hacia afuera del pie. Abajo, {ap['relleno']}; encima, {ap['base']} a {cm(ent)} de profundidad. El pie se corta horizontal para que apoye plano. Los últimos {cm(pl)} llevan {ap['proteccion']}.",
                 f.svg("Detalle del apoyo de la pata")))
     return out

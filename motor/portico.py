@@ -3,10 +3,9 @@
 Convención (mm): x a lo largo del travesaño (muro -> césped), y = vaivén, z = arriba.
 """
 import math
-from comun import add, sub, mul, unit, norm, m, cm, num, catalogo_materiales, catalogo_tipologia
+from comun import add, sub, mul, unit, norm, m, cm, num, catalogo_materiales, catalogo_tipologia, ag, PULG
 
 G = 9.81
-PULG = {10: '3/8"', 12: '1/2"', 16: '5/8"', 20: '3/4"'}  # la varilla roscada se vende en pulgadas: tuercas y arandelas de la misma rosca
 
 
 # ======================================================================
@@ -115,7 +114,13 @@ def modelo(ficha):
         "yTop": yTop, "yT": yT, "hang": hang, "slots": slots,
         # huella real en el piso: pata desfasada ±lap y corte elíptico del cilindro inclinado en vista frontal
         "pies_exterior": 2 * (footX + lap) + 2 * legR / math.cos(math.atan(lean)), "base_A": 2 * foot,
-        "pozos_exterior": 2 * (footX + lap) + d["apoyo"]["pozo"][0],
+        # pozo centrado en el tramo enterrado (la pata sigue inclinada hacia afuera bajo el suelo)
+        "pozo_dx": lean * pa["enterrado"] / 2, "pozo_dy": foot / apex * pa["enterrado"] / 2,
+        "pozos_exterior": 2 * (footX + lap + lean * pa["enterrado"] / 2) + d["apoyo"]["pozo"][0],
+        "pozo_al_muro": ficha["requisitos"]["espacio"]["largo_eje_travesano_m"] * 500 - (footX + lap + lean * pa["enterrado"] / 2) - d["apoyo"]["pozo"][0] / 2,
+        "replanteo": [(f"{'muro' if sx < 0 else 'césped'}-{'frente' if s < 0 else 'atrás'}", sx * footX + s * lap, s * foot,
+                       sx * footX + s * lap + sx * lean * pa["enterrado"] / 2, s * (foot + foot / apex * pa["enterrado"] / 2))
+                      for sx in (-1, 1) for s in (-1, 1)],
         "libre_asiento": 2 * (axisX(ac["asiento_z"]) - legR - lap),
         "cara_inf_travesano": beamZ - beamR,
         "largo_pata_calc": largo_pata,
@@ -154,7 +159,7 @@ def validar(ficha, M=None):
     _chk(out, "espacio.eje", "Entra en el largo disponible a lo largo del travesaño",
          m(D["pies_exterior"]) + " de pie a pie por fuera", m(esp["largo_eje_travesano_m"] * 1000),
          D["pies_exterior"] <= esp["largo_eje_travesano_m"] * 1000)
-    _chk(out, "espacio.pozos", "Los pozos (centrados en cada pie) entran en el largo disponible",
+    _chk(out, "espacio.pozos", "Los pozos (centrados en el tramo enterrado) no invaden el muro ni salen del área",
          m(D["pozos_exterior"]) + " de pozo a pozo por fuera", m(esp["largo_eje_travesano_m"] * 1000),
          D["pozos_exterior"] <= esp["largo_eje_travesano_m"] * 1000)
     L = cu["z_giro"] - ac["asiento_z"]
@@ -203,9 +208,16 @@ def validar(ficha, M=None):
          D["largo_cartela_calc"] <= d["cartela"]["largo"])
 
     ap = d["apoyo"]
-    huella = pa["diametro"] / D["cos_v"]
-    _chk(out, "geo.pozo", "El pozo contiene la huella del pie inclinado (elipse de " + cm(huella) + ")",
-         cm(ap["pozo"][0]) + " de lado", "≥ huella + 5 cm", ap["pozo"][0] >= huella + 50)
+    # extensión en planta del tramo enterrado (corte elíptico en el suelo y en el pie) + 2 cm de holgura por lado
+    ex = 2 * D["pozo_dx"] + 2 * r["legR"] / math.cos(math.radians(D["ang_frontal"])) + 40
+    ey = 2 * D["pozo_dy"] + 2 * r["legR"] / math.cos(math.radians(D["ang_lateral"])) + 40
+    _chk(out, "geo.pozo", "El pozo contiene el tramo enterrado de la pata (con 2 cm de holgura)",
+         f"{cm(ap['pozo'][0])} × {cm(ap['pozo'][1])}", f"≥ {cm(ex)} × {cm(ey)}", ap["pozo"][0] >= ex and ap["pozo"][1] >= ey)
+    _chk(out, "geo.pozo_prof", "Profundidad del pozo: enterrado + ladrillo + 5 cm de ripio debajo",
+         cm(ap["pozo"][2]), "≥ " + cm(pa["enterrado"] + 55 + 50), ap["pozo"][2] >= pa["enterrado"] + 105)
+    nl = ap.get("ladrillos_por_pozo", 1)
+    _chk(out, "geo.ladrillos", "Los ladrillos cubren el pie cortado horizontal",
+         f"{nl} × 12 cm = {cm(120 * nl)} de ancho", "≥ " + cm(pa["diametro"]), 120 * nl >= pa["diametro"])
     # --- cargas y flexión del travesaño ---
     luz = D["luz_travesano"]
     E, fadm = mat["E_MPa"], mat["tension_flexion_adm_MPa"]
@@ -246,23 +258,24 @@ def validar(ficha, M=None):
     fs_min = tip["calculo"]["fs_vuelco_min"]
     zg = cu["z_giro"]
     for cfg in req["configuraciones"]:
-        H = V = 0
-        for p in cfg["puestos"]:
-            masa = req["carga_diseno_kg"] if p == "cama" else req["carga_por_puesto_kg"]
-            t0 = math.radians(amp.get(p, 45))
-            best = (0, 0)
-            for k in range(1, 900):
+        # todos los accesorios en fase: se recorre el ciclo y se toma el FS MÍNIMO (no el instante de H máxima,
+        # porque el peso de los usuarios también estabiliza y baja hacia los extremos del vaivén)
+        peor = None
+        for k in range(1, 900):
+            H = V = 0
+            for p in cfg["puestos"]:
+                masa = req["carga_diseno_kg"] if p == "cama" else req["carga_por_puesto_kg"]
+                t0 = math.radians(amp.get(p, 45))
                 t = t0 * k / 900
                 T = masa * G * (3 * math.cos(t) - 2 * math.cos(t0))
-                if T * math.sin(t) > best[0]:
-                    best = (T * math.sin(t), T * math.cos(t))
-            H += best[0]
-            V += best[1]
-        Mv = H * zg
-        Ms = (Gp + V) * r["foot"]
-        fs = Ms / Mv
-        _chk(out, "calc.vuelco", f"Vuelco sin anclaje — {cfg['nombre']} (todos en fase)",
-             f"FS = {num(fs, 2)} (H = {num(H / 1000, 2)} kN a {m(zg)})", f"≥ {num(fs_min, 1)}", fs >= fs_min)
+                H += T * math.sin(t)
+                V += T * math.cos(t)
+            fs = (Gp + V) * r["foot"] / (H * zg)
+            if peor is None or fs < peor[0]:
+                peor = (fs, H, math.degrees(t0 * k / 900))
+        fs, H, ang = peor
+        _chk(out, "calc.vuelco", f"Vuelco sin anclaje — {cfg['nombre']} (todos en fase, peor instante del ciclo)",
+             f"FS = {num(fs, 2)} (H = {num(H / 1000, 2)} kN a {m(zg)}, a {num(ang, 0)}°)", f"≥ {num(fs_min, 1)}", fs >= fs_min)
 
     # --- compresión / pandeo de patas ---
     Ntot = req["carga_diseno_kg"] * G * fd + Gp
@@ -325,17 +338,17 @@ def despiece(ficha, M=None):
     piezas = [
         {"id": "T1", "pieza": "Travesaño", "cant": 1, "material": mad["nombre"], "seccion": f"Ø{cm(tr['diametro'])}", "largo": tr["largo"],
          "angulos": "Puntas a escuadra", "rebajes": f"Plano de {cm(ca['rebaje'])} abajo, a ±{m(ca['x_sup'])} del centro, para apoyar cada cartela",
-         "agujeros": f"2 pasantes Ø{va['horqueta']['d'] + hol} mm horizontales (sentido del vaivén) a ±{m(M['axisX'](tr['z_eje']))} del centro, en el eje; 2 pasantes Ø{va['cartela_sup']['d'] + hol} mm verticales a ±{m(ca['x_sup'])} del centro (cartelas)"},
+         "agujeros": f"2 pasantes Ø{ag(va['horqueta']['d'])} mm horizontales (sentido del vaivén) a ±{m(M['axisX'](tr['z_eje']))} del centro, en el eje; 2 pasantes Ø{ag(va['cartela_sup']['d'])} mm verticales a ±{m(ca['x_sup'])} del centro (cartelas)"},
         {"id": "P1–P4", "pieza": "Patas", "cant": pa["cantidad"], "material": mad["nombre"], "seccion": f"Ø{cm(pa['diametro'])}", "largo": pa["largo"],
          "angulos": f"Pie cortado horizontal: la pata forma {num(D['ang_real'], 1)}° con la vertical ({num(D['ang_lateral'], 0)}° en vista lateral y {num(D['ang_frontal'], 0)}° en vista frontal)",
          "rebajes": f"Media madera en el cruce (1/3 Ø ≈ {cm(pa['diametro'] * pa['rebaje_cruce_frac'], 1)}); asiento de {cm(pa['asiento_horqueta'], 1)} para el travesaño; plano de {cm(ti['rebaje'], 1)} para el tirante; asiento plano para la arandela donde sale cada varilla",
-         "agujeros": f"Medidas SOBRE la pata desde el pie: cruce Ø{va['cruce']['d'] + hol} a {m(D['marca_cruce'])} (altura {m(D['apex'])}); tirante Ø{va['tirante']['d'] + hol} a {m(D['marca_tirante'])} (altura {m(ti['z'])}); horqueta Ø{va['horqueta']['d'] + hol} a {m(D['marca_horqueta'])} (altura {m(tr['z_eje'])})"},
+         "agujeros": f"Medidas SOBRE la pata desde el pie: cruce Ø{ag(va['cruce']['d'])} a {m(D['marca_cruce'])} (altura {m(D['apex'])}); tirante Ø{ag(va['tirante']['d'])} a {m(D['marca_tirante'])} (altura {m(ti['z'])}); horqueta Ø{ag(va['horqueta']['d'])} a {m(D['marca_horqueta'])} (altura {m(tr['z_eje'])})"},
         {"id": "R1–R2", "pieza": "Tirantes", "cant": 2, "material": mad["nombre"], "seccion": f"Ø{cm(ti['diametro'])}", "largo": ti["largo"],
          "angulos": f"Puntas a escuadra; queda oblicuo {num(D['tirante_oblicuo_grados'], 1)}° en planta (sigue el desfase de la media madera)", "rebajes": f"2 planos de {cm(ti['rebaje'], 1)} contra las patas; plano de {cm(ca['rebaje'], 0)} arriba al centro para la cartela",
-         "agujeros": f"2 × Ø{va['tirante']['d'] + hol} horizontales (patas) + 1 × Ø{va['cartela_inf']['d'] + hol} vertical al centro"},
+         "agujeros": f"2 × Ø{ag(va['tirante']['d'])} horizontales (patas) + 1 × Ø{ag(va['cartela_inf']['d'])} vertical al centro"},
         {"id": "C1–C2", "pieza": "Cartelas", "cant": 2, "material": mad["nombre"], "seccion": f"Ø{cm(ca['diametro'])}", "largo": ca["largo"],
          "angulos": "Puntas cortadas horizontales", "rebajes": f"Planos de {cm(ca['rebaje'], 0)} en las dos puntas; asiento plano para la arandela donde sale la varilla",
-         "agujeros": f"1 × Ø{va['cartela_inf']['d'] + hol} vertical en cada punta"},
+         "agujeros": f"1 × Ø{ag(va['cartela_inf']['d'])} vertical en cada punta"},
     ]
     # pedido de madera por medida comercial
     madera = []
@@ -381,7 +394,7 @@ def despiece(ficha, M=None):
     ab = d["cuelgues"]["abrazadera"]
     nab = len(D["hang"])
     radio = ab["radio_interior"] + ab["goma_mm"]
-    tira = 2 * (math.pi * radio + ab["oreja"])
+    tira = 2 * (math.pi * radio + ab["oreja"] + ab.get("oreja_sup", 0))  # 2 medias cañas, cada una con oreja abajo y arriba
     plan_m = tira * nab * (1 + d["desperdicio_pct"] / 100) / 1000
     ferre.append({"id": "planchuela_40x5", "descripcion": f"Planchuela {ab['planchuela']} mm × 6 m (galvanizada; si es de hierro negro, la herrería la termina con galvanizado en frío)", "cant": math.ceil(plan_m / 6), "unidad": "barra 6 m",
                   "uso": f"{nab} abrazaderas × 2 medias cañas de {m(tira / 2)} = {num(plan_m, 1)} m con desperdicio", "metros": plan_m})
@@ -407,12 +420,12 @@ def despiece(ficha, M=None):
          "uso": f"{num(area_m2, 1)} m² × {cet['manos']} manos ≈ {num(litros, 1)} L"},
         {"id": "asfalto_frio_4l", "descripcion": "Asfalto en frío / pintura asfáltica, 4 L", "cant": math.ceil(litros_asf / asf["envase_l"]), "unidad": "u",
          "uso": f"Últimos {cm(ap['proteccion_largo'])} de cada pata: {num(area_asf, 2)} m² × {asf['manos']} manos"},
-        {"id": "ladrillo_macizo", "descripcion": "Ladrillo común macizo", "cant": pa["cantidad"], "unidad": "u", "uso": "Uno en el fondo de cada pozo (o laja)"},
+        {"id": "ladrillo_macizo", "descripcion": "Ladrillo común macizo", "cant": pa["cantidad"] * ap.get("ladrillos_por_pozo", 1), "unidad": "u", "uso": f"{ap.get('ladrillos_por_pozo', 1)} en el fondo de cada pozo (o una laja)"},
     ]
     px, py, pz = ap["pozo"]
-    vol_ripio = pa["cantidad"] * (px * py * pz - math.pi * (pa["diametro"] / 2) ** 2 * pa["enterrado"] - 250 * 120 * 55) / 1e9
-    term.append({"id": "ripio_bolsa", "descripcion": "Ripio / piedra partida", "cant": round(vol_ripio * ins["ripio"]["densidad_kg_m3"]), "unidad": "kg",
-                 "uso": f"{pa['cantidad']} pozos de {cm(px)} × {cm(py)} × {cm(pz)}: {num(vol_ripio, 3)} m³"})
+    vol_ripio = pa["cantidad"] * (px * py * pz - math.pi * (pa["diametro"] / 2) ** 2 * pa["enterrado"] - ap.get("ladrillos_por_pozo", 1) * 250 * 120 * 55) / 1e9
+    term.append({"id": "ripio_bolsa", "descripcion": "Ripio / piedra partida", "cant": round(vol_ripio * 1.2 * ins["ripio"]["densidad_kg_m3"]), "unidad": "kg",  # +20 % por apisonado
+                 "uso": f"{pa['cantidad']} pozos de {cm(px)} × {cm(py)} × {cm(pz)}: {num(vol_ripio, 3)} m³ + 20 % por apisonado"})
 
     # desperdicio de madera
     util = sum(x["largo_util_mm"] for x in madera)

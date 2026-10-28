@@ -1,13 +1,17 @@
 {
   "herramientas": [
-    "Taladro con mechas largas de 18 y 14 mm (largo ≥ 45 cm para la horqueta)",
-    "Motosierra o serrucho de poda, formón y maza para rebajes",
-    "Llaves fijas o de tubo de 16 mm (24) y 12 mm (19), y de 10 mm (17)",
-    "Cinta métrica, nivel, plomada, escuadra, tiza o lápiz de carpintero",
-    "Pala de punta y pisón para los pozos",
-    "Abrazaderas: encargarlas a una herrería (curvar la planchuela en medias cañas y perforar las orejas); si se hacen en casa, morsa, mecha para metal de 12 mm y antióxido o galvanizado en frío para cortes y agujeros",
-    "Escalera de 2 m, 2 caballetes y sogas o cinchas para subir el travesaño",
-    "Pincel o rodillo; guantes, anteojos y protector auditivo"
+    "Taladro con mecha larga de 18 mm (≥ 45 cm para la horqueta)",
+    "Mecha para madera de 15 mm (varillas de las cartelas) (a conseguir)",
+    "Motosierra o serrucho de poda",
+    "Formón para los rebajes",
+    "Maza de carpintero (a conseguir)",
+    "Llaves fijas o de tubo para rosca en pulgadas: 15/16\" (24 mm) y 3/4\" (19 mm), y 9/16\" (14 mm)",
+    "Nivel, plomada, cinta métrica, escuadra, tiza o lápiz de carpintero",
+    "Escalera de 2 m",
+    "Pala de punta y pisón para los pozos (a conseguir)",
+    "2 caballetes y sogas o cinchas para subir el travesaño (a conseguir)",
+    "Pincel o rodillo; guantes, anteojos y protector auditivo (a conseguir)",
+    "Abrazaderas: encargarlas a una herrería (curvar la planchuela en medias cañas, perforar las orejas y galvanizar en frío). No incluidas en el presupuesto."
   ],
   "recomendaciones": [
     "Elegir rollizos rectos, sin rajaduras pasantes, con el diámetro de proyecto como mínimo en la punta fina (travesaño Ø20 cm, patas Ø17 cm).",
@@ -19,39 +23,39 @@
   "pasos": [
     [
       "Replanteo",
-      "Marcar en el terreno el área libre y los 4 pies: a ±2,06 m del centro a lo largo del travesaño y ±1,15 m en el sentido del vaivén. Verificar escuadra midiendo diagonales."
+      "Desde el centro del pórtico (punto bajo el centro del travesaño), x a lo largo del travesaño hacia el césped e y en el sentido del vaivén. Las dos patas de cada A van corridas ±3 cm por la media madera: muro-frente: pie en x = -2,095 m, y = -1,150 m y centro del pozo en x = -2,113 m, y = -1,199 m; muro-atrás: pie en x = -2,035 m, y = 1,150 m y centro del pozo en x = -2,053 m, y = 1,199 m; césped-frente: pie en x = 2,035 m, y = -1,150 m y centro del pozo en x = 2,053 m, y = -1,199 m; césped-atrás: pie en x = 2,095 m, y = 1,150 m y centro del pozo en x = 2,113 m, y = 1,199 m. El borde del pozo del lado del muro queda a 0,2 cm del muro; si el cimiento del muro asoma, correr todo el pórtico unos cm hacia el césped. Verificar escuadra midiendo diagonales."
     ],
     [
       "Pozos",
-      "Cavar 4 pozos de 30 cm × 30 cm × 25 cm. Asentar en el fondo ladrillo macizo o laja bien nivelado."
+      "Cavar 4 pozos de 27 cm (a lo largo del travesaño) × 45 cm (sentido del vaivén) × 30 cm, corridos hacia afuera del pie marcado: 1,8 cm a lo largo del travesaño y 4,9 cm en el vaivén. Apisonar ripio en el fondo y asentar 2 ladrillos macizos (o una laja) bien nivelados a 15 cm de profundidad, centrados bajo el pie, con unos 5 cm de ripio apisonado entre los ladrillos y la pared exterior del pozo."
     ],
     [
       "Preparar las patas",
-      "Cortar las 4 patas a 2,95 m con el pie horizontal: la pata forma 34,9° con la vertical (33° vista de costado y 14° vista de frente). Marcar SOBRE la pata, desde el pie: cruce a 2,39 m, tirante a 1,58 m, horqueta a 2,80 m. Pintar los últimos 40 cm con asfalto en frío."
+      "Cortar las 4 patas a 2,95 m con el pie horizontal: la pata forma 34,9° con la vertical (33° vista de costado y 14° vista de frente). Marcar SOBRE la pata, desde el pie: cruce a 2,33 m, tirante a 1,52 m, horqueta a 2,74 m. Pintar los últimos 40 cm con asfalto en frío."
     ],
     [
       "Armar cada A en el piso",
-      "Presentar las 2 patas cruzadas en la marca de 2,39 m (quedará a 1,76 m de altura). Marcar y tallar la media madera (1/3 del diámetro), perforar Ø18 y colocar la varilla del cruce con arandela, tuerca y contratuerca."
+      "Presentar las 2 patas cruzadas en la marca de 2,33 m (quedará a 1,76 m de altura). Marcar y tallar la media madera (1/3 del diámetro), perforar Ø18 y colocar la varilla del cruce con arandela, tuerca y contratuerca."
     ],
     [
       "Tirante",
-      "Presentar el tirante Ø15 cm por la cara interior en la marca de 1,58 m (altura 1,10 m); queda apenas oblicuo (4,0°) porque las patas están desfasadas por la media madera. Rebajar 2,5 cm en tirante y pata, perforar Ø18 y colocar las 2 varillas."
+      "Presentar el tirante Ø15 cm por la cara interior en la marca de 1,52 m (altura 1,10 m); queda apenas oblicuo (4,0°) porque las patas están desfasadas por la media madera. Rebajar 2,5 cm en tirante y pata, perforar Ø18 y colocar las 2 varillas."
     ],
     [
       "Asientos de la horqueta",
-      "Rebajar 1,5 cm en cada pata donde apoya el travesaño (arriba del cruce) y perforar Ø18 en la marca de 2,80 m. Tallar un asiento plano para la arandela donde sale cada varilla."
+      "Rebajar 1,5 cm en cada pata donde apoya el travesaño (arriba del cruce) y perforar Ø18 en la marca de 2,74 m. Tallar un asiento plano para la arandela donde sale cada varilla."
     ],
     [
       "Preparar el travesaño",
-      "En el piso, perforar los 2 agujeros horizontales Ø18 a ±1,55 m del centro y los 2 verticales Ø14 a ±1,35 m para las cartelas."
+      "En el piso, marcar a ±1,55 m del centro (horquetas) y a ±1,35 m (cartelas), y tallar los planos de 2 cm abajo para las cartelas. Los agujeros del travesaño se hacen ya colocado, usando como guía los de las patas."
     ],
     [
       "Levantar las A (ayuda puntual)",
-      "Cada A pesa ≈ 116 kg: pararla entre 2 personas, con el pie apoyado en el pozo y empujando desde la horqueta. Apuntalar con una tabla y verificar plomo."
+      "Cada A pesa ≈ 116 kg: pararla con la ayuda puntual de 2 personas (la misma visita que el travesaño), con el pie apoyado en el pozo y empujando desde la horqueta. Apuntalar con una tabla y verificar plomo."
     ],
     [
       "Subir el travesaño (ayuda puntual)",
-      "Entre 3 personas, apoyar el travesaño (3,70 m, ≈ 87 kg) en las dos horquetas. Pasar la varilla de 16 mm × 0,77 m pata–travesaño–pata en cada lado y ajustar."
+      "Entre 3 personas, apoyar el travesaño (3,70 m, ≈ 87 kg) en las dos horquetas. Con la mecha larga, perforar el travesaño a través de los agujeros de las patas, pasar la varilla de 16 mm × 0,77 m pata–travesaño–pata en cada lado y ajustar."
     ],
     [
       "Cartelas",
@@ -76,5 +80,5 @@
     "Después de tormentas fuertes: verificar plomo de las A y que ningún pie se haya descalzado.",
     "Cambiar sogas o cadenas ante cualquier hilo cortado u óxido; nunca perforar el travesaño para colgar."
   ],
-  "personas": "1 persona con ayuda puntual de 2 personas para subir el travesaño."
+  "personas": "1 persona con ayuda puntual de 2 personas para parar las dos A y subir el travesaño"
 }

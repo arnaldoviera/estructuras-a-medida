@@ -10,8 +10,8 @@
     },
     {
       "id": "espacio.pozos",
-      "requisito": "Los pozos (centrados en cada pie) entran en el largo disponible",
-      "valor": "4,49 m de pozo a pozo por fuera",
+      "requisito": "Los pozos (centrados en el tramo enterrado) no invaden el muro ni salen del área",
+      "valor": "4,50 m de pozo a pozo por fuera",
       "limite": "4,50 m",
       "estado": "cumple",
       "nota": ""
@@ -26,10 +26,10 @@
     },
     {
       "id": "norma.zona_libre_cama",
-      "requisito": "Zona libre de vaivén de la hamaca-cama (misma fórmula, cama a 0,45 m)",
-      "valor": "2,79 m por lado = 5,58 m",
+      "requisito": "Zona libre de vaivén de la hamaca-cama (misma fórmula, cama a 0,50 m)",
+      "valor": "2,75 m por lado = 5,50 m",
       "limite": "5,50 m",
-      "estado": "no cumple",
+      "estado": "cumple",
       "nota": ""
     },
     {
@@ -83,9 +83,9 @@
     {
       "id": "geo.largo_pata",
       "requisito": "Largo de pata (enterrado + pie cortado horizontal) vs. rollizo comercial",
-      "valor": "3,010 m",
+      "valor": "2,949 m",
       "limite": "≤ 3,000 m",
-      "estado": "no cumple",
+      "estado": "cumple",
       "nota": ""
     },
     {
@@ -114,9 +114,25 @@
     },
     {
       "id": "geo.pozo",
-      "requisito": "El pozo contiene la huella del pie inclinado (elipse de 21 cm)",
-      "valor": "30 cm de lado",
-      "limite": "≥ huella + 5 cm",
+      "requisito": "El pozo contiene el tramo enterrado de la pata (con 2 cm de holgura)",
+      "valor": "27 cm × 45 cm",
+      "limite": "≥ 25 cm × 34 cm",
+      "estado": "cumple",
+      "nota": ""
+    },
+    {
+      "id": "geo.pozo_prof",
+      "requisito": "Profundidad del pozo: enterrado + ladrillo + 5 cm de ripio debajo",
+      "valor": "30 cm",
+      "limite": "≥ 26 cm",
+      "estado": "cumple",
+      "nota": ""
+    },
+    {
+      "id": "geo.ladrillos",
+      "requisito": "Los ladrillos cubren el pie cortado horizontal",
+      "valor": "2 × 12 cm = 24 cm de ancho",
+      "limite": "≥ 17 cm",
       "estado": "cumple",
       "nota": ""
     },
@@ -162,16 +178,16 @@
     },
     {
       "id": "calc.vuelco",
-      "requisito": "Vuelco sin anclaje — 2 hamacas + trapecio (todos en fase)",
-      "valor": "FS = 1,52 (H = 2,47 kN a 1,94 m)",
+      "requisito": "Vuelco sin anclaje — 2 hamacas + trapecio (todos en fase, peor instante del ciclo)",
+      "valor": "FS = 1,37 (H = 2,21 kN a 1,94 m, a 48°)",
       "limite": "≥ 1,5",
-      "estado": "cumple",
+      "estado": "no cumple",
       "nota": ""
     },
     {
       "id": "calc.vuelco",
-      "requisito": "Vuelco sin anclaje — Hamaca-cama (3 puestos) (todos en fase)",
-      "valor": "FS = 3,31 (H = 1,10 kN a 1,94 m)",
+      "requisito": "Vuelco sin anclaje — Hamaca-cama (3 puestos) (todos en fase, peor instante del ciclo)",
+      "valor": "FS = 3,31 (H = 1,10 kN a 1,94 m, a 20°)",
       "limite": "≥ 1,5",
       "estado": "cumple",
       "nota": ""
@@ -226,7 +242,7 @@
     }
   ],
   "peso_propio_kg": 317.8268877958765,
-  "peso_total_kg": 338.4611621772918,
+  "peso_total_kg": 334.31110541524987,
   "volumen_madera_m3": 0.4237691837278353,
-  "resumen": "26/28 verificaciones cumplen.\n- NO CUMPLE: Zona libre de vaivén de la hamaca-cama (misma fórmula, cama a 0,45 m) → 2,79 m por lado = 5,58 m (límite 5,50 m)\n- NO CUMPLE: Largo de pata (enterrado + pie cortado horizontal) vs. rollizo comercial → 3,010 m (límite ≤ 3,000 m)"
+  "resumen": "29/30 verificaciones cumplen.\n- NO CUMPLE: Vuelco sin anclaje — 2 hamacas + trapecio (todos en fase, peor instante del ciclo) → FS = 1,37 (H = 2,21 kN a 1,94 m, a 48°) (límite ≥ 1,5)"
 }
