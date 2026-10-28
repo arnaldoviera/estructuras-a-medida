@@ -1,0 +1,75 @@
+{
+  "herramientas": [
+    "Taladro con mechas largas de 18 y 14 mm (largo ≥ 45 cm para la horqueta)",
+    "Motosierra o serrucho de poda, formón y maza para rebajes",
+    "Llaves fijas o de tubo de 16 mm (24) y 12 mm (19), y de 10 mm (17)",
+    "Cinta métrica, nivel, plomada, escuadra, tiza o lápiz de carpintero",
+    "Pala de punta y pisón para los pozos",
+    "Escalera de 2 m, 2 caballetes y sogas o cinchas para subir el travesaño",
+    "Pincel o rodillo; guantes, anteojos y protector auditivo"
+  ],
+  "recomendaciones": [
+    "Elegir rollizos rectos, sin rajaduras pasantes, con el diámetro de proyecto como mínimo en la punta fina (travesaño Ø20 cm, patas Ø17 cm).",
+    "Marcar y perforar con las piezas presentadas en el piso (las dos A armadas acostadas), no en el aire.",
+    "Todos los agujeros 2 mm mayores que la varilla; todas las varillas con arandela ancha, tuerca y contratuerca.",
+    "Pintar con Cetol los cortes, rebajes y agujeros antes de armar (son la entrada del agua).",
+    "Usar el pórtico recién cuando estén todas las uniones ajustadas y los pozos compactados."
+  ],
+  "pasos": [
+    [
+      "Replanteo",
+      "Marcar en el terreno el área libre y los 4 pies: a ±2,06 m del centro a lo largo del travesaño y ±1,15 m en el sentido del vaivén. Verificar escuadra midiendo diagonales."
+    ],
+    [
+      "Pozos",
+      "Cavar 4 pozos de 30 cm × 30 cm × 25 cm. Asentar en el fondo ladrillo macizo o laja bien nivelado."
+    ],
+    [
+      "Preparar las patas",
+      "Cortar las 4 patas a 2,95 m con el pie horizontal (ángulo de 33° respecto de la vertical). Pintar los últimos 40 cm con asfalto en frío."
+    ],
+    [
+      "Armar cada A en el piso",
+      "Presentar las 2 patas cruzadas a 1,76 m del pie. Marcar y tallar la media madera (1/3 del diámetro), perforar Ø18 y colocar la varilla del cruce con arandela, tuerca y contratuerca."
+    ],
+    [
+      "Tirante",
+      "Presentar el tirante Ø15 cm por la cara interior a 1,10 m del pie. Rebajar 2,5 cm en tirante y pata, perforar Ø18 y colocar las 2 varillas."
+    ],
+    [
+      "Asientos de la horqueta",
+      "Rebajar 1,5 cm en cada pata donde apoya el travesaño (arriba del cruce) y perforar Ø18 a la altura del eje."
+    ],
+    [
+      "Levantar las A",
+      "Parar cada A dentro de sus pozos (una persona sola, apoyando el pie en el pozo y empujando desde la horqueta). Apuntalar provisoriamente con una tabla y verificar plomo."
+    ],
+    [
+      "Subir el travesaño (ayuda puntual)",
+      "Entre 3 personas, apoyar el travesaño (3,70 m) en las dos horquetas. Pasar la varilla de 16 mm × 0,77 m pata–travesaño–pata en cada lado y ajustar."
+    ],
+    [
+      "Cartelas",
+      "Presentar cada cartela del centro del tirante a la cara inferior del travesaño, a 1,35 m del centro. Rebajes de 2 cm y varilla vertical de 12 mm en cada punta, con asiento plano para la arandela."
+    ],
+    [
+      "Compactar los pozos",
+      "Rellenar con ripio apisonado en capas de 5 cm, apisonando cada capa. Verificar nivel del travesaño y plomo de las A."
+    ],
+    [
+      "Abrazaderas",
+      "Colocar las 6 abrazaderas con su banda de goma en x = 0,25 m / 0,69 m / 1,19 m del centro (a cada lado). Cerrar con las varillas de 10 mm y colgar grilletes."
+    ],
+    [
+      "Accesorios y prueba",
+      "Colgar los accesorios, regular la altura (asientos a 0,50 m) y hacer una prueba de carga gradual antes del primer uso. Reajustar todas las tuercas a la semana."
+    ]
+  ],
+  "mantenimiento": [
+    "Cada 3 meses: reajustar tuercas y contratuercas; revisar sogas, grilletes y desgaste de la goma de las abrazaderas.",
+    "Cada año: lijar suave y dar una mano de Cetol; revisar el pie de las patas y el relleno de los pozos.",
+    "Después de tormentas fuertes: verificar plomo de las A y que ningún pie se haya descalzado.",
+    "Cambiar sogas o cadenas ante cualquier hilo cortado u óxido; nunca perforar el travesaño para colgar."
+  ],
+  "personas": "1 persona con ayuda puntual de 2 personas para subir el travesaño."
+}

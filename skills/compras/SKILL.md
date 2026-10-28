@@ -1,0 +1,24 @@
+---
+name: compras
+description: Busca en la web, en cada corrida, productos sugeridos y precios de referencia en Argentina (según la localidad de la obra) para cada renglón del pedido de materiales, con fuente, URL y fecha, y escribe precios.json. Nunca usa precios fijos. Usar en la corrida completa o cuando se pida actualizar precios de una propuesta.
+---
+
+# Compras → precios.json
+
+Entrada: `salida/pedido.json` y `cliente.zona_compras` / `cliente.localidad` de la ficha.
+
+1. Por cada `id` del pedido, buscar en la web (MercadoLibre Argentina, corralones, madereras, ferreterías y cadenas como Easy o Sodimac), priorizando la zona de compras. Si se puede, lanzar un subagente con todos los ítems en una sola tanda.
+2. Elegir UNA fuente creíble por ítem con el precio publicado hoy. Anotar URL exacta y fecha. Si la fuente es de otra zona, decirlo en `nota`.
+3. Normalizar a la unidad del pedido con `contenido` = cuántas unidades del pedido trae una unidad de venta (ej. ripio pedido en kg y vendido en bolsa de 25 kg → `contenido: 25`; tuercas vendidas por 10 → `contenido: 10`). El motor calcula `ceil(cant / contenido)` unidades de venta.
+4. Si no se encuentra un precio: `precio: null` y la razón en `nota`. La página lo muestra como "sin precio de referencia" y no lo suma. Nunca estimar.
+5. Escribir `<carpeta>/precios.json`:
+
+```json
+{"fecha_consulta": "AAAA-MM-DD", "localidad": "…", "moneda": "ARS",
+ "items": [{"id": "varilla_16", "descripcion": "texto del producto en la fuente", "unidad": "u", "contenido": 1,
+            "precio": 12345.0, "iva_incluido": true, "fuente": "Comercio", "url": "https://…", "nota": ""}]}
+```
+
+`iva_incluido`: los precios al consumidor en Argentina incluyen IVA; el motor los pasa a sin IVA con `comercial.iva_pct`.
+
+Después: `correr.py propuesta <carpeta>` para rearmar la página con los precios.

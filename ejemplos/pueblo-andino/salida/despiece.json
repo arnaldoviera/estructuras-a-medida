@@ -1,0 +1,285 @@
+{
+  "piezas": [
+    {
+      "id": "T1",
+      "pieza": "Travesaño",
+      "cant": 1,
+      "material": "Rollizo de eucalipto impregnado (CCA)",
+      "seccion": "Ø20 cm",
+      "largo": 3700,
+      "angulos": "Puntas a escuadra",
+      "rebajes": "—",
+      "agujeros": "2 pasantes Ø18 mm horizontales, a ±1,55 m del centro, en el eje"
+    },
+    {
+      "id": "P1–P4",
+      "pieza": "Patas",
+      "cant": 4,
+      "material": "Rollizo de eucalipto impregnado (CCA)",
+      "seccion": "Ø17 cm",
+      "largo": 2950,
+      "angulos": "Pie cortado horizontal; pata a 33° lateral y 14° frontal",
+      "rebajes": "Media madera en el cruce (1/3 Ø ≈ 5,7 cm); asiento de 1,5 cm para el travesaño; plano de 2,5 cm para el tirante",
+      "agujeros": "Cruce: Ø18 a 1,76 m; horqueta: Ø18 a 2,10 m; tirante: Ø18 a 1,10 m"
+    },
+    {
+      "id": "R1–R2",
+      "pieza": "Tirantes",
+      "cant": 2,
+      "material": "Rollizo de eucalipto impregnado (CCA)",
+      "seccion": "Ø15 cm",
+      "largo": 1150,
+      "angulos": "Puntas a escuadra",
+      "rebajes": "2 planos de 2,5 cm contra las patas; plano de 2 cm arriba al centro para la cartela",
+      "agujeros": "2 × Ø18 horizontales (patas) + 1 × Ø14 vertical al centro"
+    },
+    {
+      "id": "C1–C2",
+      "pieza": "Cartelas",
+      "cant": 2,
+      "material": "Rollizo de eucalipto impregnado (CCA)",
+      "seccion": "Ø12 cm",
+      "largo": 1000,
+      "angulos": "Puntas cortadas horizontales",
+      "rebajes": "Planos de 2 cm en las dos puntas; asiento plano para la arandela donde sale la varilla",
+      "agujeros": "1 × Ø14 vertical en cada punta"
+    }
+  ],
+  "varillas_corte": {
+    "16": [
+      {
+        "cortes": [
+          770
+        ],
+        "libre": 227
+      },
+      {
+        "cortes": [
+          770
+        ],
+        "libre": 227
+      },
+      {
+        "cortes": [
+          350,
+          350
+        ],
+        "libre": 294
+      },
+      {
+        "cortes": [
+          330,
+          330,
+          330
+        ],
+        "libre": 1
+      },
+      {
+        "cortes": [
+          330
+        ],
+        "libre": 667
+      }
+    ],
+    "12": [
+      {
+        "cortes": [
+          385,
+          385
+        ],
+        "libre": 224
+      },
+      {
+        "cortes": [
+          330,
+          330
+        ],
+        "libre": 334
+      }
+    ],
+    "10": [
+      {
+        "cortes": [
+          90,
+          90,
+          90,
+          90,
+          90,
+          90,
+          90,
+          90,
+          90,
+          90
+        ],
+        "libre": 70
+      },
+      {
+        "cortes": [
+          90,
+          90
+        ],
+        "libre": 814
+      }
+    ]
+  },
+  "pedido": {
+    "madera": [
+      {
+        "id": "rollizo_d20_l4",
+        "descripcion": "Rollizo eucalipto impregnado Ø 20-22 cm × 4,0 m (mín. Ø 20 cm en la punta fina)",
+        "cant": 1,
+        "unidad": "u",
+        "uso": "Travesaño",
+        "largo_util_mm": 3700,
+        "largo_compra_mm": 4000.0
+      },
+      {
+        "id": "rollizo_d17_l3",
+        "descripcion": "Rollizo eucalipto impregnado Ø 16-18 cm × 3,0 m (mín. Ø 17 cm en la punta fina)",
+        "cant": 4,
+        "unidad": "u",
+        "uso": "Patas",
+        "largo_util_mm": 11800,
+        "largo_compra_mm": 12000.0
+      },
+      {
+        "id": "rollizo_d15_l25",
+        "descripcion": "Rollizo eucalipto impregnado Ø 14-16 cm × 2,5 m (mín. Ø 15 cm en la punta fina)",
+        "cant": 1,
+        "unidad": "u",
+        "uso": "2 tirantes de un rollizo",
+        "largo_util_mm": 2300,
+        "largo_compra_mm": 2500.0
+      },
+      {
+        "id": "rollizo_d12_l25",
+        "descripcion": "Rollizo eucalipto impregnado Ø 12-14 cm × 2,5 m (mín. Ø 12 cm en la punta fina)",
+        "cant": 1,
+        "unidad": "u",
+        "uso": "2 cartelas de un rollizo",
+        "largo_util_mm": 2000,
+        "largo_compra_mm": 2500.0
+      }
+    ],
+    "ferreteria": [
+      {
+        "id": "varilla_16",
+        "descripcion": "Varilla roscada galvanizada 16 mm × 1 m",
+        "cant": 5,
+        "unidad": "u",
+        "uso": "8 tramos: 2 × 0,77 m, 2 × 0,35 m, 4 × 0,33 m"
+      },
+      {
+        "id": "tuerca_16",
+        "descripcion": "Tuerca galvanizada 16 mm",
+        "cant": 32,
+        "unidad": "u",
+        "uso": "Tuerca + contratuerca en cada punta"
+      },
+      {
+        "id": "arandela_ancha_16",
+        "descripcion": "Arandela ancha galvanizada 16 mm (Ø ext. 50-60 mm)",
+        "cant": 16,
+        "unidad": "u",
+        "uso": "Una por punta"
+      },
+      {
+        "id": "varilla_12",
+        "descripcion": "Varilla roscada galvanizada 12 mm × 1 m",
+        "cant": 2,
+        "unidad": "u",
+        "uso": "4 tramos: 2 × 0,39 m, 2 × 0,33 m"
+      },
+      {
+        "id": "tuerca_12",
+        "descripcion": "Tuerca galvanizada 12 mm",
+        "cant": 16,
+        "unidad": "u",
+        "uso": "Tuerca + contratuerca en cada punta"
+      },
+      {
+        "id": "arandela_ancha_12",
+        "descripcion": "Arandela ancha galvanizada 12 mm (Ø ext. 50-60 mm)",
+        "cant": 8,
+        "unidad": "u",
+        "uso": "Una por punta"
+      },
+      {
+        "id": "varilla_10",
+        "descripcion": "Varilla roscada galvanizada 10 mm × 1 m",
+        "cant": 2,
+        "unidad": "u",
+        "uso": "12 tramos: 12 × 0,09 m"
+      },
+      {
+        "id": "tuerca_10",
+        "descripcion": "Tuerca galvanizada 10 mm",
+        "cant": 48,
+        "unidad": "u",
+        "uso": "Tuerca + contratuerca en cada punta"
+      },
+      {
+        "id": "arandela_10",
+        "descripcion": "Arandela galvanizada 10 mm",
+        "cant": 24,
+        "unidad": "u",
+        "uso": "Una por punta"
+      },
+      {
+        "id": "planchuela_40x5",
+        "descripcion": "Planchuela galvanizada 40x5 mm × 6 m",
+        "cant": 1,
+        "unidad": "barra 6 m",
+        "uso": "6 abrazaderas × 2 medias cañas de 0,42 m = 5,6 m con desperdicio",
+        "metros": 5.5837164409028395
+      },
+      {
+        "id": "goma_3mm",
+        "descripcion": "Goma 3 mm, tira de 5 cm de ancho",
+        "cant": 4.5,
+        "unidad": "m",
+        "uso": "Banda bajo cada abrazadera",
+        "area_m2": 0.22346546859103414
+      },
+      {
+        "id": "grillete_10",
+        "descripcion": "Grillete galvanizado 10 mm o gancho giratorio",
+        "cant": 6,
+        "unidad": "u",
+        "uso": "Uno por abrazadera"
+      }
+    ],
+    "terminacion_apoyo": [
+      {
+        "id": "cetol_4l",
+        "descripcion": "Cetol para madera exterior, 4 L",
+        "cant": 1,
+        "unidad": "u",
+        "uso": "9,9 m² × 3 manos ≈ 2,5 L"
+      },
+      {
+        "id": "asfalto_frio_4l",
+        "descripcion": "Asfalto en frío / pintura asfáltica, 4 L",
+        "cant": 1,
+        "unidad": "u",
+        "uso": "Últimos 40 cm de cada pata: 0,85 m² × 2 manos"
+      },
+      {
+        "id": "ladrillo_macizo",
+        "descripcion": "Ladrillo común macizo",
+        "cant": 4,
+        "unidad": "u",
+        "uso": "Uno en el fondo de cada pozo (o laja)"
+      },
+      {
+        "id": "ripio_bolsa",
+        "descripcion": "Ripio / piedra partida",
+        "cant": 104,
+        "unidad": "kg",
+        "uso": "4 pozos de 30 cm × 30 cm × 25 cm: 0,065 m³"
+      }
+    ]
+  },
+  "desperdicio_madera_pct": 5.714285714285716,
+  "area_madera_m2": 9.891816589517473
+}

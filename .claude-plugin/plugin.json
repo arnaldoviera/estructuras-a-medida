@@ -1,0 +1,9 @@
+{
+  "name": "estructuras-a-medida",
+  "version": "1.0.0",
+  "description": "Del relevamiento con el cliente a la propuesta comercial web: valida el diseño de una estructura de madera (v1: pórtico de hamacas en rollizos con varilla roscada), la grafica, la despieza, busca precios y la audita con un agente independiente.",
+  "author": {"name": "Arnaldo Viera", "email": "arnaldoviera@gmail.com"},
+  "repository": "https://github.com/arnaldoviera/estructuras-a-medida",
+  "license": "UNLICENSED",
+  "keywords": ["estructuras", "madera", "rollizos", "hamacas", "presupuesto", "propuesta comercial", "argentina"]
+}

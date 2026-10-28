@@ -1,0 +1,158 @@
+{
+  "madera": [
+    {
+      "id": "rollizo_d20_l4",
+      "descripcion": "Rollizo eucalipto impregnado Ø 20-22 cm × 4,0 m (mín. Ø 20 cm en la punta fina)",
+      "cant": 1,
+      "unidad": "u",
+      "uso": "Travesaño",
+      "largo_util_mm": 3700,
+      "largo_compra_mm": 4000.0
+    },
+    {
+      "id": "rollizo_d17_l3",
+      "descripcion": "Rollizo eucalipto impregnado Ø 16-18 cm × 3,0 m (mín. Ø 17 cm en la punta fina)",
+      "cant": 4,
+      "unidad": "u",
+      "uso": "Patas",
+      "largo_util_mm": 11800,
+      "largo_compra_mm": 12000.0
+    },
+    {
+      "id": "rollizo_d15_l25",
+      "descripcion": "Rollizo eucalipto impregnado Ø 14-16 cm × 2,5 m (mín. Ø 15 cm en la punta fina)",
+      "cant": 1,
+      "unidad": "u",
+      "uso": "2 tirantes de un rollizo",
+      "largo_util_mm": 2300,
+      "largo_compra_mm": 2500.0
+    },
+    {
+      "id": "rollizo_d12_l25",
+      "descripcion": "Rollizo eucalipto impregnado Ø 12-14 cm × 2,5 m (mín. Ø 12 cm en la punta fina)",
+      "cant": 1,
+      "unidad": "u",
+      "uso": "2 cartelas de un rollizo",
+      "largo_util_mm": 2000,
+      "largo_compra_mm": 2500.0
+    }
+  ],
+  "ferreteria": [
+    {
+      "id": "varilla_16",
+      "descripcion": "Varilla roscada galvanizada 16 mm × 1 m",
+      "cant": 5,
+      "unidad": "u",
+      "uso": "8 tramos: 2 × 0,77 m, 2 × 0,35 m, 4 × 0,33 m"
+    },
+    {
+      "id": "tuerca_16",
+      "descripcion": "Tuerca galvanizada 16 mm",
+      "cant": 32,
+      "unidad": "u",
+      "uso": "Tuerca + contratuerca en cada punta"
+    },
+    {
+      "id": "arandela_ancha_16",
+      "descripcion": "Arandela ancha galvanizada 16 mm (Ø ext. 50-60 mm)",
+      "cant": 16,
+      "unidad": "u",
+      "uso": "Una por punta"
+    },
+    {
+      "id": "varilla_12",
+      "descripcion": "Varilla roscada galvanizada 12 mm × 1 m",
+      "cant": 2,
+      "unidad": "u",
+      "uso": "4 tramos: 2 × 0,39 m, 2 × 0,33 m"
+    },
+    {
+      "id": "tuerca_12",
+      "descripcion": "Tuerca galvanizada 12 mm",
+      "cant": 16,
+      "unidad": "u",
+      "uso": "Tuerca + contratuerca en cada punta"
+    },
+    {
+      "id": "arandela_ancha_12",
+      "descripcion": "Arandela ancha galvanizada 12 mm (Ø ext. 50-60 mm)",
+      "cant": 8,
+      "unidad": "u",
+      "uso": "Una por punta"
+    },
+    {
+      "id": "varilla_10",
+      "descripcion": "Varilla roscada galvanizada 10 mm × 1 m",
+      "cant": 2,
+      "unidad": "u",
+      "uso": "12 tramos: 12 × 0,09 m"
+    },
+    {
+      "id": "tuerca_10",
+      "descripcion": "Tuerca galvanizada 10 mm",
+      "cant": 48,
+      "unidad": "u",
+      "uso": "Tuerca + contratuerca en cada punta"
+    },
+    {
+      "id": "arandela_10",
+      "descripcion": "Arandela galvanizada 10 mm",
+      "cant": 24,
+      "unidad": "u",
+      "uso": "Una por punta"
+    },
+    {
+      "id": "planchuela_40x5",
+      "descripcion": "Planchuela galvanizada 40x5 mm × 6 m",
+      "cant": 1,
+      "unidad": "barra 6 m",
+      "uso": "6 abrazaderas × 2 medias cañas de 0,42 m = 5,6 m con desperdicio",
+      "metros": 5.5837164409028395
+    },
+    {
+      "id": "goma_3mm",
+      "descripcion": "Goma 3 mm, tira de 5 cm de ancho",
+      "cant": 4.5,
+      "unidad": "m",
+      "uso": "Banda bajo cada abrazadera",
+      "area_m2": 0.22346546859103414
+    },
+    {
+      "id": "grillete_10",
+      "descripcion": "Grillete galvanizado 10 mm o gancho giratorio",
+      "cant": 6,
+      "unidad": "u",
+      "uso": "Uno por abrazadera"
+    }
+  ],
+  "terminacion_apoyo": [
+    {
+      "id": "cetol_4l",
+      "descripcion": "Cetol para madera exterior, 4 L",
+      "cant": 1,
+      "unidad": "u",
+      "uso": "9,9 m² × 3 manos ≈ 2,5 L"
+    },
+    {
+      "id": "asfalto_frio_4l",
+      "descripcion": "Asfalto en frío / pintura asfáltica, 4 L",
+      "cant": 1,
+      "unidad": "u",
+      "uso": "Últimos 40 cm de cada pata: 0,85 m² × 2 manos"
+    },
+    {
+      "id": "ladrillo_macizo",
+      "descripcion": "Ladrillo común macizo",
+      "cant": 4,
+      "unidad": "u",
+      "uso": "Uno en el fondo de cada pozo (o laja)"
+    },
+    {
+      "id": "ripio_bolsa",
+      "descripcion": "Ripio / piedra partida",
+      "cant": 104,
+      "unidad": "kg",
+      "uso": "4 pozos de 30 cm × 30 cm × 25 cm: 0,065 m³"
+    }
+  ]
+}
