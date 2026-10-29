@@ -1,10 +1,10 @@
-"""Empaqueta el plugin: dist/estructuras-a-medida.plugin = zip del directorio, sin insumos ni archivos de sesión.
+"""Empaqueta el plugin: dist/estructuras-a-medida.plugin = zip del directorio, sin archivos de sesión.
 Antes revisa que el motor compile con Python 3.10 y 3.11 si están instalados (el plugin promete 3.10+)."""
 import glob, os, shutil, subprocess, sys, tempfile, zipfile
 
 RAIZ = os.path.dirname(os.path.abspath(__file__))
-FUERA_DIRS = {".git", ".claude", "dist", "insumos", "__pycache__", "proyectos"}
-FUERA_ARCH = {"memoria.md", "CLAUDE.md", "insumos-portico.zip", "empaquetar.py", ".gitignore"}
+FUERA_DIRS = {".git", ".claude", "dist", "__pycache__", "proyectos"}
+FUERA_ARCH = {"memoria.md", "CLAUDE.md", "empaquetar.py", ".gitignore"}
 
 fuentes = sorted(glob.glob(os.path.join(RAIZ, "motor", "*.py")))
 probados = []

@@ -1,6 +1,0 @@
-Actuá como ingeniero mecánico y veterinario especialista en instalaciones porcinas. Extraé de las fuentes, con citas textuales, las especificaciones técnicas de las jaulas/estructuras tubulares de alimentación individual de cerdas gestantes (estaciones ESF de paso, boxes de libre acceso / free access stalls y boxes de alimentación tipo Gestal 3G). Enfocate en cuatro ejes y respondé con viñetas técnicas:
-1. Dimensiones físicas exactas: ancho, largo, altura de paneles, separación entre barrotes, altura libre, restricciones espaciales para la cerda (peso y tamaño de referencia).
-2. Ingeniería de materiales y metalurgia: diámetros y calibres/espesores de tubos, acero inoxidable (304/316) vs galvanizado en caliente vs composites/plástico, resistencia a la corrosión por amoníaco, H2S y orina.
-3. Mecánica y cinemática de puertas y trancas anti-retorno: tipos de compuerta (pivotante, guillotina, neumática, actuada por el animal, por resorte/contrapeso), cómo bloquean el ingreso simultáneo, sensores, salida frontal vs trasera.
-4. Interfaz de montaje: anclaje al piso de slats/hormigón (pies, placas, bulones, empotrado), puntos de unión con el dosificador/tolva superior y con la línea de alimento.
-Para cada dato indicá fabricante/modelo y la fuente. Si un dato no aparece en las fuentes, decilo explícitamente.

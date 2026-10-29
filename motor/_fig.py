@@ -1,5 +1,5 @@
 """Láminas 2D de detalles de uniones del pórtico (SVG, mm), generadas desde ficha.json.
-Refactor de insumos/portico-v3/detalles/detalles.py (clase Fig sin cambios)."""
+Clase Fig: lienzo SVG simple para las láminas de detalles."""
 import html as _html
 import math
 from comun import m, cm, num

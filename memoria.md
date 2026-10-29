@@ -18,7 +18,7 @@
 - 2026-10-28 · Tipología jaula-cerdas (hierro, tipo Gestal 3G): solo despiece y pedido, sin presupuesto. Decisiones del cliente: salida de culata, 1 cerda por box sin RFID y 15–18 con RFID, parantes cada ~750 mm, pie galvanizado + pletina inox aislada, 8 largueros y antena con separador de PEAD.
 
 - 2026-10-29 · Norma de hamacas: EN 1176-2:2017 (4.2, 4.4.1, 4.10.2). Zona libre 0,867·L + 1,75 m (+0,5 m) al ras o + 2,25 m suelta; entre asientos +0,30 m y a la pata +0,20 m. La guía Playcentre NZ (1,50 m y sumandos invertidos) no se usa como fuente de esos valores. Pueblo Andino no cumple con la norma vigente y queda así hasta rediseñarlo.
-- 2026-10-29 · Liberación: uso interno, licencia «LicenseRef-Propietaria», sin enlaces privados en el paquete. Ejemplo del pórtico con rollizos «a cotizar».
+- 2026-10-29 · Repo público con licencia MIT (autor Arnaldo Viera); sin insumos/ (notas de investigación con citas de terceros), sin enlaces privados en el paquete. Ejemplo del pórtico con rollizos «a cotizar».
 - 2026-10-29 · v1.3.0: tipología «estructura libre» (ficha = secciones + barras con dos puntos + placas; desde una foto, las medidas las da el cliente). Sin presupuesto. Ejemplo: mesa de hierro y madera.
 - 2026-10-29 · El plano de taller y los descuentos de cada unión los hace el herrero o carpintero, no el plugin: la propuesta llega a anteproyecto + despiece + pedido.
 
