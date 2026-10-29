@@ -100,7 +100,7 @@
       2240
     ],
     "puerta": {
-      "ancho": 470,
+      "ancho": 466,
       "pivote_z": 1060,
       "borde_inf_z": 250,
       "apertura_max_grados": 90,
@@ -111,10 +111,10 @@
       },
       "eje": {
         "diam": 20,
-        "material": "inox 304 macizo, aislado por los bujes de PEAD",
-        "apoyo": "orejas de planchuela 2\" × ¼\" soldadas a los parantes traseros; la puerta es solidaria al eje por planchuela y pasador galvanizado con vaina aislante"
+        "material": "inox 304 macizo",
+        "apoyo": "pasante por los dos parantes traseros, con bujes de PEAD que lo aíslan del galvanizado; la puerta es solidaria al eje por planchuela (agujero con buje de PEAD) y pasador galvanizado con vaina aislante; leva por fuera del parante"
       },
-      "traba": "dos trinquetes por gravedad, uno por lado, a z 300 sobre topes fijos en los parantes traseros; varilla de mando Ø10 maciza galvanizada, por detrás del parante (x −45, en el eje y del parante) con guarda de chapa",
+      "traba": "dos trinquetes por gravedad, uno por lado, a z 300: giran sobre un perno M10 pasante por el parante, con el diente adentro (traba la puerta) y el brazo afuera; varilla de mando Ø10 maciza galvanizada por fuera del parante, de la leva al brazo, con guarda de chapa",
       "mecanismo": "Sin cerda: los trinquetes quedan retenidos arriba y la puerta abre libre hacia adentro. La cerda entra: al pasar los 70° hacia adentro (para salvar el lomo hacen falta 77–85°, así que toda cerda que entra lo pasa y una que solo mete la cabeza no) un gatillo suelta la retención, y cuando la puerta vuelve a vertical los trinquetes caen y bloquean el giro hacia adentro. La cerda sale de culata empujando hacia afuera: recién a partir de 70° la leva del eje tira de la varilla, levanta los trinquetes y los deja retenidos para la próxima. Empujes chicos o el hozado desde afuera (≈ 43 N en la punta) no llegan a 70°. Destrabe manual con palanca desde el pasillo.",
       "_origen": "fuente del mecanismo: Big Dutchman Free Access (basculante, resorte regulable, topes de goma, destrabe solo desde adentro) y Gestal 3G (autocerrante activado por la cerda); medidas supuestas",
       "pruebas_prototipo": [
@@ -146,7 +146,7 @@
       "barrotes_cant": 4
     },
     "pie": {
-      "placa_base": "150 × 150 × 9,5 galvanizada, concéntrica con la pletina (el parante queda corrido 25 mm hacia adentro sobre ella), soldada con 4 cartelas; extremo del parante con tapa soldada",
+      "placa_base": "150 × 150 × 9,5 galvanizada, concéntrica con la pletina (el parante queda corrido 25 mm hacia adentro sobre ella), soldada con 3 cartelas (adelante, atrás y afuera; ninguna hacia adentro); extremo del parante con tapa soldada",
       "pletina": {
         "largo": 300,
         "ancho": 150,
@@ -154,7 +154,7 @@
         "desplazamiento_afuera": 25,
         "material": "inox 304, cantos chaflanados 2 × 45°, esquinas R15, 2 colisos en y ±20 del centro para los bulones de anclaje"
       },
-      "union": "kit de aislación: junta fenólica de 3 mm (sobresale 5 mm de los cantos), vainas y arandelas aislantes en 4 bulones M10 inox a ±55 del centro de la pletina",
+      "union": "kit de aislación: junta fenólica de 3 mm (al ras del lado interior), vainas y arandelas aislantes en 4 bulones M10 inox roscados en la pletina a ±55 del centro",
       "_origen": "criterio (fuente: Big Dutchman pies galvanizados; Gestal pletinas ranuradas abulonadas; Schauer inox en contacto con el piso). Pletina y placa desplazadas 25 mm hacia afuera: invaden 24,6 mm el ancho libre a ras del piso",
       "m10_y": 55,
       "m12_y": 20
@@ -168,7 +168,7 @@
       "z1": 330,
       "fijacion": "bulones M8 inox con bujes y arandelas de nylon; nunca soldado al bastidor",
       "_origen": "material inox 304 (fuente: Schauer, Pericoli); medidas supuestas",
-      "soportes": "adelante apoya en el travesaño z 100 y se abulona al zócalo; atrás apoya en un travesaño Ø38,1 a x 1.860, z 100. Bulones M8 inox con bujes de nylon, nunca soldado",
+      "soportes": "adelante apoya con una pestaña sobre el travesaño z 100 y se abulona al zócalo; atrás apoya en un travesaño Ø38,1 a x 1.860, z 100, con banda de goma y buje de nylon. Bulones M8 inox con bujes de nylon, nunca soldado. Chapas laterales de protección (z 50–400) para que la cerda de al lado no lo alcance",
       "apoyo_trasero_x": 1860
     },
     "caida": {
@@ -198,7 +198,7 @@
       "separador": "PEAD 56 mm al larguero",
       "_origen": "criterio: separación propia; la fuente pide la antena cerca del comedero, a la altura de la oreja y separada de masas metálicas. Pendiente con el proveedor: distancia mínima a metal y que no lea a la cerda del box vecino (el separador reduce el ancho a 488 solo en 60 mm a la altura de la cabeza)."
     },
-    "galvanizado": "inmersión en caliente después de soldar todo; agujeros de venteo Ø10 en cada extremo de caño cerrado y en cada nudo, en caras no expuestas al animal; desbarbar soldaduras antes",
+    "galvanizado": "inmersión en caliente después de soldar todo; agujeros de venteo Ø10 en cada extremo de caño cerrado y en cada nudo, en caras no expuestas al animal y en el eje neutro respecto del empuje de la cerda (no en la fibra más cargada del pie del parante); desbarbar soldaduras antes",
     "previsiones": {
       "planchuelas_dosificador": "2 × planchuela 2\" × ¼\" con 2 agujeros Ø13 a 100 mm, soldadas al travesaño z 1.950",
       "oreja_actuador": "planchuela 2\" × ¼\" con agujero Ø13 en el pasamanos lateral a x 450, para un actuador lineal que empuje una palanca soldada a la puerta",

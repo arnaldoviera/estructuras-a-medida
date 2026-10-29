@@ -43,7 +43,7 @@
     {
       "id": "bien.pellizco",
       "requisito": "Holgura puerta–parante: la puerta entra y queda fuera de la franja de pellizco",
-      "valor": "25,9 mm",
+      "valor": "27,9 mm",
       "limite": "0 < h < 8 o > 25 mm",
       "estado": "cumple",
       "nota": "criterio: holgura de piezas móviles fuera de 8–25 mm (cola, oreja, piel)"
@@ -99,7 +99,7 @@
     {
       "id": "res.puerta",
       "requisito": "Travesaño de puerta: empuje a media luz",
-      "valor": "FS 2,59",
+      "valor": "FS 2,62",
       "limite": "≥ 1,15",
       "estado": "cumple",
       "nota": ""
@@ -211,13 +211,13 @@
     {
       "id": "fab.peso",
       "requisito": "Peso del subconjunto más pesado (lateral) para 2 personas",
-      "valor": "64 kg",
+      "valor": "66 kg",
       "limite": "≤ 80 kg",
       "estado": "cumple",
       "nota": ""
     }
   ],
-  "peso_propio_kg": 211.6,
-  "peso_total_kg": 211.6,
+  "peso_propio_kg": 216.6,
+  "peso_total_kg": 216.6,
   "resumen": "27/27 verificaciones cumplen."
 }

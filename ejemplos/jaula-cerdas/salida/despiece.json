@@ -196,7 +196,7 @@
       "material": "tubo estructural redondo Ø38,1 × 2,0 (1 1/2\")",
       "tubo": "puerta",
       "seccion": "Ø38,1 × 2,0",
-      "largo": 432,
+      "largo": 428,
       "operaciones": "z 250 · 400 · 950; boca de pescado"
     },
     {
@@ -206,33 +206,33 @@
       "subconjunto": "Puerta",
       "material": "PEAD 10 mm",
       "tubo": null,
-      "seccion": "432 × 550",
+      "seccion": "428 × 550",
       "largo": null,
       "operaciones": "6 M8 inox con arandelas grandes; cantos redondeados",
-      "kg_u": 2.2572
+      "kg_u": 2.2363
     },
     {
       "id": "P4",
-      "pieza": "Eje de puerta",
+      "pieza": "Eje de puerta (pasante)",
       "cant": 1,
       "subconjunto": "Puerta",
       "material": "Barra inox 304 maciza",
       "tubo": null,
-      "seccion": "Ø20 × 584",
+      "seccion": "Ø20 × 722",
       "largo": null,
-      "operaciones": "Entra 12 mm en cada buje; leva en un extremo",
-      "kg_u": 1.4494051866601871
+      "operaciones": "Atraviesa los dos parantes traseros por bujes de PEAD; leva soldada en una punta, por fuera; agujero Ø6 para el pasador de la puerta",
+      "kg_u": 1.7919016177545464
     },
     {
       "id": "P5",
-      "pieza": "Oreja del eje",
+      "pieza": "Refuerzo del agujero del eje",
       "cant": 2,
       "subconjunto": "Trasero",
       "material": "Planchuela 2\" × ¼\" galvanizada",
       "tubo": null,
       "seccion": "50,8 × 6,35 × 100",
       "largo": null,
-      "operaciones": "Soldada al parante trasero; agujero Ø30 para buje",
+      "operaciones": "Soldada por fuera del parante trasero, alineada con el agujero Ø30 del parante para el buje",
       "kg_u": 0.25
     },
     {
@@ -256,7 +256,7 @@
       "tubo": null,
       "seccion": "50,8 × 6,35 × 80 + tope",
       "largo": null,
-      "operaciones": "A z 300; pivote M10; tope de goma; taco plano de apoyo",
+      "operaciones": "A z 300; gira sobre un perno M10 pasante por el parante: diente adentro (traba la puerta) y brazo afuera (lo mueve la varilla); tope de goma; taco plano",
       "kg_u": 0.45
     },
     {
@@ -268,7 +268,7 @@
       "tubo": null,
       "seccion": "Ø10 × 710",
       "largo": null,
-      "operaciones": "Detrás del parante; ojal en cada punta",
+      "operaciones": "Por fuera del parante, de la leva al brazo del trinquete; ojal en cada punta",
       "kg_u": 0.43807
     },
     {
@@ -280,8 +280,32 @@
       "tubo": null,
       "seccion": "100 × 710",
       "largo": null,
-      "operaciones": "Doblada en U, abulonada al parante",
+      "operaciones": "Doblada en U, abulonada al parante con 2 M8",
       "kg_u": 1.1146999999999998
+    },
+    {
+      "id": "P11",
+      "pieza": "Gatillo, leva y palanca de destrabe",
+      "cant": 1,
+      "subconjunto": "Trasero",
+      "material": "Planchuela 2\" × ¼\" galvanizada",
+      "tubo": null,
+      "seccion": "juego (≈ 0,4 m)",
+      "largo": null,
+      "operaciones": "Gatillo a 70° hacia adentro, leva a 70° hacia afuera, palanca de destrabe manual desde el pasillo; pernos de ojal M8",
+      "kg_u": 1.0
+    },
+    {
+      "id": "C4",
+      "pieza": "Protección lateral del comedero",
+      "cant": 2,
+      "subconjunto": "Lateral",
+      "material": "Chapa galvanizada 2 mm",
+      "tubo": null,
+      "seccion": "400 × 350",
+      "largo": null,
+      "operaciones": "Del comedero al frente, z 50 a 400, abulonada por dentro de los largueros con 4 M8: la cerda de al lado no alcanza el comedero",
+      "kg_u": 2.198
     },
     {
       "id": "P10",
@@ -346,14 +370,14 @@
     {
       "id": "B2",
       "pieza": "Cartela",
-      "cant": 32,
+      "cant": 24,
       "subconjunto": "Lateral",
       "material": "Chapa 6 mm galvanizada",
       "tubo": null,
-      "seccion": "60 × 60 × 6",
+      "seccion": "45 × 45 × 6 (±x) y 60 × 60 × 6 (afuera)",
       "largo": null,
-      "operaciones": "4 por parante, en cruz",
-      "kg_u": 0.08478
+      "operaciones": "3 por parante: hacia adelante, hacia atrás y hacia afuera; ninguna hacia adentro (no invade el ancho libre)",
+      "kg_u": 0.058875
     },
     {
       "id": "B3",
@@ -376,7 +400,7 @@
       "tubo": null,
       "seccion": "300 × 150 × 10",
       "largo": null,
-      "operaciones": "Chaflanes 2 × 45°, esquinas R15; 4 agujeros M10 a ±55; 2 colisos avellanados para M12 en y ±20",
+      "operaciones": "Chaflanes 2 × 45°, esquinas R15; 4 agujeros roscados M10 a ±55 (abajo está el slat: sin tuerca); 2 colisos avellanados para M12 en y ±20",
       "kg_u": 3.555
     },
     {
@@ -398,21 +422,21 @@
       "subconjunto": "Pie",
       "material": "Fenólico 3 mm",
       "tubo": null,
-      "seccion": "160 × 160 × 3",
+      "seccion": "155 × 160 × 3",
       "largo": null,
-      "operaciones": "Entre placa base y pletina; sobresale 5 mm",
+      "operaciones": "Entre placa base y pletina; al ras del lado interior y sobresale 5 mm hacia los otros tres lados",
       "kg_u": 0.0
     },
     {
       "id": "U1",
       "pieza": "Planchuela de unión",
-      "cant": 12,
+      "cant": 14,
       "subconjunto": "Uniones",
       "material": "Planchuela 2\" × ¼\" galvanizada",
       "tubo": null,
       "seccion": "50,8 × 6,35 × 80",
       "largo": null,
-      "operaciones": "2 agujeros Ø11; una por punta de cada travesaño abulonado (frente, trasero y apoyo del comedero)",
+      "operaciones": "2 agujeros Ø11; una por punta de cada travesaño abulonado (frente, dosificador, trasero y apoyo del comedero)",
       "kg_u": 0.2
     },
     {
@@ -567,11 +591,11 @@
       },
       {
         "cortes": [
-          432,
-          432,
-          432
+          428,
+          428,
+          428
         ],
-        "libre": 4695
+        "libre": 4707
       }
     ],
     "barrote": [
@@ -613,8 +637,8 @@
         "descripcion": "tubo estructural redondo Ø38,1 × 2,0 (1 1/2\"), barra de 6 m",
         "cant": 8,
         "unidad": "barra",
-        "uso": "40.686 mm útiles",
-        "desperdicio_pct": 15.2
+        "uso": "40.674 mm útiles",
+        "desperdicio_pct": 15.3
       },
       {
         "id": "tubo_barrote",
@@ -642,8 +666,8 @@
       },
       {
         "id": "chapa_6",
-        "descripcion": "Chapa 6 mm, cartelas 60 × 60",
-        "cant": 32,
+        "descripcion": "Chapa 6 mm, cartelas (2 de 45 × 45 y 1 de 60 × 60 por pie)",
+        "cant": 24,
         "unidad": "u",
         "uso": "B2"
       },
@@ -686,7 +710,7 @@
       },
       {
         "id": "inox_eje",
-        "descripcion": "Barra inox 304 maciza Ø20 × 584",
+        "descripcion": "Barra inox 304 maciza Ø20 × 722",
         "cant": 1,
         "unidad": "u",
         "uso": "P4"
@@ -723,7 +747,7 @@
       },
       {
         "id": "fenolico",
-        "descripcion": "Junta fenólica 160 × 160 × 3",
+        "descripcion": "Junta fenólica 155 × 160 × 3",
         "cant": 8,
         "unidad": "u",
         "uso": "B6"
@@ -731,9 +755,9 @@
       {
         "id": "m10_galv",
         "descripcion": "Bulón M10 × 70 galvanizado con tuerca autofrenante y 2 arandelas",
-        "cant": 26,
+        "cant": 30,
         "unidad": "u",
-        "uso": "uniones (24: 2 por planchuela) y trinquetes (2)"
+        "uso": "uniones (28: 2 por planchuela) y trinquetes (2)"
       },
       {
         "id": "m8_inox",
@@ -745,9 +769,9 @@
       {
         "id": "m8_galv",
         "descripcion": "Bulón M8 galvanizado con arandela",
-        "cant": 8,
+        "cant": 24,
         "unidad": "u",
-        "uso": "zócalo (6) y separador de antena (2)"
+        "uso": "zócalo (6), separador de antena (2), guardas (4), protecciones del comedero (8) y ojales de la varilla (4)"
       },
       {
         "id": "pasador",
@@ -760,7 +784,7 @@
     "otros": [
       {
         "id": "pead_10",
-        "descripcion": "Placa PEAD 10 mm 432 × 550",
+        "descripcion": "Placa PEAD 10 mm 428 × 550",
         "cant": 1,
         "unidad": "u",
         "uso": "P3"
@@ -782,19 +806,19 @@
       {
         "id": "galvanizado",
         "descripcion": "Servicio de galvanizado por inmersión en caliente (subconjuntos ya soldados)",
-        "cant": 149,
+        "cant": 153,
         "unidad": "kg aprox.",
         "uso": "laterales, frente, trasero, puerta, chapas y planchuelas"
       }
     ]
   },
   "peso": {
-    "total_kg": 211.6,
-    "galvanizado_kg": 156.4,
-    "otros_kg": 55.1,
+    "total_kg": 216.6,
+    "galvanizado_kg": 161.1,
+    "otros_kg": 55.5,
     "tubo_kg": 122.1,
-    "lateral_kg": 64.3,
-    "por_box_kg": 211.6,
+    "lateral_kg": 66.0,
+    "por_box_kg": 216.6,
     "boxes": 1
   },
   "barra_comercial_mm": 6000,

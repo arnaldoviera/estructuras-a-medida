@@ -72,11 +72,13 @@ def _escena(d, D):
     cil("travesaño dosificador", [L, -YC, dz], [L, YC, dz], RL, "galva")
     g, pz, bz, tz = P["ancho"] / 2, P["pivote_z"], P["borde_inf_z"], P["trinquete_z"]
     for s in (-1, 1):
-        caja("oreja eje", [-25, 25], sorted([s * (YC - RP - 6), s * (YC - RP)]), [pz - 25, pz + 25], "galva")
-        cil("varilla de mando", [-45, s * YC, pz - 20], [-45, s * YC, tz + 30], 5, "galva")
-        caja("guarda de chapa", [-60, -30], sorted([s * (YC - 20), s * (YC + 20)]), [tz + 30, pz - 20], "galva")
-        caja("tope + trinquete", [22, 72], sorted([s * (g + 6), s * (YC - RP)]), [tz - 30, tz + 30], "oscuro")
-    cil("eje puerta inox", [0, -YC + RP, pz], [0, YC - RP, pz], P["eje"]["diam"] / 2, "inox")
+        ye = s * (YC + RP + 20)  # leva y varilla por fuera del parante
+        caja("leva", [-30, 30], sorted([s * (YC + RP + 10), s * (YC + RP + 30)]), [pz - 60, pz + 15], "oscuro")
+        cil("varilla de mando (por fuera)", [0, ye, pz - 45], [0, ye, tz + 15], 5, "galva")
+        caja("guarda de chapa", [-35, 35], sorted([s * (YC + RP + 32), s * (YC + RP + 36)]), [tz - 40, pz - 20], "galva")
+        cil("perno pasante del trinquete", [0, s * (YC - RP - 10), tz], [0, s * (YC + RP + 30), tz], 5, "galva")
+        caja("trinquete (diente adentro)", [22, 72], sorted([s * (g + 6), s * (YC - RP)]), [tz - 30, tz + 30], "oscuro")
+    cil("eje puerta inox (pasante)", [0, -(YC + RP + 30), pz], [0, YC + RP + 30, pz], P["eje"]["diam"] / 2, "inox")
     for y in (-g, g):
         cil("puerta lateral", [0, y, pz], [0, y, bz], RG, "puerta")
     for z in P["travesanos_z"]:
@@ -96,6 +98,9 @@ def _escena(d, D):
     co, do, ca = d["comedero"], d["dosificador"], d["caida"]
     cil("apoyo trasero comedero", [co["apoyo_trasero_x"], -YC, F["travesanos_z"][0]], [co["apoyo_trasero_x"], YC, F["travesanos_z"][0]], RL, "galva")
     caja("comedero inox", [co["x0"], co["x1"]], [-co["ancho"] / 2, co["ancho"] / 2], [co["z0"], co["z1"]], "inox")
+    caja("pestaña de apoyo del comedero", [co["x1"], L - RL + 6], [-co["ancho"] / 2, co["ancho"] / 2], [co["z0"] - 2, co["z0"]], "inox")
+    for s in (-1, 1):
+        caja("protección lateral del comedero", [co["x0"], L], sorted([s * (YC - RL - 1), s * (YC - RL - 3)]), [50, 400], "galva")
     caja("dosificador", [do["x0"], do["x1"]], [-do["ancho"] / 2, do["ancho"] / 2], [do["z0"], do["z1"]], "electro")
     xm = (do["x0"] + do["x1"]) / 2
     la = D["linea"]
@@ -289,15 +294,24 @@ def despiece(ficha, M=None):
     pw, ph = round(P["ancho"] - T["puerta"]["diam"]), pcz["z1"] - pcz["z0"]
     otra("P3", "Panel ciego", 1, "PEAD 10 mm", f"{pw} × {ph}", "Puerta", "6 M8 inox con arandelas grandes; cantos redondeados", pw * ph * 10 * 0.95e-6)
     ej = d["puerta"]["eje"]["diam"]
-    otra("P4", "Eje de puerta", 1, "Barra inox 304 maciza", f"Ø{ej} × {luz_trav + 24}", "Puerta", "Entra 12 mm en cada buje; leva en un extremo",
-         math.pi * (ej / 2) ** 2 * (luz_trav + 24) * 7.9e-6)
-    otra("P5", "Oreja del eje", 2, "Planchuela 2\" × ¼\" galvanizada", "50,8 × 6,35 × 100", "Trasero", "Soldada al parante trasero; agujero Ø30 para buje", 0.25)
+    le = round(2 * YC + dP + 60)  # pasante por los dos parantes traseros + leva por fuera
+    otra("P4", "Eje de puerta (pasante)", 1, "Barra inox 304 maciza", f"Ø{ej} × {le}", "Puerta",
+         "Atraviesa los dos parantes traseros por bujes de PEAD; leva soldada en una punta, por fuera; agujero Ø6 para el pasador de la puerta",
+         math.pi * (ej / 2) ** 2 * le * 7.9e-6)
+    otra("P5", "Refuerzo del agujero del eje", 2, "Planchuela 2\" × ¼\" galvanizada", "50,8 × 6,35 × 100", "Trasero",
+         "Soldada por fuera del parante trasero, alineada con el agujero Ø30 del parante para el buje", 0.25)
     otra("P6", "Buje", 2, "PEAD", "Ø30 × Ø20 × 15", "Trasero", "Aísla el eje inox del galvanizado")
     otra("P7", "Trinquete con tope", 2, "Planchuela 2\" × ¼\" galvanizada", "50,8 × 6,35 × 80 + tope", "Trasero",
-         f"A z {P['trinquete_z']}; pivote M10; tope de goma; taco plano de apoyo", 0.45)
+         f"A z {P['trinquete_z']}; gira sobre un perno M10 pasante por el parante: diente adentro (traba la puerta) y brazo afuera (lo mueve la varilla); tope de goma; taco plano", 0.45)
     vl = P["pivote_z"] - 20 - P["trinquete_z"] - 30
-    otra("P8", "Varilla de mando", 2, "Barra redonda maciza galvanizada", f"Ø10 × {vl}", "Trasero", "Detrás del parante; ojal en cada punta", 0.617 * vl / 1000)
-    otra("P9", "Guarda de la varilla", 2, "Chapa galvanizada 2 mm", f"100 × {vl}", "Trasero", "Doblada en U, abulonada al parante", 100 * vl * 2 * 7.85e-6)
+    otra("P8", "Varilla de mando", 2, "Barra redonda maciza galvanizada", f"Ø10 × {vl}", "Trasero", "Por fuera del parante, de la leva al brazo del trinquete; ojal en cada punta", 0.617 * vl / 1000)
+    otra("P9", "Guarda de la varilla", 2, "Chapa galvanizada 2 mm", f"100 × {vl}", "Trasero", "Doblada en U, abulonada al parante con 2 M8", 100 * vl * 2 * 7.85e-6)
+    otra("P11", "Gatillo, leva y palanca de destrabe", 1, "Planchuela 2\" × ¼\" galvanizada", "juego (≈ 0,4 m)", "Trasero",
+         "Gatillo a 70° hacia adentro, leva a 70° hacia afuera, palanca de destrabe manual desde el pasillo; pernos de ojal M8", 1.0)
+    lc = round(L - d["comedero"]["x0"])
+    otra("C4", "Protección lateral del comedero", 2, "Chapa galvanizada 2 mm", f"{lc} × 350", "Lateral",
+         "Del comedero al frente, z 50 a 400, abulonada por dentro de los largueros con 4 M8: la cerda de al lado no alcanza el comedero",
+         lc * 350 * 2 * 7.85e-6)
     otra("P10", "Resorte regulable y topes de goma", 1, "Juego", "1 resorte + 4 topes", "Puerta", "Topes en parantes traseros y en el pasamanos (90°)")
     co = d["comedero"]
     cl, ca_, ch = co["x1"] - co["x0"], co["ancho"], co["z1"] - co["z0"]
@@ -312,16 +326,17 @@ def despiece(ficha, M=None):
          f"2 agujeros Ø9 al larguero z {mm(zr)}")
     otra("B1", "Placa base", n_pies, "Chapa 9,5 mm galvanizada", "150 × 150 × 9,5", "Lateral",
          "Concéntrica con la pletina; parante corrido 25 mm hacia adentro; 4 agujeros Ø11 a ±55", 150 * 150 * 9.5 * 7.85e-6)
-    otra("B2", "Cartela", 4 * n_pies, "Chapa 6 mm galvanizada", "60 × 60 × 6", "Lateral", "4 por parante, en cruz", 0.5 * 60 * 60 * 6 * 7.85e-6)
+    otra("B2", "Cartela", 3 * n_pies, "Chapa 6 mm galvanizada", "45 × 45 × 6 (±x) y 60 × 60 × 6 (afuera)", "Lateral",
+         "3 por parante: hacia adelante, hacia atrás y hacia afuera; ninguna hacia adentro (no invade el ancho libre)", 0.5 * 50 * 50 * 6 * 7.85e-6)
     otra("B3", "Tapa de caño", n_pies + 2 * n_lat, "Chapa 3 mm galvanizada", "Ø50,8 × 3", "Lateral", "Pie de cada parante y puntas de pasamanos",
          math.pi * 25.4 ** 2 * 3 * 7.85e-6)
     otra("B4", "Pletina de apoyo", n_pies, "Inox 304 10 mm", f"{PL['largo']} × {PL['ancho']} × {PL['esp']}", "Pie",
-         f"Chaflanes 2 × 45°, esquinas R15; 4 agujeros M10 a ±{d['pie']['m10_y']}; 2 colisos avellanados para M12 en y ±{d['pie']['m12_y']}", PL["largo"] * PL["ancho"] * PL["esp"] * 7.9e-6)
+         f"Chaflanes 2 × 45°, esquinas R15; 4 agujeros roscados M10 a ±{d['pie']['m10_y']} (abajo está el slat: sin tuerca); 2 colisos avellanados para M12 en y ±{d['pie']['m12_y']}", PL["largo"] * PL["ancho"] * PL["esp"] * 7.9e-6)
     otra("B5", "Contrapletina", n_pies, "Inox 304 8 mm", "300 × 100 × 8", "Pie", f"Abraza 2 vigas del slat; 2 colisos Ø13 en y ±{d['pie']['m12_y']}", 300 * 100 * 8 * 7.9e-6)
-    otra("B6", "Junta aislante", n_pies, "Fenólico 3 mm", "160 × 160 × 3", "Pie", "Entre placa base y pletina; sobresale 5 mm")
-    n_abul = len(z_tr) + 3  # travesaños frontales + superior frontal + trasero superior + apoyo del comedero: una planchuela por punta
+    otra("B6", "Junta aislante", n_pies, "Fenólico 3 mm", "155 × 160 × 3", "Pie", "Entre placa base y pletina; al ras del lado interior y sobresale 5 mm hacia los otros tres lados")
+    n_abul = len(z_tr) + 4  # travesaños frontales + superior frontal + del dosificador + trasero superior + apoyo del comedero: una planchuela por punta
     otra("U1", "Planchuela de unión", 2 * n_abul, "Planchuela 2\" × ¼\" galvanizada", "50,8 × 6,35 × 80", "Uniones",
-         "2 agujeros Ø11; una por punta de cada travesaño abulonado (frente, trasero y apoyo del comedero)", 0.2)
+         "2 agujeros Ø11; una por punta de cada travesaño abulonado (frente, dosificador, trasero y apoyo del comedero)", 0.2)
     otra("U2", "Planchuela del dosificador", 2, "Planchuela 2\" × ¼\" galvanizada", "50,8 × 6,35 × 120", "Frente", "2 agujeros Ø13 a 100 mm", 0.3)
     otra("U3", "Oreja del actuador", 1, "Planchuela 2\" × ¼\" galvanizada", "50,8 × 6,35 × 80", "Lateral", "Agujero Ø13; previsión etapa 4", 0.2)
 
@@ -368,25 +383,26 @@ def despiece(ficha, M=None):
     pedido["chapa_y_planchuela"] += [
         {"id": "planch_2x14", "descripcion": "Planchuela 2\" × ¼\" (50,8 × 6,35)", "cant": 1, "unidad": "barra de 6 m", "uso": "orejas, trinquetes, uniones, dosificador, actuador"},
         {"id": "chapa_95", "descripcion": "Chapa 9,5 mm, placas base 150 × 150", "cant": n_pies, "unidad": "u", "uso": "B1"},
-        {"id": "chapa_6", "descripcion": "Chapa 6 mm, cartelas 60 × 60", "cant": 4 * n_pies, "unidad": "u", "uso": "B2"},
+        {"id": "chapa_6", "descripcion": "Chapa 6 mm, cartelas (2 de 45 × 45 y 1 de 60 × 60 por pie)", "cant": 3 * n_pies, "unidad": "u", "uso": "B2"},
         {"id": "chapa_3", "descripcion": "Chapa 3 mm, tapas Ø50,8", "cant": n_pies + 2 * n_lat, "unidad": "u", "uso": "B3"},
         {"id": "chapa_2", "descripcion": f"Chapa galvanizada 2 mm: zócalo {AL} × {z_tr[1] - 50} y 2 guardas 100 × {vl}", "cant": 1, "unidad": "juego", "uso": "F9, P9"},
         {"id": "barra_10", "descripcion": f"Barra redonda maciza Ø10, 2 × {vl} mm", "cant": 1, "unidad": "juego", "uso": "P8"}]
     pedido["inox"] += [
         {"id": "inox_pletina", "descripcion": f"Pletina inox 304 {PL['largo']} × {PL['ancho']} × {PL['esp']}, corte láser", "cant": n_pies, "unidad": "u", "uso": "B4"},
         {"id": "inox_contra", "descripcion": "Contrapletina inox 304 300 × 100 × 8", "cant": n_pies, "unidad": "u", "uso": "B5"},
-        {"id": "inox_eje", "descripcion": f"Barra inox 304 maciza Ø{ej} × {luz_trav + 24}", "cant": 1, "unidad": "u", "uso": "P4"},
+        {"id": "inox_eje", "descripcion": f"Barra inox 304 maciza Ø{ej} × {le}", "cant": 1, "unidad": "u", "uso": "P4"},
         {"id": "inox_comedero", "descripcion": f"Comedero inox 304 {cl} × {ca_} × {ch} (a medida)", "cant": 1, "unidad": "u", "uso": "C1"},
         {"id": "inox_caida", "descripcion": f"Caño inox 304 Ø50 × 1,5 × {cz} + abrazadera", "cant": 1, "unidad": "juego", "uso": "C2"}]
     pedido["bulones_y_aislacion"] += [
         {"id": "m12_avell", "descripcion": "Bulón M12 × 140 inox, cabeza avellanada DIN 7991, tuerca autofrenante y arandela", "cant": 4 * n_pies, "unidad": "u",
          "uso": "anclaje al slat (largo según el espesor real del slat)"},
         {"id": "m10_inox_pie", "descripcion": "Bulón M10 × 40 inox con vaina y 2 arandelas aislantes", "cant": 4 * n_pies, "unidad": "juego", "uso": "pie"},
-        {"id": "fenolico", "descripcion": "Junta fenólica 160 × 160 × 3", "cant": n_pies, "unidad": "u", "uso": "B6"},
+        {"id": "fenolico", "descripcion": "Junta fenólica 155 × 160 × 3", "cant": n_pies, "unidad": "u", "uso": "B6"},
         {"id": "m10_galv", "descripcion": "Bulón M10 × 70 galvanizado con tuerca autofrenante y 2 arandelas", "cant": 4 * n_abul + 2, "unidad": "u",
          "uso": f"uniones ({4 * n_abul}: 2 por planchuela) y trinquetes (2)"},
         {"id": "m8_inox", "descripcion": "Bulón M8 inox con buje y arandelas de nylon", "cant": 12, "unidad": "juego", "uso": "comedero (6) y panel ciego (6)"},
-        {"id": "m8_galv", "descripcion": "Bulón M8 galvanizado con arandela", "cant": 8, "unidad": "u", "uso": "zócalo (6) y separador de antena (2)"},
+        {"id": "m8_galv", "descripcion": "Bulón M8 galvanizado con arandela", "cant": 24, "unidad": "u",
+         "uso": "zócalo (6), separador de antena (2), guardas (4), protecciones del comedero (8) y ojales de la varilla (4)"},
         {"id": "pasador", "descripcion": "Pasador elástico Ø6 galvanizado con vaina aislante", "cant": 2, "unidad": "u", "uso": "puerta–eje"}]
     pedido["otros"] += [
         {"id": "pead_10", "descripcion": f"Placa PEAD 10 mm {pw} × {ph}", "cant": 1, "unidad": "u", "uso": "P3"},

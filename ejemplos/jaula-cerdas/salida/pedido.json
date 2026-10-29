@@ -21,8 +21,8 @@
       "descripcion": "tubo estructural redondo Ø38,1 × 2,0 (1 1/2\"), barra de 6 m",
       "cant": 8,
       "unidad": "barra",
-      "uso": "40.686 mm útiles",
-      "desperdicio_pct": 15.2
+      "uso": "40.674 mm útiles",
+      "desperdicio_pct": 15.3
     },
     {
       "id": "tubo_barrote",
@@ -50,8 +50,8 @@
     },
     {
       "id": "chapa_6",
-      "descripcion": "Chapa 6 mm, cartelas 60 × 60",
-      "cant": 32,
+      "descripcion": "Chapa 6 mm, cartelas (2 de 45 × 45 y 1 de 60 × 60 por pie)",
+      "cant": 24,
       "unidad": "u",
       "uso": "B2"
     },
@@ -94,7 +94,7 @@
     },
     {
       "id": "inox_eje",
-      "descripcion": "Barra inox 304 maciza Ø20 × 584",
+      "descripcion": "Barra inox 304 maciza Ø20 × 722",
       "cant": 1,
       "unidad": "u",
       "uso": "P4"
@@ -131,7 +131,7 @@
     },
     {
       "id": "fenolico",
-      "descripcion": "Junta fenólica 160 × 160 × 3",
+      "descripcion": "Junta fenólica 155 × 160 × 3",
       "cant": 8,
       "unidad": "u",
       "uso": "B6"
@@ -139,9 +139,9 @@
     {
       "id": "m10_galv",
       "descripcion": "Bulón M10 × 70 galvanizado con tuerca autofrenante y 2 arandelas",
-      "cant": 26,
+      "cant": 30,
       "unidad": "u",
-      "uso": "uniones (24: 2 por planchuela) y trinquetes (2)"
+      "uso": "uniones (28: 2 por planchuela) y trinquetes (2)"
     },
     {
       "id": "m8_inox",
@@ -153,9 +153,9 @@
     {
       "id": "m8_galv",
       "descripcion": "Bulón M8 galvanizado con arandela",
-      "cant": 8,
+      "cant": 24,
       "unidad": "u",
-      "uso": "zócalo (6) y separador de antena (2)"
+      "uso": "zócalo (6), separador de antena (2), guardas (4), protecciones del comedero (8) y ojales de la varilla (4)"
     },
     {
       "id": "pasador",
@@ -168,7 +168,7 @@
   "otros": [
     {
       "id": "pead_10",
-      "descripcion": "Placa PEAD 10 mm 432 × 550",
+      "descripcion": "Placa PEAD 10 mm 428 × 550",
       "cant": 1,
       "unidad": "u",
       "uso": "P3"
@@ -190,7 +190,7 @@
     {
       "id": "galvanizado",
       "descripcion": "Servicio de galvanizado por inmersión en caliente (subconjuntos ya soldados)",
-      "cant": 149,
+      "cant": 153,
       "unidad": "kg aprox.",
       "uso": "laterales, frente, trasero, puerta, chapas y planchuelas"
     }

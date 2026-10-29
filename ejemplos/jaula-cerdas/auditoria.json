@@ -1,265 +1,287 @@
 {
- "fecha": "2026-10-28",
- "vuelta": 5,
+ "fecha": "2026-10-29",
+ "vueltas": 6,
+ "ficha_sha256": "065206ca32b6ec8137e7fdcd1aa65b9dd7515ede3dfe4bb4a03786114d21ecf7",
  "estado": "con observaciones",
  "items": [
   {
-   "requisito": "Una sola jaula (box individual)",
+   "requisito": "Fabricable en Argentina por herrería estándar: tubo estructural redondo comercial (Ø pulgadas × espesor)",
    "tipo": "explícito",
    "estado": "cumple",
-   "evidencia": "medidas.json, tabla, planta, lateral y 3D describen un único box de 2.240 × 560 libre × 1.130 con una puerta trasera, un comedero, una caída y un dosificador. Sin batería ni estación de paso.",
+   "evidencia": "Ø50,8×3,2, Ø50,8×2,0, Ø38,1×2,0 y Ø25,4×2,0 están en catalogo/materiales.json (2\", 1½\", 1\"; 2,0 y 3,2 mm). Barras de 6 m con aviso de 6,40 m. Planchuela 2\"×¼\" = la comercial \"50x6\" del catálogo.",
    "correccion": ""
   },
   {
-   "requisito": "Similar a Gestal 3G",
+   "requisito": "Automatizable por etapas, similar a Gestal 3G",
    "tipo": "explícito",
    "estado": "cumple",
-   "evidencia": "Largo 2.240 vs 2.235 (+0,2 %), alto 1.130 vs 1.132 (−0,2 %), línea Ø60 a 2.500 (0 %), dosificador rígido en el marco frontal superior, puerta activada por la cerda, salida de culata, 15–18 cerdas con electrónica. Ancho 560 vs 520 (+7,7 %) declarado como criterio.",
+   "evidencia": "4 etapas (mecánico, volumétrico, RFID 15–18 cerdas, puerta actuada); previsiones: 2 planchuelas U2 en el travesaño z 1.950, oreja U3 en el pasamanos x 450, 2 Ø9 en el larguero z 740. Salida de culata y dosificador sobre el marco frontal como el Gestal 3G.",
    "correccion": ""
   },
   {
-   "requisito": "Decisiones del cliente reflejadas sin reabrir",
+   "requisito": "Dimensiones del box",
    "tipo": "explícito",
    "estado": "cumple",
-   "evidencia": "Salida de culata con pasillo trasero ~3 m; 1 cerda/box en etapas 1–2 y 15–18 desde la 3; largueros Ø38,1 con parantes en x 0/747/1.493/2.240; pie galvanizado (placa 150 × 150 × 9,5) + pletina inox 304 abulonada con junta fenólica, vainas y arandelas; 8 largueros con luz máx. 91,9 ≤ 100; separador PEAD de 56,35 a la antena.",
+   "evidencia": "Largo 2.240 vs Gestal 2.235 (0,2 %); alto 1.130 vs 1.132 (0,2 %); ancho libre 2×(305,4−25,4) = 560 dentro de 520–600; largo útil 2.240−50,8 = 2.189 ≥ 2.100; ancho ext. 2×(305,4+25,4) = 661,6 ≈ 662.",
    "correccion": ""
   },
   {
-   "requisito": "Fabricable en Argentina: tubo estructural comercial y procesos de taller",
+   "requisito": "Materiales contra el amoníaco",
    "tipo": "explícito",
    "estado": "cumple",
-   "evidencia": "Tubo estructural redondo Ø50,8 × 3,2 / Ø50,8 × 2,0 / Ø38,1 × 2,0 / Ø25,4 × 2,0, planchuela 2\" × ¼\", chapa 2 mm, chapa 9,5 (3/8\"), inox 304 en 10 y 6 mm, barra Ø20, caño inox Ø50 × 1,5, PEAD 10. Corte, boca de pescado, MIG, agujereado y galvanizado tercerizado. Nota: el avellanado de los colisos para los M12 DIN 7991 (cabeza Ø24 × 6,5 en pletina de 10, quedan 3,5 de caña) pide fresadora o avellanador de coliso: se terceriza en una tornería, como el corte de las pletinas inox.",
+   "evidencia": "Pletinas, contrapletinas, M12 y M10 del pie, comedero, caída y eje en inox 304; el resto negro soldado y galvanizado en caliente después de soldar.",
    "correccion": ""
   },
   {
-   "requisito": "Automatizable por etapas: previsiones físicas",
+   "requisito": "Puerta/traba: no entra una segunda cerda",
    "tipo": "explícito",
    "estado": "cumple",
-   "evidencia": "Etapas 1→4 coherentes con las decisiones. Previsiones: 2 planchuelas 2\" × ¼\" con 2 Ø13 a 100 en el travesaño z 1.950 (3D: travesaño r 19,05 a z 1.950 sobre soportes x 2.240); oreja Ø13 en el pasamanos a x 450 para actuador que empuja una palanca soldada a la puerta (igual en etapa 4 y en principios); 2 Ø9 en el larguero z 740 para el separador (3D x 1.890–1.930, z 725–755). Acople flojo / sensor anti-atrapamiento declarado.",
+   "evidencia": "Con la cerda adentro, 2 trinquetes a z 300 (x 22–72, solapan 13 mm con el lateral de puerta en y 241–254) bloquean el giro hacia adentro; reacción recalculada 1,5×810/760 = 1,60 kN → 0,80 kN por trinquete.",
    "correccion": ""
   },
   {
-   "requisito": "Trazabilidad: lo 'fuente' respaldado por el cuaderno (±2 %)",
+   "requisito": "Puerta/traba: la de adentro sale de culata",
+   "tipo": "explícito",
+   "estado": "cumple",
+   "evidencia": "Los trinquetes sólo bloquean hacia adentro; la puerta abre libre hacia afuera; a 90° el borde inferior queda a 1.041 mm; pasillo trasero de 3 m declarado en decisiones.",
+   "correccion": ""
+  },
+  {
+   "requisito": "Puerta/traba: empujones chicos, hozado o entrada abortada no la liberan ni la arman",
+   "tipo": "explícito",
+   "estado": "cumple",
+   "evidencia": "Umbral 70°: punta a 1.060−829·cos70° = 776 mm, por debajo del lomo (77–85° necesarios, recalculado 77,5–84,5°). Peso propio recalculado: 36 N en la punta a 70° (la ficha dice ≈ 43 N con resorte). Dudoso sólo resoluble con prototipo y DECLARADO pendiente (entradas abortadas, hozado, resorte) → cumple. Anotado: una entrada abortada que pase de 70° deja la traba armada con el box vacío; el destrabe manual existe pero no tiene pieza en el despiece (ver cantidades).",
+   "correccion": ""
+  },
+  {
+   "requisito": "Montaje a slats",
+   "tipo": "explícito",
+   "estado": "cumple",
+   "evidencia": "Pletina 300 abraza ≥ 2 vigas con ranuras cada 120 (con los slats del 3D caen 2–3 ranuras bajo cada pletina); 4 M12 pasantes + contrapletina 300×100×8. Anotado: la orientación y medidas del slat son supuesto (ficha) y la página sólo pide confirmar el espesor; conviene pedir también la orientación.",
+   "correccion": ""
+  },
+  {
+   "requisito": "Montaje al dosificador",
+   "tipo": "explícito",
+   "estado": "cumple",
+   "evidencia": "Dosificador x 1.990–2.230, z 1.300–1.900 colgado del travesaño Ø38,1 a z 1.950 con 2 planchuelas Ø13 a 100; línea Ø60 a 2.500 (borde inferior 2.470) por encima; caída x 2.185 descarga dentro del comedero (1.840–2.215) y termina a z 400, sobre el borde 330.",
+   "correccion": ""
+  },
+  {
+   "requisito": "Sin presupuesto ni precios",
+   "tipo": "explícito",
+   "estado": "cumple",
+   "evidencia": "Ni la propuesta ni el despiece tienen precios; \"Esta tipología no lleva presupuesto\"; MOD aparte.",
+   "correccion": ""
+  },
+  {
+   "requisito": "Trazabilidad: lo marcado fuente coincide ±2 %, el resto dice criterio/supuesto/cálculo",
    "tipo": "implícito",
    "estado": "cumple",
-   "evidencia": "Largo 2.240 vs 2.235 (0,2 %); alto 1.130 vs 1.132 (0,2 %); línea Ø60 a 2.500 (0 %); 15–18 cerdas (especificaciones §1, principios §G); BD 7,55 ft = 2.301 mm; mínimo 2.100 (The Pig Site); Gestal 1.235 propio; IP66 (Gestal). Tubos, luces, pie, anclaje, puerta, comedero y peso marcados supuesto/criterio/cálculo. Las fuentes no dan métrica de bulones ni espesores, y la página lo dice.",
+   "evidencia": "Largo 2.240/2.235, alto 1.130/1.132, línea Ø60 a 2.500, ancho 520–600, largo mín. 2.100, capacidad 15–18: todos dentro de ±2 %. Medidas propias rotuladas supuesto/criterio; peso como cálculo.",
    "correccion": ""
   },
   {
-   "requisito": "Citas textuales fieles y bien atribuidas",
+   "requisito": "Coherencia ficha ↔ tabla ↔ planta/lateral ↔ 3D ↔ despiece (cotas generales)",
    "tipo": "implícito",
    "estado": "cumple",
-   "evidencia": "'The feeder entrance is the most common source of tension in a group gestation pen.' (principios §A); 'Pig manure contains a variety of corrosion-inducing chemicals, such as sulfates, nitrates, chlorides, hydrogen sulfide, and ammonia.' (principios §B; Pericoli en especificaciones §2 [18]); 'The crate is activated by the sow so no moving parts that are hard to replace' (principios §C [21], Gestal 3G). Textuales.",
-   "correccion": ""
+   "evidencia": "Planta: 2.240, 747, 560 libre, 662 ext., pies 300×150 corridos 25, comedero/dosificador/caída/RFID en sus x. Lateral: largueros 150…1.000, pasamanos 1.130, pivote 1.060, borde 250, panel 400–950, trinquete 270–330, soportes hasta 1.950, 1.370 a la línea. 3D coincide. Diferencias menores al 2 %: ficha frente \"luz 90\" vs 91,7 recalculado (1,8 %); la junta de 3 mm no figura en el apilado del 3D/lateral (0,3 % del alto). El eje es la excepción (ítem aparte).",
+   "correccion": "Opcional: actualizar \"luz 90 mm\" a 92 en ficha.diseno.frente.barrotes."
   },
   {
-   "requisito": "Coherencia de cotas principales medidas.json ↔ tabla ↔ SVG ↔ 3D",
+   "requisito": "Luces laterales ≤ 100 mm",
    "tipo": "implícito",
    "estado": "cumple",
-   "evidencia": "YC = (560 + 50,8)/2 = 305,4 (3D yc 305,4; planta 285,4 y 896,2 → 610,8); ext. 661,6 ≈ 662; largueros z (SVG y = 2.680 − z − 19,05) iguales en las tres; pasamanos 1.130; 1.130 + 1.370 = 2.500; puerta ±235, z 250–1.060, panel 400–950; arcos de 810; comedero x 1.840–2.215, z 120–330, ancho 460; dosificador x 1.990–2.230, z 1.300–1.900; caída x 2.185; RFID x 1.880–1.940, z 600–800, y 208–230 (planta del mismo lado +y). Diferencias 0 %.",
+   "evidencia": "Entre largueros 76,9 y 91,9; último larguero–pasamanos 1.130−25,4−1.019,05 = 85,6; propuesta 77–92.",
    "correccion": ""
   },
   {
-   "requisito": "Corrección v4 (1): placa base concéntrica con la pletina, ambas 25 mm afuera",
-   "tipo": "verificación vuelta 4",
-   "estado": "cumple",
-   "evidencia": "3D: pletina y 255,4–405,4 (centro 330,4 = YC + 25) y placa base y 255,4–405,4, x ±75 respecto del parante: concéntricas; el parante (y 280–330,8) queda corrido 25 hacia adentro sobre la placa, como dice medidas.json. Planta: pie centrado en 921,2 vs parante 896,2 (+25 hacia afuera) y 260,4 vs 285,4 del otro lado (−25 hacia afuera). Lateral: x −150…150 en los 4 parantes. Voladizos de la placa: 24,6 adentro y 74,6 afuera (cartela exterior larga, interior corta), consistente.",
-   "correccion": ""
-  },
-  {
-   "requisito": "Corrección v4 (2): invasión del pie al ancho libre declarada 24,6 mm",
-   "tipo": "verificación vuelta 4",
-   "estado": "cumple",
-   "evidencia": "Cara interior de pletina y placa en |y| 255,4 vs cara del parante 280,0 → 24,6 mm; ancho a ras del piso en cada parante 560 − 2 × 24,6 = 510,8 (−8,8 %), solo en z 0–19,5 (+ cartela interior de 24,6). Declarado igual en medidas.json (pie._origen), en la tabla ('invaden 24,6 mm a ras del piso') y visible en planta (846,2 vs 870,8).",
-   "correccion": ""
-  },
-  {
-   "requisito": "Corrección v4 (3): barra de cabeza Ø38,1 × 2,0 a z 700 en todas las vistas",
-   "tipo": "verificación vuelta 4",
-   "estado": "cumple",
-   "evidencia": "medidas.json frente.barra_cabeza; tabla 'travesaños a z 330, 700 y 1.130 (la barra de z 700 es necesaria)'; lateral: círculo r 19,05 en (x 2.240, z 700) junto a los de z 100 y 330; 3D 'barra de cabeza z 700' de y −305,4 a 305,4, r 19,05; en planta coincide bajo el travesaño frontal Ø50,8 (correcto en proyección). Barra a 11 mm de la caída (cara 2.221 vs 2.210), sin interferencia.",
-   "correccion": ""
-  },
-  {
-   "requisito": "Corrección v4 (4): peso ≈ 215 kg y subconjuntos",
-   "tipo": "verificación vuelta 4",
-   "estado": "cumple",
-   "evidencia": "Recalculado (acero 7,85, inox 7,9, galvanizado +6 %): lateral 64,0 kg negro → 67,8 galvanizado (declarado ~68, 0,3 %); bastidor galvanizado con frente, trasero, puerta y accesorios 160,0 kg (≈ 160); pletinas 8 × 3,56 + contrapletinas 16 × 0,85 = 42,1 kg (≈ 42); comedero 1,5 mm 6,2, caída 1,6, eje 1,4, PEAD 2,3, bulonería ~3 → total 216,5 kg vs ≈ 215 (0,7 %). Coherente en medidas.json y tabla. Laterales de 68 kg entre 2 personas, como en vueltas previas.",
-   "correccion": ""
-  },
-  {
-   "requisito": "Corrección v4 (5): pie de 19,5 mm en la lateral y trinquete del 3D en x 22–72",
-   "tipo": "verificación vuelta 4",
-   "estado": "cumple",
-   "evidencia": "Lateral: rect. 'pie' z 0–19,5 × 300 en los 4 parantes (pletina 10 + placa 9,5); 3D parantes desde z 19,5. Trinquete 3D x 22–72, y 241–280, z 270–330 = lateral x 22–72, z 270–330. Ya no se mete en la puerta: lateral de la puerta en x ±19,05, holgura 2,95 mm (≤ 8, sin pellizco). Observaciones menores, no hallazgo: (a) la lateral dibuja la placa de 150 como 300 en su franja de 9,5 (≈ 1 px en pantalla); (b) la junta fenólica de 3 mm no está en 3D ni lateral: el apilado real es 22,5 (pie) y el parante mide 1.107,5, no 1.110,5 — anotarlo en el plano de taller; (c) los slats del SVG (x −400 + 120k) están corridos 20 mm respecto del 3D (−380 + 120k); son 'supuesto'.",
-   "correccion": ""
-  },
-  {
-   "requisito": "Luces laterales (≤ 100) y luz al piso",
+   "requisito": "Luz piso–primer larguero ≤ 150 mm",
    "tipo": "implícito",
    "estado": "cumple",
-   "evidencia": "Luces 76,9 (×4), 91,9 (×3), 85,55 al pasamanos: máx. 91,9 ≤ 100. Luz al piso bajo el larguero z 150: 130,95, abierta para la hidrolavadora (criterio sostenido desde la vuelta 2). Igual en medidas.json, lateral y 3D.",
+   "evidencia": "150−19,05 = 131,0 vs 131 de la propuesta.",
    "correccion": ""
   },
   {
-   "requisito": "Luces frontales y comedero protegido de robo",
+   "requisito": "Luces frontales ≤ 100 mm",
    "tipo": "implícito",
    "estado": "cumple",
-   "evidencia": "Barrotes Ø25,4 en y ±58,54 y ±175,62: luz 91,68 entre barrotes y al parante (5 luces iguales; tabla 'luz 90', 1,9 %). Zócalo de chapa z 50–330 tapado por el travesaño de z 330. Barra de z 700 agrega un apoyo sin cambiar las luces horizontales.",
+   "evidencia": "Barrotes en y ±58,54 y ±175,62: luces 91,7 entre barrotes y 91,7 al parante (cara 280); propuesta 92.",
    "correccion": ""
   },
   {
-   "requisito": "Barrotes frontales con la barra de z 700 (1,5 kN)",
+   "requisito": "Cobertura de vulva",
    "tipo": "implícito",
    "estado": "cumple",
-   "evidencia": "W Ø25,4 × 2,0 = 798 mm³. Vanos entre ejes 370 (z 330–700) y 430 (z 700–1.130). Continuo de 2 vanos (tres momentos): vano inferior M = 114,7 N·m → 144 MPa, FS 1,64; vano superior M = 128,7 N·m → 161 MPa, FS 1,46. Aun apoyado simple: 370 → FS 1,35; 430 → FS 1,16. Sin la barra (800) FS 0,63, como declara medidas.json. Barra Ø38,1 a z 700 con 1,5 kN en su luz 610,8: 118 MPa, FS 2,0.",
+   "evidencia": "Panel ciego PEAD z 400–950 en la puerta cubre z 550–750; ancho 432 entre laterales.",
    "correccion": ""
   },
   {
-   "requisito": "Cifras declaradas en el texto vs recálculo",
+   "requisito": "Pellizco: holguras de piezas móviles fuera de 8–25 mm",
    "tipo": "implícito",
-   "estado": "no cumple",
-   "evidencia": "Todas coinciden (luces 77–92; FS larguero 1,63 y ≈ 2,0 continuo [2,04]; parante 0,94 → 1,40; trinquete 0,8 kN [799 N]; holgura 26 [25,95]; 56 al metal [56,35]; luz frontal 90 [91,7]; 77–85° [77,5–84,5]; invasión 24,6; peso 215 [216,5]) salvo una nueva: medidas.json frente.barra_cabeza dice que la barra 'reduce la luz libre de los barrotes a 370 mm'. La barra parte el barrote en 370 (abajo) y 430 (arriba) entre ejes, o 332 y 385,5 libres; el vano mayor es 430 → la cifra declarada es 14 % menor, del lado inseguro, en la fuente de verdad. No cambia la aptitud (FS 1,46 continuo).",
-   "correccion": "Reemplazar por: 'parte los barrotes en vanos de 370 y 430 entre ejes (FS 1,46 en el vano superior, continuo; sin ella, FS 0,63)'. Si se quiere vanos iguales, subir la barra a z 730 (400 y 400) — no hace falta."
-  },
-  {
-   "requisito": "Cobertura de vulva y grupa",
-   "tipo": "bienestar",
    "estado": "cumple",
-   "evidencia": "Panel ciego PEAD 10 de 431,9 × 550 (z 400–950) en x 0. Con el hocico en el comedero (x ≈ 2.150) y 1,9–2,0 m de cerda, la grupa queda en x 150–250, detrás de la puerta. Ranura bajo el panel 112 (z 269–381) y 231 al piso: no pasa una cabeza hasta la vulva (z 600–750).",
+   "evidencia": "Puerta–parante 280−254,05 = 25,95 (> 25, margen 0,95 mm); puerta–trinquete 22−19,05 = 2,95 (< 8). Anotado: con ese margen conviene acotar en el plano de taller tolerancia +3/−0 sobre la luz 25,95; y el lateral de puerta queda a 20 mm de la oreja del eje (y 254 vs 274), pero sólo en la zona del pivote a z 1.035–1.085, sobre el lomo, donde no llega el animal.",
    "correccion": ""
   },
   {
-   "requisito": "Pellizco ≥ 25 mm o ≤ 8 mm en piezas móviles",
-   "tipo": "bienestar",
+   "requisito": "Bordes",
+   "tipo": "implícito",
    "estado": "cumple",
-   "evidencia": "Puerta–parante 25,95; puerta–larguero 32,3; puerta a 90° contra el travesaño trasero: 25,55; varilla (x −45, y ±305,4) a 46,35 del lateral de la puerta; guarda (|y| 285,4–325,4) a 31,35; trinquete a 2,95 de la cara del tubo de la puerta (≤ 8). El pie desplazado no queda en el barrido de la puerta (canto inferior a z 231).",
-   "correccion": ""
-  },
-  {
-   "requisito": "Bordes y salientes en la zona del animal",
-   "tipo": "bienestar",
-   "estado": "cumple",
-   "evidencia": "Pletinas chaflanadas 2 × 45° y R15; la placa base queda a ras con la pletina en los cuatro cantos de y (antes sobresalía 25 hacia adentro); travesaño z 330 tapa el canto del zócalo; soldaduras desbarbadas antes de galvanizar; venteos en caras no expuestas. Cartela interior de 24,6: con el criterio general de desbarbado alcanza.",
+   "evidencia": "Pletina con chaflanes 2×45° y R15, panel con cantos redondeados, comedero sin bordes filosos, desbarbar soldaduras antes de galvanizar. (La cartela interior se trata en el ítem del pie.)",
    "correccion": ""
   },
   {
    "requisito": "Cabeza libre al comer",
-   "tipo": "bienestar",
+   "tipo": "implícito",
    "estado": "cumple",
-   "evidencia": "Sobre el comedero (x 1.840–2.215) no hay travesaños: los del frente están en x 2.240 (caras 2.221 y 2.215). La barra de z 700 está en el plano frontal, fuera del comedero. Ancho a la altura de la cabeza 488 junto a la antena, solo en 60 mm de largo. Caída en x 2.160–2.210, pegada al frente.",
+   "evidencia": "Barra de cabeza z 700 en el plano del frente (x 2.240), fuera del comedero; dosificador por encima de 1.130; la caída Ø50 queda a 5–55 mm del frente (x 2.160–2.210) y termina a z 400, junto al borde frontal como en el Gestal. Antena reduce el ancho a 488 sólo en 60 mm a la altura de la cabeza, declarado pendiente con el proveedor.",
    "correccion": ""
   },
   {
-   "requisito": "Ancho libre 560 con 1 cerda que descansa adentro (etapas 1–2)",
-   "tipo": "bienestar",
+   "requisito": "Comedero protegido de robo y bien apoyado",
+   "tipo": "implícito",
+   "estado": "dudoso",
+   "evidencia": "Frente protegido: zócalo hasta z 330 y F2 cubre z 311–349. Pero en los laterales el borde del comedero (z 330, y ±230) cae en el hueco entre los largueros 265 y 380 (z 284–361, luz 76,9) a sólo 286,35−230 = 56 mm de la cara del larguero: una cerda del corral puede meter el hocico por el lateral y llegar al borde. Además, la ficha dice que adelante apoya en el travesaño z 100, pero el comedero termina en x 2.215 y la cara interior de F1 está en 2.221 (centro 2.240): no hay apoyo; tampoco puede alargarse porque el borde chocaría con F2 (z 311–349 desde x 2.221).",
+   "correccion": "Agregar una chapa galvanizada 2 mm por lateral (como el zócalo) en x 1.840–2.240, z 50–400, abulonada por fuera de los largueros (no achica el ancho libre); y dar al comedero una pestaña inferior de 30 mm hasta x 2.245 que apoye sobre F1, o mover F1 a x 2.200 bajo el comedero."
+  },
+  {
+   "requisito": "Invasión del pie al ancho libre ≤ 30 mm por lado",
+   "tipo": "implícito",
+   "estado": "no cumple",
+   "evidencia": "Placa y pletina: 280−255,4 = 24,6 (ok), pero la junta fenólica de 160 sobresale 5 mm también hacia adentro: 29,6 mm (la propuesta dice 24,6). Y las 4 cartelas 60×60 \"en cruz\": con el parante corrido 25 hacia adentro, la placa sólo tiene 75−25−25,4 = 24,6 mm del lado interior y 49,6 en ±x; la cartela interior sobresale 35,4 mm de la placa en el aire e invade 60 mm el ancho libre a ras del piso (canto vivo donde pisan las patas); las de ±x sobresalen 10,4 mm.",
+   "correccion": "Cartelas sólo hacia afuera (60×60) y en ±x de 45×45 (caben en los 49,6 mm), ninguna hacia el interior; B2 queda 8 × 3 = 24 u o se cambia la medida. Recalcular la invasión con la junta (29,6) y declararla en la tabla, o cortar la junta a ras de la pletina del lado interior."
+  },
+  {
+   "requisito": "Arco de la puerta a 90° contra lomo 850–950 + 30 y contra el travesaño trasero",
+   "tipo": "implícito",
    "estado": "cumple",
-   "evidencia": "La fuente pide ≥ 600 si descansa adentro y 500–520 si solo come; 560 queda 6,7 % por debajo de 600; a ras del piso 510,8 en los parantes. Declarado como criterio y como pendiente ('peso y tamaño de la cerda de referencia… define el ancho libre final').",
+   "evidencia": "A 90° el borde inferior del tubo queda a 1.060−19,05 = 1.041 ≥ 980; oreja z 1.035–1.085 bajo el travesaño trasero (cara inferior 1.104,6): 19,6 mm libres; guardas y varillas en y ≥ 285, fuera del barrido de la puerta (y ≤ 254).",
    "correccion": ""
   },
   {
-   "requisito": "Arco de la puerta hacia adentro (90°) y apertura hacia afuera",
-   "tipo": "mecánica",
-   "estado": "cumple",
-   "evidencia": "Radio al canto inferior 829,05: lomos de 880 y 980 piden 77,5° y 84,5°; a 90° el canto queda a z 1.041. Hacia afuera la punta llega a x −829; cerda de ~2 m saliendo de culata necesita ~2,9 m y la página pide ~3 m despejados. Varilla y guarda fuera del barrido (|y| ≥ 285,4 vs 254).",
-   "correccion": ""
-  },
-  {
-   "requisito": "Eje Ø20, orejas y leva",
-   "tipo": "mecánica",
-   "estado": "cumple",
-   "evidencia": "Oreja 2\" × ¼\" en |y| 274–280, z 1.035–1.085; buje PEAD; 19,95 entre lateral de puerta y oreja para planchuela de unión. La leva que mueve la varilla (y ±305,4, detrás del parante) necesita un eje corto pasante o prolongar el eje inox más allá de la oreja (en el 3D termina en |y| 280): detalle de plano de taller, criterio definido.",
-   "correccion": ""
+   "requisito": "Eje y orejas",
+   "tipo": "implícito",
+   "estado": "no cumple",
+   "evidencia": "Resistencia ok (Ø20 inox: 0,75 kN con brazo 23–42 mm → 22–40 MPa, FS ≥ 5; oreja 2\"×¼\" con Ø30 sobrada). Pero la geometría no cierra: despiece P4 Ø20 × 584 vs 3D −280…+280 = 560 (4,3 %); las orejas están soldadas a la cara interior de los parantes (y 274–280), así que 584 mm entra 12 mm dentro de cada parante (y 280–292). Y la leva \"en un extremo\" del eje tiene que mover la varilla que está detrás del parante (x −45, y ±305,4), y la varilla tiene que mover el trinquete que está del lado interior (x 22–72, y 241–280): con el eje dentro del ancho libre, ninguna de las dos uniones es posible sin atravesar el parante, y no hay pieza ni agujero que lo resuelva.",
+   "correccion": "Definir el eje pasante por los parantes traseros (agujero Ø32 + buje PEAD pasante en lugar de la oreja interior), largo ≈ 662 + 2 × 25 ≈ 712, con la leva por fuera del parante; trinquete con eje de giro M10 pasante por el parante y manivela exterior para la varilla; o, si se mantiene la oreja interior, acortar el eje a ≤ 556 y llevar varilla y leva a la cara interior con guarda. Actualizar P4, P5, P7 y el 3D."
   },
   {
    "requisito": "Trinquetes con 1,5 kN en el borde inferior",
-   "tipo": "mecánica",
+   "tipo": "implícito",
    "estado": "cumple",
-   "evidencia": "R = 1.500 × 810/760 = 1.599 N → 799 N por trinquete (tabla 0,8 kN). Observación de taller: con el trinquete en y 241–280 y el tubo de la puerta en y 216–254 el contacto es de 13 mm sobre el flanco curvo (normal a 18°, componente lateral ≈ 0,26 kN que tiende a desenganchar): en el plano de taller, soldar un taco plano en el lateral de la puerta donde apoya el trinquete. No es hallazgo: el criterio (2 trinquetes por gravedad sobre topes fijos) está definido.",
+   "evidencia": "1,5 kN a z 250, pivote 1.060, trinquetes a z 300: 1,5×810/760 = 1,60 kN → 0,80 kN c/u ≤ 1,0 kN; taco plano contra tope fijo, el pivote M10 no trabaja a corte.",
    "correccion": ""
   },
   {
-   "requisito": "Mecanismo: no entra una segunda cerda / hozado",
-   "tipo": "mecánica",
+   "requisito": "Largueros con 1,5 kN a media luz",
+   "tipo": "implícito",
    "estado": "cumple",
-   "evidencia": "Trabada, la puerta no gira hacia adentro (0,8 kN por trinquete). Para liberar desde afuera hay que llevar la punta a 70° (x −779, z 776) con ≈ 38–43 N; declarado como prueba de prototipo ('hozado desde afuera') en medidas.json y 'Lo que falta definir': cumple por pendiente declarado.",
+   "evidencia": "W Ø38,1×2,0 = 1.945,6 mm³; M = 1,5×747/4 = 280 N·m → 144 MPa → FS 1,63 (propuesta 1,63).",
    "correccion": ""
   },
   {
-   "requisito": "Mecanismo: armado a 70° y liberación a 70° hacia afuera",
-   "tipo": "mecánica",
+   "requisito": "Barrotes del frente con 1,5 kN a media luz",
+   "tipo": "implícito",
    "estado": "cumple",
-   "evidencia": "A 70° adentro la punta está en x 779, z 776 (cabeza y cuello adentro); toda cerda que entra pasa 77,5°. Entrada abortada más allá de 70° deja el box trabado vacío hasta el destrabe manual: declarado como prueba ('entradas abortadas') y hay palanca desde el pasillo. Salida: la cerda pasa siempre 77,5°; empujones < 70° no liberan.",
+   "evidencia": "W Ø25,4×2,0 = 798,2 mm³; vano 430 (700→1.130) apoyado: 161 N·m → 202 MPa → FS 1,16 (propuesta 1,16); vano 370: FS 1,35. Barra de cabeza Ø38,1 luz 610,8: FS 2,0.",
    "correccion": ""
   },
   {
-   "requisito": "Largueros Ø38,1 × 2,0 y parante Ø50,8 × 3,2 en la base",
-   "tipo": "mecánica",
+   "requisito": "Travesaños de puerta con 1,5 kN a media luz",
+   "tipo": "implícito",
    "estado": "cumple",
-   "evidencia": "Larguero: W 1.945,6 mm³, 1,5 kN a media luz de 747 apoyado → 144 MPa, FS 1,63; continuo, vano extremo FS 2,04. Parante: W 5.360 mm³, 0,9 kN·m → 168 MPa, FS 1,40 (con 2,0 mm: FS 0,94, como dice el texto). El desplazamiento de 25 mm de la placa no cambia la sección crítica del tubo.",
+   "evidencia": "Luz 470: M = 176 N·m → 90,6 MPa → FS 2,59 (propuesta 2,59).",
    "correccion": ""
   },
   {
-   "requisito": "Placa base, pletina y bulones con la geometría nueva",
-   "tipo": "mecánica",
+   "requisito": "Pasamanos con 1,5 kN a media luz",
+   "tipo": "implícito",
+   "estado": "cumple",
+   "evidencia": "W Ø50,8×2,0 = 3.599,5 mm³; 280 N·m → 77,8 MPa → FS 3,02 (propuesta 3,02).",
+   "correccion": ""
+  },
+  {
+   "requisito": "Parante en la base con 0,9 kN·m",
+   "tipo": "implícito",
+   "estado": "cumple",
+   "evidencia": "W Ø50,8×3,2 = 5.359,9 mm³ → 167,9 MPa → FS 1,40 (propuesta 1,40). Anotado: el venteo Ø10 \"cerca de cada punta, cara exterior\" cae en la fibra más cargada; descontándolo FS 1,21 (sigue ≥ 1,15).",
+   "correccion": "Recomendado: ubicar el venteo del pie en la cara x (eje neutro de la flexión lateral) o por encima de las cartelas."
+  },
+  {
+   "requisito": "Placa base, pletina y bulones",
+   "tipo": "implícito",
+   "estado": "cumple",
+   "evidencia": "M10 a ±55: tracción 0,9/0,11 = 8,2 kN en 2 bulones → 4,1 kN c/u, FS 6,4 (A2-70); placa 9,5 entre bulón y cartela 30 mm: FS ≈ 1,9; pletina 10 inox entre M10 (±55) y M12 (±20): FS ≈ 1,95; junta fenólica a 2,5 MPa. Separación M10–M12 35 mm ≥ 12 + 10 = 22 (cabeza Ø24 + arandela Ø20). Anotado para el plano de taller: bajo la pletina está el slat, así que el M10 × 40 no puede llevar tuerca abajo; definir rosca en la pletina (M10 × 25) o cabeza avellanada abajo y tuerca arriba.",
+   "correccion": ""
+  },
+  {
+   "requisito": "Travesaño del dosificador (40 kg × 2 + torsión)",
+   "tipo": "implícito",
+   "estado": "cumple",
+   "evidencia": "0,785 kN a media luz de 610,8: 61,6 MPa (FS 3,82, propuesta 3,82); torsión por excentricidad 2.240−2.110 = 130 mm: 0,10 kN·m → τ 26,2 MPa; von Mises 76,5 MPa → FS 3,07; los soportes L4 toman 51 N·m c/u (26 MPa).",
+   "correccion": ""
+  },
+  {
+   "requisito": "Anclaje al slat",
+   "tipo": "implícito",
+   "estado": "cumple",
+   "evidencia": "0,9 kN·m con fila de M12 a 20 del centro y borde comprimido a 75: brazo ≈ 90 → 10 kN en 2 bulones → 5 kN c/u, FS 7,6 (A2-70, As 84,3); contrapletina 100×8 puenteando la ranura (luz 120): 141 MPa → FS 1,46 (inox 205). M12 × 140 alcanza para slat ≤ ~100 mm; largo según slat real, declarado.",
+   "correccion": ""
+  },
+  {
+   "requisito": "Inox en la zona de purín",
+   "tipo": "implícito",
+   "estado": "cumple",
+   "evidencia": "Pletina, contrapletina, bulones del pie y comedero en inox 304.",
+   "correccion": ""
+  },
+  {
+   "requisito": "Galvanizado post-soldadura con venteos",
+   "tipo": "implícito",
+   "estado": "cumple",
+   "evidencia": "Subconjuntos soldados y galvanizados después; venteos Ø10 en cada caño cerrado y nudo, caras no expuestas; 149 kg de servicio = 156,4/1,05.",
+   "correccion": ""
+  },
+  {
+   "requisito": "Aislación inox–galvanizado",
+   "tipo": "implícito",
+   "estado": "cumple",
+   "evidencia": "Junta fenólica + vainas y arandelas aislantes en los M10; bujes PEAD del eje; M8 inox con bujes de nylon en comedero; abrazadera de la caída con buje. Anotado para el plano de taller (criterio ya definido): el fondo del comedero apoya directo sobre F8 galvanizado y la planchuela de la puerta abraza el eje inox en un agujero Ø21; llevan banda o buje de nylon.",
+   "correccion": ""
+  },
+  {
+   "requisito": "Antena vs. metal",
+   "tipo": "implícito",
+   "estado": "cumple",
+   "evidencia": "Separador PEAD 286,35−230 = 56,35 mm al larguero; a > 270 mm del comedero inox; distancia mínima y lectura del box vecino declaradas pendientes con el proveedor → cumple.",
+   "correccion": ""
+  },
+  {
+   "requisito": "Largos de corte entre caras",
+   "tipo": "implícito",
+   "estado": "cumple",
+   "evidencia": "Largueros 747−50,8 = 696,2 / 695,2; L4 775,6; F1–F3 560; F7 y F8 572,7; barrotes 331,9 y 385,6; pasamanos 2.290,8; P2 431,9: todos coinciden con el despiece (salvo el eje, ítem aparte).",
+   "correccion": ""
+  },
+  {
+   "requisito": "Plan de corte por sección",
+   "tipo": "implícito",
+   "estado": "cumple",
+   "evidencia": "Ø50,8×3,2: 8×1.085 = 8.680 en 2 barras (27,7 %); Ø50,8×2,0: 5.702 en 1 (5,0 %); Ø38,1×2,0: 40.686 en 8 (15,2 %); Ø25,4×2,0: 2.872 en 1 (52,1 %); sobrantes con 3 mm por corte verificados barra por barra.",
+   "correccion": ""
+  },
+  {
+   "requisito": "Cantidades del pedido",
+   "tipo": "implícito",
    "estado": "no cumple",
-   "evidencia": "Resistencia OK: 0,9 kN·m con fila traccionada a 55 del centro y compresión a 10 del canto opuesto (brazo 120) → 7,5 kN, 3,75 kN por bulón: M10 A2-70 FtRd 29,2 kN, M12 42,5 kN; placa 9,5 con el bulón a 20 del canto y 30 de la cartela, ≈ 78 MPa. Pero hay un error geométrico nuevo: los M10 están fijos en (x ±55, y ±55) del centro de la pletina y los M12 van en colisos sobre las mismas rectas y ±55, en la x que imponga la ranura del slat (paso 120). Con los slats del propio 3D, en el parante x 747 las ranuras caen en x rel −57 y +63: los M12 coinciden con los M10 (2 y 8 mm entre ejes; hacen falta ≥ 19,5 = cabeza avellanada Ø24/2 + agujero con vaina ≈ Ø15/2); en x 1.493 quedan a 18 mm (choque de bordes). Con los slats del SVG, en x 0 a 5 mm. En general, con ranura a 40–80 mm del eje del parante (1/3 de los casos) no hay par de ranuras libre: la regla de agujereado no es construible en la tercera parte de los parantes.",
-   "correccion": "Separar las dos familias de bulones en y: M10 de la placa a (x ±55, y ±55) como están; M12 en colisos a lo largo de x sobre y ±20 del centro de la pletina (35 mm de separación en y > 19,5: no chocan para cualquier ranura), con una sola contrapletina inferior inox 300 × 100 × 8 por pie en lugar de las 2 de 300 × 60 × 6. Recalculado: brazo 75 − 10 + 20 = 85 → 10,6 kN, 5,3 kN por M12 (FS 8). Actualizar medidas.json (pletina.material, bulon_anclaje), tabla y cajas del 3D; peso inox ≈ 42 → ≈ 43 kg."
+   "evidencia": "Cuentas verificadas: 48 largueros, 32 M12, 32 M10 inox, 8 pletinas/contrapletinas/juntas, 12 tapas, 12 U1 = 6 travesaños abulonados × 2. Pero falta la unión del travesaño del dosificador F7: une los soportes L4 de los dos laterales, que se galvanizan por separado, y no tiene planchuelas ni bulones (no se puede soldar después de galvanizar). Tampoco figuran: bulones de las 2 guardas P9 (\"abulonada al parante\"), pernos de los ojales de las varillas P8 (4), la leva, el gatillo de retención y la palanca de destrabe manual que describe el mecanismo.",
+   "correccion": "Agregar 2 U1 (U1 = 14) y 4 bulones M10 × 70 (26 → 30) para F7; agregar 4 M6/M8 galvanizados para las guardas, 4 pernos con chaveta para los ojales, y leva, gatillo y palanca de destrabe como piezas P11–P13 (planchuela 2\"×¼\", entra en la barra de 6 m: 1.640 + 160 mm)."
   },
   {
-   "requisito": "Travesaños de puerta y frente, pasamanos y dosificador",
-   "tipo": "mecánica",
-   "estado": "cumple",
-   "evidencia": "Puerta Ø38,1 luz 470: FS 2,6. Frente z 330 y barra z 700 Ø38,1 luz 610,8: 118 MPa, FS 2,0. Frente z 1.130 Ø50,8 × 2,0: FS 3,7. Apoyo trasero del comedero x 1.860: FS 2,0. Pasamanos media luz 747: FS 3,0. Travesaño del dosificador 785 N + torsión 102 N·m: Von Mises 76,5 MPa, FS 3,1; caja z 1.300–1.900 bajo el travesaño z 1.950 (31 mm para planchuelas).",
-   "correccion": ""
-  },
-  {
-   "requisito": "Comedero y caída: apoyo y fijación",
-   "tipo": "mecánica",
-   "estado": "cumple",
-   "evidencia": "Comedero x1 2.215 sobre el travesaño z 100 (cara 2.221) y atrás sobre x 1.860 (tope 119,05 vs fondo 120); M8 inox con bujes de nylon, nunca soldado. Caída inox Ø50 × 1,5 en x 2.160–2.210, descarga a z 400 dentro del comedero; voladizo 730 bajo la abrazadera de z 1.130: 0,5 kN → 136 MPa, FS 1,5 (fy 205). Opcional: 2.ª abrazadera a la barra de z 700, a 11 mm.",
-   "correccion": ""
-  },
-  {
-   "requisito": "Anclaje al slat (montaje sin romper el piso)",
-   "tipo": "explícito",
-   "estado": "cumple",
-   "evidencia": "Bulones pasantes por las ranuras con contrapletinas inferiores que abrazan 2 vigas (3D z −96…−90 bajo slat de 90), como las pletinas superiores e inferiores de Big Dutchman/Gestal; sin perforar el slat; reubicable. Orientación de vigas y paso 100/20 declarados como supuesto a verificar en el galpón. La ubicación de los M12 se trata en el ítem de placa y bulones.",
-   "correccion": ""
-  },
-  {
-   "requisito": "Inoxidable 304 en la zona de purín y aislación inox–galvanizado",
-   "tipo": "materiales",
-   "estado": "cumple",
-   "evidencia": "Pletinas, contrapletinas, M10/M12 y comedero en 304 (Pericoli, Schauer, Unified Alloys). Junta fenólica 3 mm, vainas y arandelas aislantes en los M10 (M10 inox roscando en la pletina inox: mismo metal); M12 inox en inox, sin par galvánico; comedero y caída con nylon; eje inox en buje PEAD. Observación: la placa ahora queda a ras con la pletina en los cantos de y; conviene que la junta sobresalga 5 mm para que el agua no puentee el canto (plano de taller).",
-   "correccion": ""
-  },
-  {
-   "requisito": "Galvanizado en caliente después de soldar, con venteos",
-   "tipo": "materiales",
-   "estado": "cumple",
-   "evidencia": "Inmersión después de soldar todo; venteos Ø10 en cada extremo de caño cerrado y en cada nudo, en caras no expuestas; desbarbado previo; parante cerrado con placa base abajo. Subconjunto mayor (lateral 2.240 × 1.950) entra en una cuba estándar.",
-   "correccion": ""
-  },
-  {
-   "requisito": "Antena RFID: separación del metal y lectura cruzada",
+   "requisito": "Peso y manipulación (2 personas)",
    "tipo": "implícito",
    "estado": "cumple",
-   "evidencia": "Separador PEAD 56,35 (y 230 → 286,35) al larguero z 740; comedero inox 270 más abajo; la barra de z 700 está en x 2.240, a 300 de la antena. Distancia mínima y box vecino pendientes con el proveedor y como prueba de prototipo: cumple por pendiente declarado.",
-   "correccion": ""
-  },
-  {
-   "requisito": "Nomenclatura inequívoca para el herrero",
-   "tipo": "implícito",
-   "estado": "cumple",
-   "evidencia": "Tubos por Ø exterior × espesor; bulones con métrica, norma (DIN 7991) y material; 'barra de cabeza z 700', 'travesaño trasero superior', 'varilla de mando (detrás del parante)', 'placa base galva' / 'pletina inox' / 'contrapletina inox' iguales en medidas.json, tabla y 3D. Detalle menor heredado: en la lateral las cotas de largueros siguen sin punto de miles ('1000').",
-   "correccion": ""
-  },
-  {
-   "requisito": "Idioma rioplatense y cotas en mm",
-   "tipo": "implícito",
-   "estado": "cumple",
-   "evidencia": "Voseo ('girá'), términos locales (caño, planchuela, herrería, galpón, caravana, cachorras, hoza). Cotas en mm con punto de miles salvo '1000' en la lateral.",
+   "evidencia": "Recalculado del despiece: 122,1 kg de tubo; galvanizado 149,0×1,05 = 156,4; inox y otros 55,1; total 211,6 (propuesta ≈ 212); cada lateral 64,5 kg ≤ 80 (propuesta 64).",
    "correccion": ""
   }
  ],
