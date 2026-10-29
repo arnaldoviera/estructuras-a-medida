@@ -1,168 +1,182 @@
 {
   "fecha": "2026-10-29",
-  "vueltas": 3,
-  "ficha_sha256": "effd8a0692d99e439b7f98283c73508c569546a6a474b12753f636871e50dcce",
+  "vueltas": 4,
+  "ficha_sha256": "05a8fd16de5da045eb32b23e624d46ae17b5e5a772371573d0d70b45dca924fb",
   "estado": "con observaciones",
   "items": [
     {
       "requisito": "Medidas totales 1.800 × 900 × 750 (requisitos.medidas)",
       "tipo": "explícito",
       "estado": "cumple",
-      "evidencia": "Desde la ficha: tapa x 0–1.800, y 0–900, z 720–750 → 1.800 × 900 × 750; propuesta, frente.svg, planta.svg, lateral.svg y escena3d.json dicen lo mismo.",
+      "evidencia": "Tapa x 0–1.800, y 0–900, z 720–750; patas de z 0 a 720 → 750. Propuesta 1.800 × 900 × 750; regatón suma 3 mm (753, declarado, dentro de ±5).",
       "correccion": ""
     },
     {
-      "requisito": "Uso: mesa de comedor para 6, interior; cantidad 1",
+      "requisito": "Uso mesa de comedor para 6, interior, cantidad 1",
       "tipo": "explícito",
       "estado": "cumple",
-      "evidencia": "Luz libre entre patas: 1.500 mm en el lado largo (2 personas por lado a 750) y 680 mm en las cabeceras (1 por cabecera) → 6 cubiertos. Altura libre bajo el bastidor 680 mm (rodillas). exterior=false y terminación de interior; cantidad 1 en despiece.",
+      "evidencia": "Ficha tipo_uso mesa, exterior false, cantidad 1; cargas de catálogo «mesa» 100 kg/m² · 100 kg · 30 kg · 60 kg aplicadas; terminación de interior (antióxido + esmalte).",
       "correccion": ""
     },
     {
-      "requisito": "Referencia de la foto respetada (4 patas rectas de caño cuadrado sin riostra baja, bastidor perimetral, tapa maciza clara gruesa con vuelo corto)",
+      "requisito": "Lo tomado de la foto: 4 patas rectas de caño cuadrado sin riostra baja, bastidor perimetral, tapa maciza clara gruesa con vuelo corto",
       "tipo": "explícito",
       "estado": "cumple",
-      "evidencia": "4 patas 50 × 50 rectas sin riostra; bastidor L1/L2/C1/C2 perimetral; tapa alistonado eucalipto 30 mm con vuelo de 100 mm (x) y 60 mm (y) desde la cara exterior de las patas. Lo cambiado (travesaño T1, medidas del pedido) está declarado.",
+      "evidencia": "4 barras rol pata 50 × 50 verticales, sin barras bajas; bastidor L1-L2-C1-C2 bajo la tapa; tapa alistonado eucalipto 30 mm con vuelo 85 (y) y 125 (x) desde eje de pata. Tono de la madera queda pendiente declarado.",
       "correccion": ""
+    },
+    {
+      "requisito": "Lo cambiado respecto de la foto está declarado",
+      "tipo": "explícito",
+      "estado": "no cumple",
+      "evidencia": "La referencia dice «bastidor perimetral del mismo caño» (que las patas), pero el diseño usa 40 × 40 × 2,5 en el bastidor y 50 × 50 × 2,0 en las patas (queda 5 mm retirado de la cara de la pata: larguero y 65–105 vs pata y 60–110 en escena3d). «Lo que se cambió y por qué» solo lista el travesaño central y las medidas; el cambio de caño aparece solo en el origen de la sección.",
+      "correccion": "Agregar a requisitos.referencia.cambiado: «El bastidor va en caño 40 × 40 × 2,5, más fino que la pata 50 × 50 (en la foto es el mismo caño): alcanza para la flecha y queda retirado 5 mm de la cara de la pata.» O, si se quiere respetar la foto, pasar el bastidor a 50 × 50 (rehacer verificaciones y plan de corte)."
     },
     {
       "requisito": "Sin presupuesto ni precios",
       "tipo": "explícito",
       "estado": "cumple",
-      "evidencia": "Propuesta y despiece sin precios; fabricación y entrega «se cotizan aparte».",
+      "evidencia": "Propuesta: «propuesta técnica, sin presupuesto», pedido «sin precios», fabricación y entrega aparte; ningún importe en propuesta.txt ni despiece.json.",
       "correccion": ""
     },
     {
-      "requisito": "Geometría: patas al piso, placas apoyadas, sin piezas superpuestas ni sueltas",
+      "requisito": "Geometría: patas al piso, bastidor apoyado en patas, tapa apoyada en bastidor, sin superposiciones ni piezas sueltas",
       "tipo": "implícito",
       "estado": "cumple",
-      "evidencia": "Patas z 0–720; bastidor 40 × 40 con eje a z 700 → cara superior 720 = cara inferior de la tapa. L1/L2 entre caras interiores de patas (x 150–1.650), C1/C2 entre caras de patas (y 110–790), T1 entre caras de largueros (y 105–795). Cajas de escena3d sin solapes; tapa apoya en patas, perímetro y T1.",
+      "evidencia": "Patas z 0–720 a nivel de piso; bastidor eje z 700 con caño 40 → cara superior 720 = cara inferior de la tapa; L1/L2 topan en caras de patas (x 150/1.650), C1/C2 en caras de patas (y 110/790), T1 en caras internas de largueros (y 105/795). Sin solapes.",
       "correccion": ""
     },
     {
-      "requisito": "Tapa: tensión de flexión entre apoyos y voladizo",
+      "requisito": "Placa tapa: tensión por flexión entre apoyos y en voladizo (σadm 8 MPa, carga de uso)",
       "tipo": "implícito",
       "estado": "cumple",
-      "evidencia": "Franja 300 mm, luz 775 (C1–T1), 100 kg en el medio: M = 190 N·m, W = 45 cm³ → 4,22 MPa ≤ 8 (propuesta 4,2). Repartida 100 kg/m²: 0,5 MPa. Voladizo 125 con 60 kg en el borde: 1,6 MPa.",
+      "evidencia": "Luz 775 en x (C1–T1, a lo largo de la veta), 100 kg en franja de 300: M = 981·775/4 → σ = 4,22 MPa; repartida 0,49 MPa; voladizo x 125 con 60 kg: 1,64 MPa; voladizo y 85: 1,11 MPa. Propuesta 4,2 MPa ≤ 8.",
       "correccion": ""
     },
     {
-      "requisito": "Tapa: flecha L/300",
+      "requisito": "Placa tapa: flecha L/300",
       "tipo": "implícito",
       "estado": "cumple",
-      "evidencia": "E 10.000, I franja 300 = 67,5 cm⁴: 1,41 mm ≤ 2,58 (propuesta 1,4 ≤ 2,6).",
+      "evidencia": "δ = P·L³/(48·E·I), E 10.000, franja 300 × 30: 1,41 mm ≤ 2,58. Propuesta 1,4 ≤ 2,6.",
       "correccion": ""
     },
     {
-      "requisito": "Largueros L1/L2 (1.500): tensión",
+      "requisito": "Largueros L1/L2 (1.500): tensión con carga ×1,5 y fy/1,1 = 214 MPa",
       "tipo": "implícito",
       "estado": "cumple",
-      "evidencia": "100 kg en el medio × 1,5: M = 552 N·m; W 40 × 40 × 2,5 (esquinas redondeadas) = 4,11 cm³ → 134 MPa ≤ 214 (propuesta 135). Repartida (ancho 450 mm) da menos.",
+      "evidencia": "Mío: 100 kg × 1,5 en el medio, W 4.414 mm³ (sección viva) → 125 MPa; con radios de esquina (W 4.108) 134 MPa; + peso propio de tapa (ancho 450) y caño ×1,5 → 145 MPa. Propuesta 145 MPa: mayor que mi valor sin peso propio; la diferencia se explica por incluir peso propio de tapa y caño (y radios de esquina). ≤ 214.",
       "correccion": ""
     },
     {
       "requisito": "Largueros L1/L2: flecha L/300",
       "tipo": "implícito",
       "estado": "cumple",
-      "evidencia": "P L³/48EI con I = 8,22 cm⁴: 4,2 mm; sumando el peso de la tapa 4,5 mm; propuesta 4,3, dentro de ese rango; ≤ 5,0. Con 1,6 mm daría 6,0 mm (justifica el cambio de la vuelta 1).",
+      "evidencia": "Mío: 3,91 mm (I 88.281 viva); con radios (I 82.169) 4,20 + peso propio tapa y caño 0,43 → 4,63 mm. Propuesta 4,6 ≤ 5,0: mayor que mi 3,9 sin peso propio, explicado por peso propio de tapa y caño. Margen chico (8 %) pero cumple; con luz entre ejes 1.550 da 4,8 ≤ 5,2.",
       "correccion": ""
     },
     {
-      "requisito": "Cabeceros C1/C2 (680): tensión informada",
-      "tipo": "implícito",
-      "estado": "no cumple",
-      "evidencia": "100 kg en el medio × 1,5: M = 250 N·m / 4,11 cm³ = 60,9 MPa; la propuesta dice 59 MPa (−3,1 %, diferencia > 2 % y del lado inseguro). Con el mismo método T1 (690) da 61,8 y la propuesta 61, y L1 da 134 y la propuesta 135: solo el cabecero no se reproduce. Cumple holgado igual (≤ 214).",
-      "correccion": "Revisar el cálculo de C1/C2 (luz 680, 100 kg × 1,5 en el medio, W 4,11 cm³) y publicar ≈ 61 MPa; no cambia el diseño."
-    },
-    {
-      "requisito": "Cabeceros C1/C2 y travesaño T1: flecha",
+      "requisito": "Cabeceros C1/C2 (680): tensión y flecha",
       "tipo": "implícito",
       "estado": "cumple",
-      "evidencia": "C1: 0,39 mm ≤ 2,27 (propuesta 0,4); T1: 0,41 mm ≤ 2,30 (propuesta 0,4).",
+      "evidencia": "Mío 56,7 MPa (puntual ×1,5, sección viva); con radios y peso propio ≈ 64 MPa. Propuesta 63 MPa ≤ 214: diferencia sobre mi valor explicada por peso propio de tapa y caño. Flecha mía 0,36 mm; propuesta 0,4 ≤ 2,3.",
       "correccion": ""
     },
     {
-      "requisito": "Travesaño T1 (690): tensión",
+      "requisito": "Travesaño central T1 (690): tensión y flecha",
       "tipo": "implícito",
       "estado": "cumple",
-      "evidencia": "61,8 MPa ≤ 214 (propuesta 61, 1,3 %).",
+      "evidencia": "Mío 57,5 MPa (puntual ×1,5, sección viva; repartida con ancho 775: 15 MPa); con radios y peso propio ≈ 66 MPa. Propuesta 65 MPa ≤ 214: diferencia explicada por peso propio de tapa y caño. Flecha 0,38 mm; propuesta 0,4 ≤ 2,3.",
       "correccion": ""
     },
     {
-      "requisito": "Pandeo de patas (Le = 2L, FS ≥ 2)",
+      "requisito": "Pandeo de patas 50 × 50 × 2,0 (Le = 2L = 1.440, FS ≥ 2)",
       "tipo": "implícito",
       "estado": "cumple",
-      "evidencia": "N = (29,2 + 23,5 + 100 kg/m² × 1,62 m²)/4 = 53,7 kg (propuesta 54). I 50 × 50 × 2 = 14,1 cm⁴, Pcr = π²EI/(1.440)² = 13.730 kg → FS 256 con carga de uso, 170,5 con × 1,5 (propuesta 171,4).",
+      "evidencia": "Carga por pata (162 kg de uso + 51,8 kg propio)/4 = 53,4 kg (propuesta 53). Pcr Euler = 14.333 kg → FS 268 sin mayorar; con carga ×1,5 y radios de esquina FS 171. Propuesta FS 167,5: más conservadora (carga ×1,5 + sección real); en cualquier caso ≫ 2.",
       "correccion": ""
     },
     {
       "requisito": "Corrimiento con 30 kg de empuje lateral (≤ alto/150)",
       "tipo": "implícito",
       "estado": "cumple",
-      "evidencia": "Pórtico de base articulada, 15 kg por pórtico, h 700: x (Lb 1.550) 0,86 mm, y (Lb 730) 0,56 mm ≤ 4,8 (propuesta 0,9 mm en x).",
+      "evidencia": "Pórtico de base articulada y nudos rígidos, 15 kg por pórtico: en x (viga 1.550) 0,87 mm; en y (viga 730) 0,57 mm. Propuesta 0,9 mm ≤ 4,8 (720/150).",
       "correccion": ""
     },
     {
-      "requisito": "Tensión en el nudo pata-bastidor por empuje lateral",
+      "requisito": "Tensión en el nudo pata-bastidor por el empuje",
       "tipo": "implícito",
       "estado": "cumple",
-      "evidencia": "M = 1,5 × 147 N × 700/2 = 77 N·m → viga 18,8 MPa, pata 13,7 MPa ≤ 214 (propuesta 18). Exige soldadura perimetral completa, que la ficha declara.",
+      "evidencia": "M = 1,5 · 147 N · 720/2 = 79,4 N·m: pata 13,4 MPa, viga 18,0 MPa (viva) / 19,3 con radios. Propuesta 19 MPa ≤ 214 (diferencia por radios de esquina, más conservadora).",
       "correccion": ""
     },
     {
-      "requisito": "Vuelco con 60 kg en el borde (FS ≥ 1,5, sin anclar)",
+      "requisito": "Vuelco con 60 kg en el borde de la tapa (FS ≥ 1,5, sin anclar)",
       "tipo": "implícito",
       "estado": "cumple",
-      "evidencia": "Lado largo, eje de pata (conservador): 52,7 × 365 / (60 × 85) = 3,77 (propuesta 3,8); con el canto exterior de la pata 5,7; cabecera 5,45.",
+      "evidencia": "Peor lado y: 51,8 kg × 365 mm / (60 kg × 85 mm) = 3,71 (tomando eje de pata; con la cara exterior de la pata 5,6); lado x: 5,35. Propuesta FS 3,7 ≥ 1,5. Empuje de 30 kg arriba no se usa para vuelco en mesas (criterio de la tipología).",
       "correccion": ""
     },
     {
-      "requisito": "Secciones y largos comerciales; cada barra y placa de una pieza",
+      "requisito": "Secciones y largos comerciales",
       "tipo": "implícito",
       "estado": "cumple",
-      "evidencia": "50 × 50 × 2,0 y 40 × 40 × 2,5 figuran en el catálogo (barra 6 m); pieza más larga 1.500; tapa 1.800 × 900 entra en hoja 2.440 × 1.220.",
+      "evidencia": "50 × 50 × 2,0 y 40 × 40 × 2,5 están en tubo-estructural-cuadrado; máximo corte 1.500 ≤ barra 6.000; tablero alistonado eucalipto 30 en hoja 2.440 × 1.220.",
       "correccion": ""
     },
     {
-      "requisito": "Plan de corte y pedido",
+      "requisito": "Placa de una sola hoja",
       "tipo": "implícito",
       "estado": "cumple",
-      "evidencia": "Patas 4 × 720 + 4 cortes de 3 → libre 3.108, desperdicio 51,8 %; bastidor 1.500+1.500+690+680+680 + 5 × 3 → libre 935, 15,6 %; hoja 45,6 %. Cantidades: 4+2+2+1 barras = 9 piezas de hierro + tapa = 10 piezas, 1 barra de cada sección y 1 hoja: coinciden con despiece y propuesta.",
+      "evidencia": "Tapa 1.800 × 900 entra en 2.440 × 1.220; desperdicio 1 − 1,62/2,977 = 45,6 % (despiece 45,6).",
       "correccion": ""
     },
     {
-      "requisito": "Peso y pieza más pesada",
+      "requisito": "Plan de corte y cantidades del pedido",
       "tipo": "implícito",
       "estado": "cumple",
-      "evidencia": "Tapa 1,8 × 0,9 × 0,03 × 600 = 29,2 kg ≤ 50; hierro 23,5 kg (esquina viva; 22,7 con esquinas redondeadas); planchuelas 0,75 kg no sumadas (1,4 %, < 2 %). Total ≈ 53 kg: 2 personas para mover la mesa armada.",
+      "evidencia": "Patas 4 × 720 + 4 × 3 → sobra 3.108 (51,8 %); bastidor 2 × 1.500 + 690 + 2 × 680 = 5.050 + 15 → sobra 935 (15,6 %). Pedido 1 barra 50 × 50, 1 barra 40 × 40, 1 hoja; 10 planchuelas = 10 tornillos; 4 regatones = 4 patas. Todo coincide con despiece.json.",
+      "correccion": ""
+    },
+    {
+      "requisito": "Largos de corte coherentes con la geometría",
+      "tipo": "implícito",
+      "estado": "cumple",
+      "evidencia": "L 1.650 − 150 = 1.500; C 790 − 110 = 680; T 795 − 105 = 690; P 720. Despiece declara que los descuentos de unión los ajusta quien fabrica.",
+      "correccion": ""
+    },
+    {
+      "requisito": "Peso y pieza más pesada (≤ 50 kg)",
+      "tipo": "implícito",
+      "estado": "cumple",
+      "evidencia": "Hierro 22,7 kg con radios de esquina (23,5 sección viva), tapa 1,8 × 0,9 × 0,03 × 600 = 29,2 kg, total 51,8. Propuesta ≈ 52 kg, tapa 29,2 kg ≤ 50. Bastidor soldado 22,7 kg también manejable.",
       "correccion": ""
     },
     {
       "requisito": "Unión madera–hierro que deja trabajar la madera",
       "tipo": "implícito",
       "estado": "cumple",
-      "evidencia": "10 planchuelas 32 × 5 con agujero ovalado y tornillo 8 × 1\" (25,4 − 5 = 20,4 mm en la tapa, quedan 9,6 de 30). Nota: con veta en x el ovalado debe ir en y (a través de la veta); es detalle de taller que la propuesta deja a quien fabrica.",
+      "evidencia": "Tapa atornillada desde abajo por 10 planchuelas 32 × 5 con agujero ovalado; tornillo 8 × 1\" = 25,4 mm: 5 de planchuela + ≈ 20 en 30 mm de tapa, sobran ≈ 10 mm (no traspasa). Orientación del ojal: detalle de taller.",
       "correccion": ""
     },
     {
-      "requisito": "Protección del hierro y terminación (interior)",
+      "requisito": "Protección del hierro",
       "tipo": "implícito",
       "estado": "cumple",
-      "evidencia": "Desengrase, antióxido y esmalte/epoxi; ~1,4 m² de caño, 1 l de cada producto alcanza. Regatones en las patas: la tapa de 3 mm sube el alto a 753, dentro de ±5 (el texto «no suma alto» debería decir «suma 3 mm, dentro de la tolerancia»).",
+      "evidencia": "Interior: desengrase, antióxido y esmalte o epoxi; no requiere galvanizado.",
       "correccion": ""
     },
     {
       "requisito": "Coherencia ficha ↔ propuesta ↔ vistas ↔ 3D ↔ despiece",
       "tipo": "implícito",
       "estado": "cumple",
-      "evidencia": "Ejes de patas 1.550 (frente/planta) y 730 (lateral) = 1.675−125 y 815−85; posiciones de L, C, T y patas en SVG y escena3d iguales a la ficha; largos 720/1.500/680/690 iguales en ficha, despiece y propuesta. Única diferencia > 2 %: la tensión del cabecero (ítem aparte).",
+      "evidencia": "Frente 1.800 / 750 / 1.550 entre ejes (1.675 − 125); planta 1.800 / 900 / 1.550; lateral 900 / 750 / 730 (815 − 85). escena3d: patas 50 en ejes de ficha, bastidor z 680–720, tapa z 720–750. 10 piezas en tabla y despiece; 23/23 verificaciones contadas. Sin diferencias > 2 %.",
       "correccion": ""
     },
     {
       "requisito": "Trazabilidad de orígenes",
       "tipo": "implícito",
       "estado": "cumple",
-      "evidencia": "Medidas y secciones marcadas supuesto/cálculo, cargas «criterio» del catálogo (mesa: 100 kg/m², 100, 30, 60 coinciden), uniones y terminación «criterio». Pendiente declarado: tono y terminación de la madera.",
+      "evidencia": "Medidas, pata y tapa marcadas «supuesto»; bastidor «cálculo»; uniones y terminación «criterio»; cargas «criterio» del catálogo con los mismos valores (100/100/30/60). Pendiente declarado: tono y terminación de la madera.",
       "correccion": ""
     }
   ],

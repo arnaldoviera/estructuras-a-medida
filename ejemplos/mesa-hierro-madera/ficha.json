@@ -38,6 +38,7 @@
       ],
       "cambiado": [
         "Se agrega un travesaño central en el bastidor para que la tapa no apoye solo en el perímetro.",
+        "El bastidor va en caño 40 × 40 × 2,5, más fino que la pata de 50 × 50 (en la foto es el mismo caño): alcanza para la flecha y queda retirado 5 mm de la cara de la pata.",
         "Las medidas salen del pedido (1,80 × 0,90 × 0,75), no de la foto."
       ]
     }
@@ -295,6 +296,7 @@
     "garantia": null
   },
   "estado": {
-    "vueltas_auditoria": 3
+    "vueltas_auditoria": 4,
+    "nota_auditoria": "La observación de la auditoría vuelta 4 (declarar que el bastidor es más fino que la pata, a diferencia de la foto) está corregida en «Lo que se cambió» y no fue re-auditada."
   }
 }
