@@ -20,16 +20,30 @@
   "requisitos": {
     "uso": "Pórtico familiar con 3 puestos estándar intercambiables: hamaca, trapecio, escalera de soga; la hamaca-cama ocupa los 3. Cama: solo mecerse suave.",
     "configuraciones": [
-      {"id": "hamacas", "nombre": "2 hamacas + trapecio", "puestos": ["hamaca", "trapecio", "hamaca"]},
-      {"id": "cama", "nombre": "Hamaca-cama (3 puestos)", "puestos": ["cama"]}
+      {
+        "id": "hamacas",
+        "nombre": "2 hamacas + trapecio",
+        "puestos": [
+          "hamaca",
+          "trapecio",
+          "hamaca"
+        ]
+      },
+      {
+        "id": "cama",
+        "nombre": "Hamaca-cama (3 puestos)",
+        "puestos": [
+          "cama"
+        ]
+      }
     ],
     "carga_diseno_kg": 350,
     "carga_diseno_desc": "Hamaca-cama con 2 adultos + 2 chicos",
     "factor_dinamico": 2.5,
     "carga_por_puesto_kg": 100,
     "espacio": {
-      "largo_eje_travesano_m": 4.50,
-      "largo_vaiven_m": 5.50,
+      "largo_eje_travesano_m": 4.5,
+      "largo_vaiven_m": 5.5,
       "orientacion": "Vaivén izquierda-derecha, paralelo al muro; el travesaño va del muro hacia el césped (4,50 m).",
       "limites": "Muro en un extremo del travesaño; césped del otro."
     },
@@ -37,46 +51,133 @@
     "materiales_disponibles": "Rollizo de eucalipto impregnado; varilla roscada galvanizada.",
     "herramientas": "Taladro con mecha larga de 18 mm, motosierra o serrucho, formón, llaves, nivel, escalera.",
     "personas_armado": "1 persona con ayuda puntual de 2 personas para parar las dos A y subir el travesaño",
-    "terminacion": "Rollizo impregnado + Cetol"
+    "terminacion": "Rollizo impregnado + Cetol",
+    "superficie": "al_ras",
+    "superficie_desc": "Césped, al ras del entorno"
   },
   "diseno": {
     "material": "eucalipto-impregnado",
-    "travesano": {"diametro": 200, "largo": 3700, "z_eje": 2100},
-    "patas": {
-      "cantidad": 4, "diametro": 170, "largo": 2950, "largo_comercial": 3500, "enterrado": 150, "punta": "horizontal",
-      "pie_x": 2065, "cruce_x": 1635, "semibase": 1300, "prolongacion": null, "desfase_media_madera": 30,
-      "rebaje_cruce_frac": 0.3333, "asiento_horqueta": 15
+    "travesano": {
+      "diametro": 200,
+      "largo": 3700,
+      "z_eje": 2100
     },
-    "tirante": {"diametro": 150, "largo": 1230, "z": 1150, "rebaje": 25, "cara": "interior"},
-    "cartela": {"diametro": 120, "largo": 1000, "x_sup": 1350, "rebaje": 20,
-                "alternativa": "Si la cartela se ve como punto débil: 2º tirante cerca de la horqueta."},
+    "patas": {
+      "cantidad": 4,
+      "diametro": 170,
+      "largo": 2950,
+      "largo_comercial": 3500,
+      "enterrado": 150,
+      "punta": "horizontal",
+      "pie_x": 2065,
+      "cruce_x": 1635,
+      "semibase": 1300,
+      "prolongacion": null,
+      "desfase_media_madera": 30,
+      "rebaje_cruce_frac": 0.3333,
+      "asiento_horqueta": 15
+    },
+    "tirante": {
+      "diametro": 150,
+      "largo": 1230,
+      "z": 1150,
+      "rebaje": 25,
+      "cara": "interior"
+    },
+    "cartela": {
+      "diametro": 120,
+      "largo": 1000,
+      "x_sup": 1350,
+      "rebaje": 20,
+      "alternativa": "Si la cartela se ve como punto débil: 2º tirante cerca de la horqueta."
+    },
     "varillas": {
       "holgura_agujero": 2,
-      "horqueta": {"d": 16, "largo": 770, "cant": 2},
-      "cruce": {"d": 16, "largo": 350, "cant": 2},
-      "tirante": {"d": 16, "largo": 350, "cant": 4},
-      "cartela_inf": {"d": 12, "largo": 330, "cant": 2},
-      "cartela_sup": {"d": 12, "largo": 385, "cant": 2},
-      "abrazadera": {"d": 10, "largo": 90, "cant_por_abrazadera": 2}
+      "horqueta": {
+        "d": 16,
+        "largo": 770,
+        "cant": 2
+      },
+      "cruce": {
+        "d": 16,
+        "largo": 350,
+        "cant": 2
+      },
+      "tirante": {
+        "d": 16,
+        "largo": 350,
+        "cant": 4
+      },
+      "cartela_inf": {
+        "d": 12,
+        "largo": 330,
+        "cant": 2
+      },
+      "cartela_sup": {
+        "d": 12,
+        "largo": 385,
+        "cant": 2
+      },
+      "abrazadera": {
+        "d": 10,
+        "largo": 90,
+        "cant_por_abrazadera": 2
+      }
     },
     "arandela_ancha_mm": 50,
     "cuelgues": {
-      "puestos_x": [-940, 0, 940], "separacion_par": 500, "z_giro": 1940,
-      "abrazadera": {"planchuela": "40x5", "radio_interior": 103, "goma_mm": 3, "oreja": 90, "oreja_sup": 50, "accesorio": "grillete 10 mm o gancho giratorio"}
+      "puestos_x": [
+        -940,
+        0,
+        940
+      ],
+      "separacion_par": 500,
+      "z_giro": 1940,
+      "abrazadera": {
+        "planchuela": "40x5",
+        "radio_interior": 103,
+        "goma_mm": 3,
+        "oreja": 90,
+        "oreja_sup": 50,
+        "accesorio": "grillete 10 mm o gancho giratorio"
+      }
     },
     "accesorios": {
-      "asiento_z": 500, "asiento_ancho": 430, "asiento_prof": 180,
-      "trapecio_z": 1300, "trapecio_ancho": 460,
-      "cama": {"largo": 2000, "ancho": 1400, "z": 500, "cuelga_de": "abrazaderas exteriores"}
+      "asiento_z": 500,
+      "asiento_ancho": 430,
+      "asiento_prof": 180,
+      "trapecio_z": 1300,
+      "trapecio_ancho": 460,
+      "cama": {
+        "largo": 2000,
+        "ancho": 1400,
+        "z": 500,
+        "cuelga_de": "abrazaderas exteriores"
+      }
     },
-    "apoyo": {"pozo": [270, 450, 300], "_pozo": "a lo largo del travesaño × sentido del vaivén × profundidad; centrado en el tramo enterrado de la pata", "ladrillos_por_pozo": 2, "base": "2 ladrillos macizos (o una laja)", "relleno": "ripio apisonado", "proteccion_largo": 400, "proteccion": "asfalto en frío"},
+    "apoyo": {
+      "pozo": [
+        270,
+        450,
+        300
+      ],
+      "_pozo": "a lo largo del travesaño × sentido del vaivén × profundidad; centrado en el tramo enterrado de la pata",
+      "ladrillos_por_pozo": 2,
+      "base": "2 ladrillos macizos (o una laja)",
+      "relleno": "ripio apisonado",
+      "proteccion_largo": 400,
+      "proteccion": "asfalto en frío"
+    },
     "desperdicio_pct": 10
   },
   "comercial": {
     "iva_pct": 21,
     "mostrar_con_iva": false,
     "incluye_flete": false,
-    "mod": {"incluida": false, "texto": "La mano de obra de armado se cotiza aparte, según disponibilidad y acceso a la obra."},
+    "mod": {
+      "incluida": false,
+      "texto": "La mano de obra de armado se cotiza aparte, según disponibilidad y acceso a la obra."
+    },
     "plazo_entrega": null,
     "garantia": null,
     "anexo_autoconstruccion": true

@@ -1,12 +1,12 @@
 ---
 name: propuesta-web
-description: Arma y publica la propuesta comercial de una estructura a medida como página web única (Artifact HTML, responsive, tema claro/oscuro) desde ficha.json y las salidas de cada etapa. Usar para generar, regenerar o publicar la propuesta, o para cambiar su diseño.
+description: "Arma y publica la propuesta comercial de una estructura a medida como página web única (Artifact HTML, responsive, tema claro/oscuro) desde ficha.json y las salidas de cada etapa. Usar para generar, regenerar o publicar la propuesta, o para cambiar su diseño."
 ---
 
 # Propuesta web
 
 ```
-python "${CLAUDE_PLUGIN_ROOT}/motor/correr.py" propuesta <carpeta>
+python3 "${CLAUDE_PLUGIN_ROOT}/motor/correr.py" propuesta <carpeta>
 ```
 
 Toma `ficha.json`, `precios.json` y `auditoria.json` (si existen) y escribe `salida/propuesta.html` (un solo archivo) y `salida/propuesta.txt` (texto plano para el auditor). Plantilla: `assets/plantilla.html` (sin doctype ni head: el Artifact la envuelve; CSS con tokens claro/oscuro, visor 3D Three.js r128 por CDN, botones de configuración).

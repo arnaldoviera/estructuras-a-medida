@@ -4,7 +4,7 @@ Repositorio del plugin "estructuras-a-medida" (ver README.md). Motor en Python (
 
 - No hay Node en la máquina: el croquis 3D es Three.js dentro de la página, generado desde Python.
 - Antes de publicar una propuesta, revisarla a 400 px de ancho en el navegador integrado.
-- Empaquetar con `python empaquetar.py`; publicar en GitHub arnaldoviera/estructuras-a-medida (privado).
+- Empaquetar con `python3 empaquetar.py`; publicar en GitHub arnaldoviera/estructuras-a-medida (privado).
 
 ## Memoria
 Al inicio de cada sesión: leé `~/.claude/memoria.md` y luego el

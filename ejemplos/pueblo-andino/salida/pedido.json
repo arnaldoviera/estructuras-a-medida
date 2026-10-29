@@ -1,7 +1,7 @@
 {
   "madera": [
     {
-      "id": "rollizo_d20_l4",
+      "id": "rollizo_eucalipto_d20_l4",
       "descripcion": "Rollizo eucalipto impregnado Ø 20-22 cm × 4,0 m (mín. Ø 20 cm en la punta fina)",
       "cant": 1,
       "unidad": "u",
@@ -10,7 +10,7 @@
       "largo_compra_mm": 4000.0
     },
     {
-      "id": "rollizo_d17_l35",
+      "id": "rollizo_eucalipto_d17_l35",
       "descripcion": "Rollizo eucalipto impregnado Ø 16-18 cm × 3,5 m (mín. Ø 17 cm en la punta fina)",
       "cant": 4,
       "unidad": "u",
@@ -19,7 +19,7 @@
       "largo_compra_mm": 14000.0
     },
     {
-      "id": "rollizo_d15_l25",
+      "id": "rollizo_eucalipto_d15_l25",
       "descripcion": "Rollizo eucalipto impregnado Ø 14-16 cm × 2,5 m (mín. Ø 15 cm en la punta fina)",
       "cant": 1,
       "unidad": "u",
@@ -28,7 +28,7 @@
       "largo_compra_mm": 2500.0
     },
     {
-      "id": "rollizo_d12_l25",
+      "id": "rollizo_eucalipto_d12_l25",
       "descripcion": "Rollizo eucalipto impregnado Ø 12-14 cm × 2,5 m (mín. Ø 12 cm en la punta fina)",
       "cant": 1,
       "unidad": "u",

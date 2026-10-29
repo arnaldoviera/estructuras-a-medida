@@ -25,6 +25,14 @@
       "nota": "criterio: no pasa una pata ni una cabeza"
     },
     {
+      "id": "bien.luz_piso",
+      "requisito": "Luz entre el piso y el primer larguero",
+      "valor": "131 mm",
+      "limite": "≤ 150 mm",
+      "estado": "cumple",
+      "nota": "criterio: hueco entre el piso y el primer larguero acotado para que no quede atrapada una pata, dejando lugar a la limpieza con hidrolavadora"
+    },
+    {
       "id": "bien.luz_frontal",
       "requisito": "Luz entre barrotes del frente",
       "valor": "92 mm",
@@ -34,9 +42,9 @@
     },
     {
       "id": "bien.pellizco",
-      "requisito": "Holgura puerta–parante fuera de la franja de pellizco",
-      "valor": "25,9 mm",
-      "limite": "< 8 o > 25 mm",
+      "requisito": "Holgura puerta–parante: la puerta entra y queda fuera de la franja de pellizco",
+      "valor": "27,9 mm",
+      "limite": "0 < h < 8 o > 25 mm",
       "estado": "cumple",
       "nota": "criterio: holgura de piezas móviles fuera de 8–25 mm (cola, oreja, piel)"
     },
@@ -91,7 +99,7 @@
     {
       "id": "res.puerta",
       "requisito": "Travesaño de puerta: empuje a media luz",
-      "valor": "FS 2,59",
+      "valor": "FS 2,62",
       "limite": "≥ 1,15",
       "estado": "cumple",
       "nota": ""
@@ -140,9 +148,9 @@
       "id": "pie.bulones",
       "requisito": "Separación entre bulones M10 (y ±55) y M12 (y ±20) del pie",
       "valor": "35 mm",
-      "limite": "≥ 19,5 mm",
+      "limite": "≥ 19,5 mm (arandelas)",
       "estado": "cumple",
-      "nota": "los M12 quedan libres para cualquier posición de la ranura"
+      "nota": "con los M12 en colisos sobre esas rectas no chocan en ninguna posición de la ranura"
     },
     {
       "id": "elec.antena",
@@ -154,11 +162,43 @@
     },
     {
       "id": "elec.linea",
-      "requisito": "Altura y diámetro de la línea de alimento",
+      "requisito": "La línea de alimento del galpón pasa por encima del dosificador",
       "valor": "Ø60 a 2.500 mm",
-      "limite": "Ø60 a 2.500 mm",
+      "limite": "≥ 2.000 mm",
       "estado": "cumple",
-      "nota": "fuente: Gestal 3G, línea Ø60 a 2.500 mm del piso"
+      "nota": "dato del galpón; referencia Gestal 3G: Ø60 a 2.500 mm"
+    },
+    {
+      "id": "geo.parantes",
+      "requisito": "Los parantes van de la puerta (x 0) al frente (x = largo)",
+      "valor": "x 0 … 2.240",
+      "limite": "0 … 2.240",
+      "estado": "cumple",
+      "nota": ""
+    },
+    {
+      "id": "geo.comedero",
+      "requisito": "El comedero apoya contra el frente",
+      "valor": "x 1.840–2.215",
+      "limite": "termina entre 2.155 y 2.240 (zócalo)",
+      "estado": "cumple",
+      "nota": ""
+    },
+    {
+      "id": "geo.dosificador",
+      "requisito": "El dosificador queda sobre el travesaño del frente",
+      "valor": "x 1.990–2.230",
+      "limite": "contiene x 2.221",
+      "estado": "cumple",
+      "nota": ""
+    },
+    {
+      "id": "geo.caida",
+      "requisito": "La caída descarga dentro del comedero y baja desde el dosificador",
+      "valor": "x 2.185",
+      "limite": "1.840–2.215",
+      "estado": "cumple",
+      "nota": ""
     },
     {
       "id": "fab.tubos",
@@ -171,13 +211,13 @@
     {
       "id": "fab.peso",
       "requisito": "Peso del subconjunto más pesado (lateral) para 2 personas",
-      "valor": "64 kg",
+      "valor": "66 kg",
       "limite": "≤ 80 kg",
       "estado": "cumple",
       "nota": ""
     }
   ],
-  "peso_propio_kg": 211.1,
-  "peso_total_kg": 211.1,
-  "resumen": "22/22 verificaciones cumplen."
+  "peso_propio_kg": 216.3,
+  "peso_total_kg": 216.3,
+  "resumen": "27/27 verificaciones cumplen."
 }

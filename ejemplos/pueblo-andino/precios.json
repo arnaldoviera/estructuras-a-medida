@@ -4,48 +4,36 @@
   "moneda": "ARS",
   "items": [
     {
-      "id": "rollizo_d20_l4",
+      "id": "rollizo_eucalipto_d20_l4",
       "descripcion": "Poste de Eucalipto Impregnado CCA Ø18-20 x metro lineal, curado y tratado (se corta a medida; se necesitan 4 m)",
-      "unidad": "m",
-      "contenido": 0.25,
       "precio": null,
-      "iva_incluido": true,
-      "fuente": "",
-      "url": "",
-      "nota": "Sin precio verificable (revisado 2026-10-28). El valor anterior ($9.900/m, Ø18-20) venía del resumen de un buscador y se descarta. Mercado Libre (publicaciones Ø20 x 4 m, p. ej. Mader Shop; Ø14-16 x 4 m MLAU204189873) pide login/captcha: no se pudo abrir ninguna ficha. Maderas Pueblo Esther (Pueblo Esther, Santa Fe, Tiendanube): la ficha de postes impregnados muestra $0,00 / \"Consultar\" (Ø18-20 para 6-9 m). Los Conejos San Vicente (Tiendanube) vende \"poste mediano 18-21 cm\" a $35.000 y \"grueso más de 22 cm\" a $48.000, pero es eucalipto reciclado, sin CCA ni largo declarado: no cumple. Se necesita 1 poste de 4 m."
+      "fuente": null,
+      "url": null,
+      "nota": "A cotizar: sin precio publicado verificable en tiendas online argentinas."
     },
     {
-      "id": "rollizo_d17_l35",
+      "id": "rollizo_eucalipto_d17_l35",
       "descripcion": "Rollizo eucalipto impregnado Ø16-18 × 3,5 m",
-      "unidad": "m",
-      "contenido": 0.2857,
       "precio": null,
-      "iva_incluido": true,
-      "fuente": "",
-      "url": "",
-      "nota": "Sin precio verificable (revisado 2026-10-28). Mercado Libre (publicación Ø14-16 x 4 m, MLAU204189873) pide login/captcha: no se pudo leer la ficha. Tiendas con carrito sin precio publicado: Maderas Pueblo Esther (Tiendanube, Pueblo Esther, Santa Fe: la ficha muestra $0,00 / \"Consultar\"; solo declara Ø12-14 y 18-20), Sumadera (Escobar, Buenos Aires: ficha en $0), Maderas Ragone y La Casa del Alambre (sin precio ni carrito). DickHaus (Córdoba) solo publica Ø10-12 y Ø12-14. Los Conejos San Vicente (Tiendanube) publica poste \"fino 14-16\" $17.500 y \"mediano 18-21\" $35.000, pero es eucalipto RECICLADO, sin certificar impregnado CCA ni largo: no cumple la especificación. Se necesitan 4 u."
+      "fuente": null,
+      "url": null,
+      "nota": "A cotizar: sin precio publicado verificable en tiendas online argentinas."
     },
     {
-      "id": "rollizo_d15_l25",
+      "id": "rollizo_eucalipto_d15_l25",
       "descripcion": "Poste Eucalipto Impregnado CCA 2.5 m Ø14-16 cm Tratado Curado",
-      "unidad": "u",
       "precio": null,
-      "iva_incluido": true,
-      "fuente": "",
-      "url": "",
-      "nota": "Sin precio verificable en página de producto (revisado 2026-10-28). Se descarta la página de listado de Mercado Libre usada antes ($13.600 leído de un resumen de buscador): ML pide login/captcha y no se pudo abrir la ficha MLAU/shorts de \"Poste Eucalipto Impregnado CCA 2.5 m Ø14-16\". Alternativas con ficha y precio pero que no cumplen: DickHaus (Villa General Belgrano, Córdoba) Ø10-12 x 2,5 m $9.899,55 (https://dickhaus.com/detalle/11455-poste-de-eucalipto-impregnado-2-5-metros-de-) y Ø12-14 x 4 m $21.764,17 (ver item rollizo_d12_l25); Los Conejos San Vicente (Tiendanube) \"poste fino 14-16\" $17.500 pero reciclado, sin CCA ni largo declarado. Se necesitan 4 u.",
-      "contenido": 1
+      "fuente": null,
+      "url": null,
+      "nota": "A cotizar: sin precio publicado verificable en tiendas online argentinas."
     },
     {
-      "id": "rollizo_d12_l25",
+      "id": "rollizo_eucalipto_d12_l25",
       "descripcion": "Poste de Eucalipto Impregnado 12-14 Ø (precio por metro, derivado de poste de 4 m)",
-      "unidad": "poste 4 m",
-      "contenido": 1,
-      "precio": 21764.17,
-      "iva_incluido": true,
-      "fuente": "DickHaus (Villa General Belgrano, Córdoba)",
-      "url": "https://dickhaus.com/detalle/11454-poste-de-eucalipto-impregnado-4-metros-de-12",
-      "nota": "La fuente no vende 2,5 m: se cotiza el poste Ø12-14 × 4 m (sobran 1,5 m). PRECIO DERIVADO: poste 12-14 x 4 m = $21.764,17 (ficha leída en vivo) / 4 m = $5.441,04 por metro. Coherente con el poste 12-14 x 6 m del mismo comercio ($32.646,26 = $5.441/m). DickHaus no vende 12-14 x 2,5 m (solo 10-12 x 2,5 m a $9.899,55, ya visto). Comercio de Córdoba (otra provincia); la ficha no aclara IVA ni flete. Para 2,5 m: 2,5 x $5.441 = ~$13.600."
+      "precio": null,
+      "fuente": null,
+      "url": null,
+      "nota": "A cotizar: sin precio publicado verificable en tiendas online argentinas."
     },
     {
       "id": "varilla_16",
@@ -55,7 +43,7 @@
       "iva_incluido": true,
       "fuente": "Ropelato Fijaciones (Entre Ríos)",
       "url": "https://www.ropelato.com.ar/tuercas-arandelas-y-varillas/105340-1066045_Varilla-roscada-H-58---x-Unidad-galvanizada.html",
-      "nota": "Fuente de Entre Ríos. La fuente no aclara si incluye IVA; se asume precio al público con IVA. Contraste: El Trébol (CABA) 5 u x 1 m = $23.696,90 (~$4.739/u); Ferromundo (Neuquén) zincada Bulonfer $5.346,81."
+      "nota": "Precio por barra de 1 m."
     },
     {
       "id": "varilla_12",
@@ -65,7 +53,7 @@
       "iva_incluido": true,
       "fuente": "Ropelato Fijaciones (Entre Ríos)",
       "url": "https://www.ropelato.com.ar/tuercas-arandelas-y-varillas/103272-1060563_Varilla-roscada-H-12---x-Unidad-galvanizada.html",
-      "nota": "Fuente de Entre Ríos. La fuente no aclara si incluye IVA; se asume precio al público con IVA. 1/2\" = 12,7 mm. Easy publica 1/2\" x 1 m a $15.585 (muy por encima del precio de bulonería)."
+      "nota": "Precio por barra de 1 m."
     },
     {
       "id": "varilla_10",
@@ -75,7 +63,7 @@
       "iva_incluido": true,
       "fuente": "Ropelato Fijaciones (Entre Ríos)",
       "url": "https://www.ropelato.com.ar/tuercas-arandelas-y-varillas/50904-varilla-roscada-h-3-8-x-unidad-galvanizada.html",
-      "nota": "Fuente de Entre Ríos. La fuente no aclara si incluye IVA; se asume precio al público con IVA. 3/8\" = 9,5 mm (equivalente comercial a 10 mm). Easy: Varilla Roscada 3/8 1 m TEL $9.280."
+      "nota": "Precio por barra de 1 m."
     },
     {
       "id": "tuerca_16",
@@ -85,7 +73,7 @@
       "iva_incluido": true,
       "fuente": "Ropelato Fijaciones (Entre Ríos)",
       "url": "https://www.ropelato.com.ar/tuercas-arandelas-y-varillas/50720-tuerca-hexagonal-galvanizada-5-8.html",
-      "nota": "En stock. La ficha no indica unidad; se asume por pieza (precio coherente con tuerca suelta). La fuente no aclara si incluye IVA; se asume precio al público con IVA. "
+      "nota": "Precio por unidad."
     },
     {
       "id": "tuerca_12",
@@ -95,7 +83,7 @@
       "iva_incluido": true,
       "fuente": "Ropelato Fijaciones (Entre Ríos)",
       "url": "https://www.ropelato.com.ar/tuercas-arandelas-y-varillas/50713-tuerca-hexagonal-galvanizada-1-2.html",
-      "nota": "En stock. La ficha no indica unidad; se asume por pieza. La fuente no aclara si incluye IVA; se asume precio al público con IVA. "
+      "nota": "Precio por unidad."
     },
     {
       "id": "tuerca_10",
@@ -105,7 +93,7 @@
       "iva_incluido": true,
       "fuente": "Ropelato Fijaciones (Entre Ríos)",
       "url": "https://www.ropelato.com.ar/tuercas-arandelas-y-varillas/50718-tuerca-hexagonal-galvanizada-3-8.html",
-      "nota": "SIN STOCK al consultar; el precio puede estar desactualizado. La ficha no indica unidad; se asume por pieza. Alternativa en stock: Easy 'Tuerca Hexagonal 10mm 4 Un' $1.615 (~$404/u, no aclara si es galvanizada): https://www.easy.com.ar/b-tuerca-hº-ma-10-4un-mbl/p"
+      "nota": "Precio por unidad; sin stock al consultar."
     },
     {
       "id": "arandela_ancha_16",
@@ -116,7 +104,7 @@
       "iva_incluido": true,
       "fuente": "Abrafer SRL (tienda online, Pilar, Buenos Aires)",
       "url": "https://www.abrafersrl.com.ar/product/arandela-chapista-5-8-70-16-5mm-x-u/",
-      "nota": "Ficha leída en vivo 2026-10-28: $889,47 por unidad (lista); $800,52 contado/transferencia. Disponible. Diámetro exterior 70 mm (título \"70-16.5MM\"), mayor que el rango ideal de 50-60 mm pero cumple ≥45 mm; zincada (acero bajo carbono), no se declara galvanizado en caliente. Vendedor en Pilar, provincia de Buenos Aires (no hay vendedor de Santa Fe con ficha y precio). Se necesitan 16 u. Referencia de arandela plana común (no ancha): Ropelato/Extrabrut/Le-al en notas anteriores."
+      "nota": "Arandela de vuelo grande, Ø exterior 70 mm."
     },
     {
       "id": "arandela_ancha_12",
@@ -127,7 +115,7 @@
       "iva_incluido": true,
       "fuente": "Abrafer SRL (tienda online, Pilar, Buenos Aires)",
       "url": "https://www.abrafersrl.com.ar/product/arandela-chapista-1-2-55-13-5mm-x-u/",
-      "nota": "Ficha leída en vivo 2026-10-28: $410,93 por unidad (lista); $369,84 contado/transferencia. Disponible. Diámetro exterior 55 mm (título \"55-13.5MM\"), cumple ≥45 mm; zincada, no se declara galvanizado en caliente. Vendedor en Pilar, provincia de Buenos Aires. Se necesitan 8 u."
+      "nota": "Arandela de vuelo grande, Ø exterior 55 mm."
     },
     {
       "id": "arandela_10",
@@ -137,7 +125,7 @@
       "iva_incluido": true,
       "fuente": "Easy Argentina",
       "url": "https://www.easy.com.ar/b-arandela-hº-3-8-10un-mbl/p",
-      "nota": "Precio del pack de 10 u = $2.470, convertido a $247 por unidad. La ficha no aclara si es galvanizada/zincada. Ropelato vende la galvanizada 3/8\" solo por kilo ($7.637/kg, sin stock). Se vende en pack de 10: precio del pack.",
+      "nota": "Se vende en pack de 10 unidades.",
       "contenido": 10
     },
     {
@@ -148,7 +136,7 @@
       "iva_incluido": true,
       "fuente": "Ropelato Fijaciones (Entre Ríos)",
       "url": "https://www.ropelato.com.ar/planchuelas/47367-planchuela-3-16-x-1-1-2-x-barra-6m.html",
-      "nota": "hierro negro: galvanizar o pintar con antióxido. Medida comercial más cercana a 40x5 mm (38,1 x 4,8). No encontré planchuela galvanizada 1 1/2\" x 3/16\" en barra de 6 m: DickHaus (Córdoba) vende 'Planchuela Zincada x 1 M' $7.817,47 (https://dickhaus.com/detalle/800-planchuela-zincada-x-1-m) pero la ficha no indica ancho ni espesor (x6 m sería ~$46.900, solo orientativo); ML tiene galvanizada 1\" x 3/16 x 1,20 m pack 10 u $75.000 (resumen de buscador). Contraste hierro negro misma medida 6 m: Ferromundo (Neuquén) $26.683,86; Gramabi $26.399 (resumen de buscador); Gili $21.157-25.600; Chapaferro $22.951 (localidad de estos dos no verificada). Fuente del precio: Ropelato, Entre Ríos.",
+      "nota": "Medida comercial más cercana (38,1 × 4,8 mm), hierro negro: lleva galvanizado en frío.",
       "contenido": 1
     },
     {
@@ -160,7 +148,7 @@
       "iva_incluido": true,
       "fuente": "CP Goma (tienda online, Buenos Aires)",
       "url": "https://cpgoma.mitiendanube.com/productos/goma-en-plancha-sin-tela-3mm-espesor-1mt-ancho-x-metro-negro-liso-13738/",
-      "nota": "Precio de lista $27.152,40 por metro de rollo de 1 m de ancho (1 m² rinde 20 m de tira de 5 cm); con 10% de descuento figura $24.437,16. Ficha leída en vivo, pero muestra a la vez cartel 'Sin stock' y 'quedan 11 en stock': confirmar. Vendedor de Buenos Aires (otra provincia). Contraste: Abete (Mar del Plata) goma CON tela 3 mm 1 m $27.274,55/m; Saxs 3 mm $36.957/m (sin impuestos $30.542,98); ML Segugoma 3 mm $39.990/m² (resumen de buscador). Para 4,5 m de tira de 5 cm alcanza con 0,25 m² (comprar 1 m mínimo)."
+      "nota": "Se vende por metro de rollo de 1 m de ancho; de 1 m² salen 20 m de tira de 5 cm."
     },
     {
       "id": "grillete_10",
@@ -171,7 +159,7 @@
       "iva_incluido": true,
       "fuente": "Dogo Herramientas (tienda online)",
       "url": "https://www.dogoherramientas.com.ar/tienda/construccion/accesorios-de-cable-de-acero/grilletes/grillete-recto-38-galvanizado",
-      "nota": "Exigir marcado de carga de trabajo (WLL) ≥ 0,5 t al comprar. Ficha leída en vivo, 'En stock'. Localidad del comercio no verificada. Alternativas: Maqpro grillete corazón c/perno 3/8\" galvanizado $3.178,13 (https://www.maqpro.com.ar/product/grillete-corazon-c-perno-rojo-3-8-galvanizado/); ML Foxtter recto 3/8\" $5.999 (resumen de buscador). No es gancho giratorio para hamaca: si se quiere giratorio, es otro producto (Easy gancho para hamaca N°2 cromatizado $14.030, no giratorio). Verificar carga de trabajo del grillete elegido (no es un accesorio certificado para personas salvo que lo indique el fabricante)."
+      "nota": "Exigir carga de trabajo marcada ≥ 0,5 t."
     },
     {
       "id": "asfalto_frio_4l",
@@ -181,7 +169,7 @@
       "iva_incluido": true,
       "fuente": "Ropelato Fijaciones (Entre Ríos)",
       "url": "https://www.ropelato.com.ar/albanileria/99913-1051361-PINTURA-ASFALTICA-X-4-LITROS-EMAPI.html",
-      "nota": "Fuente de Entre Ríos. La fuente no aclara si incluye IVA; se asume precio al público con IVA. Alternativas: Ropelato Membranex/ANCAR 4 L $32.810; Easy Megaflex Ultra Rápido 4 L $44.500 (https://www.easy.com.ar/pintura-asfaltica-megaflex-04lt-premium/p)."
+      "nota": "Envase de 4 L."
     },
     {
       "id": "cetol_4l",
@@ -191,7 +179,7 @@
       "iva_incluido": true,
       "fuente": "Easy Argentina",
       "url": "https://www.easy.com.ar/cetol-classic-balance-satin-roble-04lt-941770/p",
-      "nota": "Stock bajo (1 u al consultar). Alternativa más barata, Cetol Classic (sin Balance) 4 L satinado $64.900 (https://www.easy.com.ar/cetol-classic-satin-natural-04lt/p). Cetol Balance Deck Teca 4 L $109.995."
+      "nota": "Envase de 4 L."
     },
     {
       "id": "ladrillo_macizo",
@@ -201,7 +189,7 @@
       "iva_incluido": true,
       "fuente": "Easy Argentina",
       "url": "https://www.easy.com.ar/e118-ladrillo-comun-cas/p",
-      "nota": "Ladrillo común (macizo) de cerámica de Arroyo Seco, zona Gran Rosario. Alternativas: Easy 'Ladrillo Comun' $269; Sejas Raúl $459; Ropelato Ladrillo Común Chaco $352."
+      "nota": "Precio por unidad."
     },
     {
       "id": "ripio_bolsa",
@@ -211,7 +199,7 @@
       "iva_incluido": true,
       "fuente": "Easy Argentina",
       "url": "https://www.easy.com.ar/bolsa-piedra-20-dm3/p",
-      "nota": "Bolsa de piedra partida de 20 dm3 (20 L). Alternativas Easy: bolsa de piedra gris 28 kg $10.600; piedra partida blanca 24 kg $8.600; bolsón de ripio 1 m3 $24.700 (Grenn) / $52.900 (Sejas Raúl).",
+      "nota": "Bolsa de 20 dm³.",
       "contenido": 32
     }
   ]
