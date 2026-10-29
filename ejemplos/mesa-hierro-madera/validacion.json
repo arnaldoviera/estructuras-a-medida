@@ -67,7 +67,7 @@
     {
       "id": "res.viga.L1",
       "requisito": "Viga «larguero del bastidor» (L1, 1.500): tensión por flexión",
-      "valor": "135 MPa",
+      "valor": "145 MPa",
       "limite": "≤ 214 MPa",
       "estado": "cumple",
       "nota": "Simplemente apoyada en sus puntas; toma la carga de su ancho de influencia o 100 kg en el medio; fy 235 / 1.1 con carga × 1.5."
@@ -75,7 +75,7 @@
     {
       "id": "def.viga.L1",
       "requisito": "Viga «larguero del bastidor» (L1): flecha con carga de uso (repartida o 100 kg en el medio)",
-      "valor": "4,3 mm",
+      "valor": "4,6 mm",
       "limite": "≤ L/300 = 5,0 mm",
       "estado": "cumple",
       "nota": ""
@@ -83,7 +83,7 @@
     {
       "id": "res.viga.L2",
       "requisito": "Viga «larguero del bastidor» (L2, 1.500): tensión por flexión",
-      "valor": "135 MPa",
+      "valor": "145 MPa",
       "limite": "≤ 214 MPa",
       "estado": "cumple",
       "nota": "Simplemente apoyada en sus puntas; toma la carga de su ancho de influencia o 100 kg en el medio; fy 235 / 1.1 con carga × 1.5."
@@ -91,7 +91,7 @@
     {
       "id": "def.viga.L2",
       "requisito": "Viga «larguero del bastidor» (L2): flecha con carga de uso (repartida o 100 kg en el medio)",
-      "valor": "4,3 mm",
+      "valor": "4,6 mm",
       "limite": "≤ L/300 = 5,0 mm",
       "estado": "cumple",
       "nota": ""
@@ -99,7 +99,7 @@
     {
       "id": "res.viga.C1",
       "requisito": "Viga «cabecero del bastidor» (C1, 680): tensión por flexión",
-      "valor": "59 MPa",
+      "valor": "63 MPa",
       "limite": "≤ 214 MPa",
       "estado": "cumple",
       "nota": "Simplemente apoyada en sus puntas; toma la carga de su ancho de influencia o 100 kg en el medio; fy 235 / 1.1 con carga × 1.5."
@@ -115,7 +115,7 @@
     {
       "id": "res.viga.C2",
       "requisito": "Viga «cabecero del bastidor» (C2, 680): tensión por flexión",
-      "valor": "59 MPa",
+      "valor": "63 MPa",
       "limite": "≤ 214 MPa",
       "estado": "cumple",
       "nota": "Simplemente apoyada en sus puntas; toma la carga de su ancho de influencia o 100 kg en el medio; fy 235 / 1.1 con carga × 1.5."
@@ -131,7 +131,7 @@
     {
       "id": "res.viga.T1",
       "requisito": "Viga «travesaño central» (T1, 690): tensión por flexión",
-      "valor": "61 MPa",
+      "valor": "65 MPa",
       "limite": "≤ 214 MPa",
       "estado": "cumple",
       "nota": "Simplemente apoyada en sus puntas; toma la carga de su ancho de influencia o 100 kg en el medio; fy 235 / 1.1 con carga × 1.5."
@@ -147,10 +147,10 @@
     {
       "id": "res.pata.pata",
       "requisito": "Patas «pata» (4): pandeo con la carga total repartida",
-      "valor": "FS 171,4",
+      "valor": "FS 167,5",
       "limite": "≥ 2,0",
       "estado": "cumple",
-      "nota": "54 kg por pata; longitud efectiva 2 × 720."
+      "nota": "53 kg por pata; longitud efectiva 2 × 720."
     },
     {
       "id": "def.meneo",
@@ -163,7 +163,7 @@
     {
       "id": "res.nudo",
       "requisito": "Tensión en el nudo pata-bastidor por el empuje lateral (peor dirección: y)",
-      "valor": "18 MPa",
+      "valor": "19 MPa",
       "limite": "≤ 214 MPa",
       "estado": "cumple",
       "nota": "Máximo entre la pata y la punta de la viga, con el empuje repartido en 2 pórticos."
@@ -171,7 +171,7 @@
     {
       "id": "est.vuelco",
       "requisito": "Estabilidad al vuelco (peso propio contra carga en el borde o empuje arriba)",
-      "valor": "FS 3,8 (60 kg en el borde, voladizo de 85)",
+      "valor": "FS 3,7 (60 kg en el borde, voladizo de 85)",
       "limite": "≥ 1,5",
       "estado": "cumple",
       "nota": "Sin anclar al piso ni contar la carga de uso a favor."
@@ -187,13 +187,13 @@
     {
       "id": "fab.peso",
       "requisito": "Peso total",
-      "valor": "53 kg",
+      "valor": "52 kg",
       "limite": "informativo",
       "estado": "informativo",
       "nota": ""
     }
   ],
-  "peso_propio_kg": 52.7,
-  "peso_total_kg": 52.7,
+  "peso_propio_kg": 51.8,
+  "peso_total_kg": 51.8,
   "resumen": "23/23 verificaciones cumplen."
 }

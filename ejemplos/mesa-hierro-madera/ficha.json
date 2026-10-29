@@ -258,7 +258,7 @@
         "descripcion": "Regatón plástico interior para caño 50 × 50 (tapa de 3 mm)",
         "cant": 4,
         "unidad": "u",
-        "uso": "patas; no suma alto (cabe en la tolerancia de ±5 mm)"
+        "uso": "patas; suma 3 mm de alto (753 mm, dentro de la tolerancia de ±5 mm)"
       },
       {
         "descripcion": "Antióxido",
@@ -295,6 +295,6 @@
     "garantia": null
   },
   "estado": {
-    "vueltas_auditoria": 2
+    "vueltas_auditoria": 3
   }
 }

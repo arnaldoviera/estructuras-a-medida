@@ -101,9 +101,8 @@ def _prop(s):
     b, h = s["b"], s["h"]
     if t == "tubo-rect":
         e = s["esp"]
-        A = b * h - (b - 2 * e) * (h - 2 * e)
-        I = (b * h ** 3 - (b - 2 * e) * (h - 2 * e) ** 3) / 12
-        I2 = (h * b ** 3 - (h - 2 * e) * (b - 2 * e) ** 3) / 12
+        A, I = _redondeado(b, h, e)
+        I2 = _redondeado(h, b, e)[1]
     else:
         A, I, I2 = b * h, b * h ** 3 / 12, h * b ** 3 / 12
     if t == "madera":
@@ -112,6 +111,25 @@ def _prop(s):
                 "E": m["E_MPa"], "acero": False, "f": m["tension_flexion_adm_MPa"], "fc": m["tension_compresion_adm_MPa"]}
     return {"A": A, "I": I, "I2": I2, "Imin": min(I, I2), "W": 2 * I / h, "h": h, "b": b, "kg_m": A * ACERO["dens"] * 1e-6,
             "E": ACERO["E"], "acero": True, "f": ACERO["fy"]}
+
+
+def _redondeado(b, h, e, n=2000):
+    """Área e inercia (eje horizontal, alto h) de un caño rectangular con esquinas redondeadas como el comercial:
+    radio exterior 2e e interior e (EN 10219), integrando por franjas."""
+    def ancho(y, B, H, r):
+        y = abs(y)
+        if y > H / 2:
+            return 0.0
+        dy = y - (H / 2 - r)
+        return B if dy <= 0 else B - 2 * (r - math.sqrt(max(r * r - dy * dy, 0.0)))
+    A = I = 0.0
+    dy = h / n
+    for i in range(n):
+        y = -h / 2 + (i + 0.5) * dy
+        w = ancho(y, b, h, 2 * e) - ancho(y, b - 2 * e, h - 2 * e, e)
+        A += w * dy
+        I += w * y * y * dy
+    return A, I
 
 
 def _fmt(v):

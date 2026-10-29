@@ -10,7 +10,7 @@
       "largo": 680,
       "material": "negro (antióxido + esmalte o epoxi)",
       "operaciones": "corte recto; soldar completo, amolar la soldadura vista; antióxido y terminación",
-      "kg": 4.0
+      "kg": 3.8
     },
     {
       "id": "L1, L2",
@@ -22,7 +22,7 @@
       "largo": 1500,
       "material": "negro (antióxido + esmalte o epoxi)",
       "operaciones": "corte recto; soldar completo, amolar la soldadura vista; antióxido y terminación",
-      "kg": 8.8
+      "kg": 8.5
     },
     {
       "id": "P1, P2, P3, P4",
@@ -34,7 +34,7 @@
       "largo": 720,
       "material": "negro (antióxido + esmalte o epoxi)",
       "operaciones": "corte recto; soldar completo, amolar la soldadura vista; antióxido y terminación",
-      "kg": 8.7
+      "kg": 8.4
     },
     {
       "id": "T1",
@@ -46,7 +46,7 @@
       "largo": 690,
       "material": "negro (antióxido + esmalte o epoxi)",
       "operaciones": "corte recto; soldar completo, amolar la soldadura vista; antióxido y terminación",
-      "kg": 2.0
+      "kg": 1.9
     },
     {
       "id": "M1",
@@ -154,7 +154,7 @@
         "descripcion": "Regatón plástico interior para caño 50 × 50 (tapa de 3 mm)",
         "cant": 4,
         "unidad": "u",
-        "uso": "patas; no suma alto (cabe en la tolerancia de ±5 mm)"
+        "uso": "patas; suma 3 mm de alto (753 mm, dentro de la tolerancia de ±5 mm)"
       },
       {
         "descripcion": "Antióxido",
@@ -178,10 +178,10 @@
   },
   "cantidad": 1,
   "peso": {
-    "total_kg": 52.7,
-    "hierro_kg": 23.5,
+    "total_kg": 51.8,
+    "hierro_kg": 22.7,
     "madera_kg": 29.2,
-    "por_unidad_kg": 52.7
+    "por_unidad_kg": 51.8
   },
   "nota": "Largos de corte al eje de cada pieza según la ficha; el herrero o carpintero ajusta los descuentos de cada unión."
 }
