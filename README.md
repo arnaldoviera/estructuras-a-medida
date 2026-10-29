@@ -15,7 +15,7 @@ Próximas: pérgolas y decks en madera; corrales, mangas y tranqueras en hierro.
 
 Marca provisoria: "Estructuras a medida". Precios sin IVA, con IVA configurable (`comercial.iva_pct`). Presupuesto (solo en tipologías que lo llevan) solo de materiales, sin flete; mano de obra aparte.
 
-Licencia MIT (ver `LICENSE`): se puede usar, modificar y redistribuir libremente, manteniendo el aviso de autoría. Autor: Arnaldo Viera.
+Licencia MIT (ver `LICENSE`): se puede usar, modificar y redistribuir libremente, manteniendo el aviso de autoría. Autor: [Arnaldo Viera](https://www.linkedin.com/in/arnaldoviera/).
 
 ## Instalación y uso
 
