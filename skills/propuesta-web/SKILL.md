@@ -13,6 +13,8 @@ Toma `ficha.json`, `precios.json` y `auditoria.json` (si existen) y escribe `sal
 
 En `jaula-cerdas` la página es técnica y sin presupuesto, con plantilla `assets/plantilla-jaula.html` armada por `motor/jaula_cerdas.py`: rótulo con cifras, datos del proyecto, croquis 3D, planta y lateral, medidas y materiales (cada dato con su origen: fuente, criterio, supuesto o cálculo), verificaciones, despiece con plan de corte y pedido sin precios, principios y etapas de automatización (del catálogo de la tipología), pendientes, condiciones y anexo de auditoría.
 
+En `estructura-libre` la página también es técnica y sin presupuesto (`assets/plantilla-libre.html`, armada por `motor/estructura_libre.py`): rótulo, datos, referencia (qué se tomó de la foto y qué se cambió), croquis 3D, frente a todo el ancho con planta y lateral debajo, medidas y materiales con origen, verificaciones, despiece con plan de corte de barras y hojas, pedido sin precios, principios, pendientes, condiciones y anexo de auditoría.
+
 Secciones del pórtico:
 1. Datos del proyecto (n°, fecha, validez, cliente, contacto, obra)
 2. Qué se propone (texto, perspectiva acotada por configuración, croquis 3D armado)

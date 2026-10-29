@@ -1,0 +1,291 @@
+{
+  "tipologia": "estructura-libre",
+  "proyecto": {
+    "marca": "Estructuras a medida",
+    "numero": "EAM-2026-003",
+    "fecha": "2026-10-29",
+    "validez_dias": 30,
+    "titulo": "Mesa de comedor de hierro y madera",
+    "titulo_corto": "Mesa Hierro y Madera",
+    "bajada": "Mesa de 1,80 × 0,90 m con patas y bastidor de caño estructural negro y tapa maciza de eucalipto, pensada desde una foto de referencia."
+  },
+  "cliente": {
+    "nombre": null,
+    "contacto": null,
+    "localidad": "a definir",
+    "provincia": "a definir",
+    "zona_compras": null,
+    "direccion_obra": null
+  },
+  "requisitos": {
+    "uso": "Mesa de comedor para 6 personas, interior",
+    "tipo_uso": "mesa",
+    "cantidad": 1,
+    "exterior": false,
+    "medidas": {
+      "largo": 1800,
+      "ancho": 900,
+      "alto": 750
+    },
+    "_origen_medidas": "supuesto: medidas pedidas por el cliente (mesa para 6, alto estándar de comedor 75 cm)",
+    "referencia": {
+      "origen": "foto enviada por el cliente",
+      "descripcion": "Mesa industrial: cuatro patas rectas de caño cuadrado negro, bastidor perimetral del mismo caño y tapa gruesa de madera clara que sobresale un poco de las patas.",
+      "tomado": [
+        "Cuatro patas rectas de caño cuadrado, sin riostra baja.",
+        "Bastidor perimetral bajo la tapa.",
+        "Tapa de madera maciza clara, gruesa, con vuelo corto."
+      ],
+      "cambiado": [
+        "Se agrega un travesaño central en el bastidor para que la tapa no apoye solo en el perímetro.",
+        "Las medidas salen del pedido (1,80 × 0,90 × 0,75), no de la foto."
+      ]
+    }
+  },
+  "diseno": {
+    "secciones": {
+      "pata": {
+        "tipo": "tubo-rect",
+        "b": 50,
+        "h": 50,
+        "esp": 2.0,
+        "acabado": "negro (antióxido + esmalte o epoxi)",
+        "_origen": "supuesto: caño 50 × 50 como en la foto; verificado a pandeo y meneo"
+      },
+      "bastidor": {
+        "tipo": "tubo-rect",
+        "b": 40,
+        "h": 40,
+        "esp": 1.6,
+        "acabado": "negro (antióxido + esmalte o epoxi)",
+        "_origen": "supuesto: caño 40 × 40, más fino que la pata; verificado a flexión y flecha"
+      }
+    },
+    "barras": [
+      {
+        "id": "P1",
+        "nombre": "pata",
+        "seccion": "pata",
+        "rol": "pata",
+        "grupo": "estructura de hierro",
+        "a": [
+          125,
+          85,
+          0
+        ],
+        "b": [
+          125,
+          85,
+          720
+        ]
+      },
+      {
+        "id": "P2",
+        "nombre": "pata",
+        "seccion": "pata",
+        "rol": "pata",
+        "grupo": "estructura de hierro",
+        "a": [
+          1675,
+          85,
+          0
+        ],
+        "b": [
+          1675,
+          85,
+          720
+        ]
+      },
+      {
+        "id": "P3",
+        "nombre": "pata",
+        "seccion": "pata",
+        "rol": "pata",
+        "grupo": "estructura de hierro",
+        "a": [
+          1675,
+          815,
+          0
+        ],
+        "b": [
+          1675,
+          815,
+          720
+        ]
+      },
+      {
+        "id": "P4",
+        "nombre": "pata",
+        "seccion": "pata",
+        "rol": "pata",
+        "grupo": "estructura de hierro",
+        "a": [
+          125,
+          815,
+          0
+        ],
+        "b": [
+          125,
+          815,
+          720
+        ]
+      },
+      {
+        "id": "L1",
+        "nombre": "larguero del bastidor",
+        "seccion": "bastidor",
+        "rol": "viga",
+        "grupo": "estructura de hierro",
+        "a": [
+          150.0,
+          85,
+          700.0
+        ],
+        "b": [
+          1650.0,
+          85,
+          700.0
+        ]
+      },
+      {
+        "id": "L2",
+        "nombre": "larguero del bastidor",
+        "seccion": "bastidor",
+        "rol": "viga",
+        "grupo": "estructura de hierro",
+        "a": [
+          150.0,
+          815,
+          700.0
+        ],
+        "b": [
+          1650.0,
+          815,
+          700.0
+        ]
+      },
+      {
+        "id": "C1",
+        "nombre": "cabecero del bastidor",
+        "seccion": "bastidor",
+        "rol": "viga",
+        "grupo": "estructura de hierro",
+        "a": [
+          125,
+          110.0,
+          700.0
+        ],
+        "b": [
+          125,
+          790.0,
+          700.0
+        ]
+      },
+      {
+        "id": "C2",
+        "nombre": "cabecero del bastidor",
+        "seccion": "bastidor",
+        "rol": "viga",
+        "grupo": "estructura de hierro",
+        "a": [
+          1675,
+          110.0,
+          700.0
+        ],
+        "b": [
+          1675,
+          790.0,
+          700.0
+        ]
+      },
+      {
+        "id": "T1",
+        "nombre": "travesaño central",
+        "seccion": "bastidor",
+        "rol": "viga",
+        "grupo": "estructura de hierro",
+        "a": [
+          900.0,
+          105.0,
+          700.0
+        ],
+        "b": [
+          900.0,
+          795.0,
+          700.0
+        ]
+      }
+    ],
+    "placas": [
+      {
+        "id": "M1",
+        "nombre": "tapa",
+        "material": "alistonado-eucalipto-30",
+        "grupo": "tapa",
+        "x": [
+          0,
+          1800
+        ],
+        "y": [
+          0,
+          900
+        ],
+        "z": [
+          720,
+          750
+        ],
+        "fijacion": "cantos redondeados r 3, lijado y laca o aceite; se fija con 10 tornillos desde abajo por planchuelas con ojal",
+        "_origen": "supuesto: tablero alistonado de eucalipto 30 mm, sale de una hoja de 2,44 × 1,22"
+      }
+    ],
+    "uniones": "Patas y bastidor soldados completos en taller (cordón perimetral); tapa atornillada desde abajo por 10 planchuelas soldadas con agujero ovalado, para que la madera trabaje.",
+    "terminacion": "Hierro: desengrase, antióxido y esmalte sintético o epoxi negro mate. Madera: lija 120/180 y laca poliuretánica o aceite.",
+    "insumos": [
+      {
+        "descripcion": "Planchuela 32 × 5 de 60 mm con agujero ovalado (soporte de la tapa)",
+        "cant": 10,
+        "unidad": "u",
+        "uso": "fijación de la tapa"
+      },
+      {
+        "descripcion": "Tornillo para madera 8 × 1 1/4\" cabeza tanque con arandela",
+        "cant": 10,
+        "unidad": "u",
+        "uso": "fijación de la tapa"
+      },
+      {
+        "descripcion": "Regatón regulable M8 para caño 50 × 50",
+        "cant": 4,
+        "unidad": "u",
+        "uso": "patas"
+      },
+      {
+        "descripcion": "Antióxido y esmalte negro mate",
+        "cant": 1,
+        "unidad": "l",
+        "uso": "hierro"
+      },
+      {
+        "descripcion": "Laca poliuretánica o aceite para madera",
+        "cant": 1,
+        "unidad": "l",
+        "uso": "tapa"
+      }
+    ],
+    "pendientes": [
+      "Confirmar con el cliente el tono de la madera y la terminación (laca o aceite)."
+    ]
+  },
+  "comercial": {
+    "iva_pct": 21,
+    "mostrar_con_iva": false,
+    "incluye_flete": false,
+    "mod": {
+      "incluida": false,
+      "texto": "Fabricación y entrega se cotizan aparte."
+    },
+    "plazo_entrega": null,
+    "garantia": null
+  },
+  "estado": {}
+}

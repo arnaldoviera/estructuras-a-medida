@@ -1,0 +1,61 @@
+{
+  "barras": [
+    {
+      "descripcion": "caño estructural cuadrado 50 × 50 × 2,0, barra de 6 m",
+      "cant": 1,
+      "unidad": "barra",
+      "uso": "pata",
+      "seccion_id": "pata",
+      "desperdicio_pct": 51.8
+    },
+    {
+      "descripcion": "caño estructural cuadrado 40 × 40 × 1,6, barra de 6 m",
+      "cant": 1,
+      "unidad": "barra",
+      "uso": "bastidor",
+      "seccion_id": "bastidor",
+      "desperdicio_pct": 15.6
+    }
+  ],
+  "tableros": [
+    {
+      "descripcion": "Tablero alistonado de eucalipto 30 mm, hoja de 2.440 × 1.220",
+      "cant": 1,
+      "unidad": "hoja",
+      "uso": "alistonado-eucalipto-30",
+      "desperdicio_pct": 45.6
+    }
+  ],
+  "insumos": [
+    {
+      "descripcion": "Planchuela 32 × 5 de 60 mm con agujero ovalado (soporte de la tapa)",
+      "cant": 10,
+      "unidad": "u",
+      "uso": "fijación de la tapa"
+    },
+    {
+      "descripcion": "Tornillo para madera 8 × 1 1/4\" cabeza tanque con arandela",
+      "cant": 10,
+      "unidad": "u",
+      "uso": "fijación de la tapa"
+    },
+    {
+      "descripcion": "Regatón regulable M8 para caño 50 × 50",
+      "cant": 4,
+      "unidad": "u",
+      "uso": "patas"
+    },
+    {
+      "descripcion": "Antióxido y esmalte negro mate",
+      "cant": 1,
+      "unidad": "l",
+      "uso": "hierro"
+    },
+    {
+      "descripcion": "Laca poliuretánica o aceite para madera",
+      "cant": 1,
+      "unidad": "l",
+      "uso": "tapa"
+    }
+  ]
+}

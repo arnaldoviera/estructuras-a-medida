@@ -1,7 +1,7 @@
 # estructuras-a-medida
 Facilita diseño y desarrollo de estructuras de madera y/o metálicas.
 
-Plugin multipropósito de Claude (Claude Code / Cowork), para madera y hierro, que lleva una estructura a medida desde el relevamiento con el cliente hasta una **propuesta publicada como página web**. En el camino valida el diseño, lo grafica (vistas acotadas, detalles y croquis 3D siempre armado), lo despieza, busca precios de referencia en la web cuando la tipología lleva presupuesto y lo hace revisar por un auditor independiente.
+Plugin multipropósito de Claude (Claude Code / Cowork), para madera y hierro, que lleva una estructura a medida desde el relevamiento con el cliente (o desde una foto de lo que quiere) hasta una **propuesta publicada como página web**. En el camino valida el diseño, lo grafica (vistas acotadas, detalles y croquis 3D siempre armado), lo despieza, busca precios de referencia en la web cuando la tipología lleva presupuesto y lo hace revisar por un auditor independiente.
 
 Tipologías:
 
@@ -9,8 +9,9 @@ Tipologías:
 |---|---|---|
 | `portico-hamacas` | madera: rollizos con varilla roscada | propuesta comercial con presupuesto de materiales |
 | `jaula-cerdas` | hierro: tubo estructural galvanizado + inox | propuesta técnica con despiece, plan de corte y pedido **sin presupuesto** |
+| `estructura-libre` | madera y/o hierro: caño estructural, madera aserrada, tableros | mueble o estructura simple como lista de piezas (desde una foto o un pedido): propuesta técnica con vistas, verificaciones, despiece, plan de corte y pedido **sin presupuesto** |
 
-Próximas: una tipología genérica de «estructura libre» (desde una foto o un pedido, para muebles y estructuras simples de madera y hierro); pérgolas y decks en madera; corrales, mangas y tranqueras en hierro. Cada tipología es un módulo del motor (`modelo`, `validar`, `despiece`, `salidas`) más su ficha de catálogo (`material_base`, `presupuesto`, criterios).
+Próximas: pérgolas y decks en madera; corrales, mangas y tranqueras en hierro. Cada tipología es un módulo del motor (`modelo`, `validar`, `despiece`, `salidas`) más su ficha de catálogo (`material_base`, `presupuesto`, criterios).
 
 Marca provisoria: "Estructuras a medida". Precios sin IVA, con IVA configurable (`comercial.iva_pct`). Presupuesto (solo en tipologías que lo llevan) solo de materiales, sin flete; mano de obra aparte.
 
@@ -31,6 +32,7 @@ Todo el proyecto vive en una carpeta con `ficha.json` como única fuente de verd
 ```
 python3 motor/correr.py validar   ejemplos/pueblo-andino
 python3 motor/correr.py todo      ejemplos/jaula-cerdas
+python3 motor/correr.py todo      ejemplos/mesa-hierro-madera
 python3 motor/correr.py propuesta ejemplos/pueblo-andino
 ```
 
@@ -53,6 +55,7 @@ motor/                       Python: geometría, validación, despiece, SVG, pá
 catalogo/                    tipologías y materiales (sin precios)
 ejemplos/pueblo-andino/      caso de prueba madera (ficha, precios, auditoría, salida)
 ejemplos/jaula-cerdas/       caso de prueba hierro (ficha, auditoría, salida; sin precios)
+ejemplos/mesa-hierro-madera/ caso de prueba estructura libre (mesa desde una foto; ficha, auditoría, salida)
 insumos/                     originales y bitácora de diseño (solo en el repositorio, no en el paquete)
 ```
 
@@ -61,6 +64,11 @@ insumos/                     originales y bitácora de diseño (solo en el repos
 Madera — `ejemplos/pueblo-andino/`: pórtico para un área libre de 4,50 × 5,50 m sobre césped, carga de diseño 350 kg (hamaca-cama) con factor dinámico 2,5, travesaño Ø20 × 3,70 m con el eje a 2,10 m, base de 2,60 m por A, patas Ø17 de rollizo de 3,5 m, 6 abrazaderas de cuelgue. Se diseñó con los valores simplificados de la guía Playcentre NZ; con los de la EN 1176-2:2017 no entra en el vaivén disponible (pide 7,00 m) y le falta separación entre accesorios. Queda como caso real de verificaciones que no cumplen hasta rediseñarlo. Los rollizos figuran «a cotizar».
 
 Hierro — `ejemplos/jaula-cerdas/`: box de 2.240 × 560 libres × 1.130 mm tipo Gestal 3G, 4 parantes por lado en tubo 2" × 3,2, 8 largueros de 1½" × 2,0, puerta basculante con panel ciego y dos trinquetes que se arman y se liberan a 70°, pie galvanizado con pletina inox aislada y anclaje pasante al slat. Despiece: 38 tipos de pieza, 12 barras de 6 m, ≈ 211 kg. Las verificaciones y la auditoría independiente están en `validacion.json` y `auditoria.json`.
+
+Estructura libre — `ejemplos/mesa-hierro-madera/`: mesa de comedor de 1.800 × 900 × 750 mm armada desde la descripción de una foto (mesa industrial), con 4 patas de caño 50 × 50 × 2,0, bastidor de 40 × 40 × 1,6 con travesaño central y tapa de alistonado de eucalipto de 30 mm atornillada desde abajo con ojales. Despiece: 1 barra de cada caño y 1 hoja de tablero, ≈ 48 kg.
+
+### Cómo se describe una estructura libre
+La ficha es una lista de piezas: `secciones` (caño rectangular o redondo, madera aserrada, planchuela), `barras` con dos puntos en mm y un rol (`pata`, `viga`, `riostra`) y `placas` como cajas de un tablero del catálogo. De ahí salen el 3D, frente, planta y lateral, las verificaciones (placa, vigas, pandeo y meneo de patas, vuelco, largos y hojas comerciales), el despiece con plan de corte y el pedido. Con una foto, Claude describe lo que ve, propone las piezas y pregunta solo las medidas y el uso; las medidas nunca salen de la foto.
 
 ## Notas técnicas
 

@@ -17,6 +17,13 @@ Qué verifica en `jaula-cerdas` (`motor/jaula_cerdas.py`; criterios con su orige
 - Resistencia (cálculo simplificado, fy 235 MPa, FS ≥ 1,15): larguero, barrote, travesaño de puerta y pasamanos con 1,5 kN a media luz; parante en la base con 0,9 kN·m; travesaño del dosificador.
 - Montaje y fabricación: invasión del pie ≤ 30 mm, pletina sobre 2 vigas de slat, bulones del pie sin choque, antena ≥ 50 mm del metal, línea de alimento, tubos comerciales, peso del lateral ≤ 80 kg.
 
+Qué verifica en `estructura-libre` (`motor/estructura_libre.py`; criterios en `catalogo/tipologias/estructura-libre.json`, cálculo simplificado):
+- Medidas totales contra las pedidas, secciones comerciales, largos que salen de una barra o tirante, placas que salen de una hoja.
+- Placas: flexión entre apoyos y en el voladizo, y flecha L/300 (carga distribuida, puntual en franja de 300 mm, carga en el borde).
+- Vigas: flexión y flecha con su ancho de influencia o con la carga puntual en el medio (acero: fy/1,1 con carga × 1,5; madera: tensión admisible con carga de uso).
+- Patas: pandeo (Euler con longitud efectiva 2L, FS ≥ 2), corrimiento arriba con el empuje lateral (≤ alto/150) y tensión en el nudo con el bastidor.
+- Vuelco con carga en el borde de la tapa (y empuje arriba en estantes), FS ≥ 1,5; peso de la pieza más pesada; protección del hierro si va afuera.
+
 Qué verifica en `portico-hamacas` (detalle en `references/`):
 - Espacio: pies por fuera contra el largo disponible; zona libre de vaivén EN 1176-2 contra el largo de vaivén.
 - Norma: separación entre asientos, asiento–pata, altura de asiento, caída del trapecio (`references/normas-hamacas.md`).

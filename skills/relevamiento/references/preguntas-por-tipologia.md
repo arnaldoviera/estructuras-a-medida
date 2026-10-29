@@ -28,3 +28,22 @@ Box de alimentación individual para cerdas gestantes en grupo, tipo Gestal 3G (
 - Fabricación: taller propio o tercero, ¿suelda inoxidable?, ¿hay galvanizado en caliente cerca? Largo de barra del proveedor (6 o 6,40 m).
 - Electrónica prevista: marca del dosificador y del lector RFID (distancia mínima a metal de la antena).
 
+
+## estructura-libre
+Muebles y estructuras simples de madera y/o hierro que no son una tipología propia: mesas, bancos, estantes, bastidores, soportes. Ejemplo: `ejemplos/mesa-hierro-madera/ficha.json`.
+
+**Desde una foto.** Si el cliente manda una foto ("quiero una mesa que se parezca a esto"):
+1. Mirar la imagen y describir en una o dos líneas qué se ve: cuántas patas, qué piezas son de hierro y cuáles de madera, secciones aparentes (caño cuadrado, redondo, tirante, tablero), uniones a la vista y terminación.
+2. Proponer la lista de piezas (secciones, barras y placas) con medidas comerciales. De la foto se toman proporciones e idea; **las medidas nunca salen de la foto**: las da el cliente o el uso.
+3. Preguntar solo lo que falta, en una tanda: largo × ancho × alto (o para cuántas personas), uso (mesa, banco, estante u otro), interior o exterior, cuántas unidades, color de la madera y del hierro.
+4. Anotar en `requisitos.referencia` qué se tomó de la foto (`tomado`) y qué se cambió y por qué (`cambiado`). La foto no se guarda en la ficha: queda en la carpeta del proyecto si el cliente la mandó como archivo.
+
+**Desde un pedido sin foto.** Las mismas preguntas del punto 3, más: estilo (industrial, rústico, liviano), qué tiene que aguantar (personas sentadas, peso de libros, macetas) y si hay que desarmarlo para pasar por una puerta.
+
+**Cómo se arma la ficha.**
+- `requisitos.tipo_uso`: `mesa`, `banco` o `estante` traen cargas del catálogo; cualquier otro uso necesita `requisitos.cargas` completo (`distribuida_kg_m2`, `puntual_kg`, `empuje_lateral_kg`, `carga_borde_kg`) con su criterio.
+- `diseno.secciones`: `tubo-rect` (b × h × esp), `tubo-redondo` (diam × esp), `madera` (b × h y especie del catálogo) o `planchuela`. En vigas, `h` es el alto.
+- `diseno.barras`: cada pieza lineal con dos puntos `a` y `b` en mm (x a lo largo, y al fondo, z arriba, piso en 0) y un rol: `pata` (apoya en el piso), `viga` (lleva carga) o `riostra`. Las barras alineadas a un eje se dibujan como cajas; las inclinadas, como cilindros. Una tabla de asiento o un listón que carga directo lleva `ancho_carga` (mm).
+- `diseno.placas`: tapas, estantes y tableros como cajas `x`, `y`, `z` con un material de `tableros`; el espesor (z) es el del tablero. La placa tiene que apoyar sobre vigas cuya cara de arriba toque su cara de abajo.
+- `insumos`, `uniones`, `terminacion` y `pendientes` en texto: los copia la página.
+- Si la estructura necesita cálculo de ingeniería (techos, entrepisos, pérgolas con viento, algo que sostenga personas en altura), decirlo y no forzarla en esta tipología.

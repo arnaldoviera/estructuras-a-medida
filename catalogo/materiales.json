@@ -137,7 +137,8 @@
         2.5,
         3.2
       ],
-      "nota": "No confundir con caño de cañería (Ø33,7, Ø42,4…, que viene en 2,6 mm o más). Pedir siempre Ø exterior × espesor con certificado. Algunos corralones venden barras de 6,40 m: confirmar con el proveedor."
+      "nota": "No confundir con caño de cañería (Ø33,7, Ø42,4…, que viene en 2,6 mm o más). Pedir siempre Ø exterior × espesor con certificado. Algunos corralones venden barras de 6,40 m: confirmar con el proveedor.",
+      "E_MPa": 200000
     },
     "inox-304": {
       "nombre": "Acero inoxidable AISI 304",
@@ -155,6 +156,40 @@
         9.5
       ],
       "densidad_kg_m3": 7850
+    },
+    "tubo-estructural-cuadrado": {
+      "nombre": "Tubo estructural cuadrado/rectangular con costura (acero F-24), lado × lado × espesor en mm",
+      "fy_MPa": 235,
+      "E_MPa": 200000,
+      "densidad_kg_m3": 7850,
+      "largo_barra_mm": 6000,
+      "corte_mm": 3,
+      "secciones_mm": [
+        "20x20",
+        "25x25",
+        "30x30",
+        "40x40",
+        "50x50",
+        "60x60",
+        "70x70",
+        "80x80",
+        "100x100",
+        "40x20",
+        "50x25",
+        "50x30",
+        "60x40",
+        "80x40",
+        "100x50"
+      ],
+      "espesores_mm": [
+        0.9,
+        1.25,
+        1.6,
+        2.0,
+        2.5,
+        3.2
+      ],
+      "nota": "Se pide por lado × lado × espesor en mm. Confirmar largo de barra (6 o 6,40 m) con el proveedor."
     }
   },
   "insumos": {
@@ -189,6 +224,119 @@
       "nombre": "Galvanizado por inmersión en caliente",
       "regla": "Se galvaniza después de soldar todo el subconjunto. Venteos Ø10 en cada caño cerrado y en cada nudo, en caras no expuestas; desbarbar soldaduras antes. Nunca soldar sobre galvanizado (humo de óxido de zinc).",
       "unidad": "kg"
+    }
+  },
+  "maderas_aserradas": {
+    "_nota": "Madera aserrada seca y cepillada. Se vende por medida nominal en pulgadas; la medida real cepillada es unos 5 mm menor por cara. Valores admisibles conservadores (orden de magnitud CIRSOC 601).",
+    "pino-aserrado": {
+      "nombre": "Pino aserrado seco y cepillado (P. elliottii / taeda)",
+      "densidad_kg_m3": 500,
+      "E_MPa": 8000,
+      "tension_flexion_adm_MPa": 7,
+      "tension_compresion_adm_MPa": 6
+    },
+    "eucalipto-aserrado": {
+      "nombre": "Eucalipto aserrado seco y cepillado (E. grandis)",
+      "densidad_kg_m3": 600,
+      "E_MPa": 11000,
+      "tension_flexion_adm_MPa": 9,
+      "tension_compresion_adm_MPa": 8
+    },
+    "espesores_nominales_pulg": {
+      "1/2\"": 12.7,
+      "3/4\"": 19.05,
+      "1\"": 25.4,
+      "1 1/2\"": 38.1,
+      "2\"": 50.8,
+      "3\"": 76.2,
+      "4\"": 101.6
+    },
+    "anchos_nominales_pulg": {
+      "2\"": 50.8,
+      "3\"": 76.2,
+      "4\"": 101.6,
+      "5\"": 127,
+      "6\"": 152.4,
+      "8\"": 203.2,
+      "10\"": 254,
+      "12\"": 304.8
+    },
+    "descuento_cepillado_mm": 5,
+    "largos_comerciales_m": [
+      2.44,
+      3.05,
+      3.66,
+      4.27,
+      4.88
+    ]
+  },
+  "tableros": {
+    "_nota": "Placas: se compran por hoja entera; el plan de corte es por área con un desperdicio declarado.",
+    "mdf-18": {
+      "nombre": "MDF 18 mm",
+      "espesor_mm": 18,
+      "hoja_mm": [
+        2600,
+        1830
+      ],
+      "densidad_kg_m3": 750,
+      "E_MPa": 3000,
+      "tension_flexion_adm_MPa": 6
+    },
+    "melamina-18": {
+      "nombre": "Melamina 18 mm (aglomerado revestido)",
+      "espesor_mm": 18,
+      "hoja_mm": [
+        2600,
+        1830
+      ],
+      "densidad_kg_m3": 650,
+      "E_MPa": 2500,
+      "tension_flexion_adm_MPa": 4
+    },
+    "fenolico-18": {
+      "nombre": "Fenólico 18 mm",
+      "espesor_mm": 18,
+      "hoja_mm": [
+        2440,
+        1220
+      ],
+      "densidad_kg_m3": 600,
+      "E_MPa": 6000,
+      "tension_flexion_adm_MPa": 10
+    },
+    "alistonado-pino-30": {
+      "nombre": "Tablero alistonado de pino 30 mm",
+      "espesor_mm": 30,
+      "hoja_mm": [
+        2440,
+        1220
+      ],
+      "densidad_kg_m3": 500,
+      "E_MPa": 8000,
+      "tension_flexion_adm_MPa": 6
+    },
+    "alistonado-eucalipto-30": {
+      "nombre": "Tablero alistonado de eucalipto 30 mm",
+      "espesor_mm": 30,
+      "hoja_mm": [
+        2440,
+        1220
+      ],
+      "densidad_kg_m3": 600,
+      "E_MPa": 10000,
+      "tension_flexion_adm_MPa": 8
+    },
+    "chapa-2": {
+      "nombre": "Chapa de acero 2 mm",
+      "espesor_mm": 2,
+      "hoja_mm": [
+        2440,
+        1220
+      ],
+      "densidad_kg_m3": 7850,
+      "E_MPa": 200000,
+      "tension_flexion_adm_MPa": 156
     }
   }
 }
