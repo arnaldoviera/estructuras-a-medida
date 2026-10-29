@@ -235,7 +235,8 @@
           750
         ],
         "fijacion": "cantos redondeados r 3, lijado y laca o aceite; se fija con 10 tornillos desde abajo por planchuelas con ojal",
-        "_origen": "supuesto: tablero alistonado de eucalipto 30 mm, sale de una hoja de 2,44 × 1,22"
+        "_origen": "supuesto: tablero alistonado de eucalipto 30 mm, sale de una hoja de 2,44 × 1,22",
+        "veta": "x"
       }
     ],
     "uniones": "Patas y bastidor soldados completos en taller (cordón perimetral); tapa atornillada desde abajo por 10 planchuelas 32 × 5 soldadas con agujero ovalado, para que la madera trabaje.",
@@ -251,7 +252,7 @@
         "descripcion": "Tornillo para madera 8 × 1\" cabeza tanque con arandela",
         "cant": 10,
         "unidad": "u",
-        "uso": "fijación de la tapa (5 mm de planchuela + 25 mm en un tablero de 30)"
+        "uso": "fijación de la tapa (5 mm de planchuela + 20 mm en un tablero de 30; quedan 10 mm)"
       },
       {
         "descripcion": "Regatón plástico interior para caño 50 × 50 (tapa de 3 mm)",
@@ -294,6 +295,6 @@
     "garantia": null
   },
   "estado": {
-    "vueltas_auditoria": 1
+    "vueltas_auditoria": 2
   }
 }

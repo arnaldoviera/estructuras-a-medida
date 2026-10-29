@@ -51,7 +51,7 @@
     {
       "id": "res.placa.M1",
       "requisito": "Placa «tapa»: tensión por flexión entre apoyos y en el voladizo",
-      "valor": "4,0 MPa (luz 730, voladizo 85)",
+      "valor": "4,2 MPa (luz 775 en x, voladizo 125)",
       "limite": "≤ 8 MPa",
       "estado": "cumple",
       "nota": "Carga de uso 100 kg/m² o 100 kg en una franja de 300 mm; 60 kg en el borde del voladizo."
@@ -59,8 +59,8 @@
     {
       "id": "def.placa.M1",
       "requisito": "Placa «tapa»: flecha con carga de uso (repartida o puntual)",
-      "valor": "1,2 mm",
-      "limite": "≤ L/300 = 2,4 mm",
+      "valor": "1,4 mm",
+      "limite": "≤ L/300 = 2,6 mm",
       "estado": "cumple",
       "nota": ""
     },
@@ -158,15 +158,15 @@
       "valor": "0,9 mm",
       "limite": "≤ alto/150 = 4,8 mm",
       "estado": "cumple",
-      "nota": "Pórtico de patas «pata» con la viga L1, nudos rígidos (soldadura completa) y pata apoyada en el piso; cuenta la flexión de la pata y de la viga."
+      "nota": "2 pórticos de patas «pata» se reparten el empuje (con la viga L1); nudos rígidos (soldadura completa), pata apoyada en el piso; cuenta la flexión de la pata y de la viga."
     },
     {
       "id": "res.nudo",
-      "requisito": "Tensión en el nudo pata-bastidor por el empuje lateral",
-      "valor": "13 MPa",
+      "requisito": "Tensión en el nudo pata-bastidor por el empuje lateral (peor dirección: y)",
+      "valor": "18 MPa",
       "limite": "≤ 214 MPa",
       "estado": "cumple",
-      "nota": ""
+      "nota": "Máximo entre la pata y la punta de la viga, con el empuje repartido en 2 pórticos."
     },
     {
       "id": "est.vuelco",

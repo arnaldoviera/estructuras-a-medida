@@ -70,6 +70,8 @@ def revisar(ficha):
             v = p.get(c)
             if not (isinstance(v, list) and len(v) == 2 and all(isinstance(t, (int, float)) for t in v) and v[1] > v[0]):
                 err.append(f"{nom}.{c} tiene que ser [desde, hasta] en mm, con hasta > desde")
+        if p.get("veta") not in (None, "x", "y"):
+            err.append(f"{nom}.veta tiene que ser x o y (dirección de los listones o tablas)")
         if p.get("material") in tab and isinstance(p.get("z"), list) and len(p["z"]) == 2:
             esp = tab[p["material"]]["espesor_mm"]
             if abs((p["z"][1] - p["z"][0]) - esp) > 0.5:
@@ -215,7 +217,7 @@ def modelo(ficha):
         cajas3d.append({"n": p.get("nombre", p["id"]), "x": p["x"], "y": p["y"], "z": p["z"], "m": cls})
         placas.append({"id": p["id"], "nombre": p.get("nombre", p["id"]), "mat": p["material"], "t": t, "x": p["x"], "y": p["y"], "z": p["z"],
                        "dims": dims, "kg": kg, "cen": [sum(p[c]) / 2 for c in "xyz"], "clase": cls, "grupo": p.get("grupo", "placas"),
-                       "fijacion": p.get("fijacion", "")})
+                       "fijacion": p.get("fijacion", ""), "veta": p.get("veta")})
     # caja envolvente
     xs, ys, zs = [], [], []
     for c in cajas3d:
@@ -339,7 +341,12 @@ def validar(ficha, M=None):
             _chk(out, f"res.placa.{p['id']}", f"Placa «{p['nombre']}» apoyada en al menos dos vigas paralelas", "sin apoyos detectados",
                  "≥ 2 vigas debajo", False, "El motor busca vigas horizontales cuya cara superior toca la cara inferior de la placa.")
             continue
-        k = min(luces, key=luces.get)
+        veta = p.get("veta")  # tableros de listones o tablas: trabajan a lo largo de la veta, apoyados en vigas que la cruzan
+        k = (1 if veta == "x" else 0) if veta in ("x", "y") else min(luces, key=luces.get)
+        if k not in luces:
+            _chk(out, f"res.placa.{p['id']}", f"Placa «{p['nombre']}» apoyada en al menos dos vigas que cruzan la veta ({veta})", "sin apoyos en esa dirección",
+                 "≥ 2 vigas debajo", False)
+            continue
         Lp, tt = luces[k], p["dims"][2]
         lim = p["y"] if k == 0 else p["x"]
         cs = [c for c, _ in fam[k]]
@@ -353,7 +360,7 @@ def validar(ficha, M=None):
         Ip = tt ** 3 / 12
         fl = max(5 * (q_uso + q_pp) * Lp ** 4, 5 * q_pp * Lp ** 4 + 8 * P_p / bp * Lp ** 3) / (384 * t["E_MPa"] * Ip)  # la misma carga que manda en la tensión
         _chk(out, f"res.placa.{p['id']}", f"Placa «{p['nombre']}»: tensión por flexión entre apoyos y en el voladizo",
-             f"{num(sig, 1)} MPa (luz {mm(Lp)}, voladizo {mm(vol)})", f"≤ {num(fadm, 0)} MPa", sig <= fadm,
+             f"{num(sig, 1)} MPa (luz {mm(Lp)} en {'x' if k == 1 else 'y'}, voladizo {mm(vol)})", f"≤ {num(fadm, 0)} MPa", sig <= fadm,
              f"Carga de uso {Q['distribuida_kg_m2']} kg/m² o {Q['puntual_kg']} kg en una franja de {bp} mm; {Q['carga_borde_kg']} kg en el borde del voladizo.")
         _chk(out, f"def.placa.{p['id']}", f"Placa «{p['nombre']}»: flecha con carga de uso (repartida o puntual)", f"{num(fl, 1)} mm", f"≤ L/{div} = {num(Lp / div, 1)} mm", fl <= Lp / div)
         for kk in (0, 1):
@@ -465,7 +472,7 @@ def _portales(M, d):
 def _meneo(out, M, H, Q, gf, gm, dmax):
     """Corrimiento arriba y tensión en el nudo por empuje lateral, con pórticos de base articulada (pata apoyada en el piso):
     δ = Hp·h²/(12·E)·(2h/Ic + L/Ib) por pórtico de dos patas; momento en el nudo Hp·h/2."""
-    peor = None
+    peor = nudo = None
     for d, eje in ((0, "x"), (1, "y")):
         port = _portales(M, d)
         if not port:
@@ -480,17 +487,21 @@ def _meneo(out, M, H, Q, gf, gm, dmax):
             Ib, E = viga["P"]["I"], P["E"]
             dl = Hp * h ** 2 / (12 * E) * (2 * h / Ic + Lb * E / (viga["P"]["E"] * Ib))
             prof = (P["b"] if d == 0 else P["h"]) / 2
-            sig = Hp * h / 2 * (gf if P["acero"] else 1) * prof / Ic
-            lim_s = P["f"] / gm if P["acero"] else P["f"]
-            caso = (dl / (h / dmax), dl, sig, lim_s, h, eje, c["seccion"], viga["id"])
+            Mn = Hp * h / 2 * (gf if P["acero"] else 1)  # el mismo momento lo toman la pata y la punta de la viga
+            sig = max(Mn * prof / Ic, Mn / viga["P"]["W"])
+            lim_s = min(P["f"] / gm if P["acero"] else P["f"], viga["P"]["f"] / gm if viga["P"]["acero"] else viga["P"]["f"])
+            caso = (dl / (h / dmax), dl, sig, lim_s, h, eje, c["seccion"], viga["id"], len(port))
             if peor is None or caso[0] > peor[0]:
                 peor = caso
+            nudo = max(nudo or (0,), (sig / lim_s, sig, lim_s, eje, len(port)))
     if peor:
-        _, dl, sig, lim_s, h, eje, sec, vid = peor
+        _, dl, sig, lim_s, h, eje, sec, vid, np_ = peor
         _chk(out, "def.meneo", f"Corrimiento arriba con {Q['empuje_lateral_kg']} kg de empuje lateral (peor dirección: {eje})", f"{num(dl, 1)} mm",
              f"≤ alto/{dmax} = {num(h / dmax, 1)} mm", dl <= h / dmax,
-             f"Pórtico de patas «{sec}» con la viga {vid}, nudos rígidos (soldadura completa) y pata apoyada en el piso; cuenta la flexión de la pata y de la viga.")
-        _chk(out, "res.nudo", "Tensión en el nudo pata-bastidor por el empuje lateral", f"{num(sig, 0)} MPa", f"≤ {num(lim_s, 0)} MPa", sig <= lim_s)
+             f"{np_} pórticos de patas «{sec}» se reparten el empuje (con la viga {vid}); nudos rígidos (soldadura completa), pata apoyada en el piso; cuenta la flexión de la pata y de la viga.")
+        _, sig, lim_s, eje, np_ = nudo
+        _chk(out, "res.nudo", f"Tensión en el nudo pata-bastidor por el empuje lateral (peor dirección: {eje})", f"{num(sig, 0)} MPa", f"≤ {num(lim_s, 0)} MPa", sig <= lim_s,
+             f"Máximo entre la pata y la punta de la viga, con el empuje repartido en {np_} pórticos.")
 
 
 def _resumen(checks):

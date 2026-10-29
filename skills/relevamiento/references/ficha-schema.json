@@ -544,6 +544,13 @@
                     },
                     "grupo": {
                       "type": "string"
+                    },
+                    "veta": {
+                      "enum": [
+                        "x",
+                        "y"
+                      ],
+                      "description": "dirección de los listones o tablas: la placa trabaja a lo largo de la veta"
                     }
                   }
                 }
