@@ -21,4 +21,4 @@ Reglas fijas:
 
 Revisión visual: abrir `salida/propuesta.html` en el navegador integrado y mirar la perspectiva, las 6 láminas y el 3D, también a 400 px de ancho.
 
-Origen: refactor de `insumos/portico-v3` (plano.py, detalles.py; solo en el repositorio, no en el paquete). El croquis 3D del kit anatomy-reveal (Node + Chrome headless) se reemplazó por un visor Three.js dentro de la página: no requiere Node y funciona en el celular. Los originales quedan en `insumos/` del repositorio como referencia.
+El croquis 3D es un visor Three.js dentro de la página: no requiere Node y funciona en el celular.

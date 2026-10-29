@@ -1,5 +1,5 @@
 """Perspectiva cónica acotada del pórtico (SVG), generada desde el modelo de ficha.json.
-Refactor de insumos/portico-v3/perspectiva/plano.py: misma cámara, pintado por profundidad y cotas 3D."""
+Cámara cónica, pintado por profundidad y cotas 3D."""
 import html
 import math
 from comun import add, sub, mul, dot, cross, norm, unit, m, num, cm

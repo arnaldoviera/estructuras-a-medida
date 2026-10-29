@@ -15,7 +15,7 @@ Próximas: pérgolas y decks en madera; corrales, mangas y tranqueras en hierro.
 
 Marca provisoria: "Estructuras a medida". Precios sin IVA, con IVA configurable (`comercial.iva_pct`). Presupuesto (solo en tipologías que lo llevan) solo de materiales, sin flete; mano de obra aparte.
 
-Uso interno. Licencia propietaria: todos los derechos reservados.
+Licencia MIT (ver `LICENSE`): se puede usar, modificar y redistribuir libremente, manteniendo el aviso de autoría. Autor: Arnaldo Viera.
 
 ## Instalación y uso
 
@@ -56,7 +56,6 @@ catalogo/                    tipologías y materiales (sin precios)
 ejemplos/pueblo-andino/      caso de prueba madera (ficha, precios, auditoría, salida)
 ejemplos/jaula-cerdas/       caso de prueba hierro (ficha, auditoría, salida; sin precios)
 ejemplos/mesa-hierro-madera/ caso de prueba estructura libre (mesa desde una foto; ficha, auditoría, salida)
-insumos/                     originales y bitácora de diseño (solo en el repositorio, no en el paquete)
 ```
 
 ## Casos de prueba
@@ -73,5 +72,5 @@ La ficha es una lista de piezas: `secciones` (caño rectangular o redondo, mader
 ## Notas técnicas
 
 - El croquis 3D es un visor Three.js r128 dentro de la página: no necesita Node y se gira con el dedo en el celular. Siempre armado.
-- Empaquetado: `python3 empaquetar.py` revisa que el motor compile en Python 3.10/3.11 (si están instalados) y genera `dist/estructuras-a-medida.plugin` (zip del directorio sin `insumos/`, `dist/` ni archivos de sesión).
+- Empaquetado: `python3 empaquetar.py` revisa que el motor compile en Python 3.10/3.11 (si están instalados) y genera `dist/estructuras-a-medida.plugin` (zip del directorio sin `dist/` ni archivos de sesión).
 - La propuesta usa un cálculo simplificado y no reemplaza el cálculo de un ingeniero matriculado.

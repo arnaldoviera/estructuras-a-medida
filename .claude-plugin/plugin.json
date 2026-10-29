@@ -6,7 +6,7 @@
     "name": "Arnaldo Viera",
     "email": "arnaldoviera@gmail.com"
   },
-  "license": "LicenseRef-Propietaria",
+  "license": "MIT",
   "keywords": [
     "estructuras",
     "madera",
@@ -23,5 +23,6 @@
     "muebles",
     "mesa",
     "foto"
-  ]
+  ],
+  "repository": "https://github.com/arnaldoviera/estructuras-a-medida"
 }
