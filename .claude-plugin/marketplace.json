@@ -1,0 +1,11 @@
+{
+  "name": "estructuras-local",
+  "owner": {"name": "Arnaldo Viera", "email": "arnaldoviera@gmail.com"},
+  "plugins": [
+    {
+      "name": "estructuras-a-medida",
+      "source": "./",
+      "description": "Del relevamiento con el cliente a la propuesta comercial web de una estructura a medida."
+    }
+  ]
+}
