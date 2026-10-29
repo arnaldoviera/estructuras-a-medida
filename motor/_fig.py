@@ -1,9 +1,16 @@
 """Láminas 2D de detalles de uniones del pórtico (SVG, mm), generadas desde ficha.json.
 Refactor de insumos/portico-v3/detalles/detalles.py (clase Fig sin cambios)."""
+import html as _html
 import math
 from comun import m, cm, num
 WOOD, WOODHI, WOODEDGE, CAP = "#c98a55", "#e0a874", "#7a4a26", "#e8c9a2"
 STEEL, STEELD = "#9aa3ab", "#3e464d"
+
+
+
+def _esc(s):
+    """Escapa texto que viene de la ficha (& < >) para que el SVG siga siendo XML válido."""
+    return _html.escape(str(s), quote=False)
 
 
 class Fig:
@@ -97,11 +104,11 @@ class Fig:
         self.g.append(f'<circle cx="{A[0]:.1f}" cy="{A[1]:.1f}" r="2.4" class="dotc"/><line x1="{A[0]:.1f}" y1="{A[1]:.1f}" x2="{B[0]:.1f}" y2="{B[1]:.1f}" class="ldr"/>')
         lines = text.split("|")
         for i, t in enumerate(lines):
-            self.g.append(f'<text x="{B[0] + (4 if anchor == "start" else -4):.1f}" y="{B[1] + 4 + i * 15:.1f}" class="tg" text-anchor="{anchor}">{t}</text>')
+            self.g.append(f'<text x="{B[0] + (4 if anchor == "start" else -4):.1f}" y="{B[1] + 4 + i * 15:.1f}" class="tg" text-anchor="{anchor}">{_esc(t)}</text>')
 
     def text(self, p, t, cls="vw", anchor="middle"):
         A = self.P(*p)
-        self.g.append(f'<text x="{A[0]:.1f}" y="{A[1]:.1f}" class="{cls}" text-anchor="{anchor}">{t}</text>')
+        self.g.append(f'<text x="{A[0]:.1f}" y="{A[1]:.1f}" class="{cls}" text-anchor="{anchor}">{_esc(t)}</text>')
 
     def svg(self, label):
         return (f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {self.W} {self.H:.0f}" role="img" aria-label="{label}">'

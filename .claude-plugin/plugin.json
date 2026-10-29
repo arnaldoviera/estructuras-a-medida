@@ -1,13 +1,12 @@
 {
   "name": "estructuras-a-medida",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "Plugin multipropósito, madera y hierro: del relevamiento con el cliente a la propuesta web. Valida el diseño, lo grafica (3D siempre armado), lo despieza y lo audita con un agente independiente. Tipologías: pórtico de hamacas en rollizos (con presupuesto web) y box de alimentación para cerdas gestantes en tubo de hierro (despiece y pedido sin presupuesto).",
   "author": {
     "name": "Arnaldo Viera",
     "email": "arnaldoviera@gmail.com"
   },
-  "repository": "https://github.com/arnaldoviera/estructuras-a-medida",
-  "license": "UNLICENSED",
+  "license": "LicenseRef-Propietaria",
   "keywords": [
     "estructuras",
     "madera",

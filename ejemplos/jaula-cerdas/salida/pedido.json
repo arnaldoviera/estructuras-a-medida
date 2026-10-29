@@ -2,7 +2,7 @@
   "tubo": [
     {
       "id": "tubo_parante",
-      "descripcion": "tubo estructural redondo Ø50,8 × 3,2 (2\"), con cartelas en la base, barra de 6 m",
+      "descripcion": "tubo estructural redondo Ø50,8 × 3,2 (2\"), barra de 6 m",
       "cant": 2,
       "unidad": "barra",
       "uso": "8.680 mm útiles",
@@ -10,7 +10,7 @@
     },
     {
       "id": "tubo_pasamanos",
-      "descripcion": "tubo estructural redondo Ø50,8 × 2,0 (2\") para pasamanos y travesaños superiores, barra de 6 m",
+      "descripcion": "tubo estructural redondo Ø50,8 × 2,0 (2\"), barra de 6 m",
       "cant": 1,
       "unidad": "barra",
       "uso": "5.702 mm útiles",
@@ -18,7 +18,7 @@
     },
     {
       "id": "tubo_larguero",
-      "descripcion": "tubo estructural redondo Ø38,1 × 2,0 (1½\"), barra de 6 m",
+      "descripcion": "tubo estructural redondo Ø38,1 × 2,0 (1 1/2\"), barra de 6 m",
       "cant": 8,
       "unidad": "barra",
       "uso": "40.686 mm útiles",
@@ -139,9 +139,9 @@
     {
       "id": "m10_galv",
       "descripcion": "Bulón M10 × 70 galvanizado con tuerca autofrenante y 2 arandelas",
-      "cant": 22,
+      "cant": 26,
       "unidad": "u",
-      "uso": "uniones (20) y trinquetes (2)"
+      "uso": "uniones (24: 2 por planchuela) y trinquetes (2)"
     },
     {
       "id": "m8_inox",

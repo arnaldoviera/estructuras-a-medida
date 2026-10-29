@@ -155,7 +155,9 @@
         "material": "inox 304, cantos chaflanados 2 × 45°, esquinas R15, 2 colisos en y ±20 del centro para los bulones de anclaje"
       },
       "union": "kit de aislación: junta fenólica de 3 mm (sobresale 5 mm de los cantos), vainas y arandelas aislantes en 4 bulones M10 inox a ±55 del centro de la pletina",
-      "_origen": "criterio (fuente: Big Dutchman pies galvanizados; Gestal pletinas ranuradas abulonadas; Schauer inox en contacto con el piso). Pletina y placa desplazadas 25 mm hacia afuera: invaden 24,6 mm el ancho libre a ras del piso"
+      "_origen": "criterio (fuente: Big Dutchman pies galvanizados; Gestal pletinas ranuradas abulonadas; Schauer inox en contacto con el piso). Pletina y placa desplazadas 25 mm hacia afuera: invaden 24,6 mm el ancho libre a ras del piso",
+      "m10_y": 55,
+      "m12_y": 20
     },
     "bulon_anclaje": "4 bulones pasantes M12 inox de cabeza avellanada (DIN 7991) embutida en la pletina de 10 mm, en colisos sobre y ±20 del centro (35 mm libres a los M10 para cualquier posición de la ranura), 2 por ranura del slat, con 1 contrapletina inferior 300 × 100 × 8 inox por pie que abraza 2 vigas. Un gancho J no alcanza: el momento en la base llega a 0,9 kN·m.",
     "comedero": {

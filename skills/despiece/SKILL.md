@@ -1,6 +1,6 @@
 ---
 name: despiece
-description: Despiece y pedido de materiales de una estructura a medida desde ficha.json — cada pieza con material, sección, largo, ángulos, rebajes y agujeros; madera por medida comercial; ferretería (varilla por barra con plan de corte, tuercas, contratuercas, arandelas, planchuela, goma, grilletes); terminación y apoyo; % de desperdicio. Usar en la corrida completa o cuando se pida la lista de materiales o de cortes.
+description: "Despiece y pedido de materiales de una estructura a medida desde ficha.json — cada pieza con material, sección, largo, ángulos, rebajes y agujeros; madera por medida comercial; ferretería (varilla por barra con plan de corte, tuercas, contratuercas, arandelas, planchuela, goma, grilletes); terminación y apoyo; % de desperdicio. Usar en la corrida completa o cuando se pida la lista de materiales o de cortes."
 ---
 
 # Despiece y pedido

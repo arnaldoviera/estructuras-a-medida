@@ -1,6 +1,6 @@
 ---
 name: compras
-description: Busca en la web, en cada corrida, productos sugeridos y precios de referencia en Argentina (según la localidad de la obra) para cada renglón del pedido de materiales, con fuente, URL y fecha, y escribe precios.json. Nunca usa precios fijos. Usar en la corrida completa o cuando se pida actualizar precios de una propuesta.
+description: "Solo para tipologías con presupuesto (hoy, pórtico de hamacas en madera). Busca en la web, en cada corrida, productos sugeridos y precios de referencia en Argentina (según la localidad de la obra) para cada renglón del pedido de materiales, con fuente, URL y fecha, y escribe precios.json. Nunca usa precios fijos. Usar en la corrida completa o cuando se pida actualizar precios de una propuesta."
 ---
 
 # Compras → precios.json

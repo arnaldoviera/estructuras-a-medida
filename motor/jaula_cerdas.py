@@ -17,6 +17,13 @@ def _tag(origen):
     return next((t for t in ("fuente", "criterio", "cálculo", "supuesto") if o.startswith(t)), "supuesto")
 
 
+def nombre_tubo(t):
+    """Nombre comercial armado desde la medida real (no desde el texto de la ficha): Ø exterior × espesor (pulgadas)."""
+    cat = catalogo_materiales()["metales"]["tubo-estructural-redondo"]["diametros_mm"]
+    pulg = next((k for k, v in cat.items() if abs(v - t["diam"]) < 0.2), None)
+    return f"tubo estructural redondo Ø{num(t['diam'], 1)} × {num(t['esp'], 1)}" + (f" ({pulg})" if pulg else " (medida no comercial)")
+
+
 def _W(D, e):
     return math.pi * (D ** 4 - (D - 2 * e) ** 4) / (32 * D)
 
@@ -97,7 +104,8 @@ def _escena(d, D):
     cil("línea de alimento", [xm, -1600, la["z"]], [xm, 1600, la["z"]], la["diam"] / 2, "linea")
     r = d["rfid"]
     caja("antena RFID", [r["x0"], r["x1"]], [r["y_cara"] - 22, r["y_cara"]], [r["z0"], r["z1"]], "rfid")
-    caja("separador PEAD", [r["x0"] + 10, r["x1"] - 10], [r["y_cara"], YC - RL], [725, 755], "pead")
+    zr = min(d["largueros_z"], key=lambda z: abs(z - (r["z0"] + r["z1"]) / 2))  # larguero donde se toma el separador
+    caja("separador PEAD", [r["x0"] + 10, r["x1"] - 10], [r["y_cara"], YC - RL], [zr - 15, zr + 15], "pead")
     sl, x = [], -500
     while x < L + 500:
         sl.append([x, x + D["slat"]["ancho"]])
@@ -137,14 +145,17 @@ def validar(ficha, M=None):
     luces = [round(zs[i + 1] - zs[i] - (D["RL"] + (D["RS"] if zs[i + 1] == D["H"] else D["RL"]))) for i in range(len(zs) - 1)]
     _chk(out, "bien.luz_lateral", "Luz entre largueros (no pasa pata ni cabeza)", f"{min(luces)}–{max(luces)} mm", f"≤ {cr['luz_lateral_max_mm']['valor']} mm",
          max(luces) <= cr["luz_lateral_max_mm"]["valor"], cr["luz_lateral_max_mm"]["origen"])
+    lp = min(d["largueros_z"]) - D["RL"]
+    _chk(out, "bien.luz_piso", "Luz entre el piso y el primer larguero", f"{lp:.0f} mm", f"≤ {cr['luz_piso_max_mm']['valor']} mm",
+         lp <= cr["luz_piso_max_mm"]["valor"], cr["luz_piso_max_mm"]["origen"])
     rb, n = T["barrote"]["diam"] / 2, F["barrotes_cant"]
     luz_f = (D["AL"] - n * 2 * rb) / (n + 1)
     _chk(out, "bien.luz_frontal", "Luz entre barrotes del frente", f"{luz_f:.0f} mm", f"≤ {cr['luz_frontal_max_mm']['valor']} mm",
          luz_f <= cr["luz_frontal_max_mm"]["valor"], cr["luz_frontal_max_mm"]["origen"])
     hol = (D["YC"] - D["RP"]) - (P["ancho"] / 2 + D["RG"])
     lo, hi = cr["pellizco_mm"]["prohibido"]
-    _chk(out, "bien.pellizco", "Holgura puerta–parante fuera de la franja de pellizco", f"{num(hol, 1)} mm", f"< {lo} o > {hi} mm",
-         not (lo <= hol <= hi), cr["pellizco_mm"]["origen"])
+    _chk(out, "bien.pellizco", "Holgura puerta–parante: la puerta entra y queda fuera de la franja de pellizco", f"{num(hol, 1)} mm", f"0 < h < {lo} o > {hi} mm",
+         0 < hol and not (lo <= hol <= hi), cr["pellizco_mm"]["origen"] + ("; con holgura ≤ 0 la puerta choca con el parante" if hol <= 0 else ""))
     pc = P["panel_ciego"]
     _chk(out, "bien.vulva", "Panel ciego de la puerta a la altura de la vulva", f"z {pc['z0']}–{pc['z1']}", "cubre z 550–750",
          pc["z0"] <= 550 and pc["z1"] >= 750, "criterio: la cerda que espera afuera no alcanza la vulva")
@@ -183,14 +194,25 @@ def validar(ficha, M=None):
     s = D["slat"]
     _chk(out, "pie.vigas", "La pletina abraza al menos 2 vigas del slat", f"{PL['largo']} mm", f"≥ {2 * s['ancho'] + s['ranura']} mm",
          PL["largo"] >= 2 * s["ancho"] + s["ranura"])
-    _chk(out, "pie.bulones", "Separación entre bulones M10 (y ±55) y M12 (y ±20) del pie", "35 mm", "≥ 19,5 mm", 55 - 20 >= 19.5,
-         "los M12 quedan libres para cualquier posición de la ranura")
+    sb = abs(d["pie"]["m10_y"] - d["pie"]["m12_y"])
+    _chk(out, "pie.bulones", f"Separación entre bulones M10 (y ±{d['pie']['m10_y']}) y M12 (y ±{d['pie']['m12_y']}) del pie", f"{sb} mm", "≥ 19,5 mm (arandelas)", sb >= 19.5,
+         "con los M12 en colisos sobre esas rectas no chocan en ninguna posición de la ranura")
     sep = D["YC"] - D["RL"] - d["rfid"]["y_cara"]
     _chk(out, "elec.antena", "Antena RFID separada del metal", f"{num(sep, 1)} mm", "≥ 50 mm", sep >= 50,
          "fuente: separar de masas metálicas; mínimo a confirmar con el proveedor")
-    la, lf = D["linea"], cr["linea_alimento"]
-    _chk(out, "elec.linea", "Altura y diámetro de la línea de alimento", f"Ø{la['diam']} a {mm(la['z'])} mm", f"Ø{lf['diam_mm']} a {mm(lf['z_mm'])} mm",
-         la["diam"] == lf["diam_mm"] and abs(la["z"] - lf["z_mm"]) <= 50, lf["origen"])
+    la, lf, do = D["linea"], cr["linea_alimento"], d["dosificador"]
+    _chk(out, "elec.linea", "La línea de alimento del galpón pasa por encima del dosificador", f"Ø{la['diam']} a {mm(la['z'])} mm",
+         f"≥ {mm(do['z1'] + 100)} mm", la["z"] >= do["z1"] + 100, f"dato del galpón; referencia Gestal 3G: Ø{lf['diam_mm']} a {mm(lf['z_mm'])} mm")
+    # coherencia de posiciones: lo que cuelga del frente tiene que acompañar al largo del box
+    L, co, ca, px = D["L"], d["comedero"], d["caida"], d["parantes_x"]
+    _chk(out, "geo.parantes", "Los parantes van de la puerta (x 0) al frente (x = largo)", f"x {mm(px[0])} … {mm(px[-1])}", f"0 … {mm(L)}",
+         px[0] == 0 and px[-1] == L and px == sorted(px))
+    _chk(out, "geo.comedero", "El comedero apoya contra el frente", f"x {mm(co['x0'])}–{mm(co['x1'])}", f"termina entre {mm(L - D['RP'] - 60)} y {mm(L)} (zócalo)",
+         L - D["RP"] - 60 <= co["x1"] <= L and co["x0"] < co["apoyo_trasero_x"] < co["x1"])
+    _chk(out, "geo.dosificador", "El dosificador queda sobre el travesaño del frente", f"x {mm(do['x0'])}–{mm(do['x1'])}", f"contiene x {mm(L - D['RL'])}",
+         do["x0"] <= L - D["RL"] <= do["x1"] + D["RL"])
+    _chk(out, "geo.caida", "La caída descarga dentro del comedero y baja desde el dosificador", f"x {mm(ca['x'])}", f"{mm(co['x0'])}–{mm(co['x1'])}",
+         co["x0"] + 25 <= ca["x"] <= co["x1"] - 25 and do["x0"] <= ca["x"] <= do["x1"])
     dias, esps = list(cat["diametros_mm"].values()), cat["espesores_mm"]
     malos = [k for k, t in T.items() if not (any(abs(t["diam"] - x) < 0.2 for x in dias) and t["esp"] in esps)]
     _chk(out, "fab.tubos", "Todos los tubos son medidas comerciales de tubo estructural", "ninguno fuera" if not malos else ", ".join(malos),
@@ -230,7 +252,7 @@ def despiece(ficha, M=None):
 
     def pz(id_, pieza, cant, tubo, largo, sub, ops):
         t = T[tubo]
-        piezas.append({"id": id_, "pieza": pieza, "cant": cant, "subconjunto": sub, "material": t["nombre"], "tubo": tubo,
+        piezas.append({"id": id_, "pieza": pieza, "cant": cant, "subconjunto": sub, "material": nombre_tubo(t), "tubo": tubo,
                        "seccion": f"Ø{num(t['diam'], 1)} × {num(t['esp'], 1)}", "largo": largo, "operaciones": ops})
 
     def otra(id_, pieza, cant, material, medida, sub, ops, kg_u=0.0):
@@ -284,19 +306,29 @@ def despiece(ficha, M=None):
     cz = d["caida"]["z1"] - d["caida"]["z0"]
     otra("C2", "Caída de alimento", 1, "Caño inox 304 Ø50 × 1,5", f"{cz}", "Frente", "Abrazadera inox con buje de nylon al travesaño frontal superior",
          math.pi * 48.5 * 1.5 * cz * 7.9e-6)
-    otra("C3", "Separador de antena", 1, "PEAD", "60 × 56 × 30", "Lateral", "2 agujeros Ø9 al larguero")
+    r_ = d["rfid"]
+    zr = min(d["largueros_z"], key=lambda z: abs(z - (r_["z0"] + r_["z1"]) / 2))
+    otra("C3", "Separador de antena", 1, "PEAD", f"{r_['x1'] - r_['x0'] - 20} × {round(YC - dL / 2 - r_['y_cara'])} × 30", "Lateral",
+         f"2 agujeros Ø9 al larguero z {mm(zr)}")
     otra("B1", "Placa base", n_pies, "Chapa 9,5 mm galvanizada", "150 × 150 × 9,5", "Lateral",
          "Concéntrica con la pletina; parante corrido 25 mm hacia adentro; 4 agujeros Ø11 a ±55", 150 * 150 * 9.5 * 7.85e-6)
     otra("B2", "Cartela", 4 * n_pies, "Chapa 6 mm galvanizada", "60 × 60 × 6", "Lateral", "4 por parante, en cruz", 0.5 * 60 * 60 * 6 * 7.85e-6)
     otra("B3", "Tapa de caño", n_pies + 2 * n_lat, "Chapa 3 mm galvanizada", "Ø50,8 × 3", "Lateral", "Pie de cada parante y puntas de pasamanos",
          math.pi * 25.4 ** 2 * 3 * 7.85e-6)
     otra("B4", "Pletina de apoyo", n_pies, "Inox 304 10 mm", f"{PL['largo']} × {PL['ancho']} × {PL['esp']}", "Pie",
-         "Chaflanes 2 × 45°, esquinas R15; 4 agujeros M10 a ±55; 2 colisos avellanados para M12 en y ±20", PL["largo"] * PL["ancho"] * PL["esp"] * 7.9e-6)
-    otra("B5", "Contrapletina", n_pies, "Inox 304 8 mm", "300 × 100 × 8", "Pie", "Abraza 2 vigas del slat; 2 colisos Ø13 en y ±20", 300 * 100 * 8 * 7.9e-6)
+         f"Chaflanes 2 × 45°, esquinas R15; 4 agujeros M10 a ±{d['pie']['m10_y']}; 2 colisos avellanados para M12 en y ±{d['pie']['m12_y']}", PL["largo"] * PL["ancho"] * PL["esp"] * 7.9e-6)
+    otra("B5", "Contrapletina", n_pies, "Inox 304 8 mm", "300 × 100 × 8", "Pie", f"Abraza 2 vigas del slat; 2 colisos Ø13 en y ±{d['pie']['m12_y']}", 300 * 100 * 8 * 7.9e-6)
     otra("B6", "Junta aislante", n_pies, "Fenólico 3 mm", "160 × 160 × 3", "Pie", "Entre placa base y pletina; sobresale 5 mm")
-    otra("U1", "Planchuela de unión", 10, "Planchuela 2\" × ¼\" galvanizada", "50,8 × 6,35 × 80", "Uniones", "2 agujeros Ø11; frente, trasero y apoyo del comedero", 0.2)
+    n_abul = len(z_tr) + 3  # travesaños frontales + superior frontal + trasero superior + apoyo del comedero: una planchuela por punta
+    otra("U1", "Planchuela de unión", 2 * n_abul, "Planchuela 2\" × ¼\" galvanizada", "50,8 × 6,35 × 80", "Uniones",
+         "2 agujeros Ø11; una por punta de cada travesaño abulonado (frente, trasero y apoyo del comedero)", 0.2)
     otra("U2", "Planchuela del dosificador", 2, "Planchuela 2\" × ¼\" galvanizada", "50,8 × 6,35 × 120", "Frente", "2 agujeros Ø13 a 100 mm", 0.3)
     otra("U3", "Oreja del actuador", 1, "Planchuela 2\" × ¼\" galvanizada", "50,8 × 6,35 × 80", "Lateral", "Agujero Ø13; previsión etapa 4", 0.2)
+
+    # cantidad de boxes: el despiece y el pedido salen para todos; los pesos se informan también por box
+    nb = int(ficha["requisitos"].get("cantidad_boxes", 1) or 1)
+    for p in piezas:
+        p["cant"] *= nb
 
     # plan de corte por sección (mismo tubo, misma barra), primer ajuste decreciente
     cortes, clave = {}, {}
@@ -324,14 +356,14 @@ def despiece(ficha, M=None):
     kg_resto = sum(p["cant"] * p.get("kg_u", 0) for p in piezas if not p["tubo"] and "galvaniz" not in (p["material"] or "").lower())
     kg_galv = (kg_tubo + kg_galv_otros) * 1.05
     lat = [p for p in piezas if p["subconjunto"] == "Lateral" and p["id"] not in ("U3", "C3")]
-    kg_lat = (sum(p["cant"] * (p["largo"] / 1000 * _kg_m(T[p["tubo"]]["diam"], T[p["tubo"]]["esp"]) if p["tubo"] else p.get("kg_u", 0)) for p in lat) / n_lat) * 1.05
+    kg_lat = (sum(p["cant"] * (p["largo"] / 1000 * _kg_m(T[p["tubo"]]["diam"], T[p["tubo"]]["esp"]) if p["tubo"] else p.get("kg_u", 0)) for p in lat) / (n_lat * nb)) * 1.05
     peso = {"total_kg": round(kg_galv + kg_resto, 1), "galvanizado_kg": round(kg_galv, 1), "otros_kg": round(kg_resto, 1),
-            "tubo_kg": round(kg_tubo, 1), "lateral_kg": round(kg_lat, 1)}
+            "tubo_kg": round(kg_tubo, 1), "lateral_kg": round(kg_lat, 1), "por_box_kg": round((kg_galv + kg_resto) / nb, 1), "boxes": nb}
 
     pedido = {"tubo": [], "chapa_y_planchuela": [], "inox": [], "bulones_y_aislacion": [], "otros": []}
     for tubo, bs in barras.items():
         util = sum(sum(b["cortes"]) for b in bs)
-        pedido["tubo"].append({"id": f"tubo_{tubo}", "descripcion": T[tubo]["nombre"] + f", barra de {num(BARRA / 1000, 0)} m", "cant": len(bs),
+        pedido["tubo"].append({"id": f"tubo_{tubo}", "descripcion": nombre_tubo(T[tubo]) + f", barra de {num(BARRA / 1000, 0)} m", "cant": len(bs),
                                "unidad": "barra", "uso": f"{mm(util)} mm útiles", "desperdicio_pct": round(100 * (1 - util / (len(bs) * BARRA)), 1)})
     pedido["chapa_y_planchuela"] += [
         {"id": "planch_2x14", "descripcion": "Planchuela 2\" × ¼\" (50,8 × 6,35)", "cant": 1, "unidad": "barra de 6 m", "uso": "orejas, trinquetes, uniones, dosificador, actuador"},
@@ -351,7 +383,8 @@ def despiece(ficha, M=None):
          "uso": "anclaje al slat (largo según el espesor real del slat)"},
         {"id": "m10_inox_pie", "descripcion": "Bulón M10 × 40 inox con vaina y 2 arandelas aislantes", "cant": 4 * n_pies, "unidad": "juego", "uso": "pie"},
         {"id": "fenolico", "descripcion": "Junta fenólica 160 × 160 × 3", "cant": n_pies, "unidad": "u", "uso": "B6"},
-        {"id": "m10_galv", "descripcion": "Bulón M10 × 70 galvanizado con tuerca autofrenante y 2 arandelas", "cant": 22, "unidad": "u", "uso": "uniones (20) y trinquetes (2)"},
+        {"id": "m10_galv", "descripcion": "Bulón M10 × 70 galvanizado con tuerca autofrenante y 2 arandelas", "cant": 4 * n_abul + 2, "unidad": "u",
+         "uso": f"uniones ({4 * n_abul}: 2 por planchuela) y trinquetes (2)"},
         {"id": "m8_inox", "descripcion": "Bulón M8 inox con buje y arandelas de nylon", "cant": 12, "unidad": "juego", "uso": "comedero (6) y panel ciego (6)"},
         {"id": "m8_galv", "descripcion": "Bulón M8 galvanizado con arandela", "cant": 8, "unidad": "u", "uso": "zócalo (6) y separador de antena (2)"},
         {"id": "pasador", "descripcion": "Pasador elástico Ø6 galvanizado con vaina aislante", "cant": 2, "unidad": "u", "uso": "puerta–eje"}]
@@ -361,6 +394,12 @@ def despiece(ficha, M=None):
         {"id": "resorte", "descripcion": "Resorte de tracción regulable + 4 topes de goma", "cant": 1, "unidad": "juego", "uso": "P10"},
         {"id": "galvanizado", "descripcion": "Servicio de galvanizado por inmersión en caliente (subconjuntos ya soldados)", "cant": round(kg_tubo + kg_galv_otros),
          "unidad": "kg aprox.", "uso": "laterales, frente, trasero, puerta, chapas y planchuelas"}]
+    for grupo in ("chapa_y_planchuela", "inox", "bulones_y_aislacion", "otros"):
+        for r in pedido[grupo]:
+            if r["id"] == "planch_2x14":
+                r["cant"] = math.ceil(2.4 * nb / 6)  # ≈ 2,4 m de planchuela por box
+            elif r["id"] != "galvanizado":
+                r["cant"] *= nb
     return {"piezas": piezas, "barras_corte": barras, "pedido": pedido, "peso": peso, "barra_comercial_mm": BARRA, "corte_mm": CORTE,
             "nota": "Largos entre caras para uniones a tope con boca de pescado; verificar en el plano de taller. Sin precios ni presupuesto."}
 
@@ -494,7 +533,7 @@ def _html_despiece(desp, T):
             filas.append(f'<tr class="grupo"><th colspan="5">{E(p["subconjunto"])}</th></tr>')
             sub_ant = p["subconjunto"]
         medida = f'{p["seccion"]} × {mm(p["largo"])}' if p["largo"] else p["seccion"]
-        mat = T[p["tubo"]]["nombre"].split(" (")[0] if p["tubo"] else p["material"]
+        mat = p["material"]
         filas.append(f'<tr><td class="v">{p["id"]}</td><td>{E(p["pieza"])}</td><td class="v">{p["cant"]}</td>'
                      f'<td class="v">{E(medida)}</td><td>{E(p["operaciones"])}<br><small>{E(mat)}</small></td></tr>')
     corte = []
@@ -503,7 +542,7 @@ def _html_despiece(desp, T):
             f'<div class="barra"><b>{i}</b><div class="tira">'
             + "".join(f'<span class="seg" style="flex:{c}" title="{c}">{mm(c)}</span>' for c in b["cortes"])
             + f'<span class="sobra" style="flex:{max(b["libre"], 1)}">{mm(b["libre"])}</span></div></div>' for i, b in enumerate(bs, 1))
-        corte.append(f'<div class="corte"><h3>{E(T[tubo]["nombre"].split(" (")[0])} · {len(bs)} barras</h3>{bars}</div>')
+        corte.append(f'<div class="corte"><h3>{E(nombre_tubo(T[tubo]))} · {len(bs)} barras</h3>{bars}</div>')
     nom = {"tubo": "Tubo estructural", "chapa_y_planchuela": "Chapa y planchuela", "inox": "Acero inoxidable 304",
            "bulones_y_aislacion": "Bulonería y aislación", "otros": "Otros"}
     ped = []
@@ -518,7 +557,8 @@ def _html_despiece(desp, T):
             f'<div class="cortes"><h3 class="sub">Plan de corte</h3><p class="hint">Barras de {num(desp["barra_comercial_mm"] / 1000, 0)} m, {desp["corte_mm"]} mm por corte. Gris: sobrante.</p>{"".join(corte)}</div>'
             f'<div class="tabla"><h3 class="sub">Pedido de materiales (sin precios)</h3><table><thead><tr><th>Material</th><th>Cant.</th><th>Unidad</th></tr></thead>'
             f'<tbody>{"".join(ped)}</tbody></table></div>'
-            f'<p class="hint" style="padding:12px 16px">Peso ≈ {num(pe["total_kg"], 0)} kg (galvanizado ≈ {num(pe["galvanizado_kg"], 0)} kg, '
+            + (f'<p class="hint" style="padding:12px 16px 0">Despiece y pedido para {pe["boxes"]} boxes (≈ {num(pe["por_box_kg"], 0)} kg cada uno).</p>' if pe["boxes"] > 1 else "")
+            + f'<p class="hint" style="padding:12px 16px">Peso ≈ {num(pe["total_kg"], 0)} kg (galvanizado ≈ {num(pe["galvanizado_kg"], 0)} kg, '
             f'inox y otros ≈ {num(pe["otros_kg"], 0)} kg); cada lateral ≈ {num(pe["lateral_kg"], 0)} kg. {E(desp["nota"])}</p>')
 
 
@@ -537,7 +577,9 @@ def _filas_medidas(ficha, D, desp):
         ("Largueros", f"Ø{num(T['larguero']['diam'], 1)} × {num(T['larguero']['esp'], 1)}", T["larguero"]["_origen"]),
         ("Puerta trasera", f"{P['ancho']} × {P['pivote_z'] - P['borde_inf_z']}", "supuesto: medidas propias; " + P["_origen"]),
         ("Traba", f"2 trinquetes a z {P['trinquete_z']}", "criterio: " + P["traba"]),
-        ("Frente", f"{F['barrotes_cant']} barrotes", F["_origen"] + ": " + F["barrotes"] + "; " + F["zocalo"]),
+        ("Frente", f"{F['barrotes_cant']} barrotes, luz {round((D['AL'] - F['barrotes_cant'] * T['barrote']['diam']) / (F['barrotes_cant'] + 1))}",
+         f"supuesto: barrotes Ø{num(T['barrote']['diam'], 1)} × {num(T['barrote']['esp'], 1)} centrados entre los travesaños z "
+         + " · ".join(mm(z) for z in F["travesanos_z"][1:]) + f" y {mm(D['H'])}; " + F["zocalo"]),
         ("Pie", f"placa 150 + pletina {PL['largo']} × {PL['ancho']} × {PL['esp']}", d["pie"]["_origen"]),
         ("Anclaje al slat", "4 M12 pasantes + contrapletina", "supuesto: " + d["bulon_anclaje"]),
         ("Comedero", f"{d['comedero']['x1'] - d['comedero']['x0']} × {d['comedero']['ancho']} × {d['comedero']['z1'] - d['comedero']['z0']}",
@@ -575,7 +617,8 @@ def pagina(ficha, M, val, desp, auditoria=None):
     cifras = "".join(f"<span>{a} <em>{b}</em></span>" for a, b in (
         (mm(D["L"]), "largo"), (mm(D["AL"]), "ancho libre"), (mm(D["EXT"]), "ancho ext."), (mm(D["H"]), "alto"),
         (mm(req["linea_alimento"]["z"]), "a la línea"), ("1", "cerda por box sin RFID"), ("15–18", "con RFID")))
-    aud_estado = f"auditoría vuelta {auditoria.get('vuelta', '?')}: {auditoria.get('estado')}" if auditoria else "auditoría pendiente"
+    vu = (auditoria or {}).get("vueltas", (auditoria or {}).get("vuelta", "?"))
+    aud_estado = (f"auditoría vuelta {vu}: {auditoria.get('estado')}" + (" (desactualizada)" if auditoria.get("_aviso") else "")) if auditoria else "auditoría pendiente"
     der = "".join(f"<span>{a} <b>{E(b)}</b></span>" for a, b in (
         ("Medidas", "mm"), ("Material", "hierro galvanizado + inox"), ("Puerta", "mecánica, sin aire"),
         ("Verificaciones", f"{ok}/{len(val['checks'])}"), ("Estado", aud_estado)))
@@ -596,7 +639,7 @@ def pagina(ficha, M, val, desp, auditoria=None):
             "Validar con un ingeniero matriculado y con un productor antes de fabricar en serie.",
             "Confirmar con el proveedor el largo de barra (6 o 6,40 m) y con el galpón el espesor real del slat (largo del bulón de anclaje)."]
     if auditoria:
-        pend.insert(0, f"Auditoría independiente: vuelta {auditoria.get('vuelta')}, estado «{auditoria.get('estado')}». El detalle está en el anexo.")
+        pend.insert(0, f"Auditoría independiente: vuelta {vu}, estado «{auditoria.get('estado')}». El detalle está en el anexo." + (" " + auditoria["_aviso"] if auditoria.get("_aviso") else ""))
     cond = "".join(f"<p>{x}</p>" for x in (
         "Propuesta técnica: diseño, verificaciones, despiece y pedido de materiales <b>sin precios</b>. Esta tipología no lleva presupuesto.",
         E(ficha["comercial"]["mod"]["texto"]),
@@ -608,7 +651,8 @@ def pagina(ficha, M, val, desp, auditoria=None):
         it = auditoria.get("items", [])
         okn = sum(i["estado"] == "cumple" for i in it)
         filas = "".join(f'<tr><td>{E(i["requisito"])}</td><td>{_estado(i["estado"])}</td><td>{E(i.get("evidencia", ""))}</td></tr>' for i in it)
-        aud = (f'<section class="lamina"><header><h2>Anexo: auditoría independiente</h2><small>vuelta {auditoria.get("vuelta")} · {okn}/{len(it)} cumple · {E(auditoria.get("estado", ""))}</small></header>'
+        aviso = f'<p class="hint" style="padding:12px 16px"><b>{E(auditoria["_aviso"])}</b></p>' if auditoria.get("_aviso") else ""
+        aud = (f'<section class="lamina"><header><h2>Anexo: auditoría independiente</h2><small>vuelta {vu} · {okn}/{len(it)} cumple · {E(auditoria.get("estado", ""))}</small></header>{aviso}'
                f'<div class="tabla"><table><thead><tr><th>Requisito</th><th>Estado</th><th>Evidencia</th></tr></thead><tbody>{filas}</tbody></table></div></section>')
     rep = {
         "{{TITULO_CORTO}}": "Box de Alimentación Cerdas", "{{EYEBROW}}": f"Propuesta técnica {E(pr['numero'])} · {f_(fecha)}",

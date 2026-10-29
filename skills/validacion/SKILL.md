@@ -1,12 +1,12 @@
 ---
 name: validacion
-description: Validación rápida (sin graficar) de un diseño de estructura a medida a partir de ficha.json: normas de la tipología, que entre en el espacio, cargas, vuelco sin anclajes, flexión de la pieza principal, separaciones y ángulos. Devuelve un resumen corto para iterar con el usuario hasta aprobar. Usar después del relevamiento o cada vez que cambie la ficha.
+description: "Validación rápida (sin graficar) de un diseño de estructura a medida a partir de ficha.json: normas de la tipología, que entre en el espacio, cargas, vuelco sin anclajes, flexión de la pieza principal, separaciones y ángulos. Devuelve un resumen corto para iterar con el usuario hasta aprobar. Usar después del relevamiento o cada vez que cambie la ficha."
 ---
 
 # Validación rápida
 
 ```
-python "${CLAUDE_PLUGIN_ROOT}/motor/correr.py" validar <carpeta>
+python3 "${CLAUDE_PLUGIN_ROOT}/motor/correr.py" validar <carpeta>
 ```
 
 Escribe `validacion.json` (todas las verificaciones con valor, límite y estado) e imprime el resumen.

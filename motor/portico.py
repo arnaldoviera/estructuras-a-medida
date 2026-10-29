@@ -153,9 +153,10 @@ def modelo(ficha):
 # ======================================================================
 # Validación rápida
 # ======================================================================
-def _chk(lst, id_, requisito, valor, limite, ok, nota="", dudoso=False):
+def _chk(lst, id_, requisito, valor, limite, ok, nota="", dudoso=False, info=False):
+    """info=True: dato informativo (no se verifica nada); no entra en el conteo N/N."""
     lst.append({"id": id_, "requisito": requisito, "valor": valor, "limite": limite,
-                "estado": "dudoso" if dudoso else ("cumple" if ok else "no cumple"), "nota": nota})
+                "estado": "informativo" if info else ("dudoso" if dudoso else ("cumple" if ok else "no cumple")), "nota": nota})
 
 
 def validar(ficha, M=None):
@@ -176,43 +177,51 @@ def validar(ficha, M=None):
          m(D["pozos_exterior"]) + " de pozo a pozo por fuera", m(esp["largo_eje_travesano_m"] * 1000),
          D["pozos_exterior"] <= esp["largo_eje_travesano_m"] * 1000)
     L = cu["z_giro"] - ac["asiento_z"]
-    zl = (L * 0.867 + 1500)
-    _chk(out, "norma.zona_libre", "Zona libre de vaivén (EN 1176-2): (giro − asiento)·0,867 + 1,50 m por lado",
+    nm = tip["norma"]
+    sup = req.get("superficie") or nm["superficie_default"]
+    B = nm["zona_libre_B_m"][sup] * 1000 + (nm["zona_libre_extra_al_ras_m"] * 1000 if sup == "al_ras" else 0)
+    txt_B = f"{num(nm['zona_libre_B_m'][sup])} m" + (f" + {num(nm['zona_libre_extra_al_ras_m'], 1)} m libres de obstáculos" if sup == "al_ras" else "")
+    nota_sup = "superficie al ras (césped o sintético)" if sup == "al_ras" else "superficie suelta contenida (arena, chips)"
+    zl = L * 0.867 + B
+    _chk(out, "norma.zona_libre", f"Zona libre de vaivén (EN 1176-2, 4.10.2): (giro − asiento)·0,867 + {txt_B} por lado",
          m(zl) + " por lado = " + m(2 * zl), m(esp["largo_vaiven_m"] * 1000),
-         2 * zl <= esp["largo_vaiven_m"] * 1000 + 5,
-         "Entra justo" if abs(2 * zl - esp["largo_vaiven_m"] * 1000) < 30 else "")
+         2 * zl <= esp["largo_vaiven_m"] * 1000 + 5, nota_sup + ("; entra justo" if abs(2 * zl - esp["largo_vaiven_m"] * 1000) < 30 else ""))
     for cfg in req["configuraciones"]:
         if "cama" in cfg["puestos"]:
-            zlc = (cu["z_giro"] - ac["cama"]["z"]) * 0.867 + 1500
+            zlc = (cu["z_giro"] - ac["cama"]["z"]) * 0.867 + B
             _chk(out, "norma.zona_libre_cama", "Zona libre de vaivén de la hamaca-cama (misma fórmula, cama a " + m(ac["cama"]["z"]) + ")",
-                 m(zlc) + " por lado = " + m(2 * zlc), m(esp["largo_vaiven_m"] * 1000), 2 * zlc <= esp["largo_vaiven_m"] * 1000 + 5)
+                 m(zlc) + " por lado = " + m(2 * zlc), m(esp["largo_vaiven_m"] * 1000), 2 * zlc <= esp["largo_vaiven_m"] * 1000 + 5, nota_sup)
     # --- separaciones ---
-    s_min = 0.2 * L + 200
-    tiene_ham = any("hamaca" in c["puestos"] for c in req["configuraciones"])
-    if tiene_ham:
-        anchos = {"hamaca": ac["asiento_ancho"], "trapecio": ac["trapecio_ancho"], "escalera": 400}
-        paso = cu["puestos_x"][1] - cu["puestos_x"][0]
-        gap = min(paso - (anchos[a] + anchos[b]) / 2 for c in req["configuraciones"] if "cama" not in c["puestos"]
-                  for a, b in zip(c["puestos"], c["puestos"][1:]))
-        _chk(out, "norma.sep_asientos", "Separación entre accesorios vecinos (0,20·L + 0,20 m)", m(gap, 3), "≥ " + m(s_min, 3), gap >= s_min)
-        sp_min = 0.2 * L + 300
-        x_ext = max(abs(x) for x in cu["puestos_x"]) + ac["asiento_ancho"] / 2
+    s_min = 0.2 * L + 300  # entre asientos (EN 1176-2, 4.4.1)
+    anchos = {"hamaca": ac["asiento_ancho"], "trapecio": ac["trapecio_ancho"], "escalera": 400}
+    px = cu["puestos_x"]
+    cfg_ind = [c for c in req["configuraciones"] if "cama" not in c["puestos"]]
+    # cada accesorio cuelga del puesto de su misma posición (puestos[i] ↔ puestos_x[i]); se mide cada par vecino
+    pares = [(px[i + 1] - px[i]) - (anchos[a] + anchos[b]) / 2 for c in cfg_ind for i, (a, b) in enumerate(zip(c["puestos"], c["puestos"][1:]))]
+    if pares:
+        gap = min(pares)
+        _chk(out, "norma.sep_asientos", "Separación entre accesorios vecinos (EN 1176-2, 4.4.1: 0,20·L + 0,30 m)", m(gap, 3), "≥ " + m(s_min, 3), gap >= s_min)
+    if cfg_ind:
+        sp_min = 0.2 * L + 200  # asiento a estructura (EN 1176-2, 4.4.1)
+        x_ext = max(abs(px[i]) + anchos[p] / 2 for c in cfg_ind for i, p in enumerate(c["puestos"]))
         gap_p = D["libre_asiento"] / 2 - x_ext
-        _chk(out, "norma.sep_pata", "Separación asiento–pata (0,20·L + 0,30 m)", m(gap_p), "≥ " + m(sp_min), gap_p >= sp_min)
-        h0, h1 = tip["norma"]["altura_asiento_m"]
-        _chk(out, "norma.altura_asiento", "Altura del asiento", m(ac["asiento_z"]), f"{num(h0)}–{num(h1)} m",
-             h0 * 1000 <= ac["asiento_z"] <= h1 * 1000)
+        _chk(out, "norma.sep_pata", "Separación accesorio–pata (EN 1176-2, 4.4.1: 0,20·L + 0,20 m)", m(gap_p), "≥ " + m(sp_min), gap_p >= sp_min)
+    if any("hamaca" in c["puestos"] for c in req["configuraciones"]):
+        h0, h1 = nm["altura_asiento_min_m"], nm["altura_asiento_max_recomendada_m"]
+        _chk(out, "norma.altura_asiento", "Altura libre del asiento al piso (EN 1176-2, 4.2)", m(ac["asiento_z"]), f"≥ {num(h0)} m",
+             ac["asiento_z"] >= h0 * 1000, f"recomendado hasta {num(h1)} m (Playcentre NZ, no normativo)" + ("" if ac["asiento_z"] <= h1 * 1000 else ": supera la recomendación"))
     if any("trapecio" in c["puestos"] for c in req["configuraciones"]):
-        lim = tip["norma"]["caida_max_trapecio_m"] * 1000
-        _chk(out, "norma.trapecio", "Altura de caída del trapecio", m(ac["trapecio_z"]), "≤ " + m(lim), ac["trapecio_z"] <= lim)
+        lim = nm["caida_max_trapecio_m"] * 1000
+        _chk(out, "norma.trapecio", "Altura de caída del trapecio (criterio preescolar Playcentre NZ, no EN 1176)", m(ac["trapecio_z"]), "≤ " + m(lim), ac["trapecio_z"] <= lim)
 
     # --- geometría cerrada ---
     zc_formula = D["apex"]
     _chk(out, "geo.cruce", "Altura del cruce: zc = z_eje − (R_trav + R_pata)/sin(atan(semibase/zc))", m(zc_formula, 3),
-         "tangencia del travesaño en la V", True)
-    _chk(out, "geo.angulos", "Ángulos de las patas", f"{num(D['ang_lateral'], 0)}° lateral · {num(D['ang_frontal'], 0)}° frontal", "—", True)
-    _chk(out, "geo.largo_pata", "Largo de pata (enterrado + pie cortado horizontal) vs. rollizo comercial",
-         m(D["largo_pata_calc"], 3), "≤ " + m(pa["largo_comercial"], 3), D["largo_pata_calc"] <= pa["largo_comercial"])
+         "tangencia del travesaño en la V", True, info=True)
+    _chk(out, "geo.angulos", "Ángulos de las patas", f"{num(D['ang_lateral'], 0)}° lateral · {num(D['ang_frontal'], 0)}° frontal", "—", True, info=True)
+    # mismo margen de corte (2 cm) que usa el pedido de madera
+    _chk(out, "geo.largo_pata", "Largo de pata (enterrado + pie cortado horizontal) + 2 cm de corte vs. rollizo comercial",
+         m(D["largo_pata_calc"] + 20, 3), "≤ " + m(pa["largo_comercial"], 3), D["largo_pata_calc"] + 20 <= pa["largo_comercial"])
     _chk(out, "geo.prolongacion", "Prolongación de la pata sobre el cruce cubre el travesaño",
          cm(D["prolongacion"]), "≥ " + cm(2 * r["beamR"] + 100), D["prolongacion"] >= 2 * r["beamR"] + 100)
     dh = d["varillas"]["horqueta"]["d"]
@@ -249,12 +258,12 @@ def validar(ficha, M=None):
     P = req["carga_diseno_kg"] * G * fd
     a = luz / 2 - abs(D["hang"][0])
     casos.append(("Carga de diseño en las abrazaderas exteriores (cama)", (P / 2) * a, P / 2 * a * (3 * luz ** 2 - 4 * a ** 2) / (24 * E * I)))
-    # caso B: un adulto por puesto en los 3 puestos
+    # caso B: un adulto por puesto en todos los puestos; momento máximo (bajo alguna de las cargas)
     Pp = req["carga_por_puesto_kg"] * G * fd
     xs = [x + luz / 2 for x in cu["puestos_x"]]
     Ra = sum(Pp * (luz - xi) for xi in xs) / luz
-    Mc = Ra * luz / 2 - sum(Pp * (luz / 2 - xi) for xi in xs if xi < luz / 2)
-    casos.append(("Un adulto por puesto en los 3 puestos", Mc, None))
+    Mc = max(Ra * xj - sum(Pp * (xj - xi) for xi in xs if xi < xj) for xj in xs)
+    casos.append((f"Un adulto por puesto en los {len(xs)} puestos", Mc, None))
     # caso C (envolvente conservadora): toda la carga de diseño en el puesto central
     casos.append(("Toda la carga de diseño en el puesto central (envolvente)", P * luz / 4, P * luz ** 3 / (48 * E * I)))
     for nombre, Mmax, flecha in casos:
@@ -318,6 +327,21 @@ def validar(ficha, M=None):
         _chk(out, "varilla." + k, f"Varilla {k.replace('_', ' ')} ({va[k]['d']} mm): agarre + 2 × (arandela + tuerca + contratuerca)",
              m(va[k]["largo"]), "≥ " + m(need), va[k]["largo"] >= need)
 
+    vr = catalogo_materiales()["metales"]["varilla-roscada-galvanizada"]
+    largo_max = max(v["largo"] for v in va.values() if isinstance(v, dict))
+    _chk(out, "varilla.barra", "El tramo de varilla más largo sale de una barra comercial", m(largo_max), "≤ " + m(vr["largo_barra_mm"] - vr["corte_mm"]),
+         largo_max <= vr["largo_barra_mm"] - vr["corte_mm"])
+    ab = cu["abrazadera"]
+    r_min = d["travesano"]["diametro"] / 2 + ab["goma_mm"]
+    _chk(out, "geo.abrazadera", "Radio interior de la abrazadera abraza el travesaño con la goma", f"{num(ab['radio_interior'], 0)} mm", f"≥ {num(r_min, 0)} mm",
+         ab["radio_interior"] >= r_min)
+    sin_rango = [n for n, dmm in (("travesaño", d["travesano"]["diametro"]), ("patas", pa["diametro"]), ("tirantes", d["tirante"]["diametro"]),
+                                  ("cartelas", d["cartela"]["diametro"])) if _rollizo_comercial(dmm, 0, mat) is None]
+    _chk(out, "mat.diametros", "Diámetros dentro de los rangos comerciales de " + mat["nombre"].lower(), ", ".join(sin_rango) or "todos", "catálogo", not sin_rango)
+    largos = max(mat["largos_comerciales_m"]) * 1000
+    sin_largo = [n for n, l in (("travesaño", d["travesano"]["largo"]), ("patas", D["largo_pata_calc"])) if l + 20 > largos]
+    _chk(out, "mat.largos", "Piezas dentro del largo comercial máximo", ", ".join(sin_largo) or "todas", "≤ " + m(largos - 20), not sin_largo)
+
     vol_ent = pa["cantidad"] * math.pi * (pa["diametro"] / 2) ** 2 * (D["largo_pata_calc"] - norm(sub(*M["legs"]["1,1"]))) / 1e9
     return {"checks": out, "peso_propio_kg": vol_m3 * mat["densidad_kg_m3"], "peso_total_kg": (vol_m3 + vol_ent) * mat["densidad_kg_m3"],
             "volumen_madera_m3": vol_m3,
@@ -325,6 +349,8 @@ def validar(ficha, M=None):
 
 
 def resumen_validacion(checks):
+    n = len(checks)
+    checks = [c for c in checks if c["estado"] != "informativo"]
     n = len(checks)
     ok = sum(c["estado"] == "cumple" for c in checks)
     malos = [c for c in checks if c["estado"] != "cumple"]
@@ -338,11 +364,16 @@ def resumen_validacion(checks):
 # Despiece y pedido de materiales
 # ======================================================================
 def _rollizo_comercial(d_mm, largo_mm, mat):
+    """Rango comercial que contiene al diámetro (si coincide con un borde, el que arranca en él; el último rango incluye su tope).
+    Por debajo del primer rango se compra el primero; por encima del último no hay rollizo comercial: None."""
     dc = d_mm / 10
-    for lo, hi in mat["rangos_diametro_cm"]:
-        if lo <= dc < hi:
+    rangos = mat["rangos_diametro_cm"]
+    if dc < rangos[0][0]:
+        return tuple(rangos[0])
+    for i, (lo, hi) in enumerate(rangos):
+        if lo <= dc < hi or (i == len(rangos) - 1 and dc == hi):
             return lo, hi
-    return mat["rangos_diametro_cm"][-1]
+    return None
 
 
 def despiece(ficha, M=None):
@@ -369,17 +400,27 @@ def despiece(ficha, M=None):
     ]
     # pedido de madera por medida comercial
     madera = []
-    def add_madera(id_, desc, d_mm, largo_mm, cant_piezas, por_rollizo, uso):
-        lo, hi = _rollizo_comercial(d_mm, largo_mm, mad)
-        Lc = min(x for x in mad["largos_comerciales_m"] if x * 1000 >= largo_mm * por_rollizo + 20 * por_rollizo)
+    especie = d["material"].split("-")[0]  # eucalipto / pino: va en el id para que el precio sea de la madera correcta
+    desc_mad = "Rollizo " + mad["nombre"].split("Rollizo de ", 1)[-1].replace(" (CCA)", "")
+
+    def add_madera(d_mm, largo_mm, cant_piezas, por_rollizo, uso):
+        rango = _rollizo_comercial(d_mm, largo_mm, mad)
+        cands = [x for x in mad["largos_comerciales_m"] if x * 1000 >= largo_mm * por_rollizo + 20 * por_rollizo]
         n = math.ceil(cant_piezas / por_rollizo)
-        id_ = f"rollizo_d{round(d_mm / 10)}_l{num(Lc, 1).replace(',', '').rstrip('0')}"
-        madera.append({"id": id_, "descripcion": f"{desc} Ø {lo}-{hi} cm × {num(Lc, 1)} m (mín. Ø {num(d_mm / 10, 0)} cm en la punta fina)", "cant": n, "unidad": "u", "uso": uso,
+        if rango is None or not cands:
+            falta = ("sin rango comercial de diámetro" if rango is None else "") + (" y " if rango is None and not cands else "") + ("sin largo comercial" if not cands else "")
+            madera.append({"id": f"rollizo_{especie}_especial_{uso.split()[0].lower()}", "descripcion": f"{desc_mad} Ø {num(d_mm / 10, 0)} cm × {m(largo_mm * por_rollizo)} (pedido especial: {falta})",
+                           "cant": n, "unidad": "u", "uso": uso, "largo_util_mm": largo_mm * cant_piezas, "largo_compra_mm": largo_mm * por_rollizo * n})
+            return
+        lo, hi = rango
+        Lc = min(cands)
+        id_ = f"rollizo_{especie}_d{round(d_mm / 10)}_l{num(Lc, 1).replace(',', '').rstrip('0')}"
+        madera.append({"id": id_, "descripcion": f"{desc_mad} Ø {lo}-{hi} cm × {num(Lc, 1)} m (mín. Ø {num(d_mm / 10, 0)} cm en la punta fina)", "cant": n, "unidad": "u", "uso": uso,
                        "largo_util_mm": largo_mm * cant_piezas, "largo_compra_mm": Lc * 1000 * n})
-    add_madera("rollizo_d20_l4", "Rollizo eucalipto impregnado", tr["diametro"], tr["largo"], 1, 1, "Travesaño")
-    add_madera("rollizo_patas", "Rollizo eucalipto impregnado", pa["diametro"], D["largo_pata_calc"], pa["cantidad"], 1, "Patas")
-    add_madera("rollizo_d15_l25", "Rollizo eucalipto impregnado", ti["diametro"], ti["largo"], 2, 2, "2 tirantes de un rollizo")
-    add_madera("rollizo_d12_l25", "Rollizo eucalipto impregnado", ca["diametro"], ca["largo"], 2, 2, "2 cartelas de un rollizo")
+    add_madera(tr["diametro"], tr["largo"], 1, 1, "Travesaño")
+    add_madera(pa["diametro"], D["largo_pata_calc"], pa["cantidad"], 1, "Patas")
+    add_madera(ti["diametro"], ti["largo"], 2, 2, "2 tirantes de un rollizo")
+    add_madera(ca["diametro"], ca["largo"], 2, 2, "2 cartelas de un rollizo")
 
     # varillas: optimización de corte en barras de 1 m
     vr = mat["metales"]["varilla-roscada-galvanizada"]

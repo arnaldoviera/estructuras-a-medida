@@ -1,5 +1,6 @@
 """Perspectiva cónica acotada del pórtico (SVG), generada desde el modelo de ficha.json.
 Refactor de insumos/portico-v3/perspectiva/plano.py: misma cámara, pintado por profundidad y cotas 3D."""
+import html
 import math
 from comun import add, sub, mul, dot, cross, norm, unit, m, num, cm
 
@@ -209,7 +210,7 @@ def svg(ficha, M, config_id=None):
         dims.append(f'<circle cx="{p[0]:.1f}" cy="{p[1]:.1f}" r="2.6" class="dotc"/>')
         dims.append(f'<line x1="{p[0]:.1f}" y1="{p[1]:.1f}" x2="{q[0]:.1f}" y2="{q[1]:.1f}" class="ldr"/>')
         anchor = "start" if dx >= 0 else "end"
-        dims.append(f'<text x="{q[0] + (4 if dx >= 0 else -4):.1f}" y="{q[1]+4:.1f}" class="tg" text-anchor="{anchor}">{text}</text>')
+        dims.append(f'<text x="{q[0] + (4 if dx >= 0 else -4):.1f}" y="{q[1]+4:.1f}" class="tg" text-anchor="{anchor}">{html.escape(str(text), quote=False)}</text>')
 
     tr, pa, ti, ca = d["travesano"], d["patas"], d["tirante"], d["cartela"]
     tag([-1300, -60, beamZ + 60], -40, -150, f"Travesaño Ø{cm(tr['diametro'])} · {m(tr['largo'])}")
@@ -219,11 +220,16 @@ def svg(ficha, M, config_id=None):
     tag(tAm, 70, 95, f"Tirante Ø{cm(ti['diametro'])} · {m(ti['largo'])}")
     tag(mid([-D["tx"], 0, tieZ + 60], [-braceTopX, 0, beamZ - beamR], 0.55), 50, -40, f"Cartela Ø{cm(ca['diametro'])} · {m(ca['largo'])}")
     tag([axisX(beamZ), -230, beamZ + 10], 60, -70, "Horqueta (ver detalle)")
-    tag([HANG[3], -105, beamZ - 40], 40, 70, f"{len(HANG)} abrazaderas de cuelgue")
+    tag([HANG[min(3, len(HANG) - 1)], -105, beamZ - 40], 40, 70, f"{len(HANG)} abrazaderas de cuelgue")
+    # el lienzo crece si el área libre (y sus rótulos) no entra en el encuadre fijo
+    xs = [p[0] for p in area] + [czp[0] + 110, mt[0] - 60]
+    ys = [p[1] for p in area] + [al[1] + 40]
+    vx0, vy0 = min(0, min(xs) - 40), min(0, min(ys) - 40)
+    vx1, vy1 = max(W, max(xs) + 40), max(H, max(ys) + 20)
 
-    return f'''<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {W} {H}" role="img" aria-label="Perspectiva acotada del pórtico de hamacas">
+    return f'''<svg xmlns="http://www.w3.org/2000/svg" viewBox="{vx0:.0f} {vy0:.0f} {vx1 - vx0:.0f} {vy1 - vy0:.0f}" role="img" aria-label="Perspectiva acotada del pórtico de hamacas">
 <defs><marker id="ar" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="9" markerHeight="9" orient="auto-start-reverse"><path d="M0,1.5 L9,5 L0,8.5 z" class="arh"/></marker></defs>
-<rect x="0" y="0" width="{W}" height="{H}" fill="var(--paper)"/>
+<rect x="{vx0:.0f}" y="{vy0:.0f}" width="{vx1 - vx0:.0f}" height="{vy1 - vy0:.0f}" fill="var(--paper)"/>
 {''.join(ground)}
 {''.join(s for _, s in items)}
 {''.join(dims)}

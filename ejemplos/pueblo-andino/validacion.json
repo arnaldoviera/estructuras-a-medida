@@ -18,47 +18,47 @@
     },
     {
       "id": "norma.zona_libre",
-      "requisito": "Zona libre de vaivén (EN 1176-2): (giro − asiento)·0,867 + 1,50 m por lado",
-      "valor": "2,75 m por lado = 5,50 m",
+      "requisito": "Zona libre de vaivén (EN 1176-2, 4.10.2): (giro − asiento)·0,867 + 1,75 m + 0,5 m libres de obstáculos por lado",
+      "valor": "3,50 m por lado = 7,00 m",
       "limite": "5,50 m",
-      "estado": "cumple",
-      "nota": "Entra justo"
+      "estado": "no cumple",
+      "nota": "superficie al ras (césped o sintético)"
     },
     {
       "id": "norma.zona_libre_cama",
       "requisito": "Zona libre de vaivén de la hamaca-cama (misma fórmula, cama a 0,50 m)",
-      "valor": "2,75 m por lado = 5,50 m",
+      "valor": "3,50 m por lado = 7,00 m",
       "limite": "5,50 m",
-      "estado": "cumple",
-      "nota": ""
+      "estado": "no cumple",
+      "nota": "superficie al ras (césped o sintético)"
     },
     {
       "id": "norma.sep_asientos",
-      "requisito": "Separación entre accesorios vecinos (0,20·L + 0,20 m)",
+      "requisito": "Separación entre accesorios vecinos (EN 1176-2, 4.4.1: 0,20·L + 0,30 m)",
       "valor": "0,495 m",
-      "limite": "≥ 0,488 m",
-      "estado": "cumple",
+      "limite": "≥ 0,588 m",
+      "estado": "no cumple",
       "nota": ""
     },
     {
       "id": "norma.sep_pata",
-      "requisito": "Separación asiento–pata (0,20·L + 0,30 m)",
+      "requisito": "Separación accesorio–pata (EN 1176-2, 4.4.1: 0,20·L + 0,20 m)",
       "valor": "0,67 m",
-      "limite": "≥ 0,59 m",
+      "limite": "≥ 0,49 m",
       "estado": "cumple",
       "nota": ""
     },
     {
       "id": "norma.altura_asiento",
-      "requisito": "Altura del asiento",
+      "requisito": "Altura libre del asiento al piso (EN 1176-2, 4.2)",
       "valor": "0,50 m",
-      "limite": "0,35–0,50 m",
+      "limite": "≥ 0,35 m",
       "estado": "cumple",
-      "nota": ""
+      "nota": "recomendado hasta 0,50 m (Playcentre NZ, no normativo)"
     },
     {
       "id": "norma.trapecio",
-      "requisito": "Altura de caída del trapecio",
+      "requisito": "Altura de caída del trapecio (criterio preescolar Playcentre NZ, no EN 1176)",
       "valor": "1,30 m",
       "limite": "≤ 1,50 m",
       "estado": "cumple",
@@ -69,7 +69,7 @@
       "requisito": "Altura del cruce: zc = z_eje − (R_trav + R_pata)/sin(atan(semibase/zc))",
       "valor": "1,786 m",
       "limite": "tangencia del travesaño en la V",
-      "estado": "cumple",
+      "estado": "informativo",
       "nota": ""
     },
     {
@@ -77,13 +77,13 @@
       "requisito": "Ángulos de las patas",
       "valor": "36° lateral · 14° frontal",
       "limite": "—",
-      "estado": "cumple",
+      "estado": "informativo",
       "nota": ""
     },
     {
       "id": "geo.largo_pata",
-      "requisito": "Largo de pata (enterrado + pie cortado horizontal) vs. rollizo comercial",
-      "valor": "3,080 m",
+      "requisito": "Largo de pata (enterrado + pie cortado horizontal) + 2 cm de corte vs. rollizo comercial",
+      "valor": "3,100 m",
       "limite": "≤ 3,500 m",
       "estado": "cumple",
       "nota": ""
@@ -255,10 +255,42 @@
       "limite": "≥ 0,37 m",
       "estado": "cumple",
       "nota": ""
+    },
+    {
+      "id": "varilla.barra",
+      "requisito": "El tramo de varilla más largo sale de una barra comercial",
+      "valor": "0,77 m",
+      "limite": "≤ 1,00 m",
+      "estado": "cumple",
+      "nota": ""
+    },
+    {
+      "id": "geo.abrazadera",
+      "requisito": "Radio interior de la abrazadera abraza el travesaño con la goma",
+      "valor": "103 mm",
+      "limite": "≥ 103 mm",
+      "estado": "cumple",
+      "nota": ""
+    },
+    {
+      "id": "mat.diametros",
+      "requisito": "Diámetros dentro de los rangos comerciales de rollizo de eucalipto impregnado (cca)",
+      "valor": "todos",
+      "limite": "catálogo",
+      "estado": "cumple",
+      "nota": ""
+    },
+    {
+      "id": "mat.largos",
+      "requisito": "Piezas dentro del largo comercial máximo",
+      "valor": "todas",
+      "limite": "≤ 5,98 m",
+      "estado": "cumple",
+      "nota": ""
     }
   ],
   "peso_propio_kg": 322.7617881258355,
   "peso_total_kg": 344.50970696944995,
   "volumen_madera_m3": 0.4303490508344473,
-  "resumen": "32/32 verificaciones cumplen."
+  "resumen": "31/34 verificaciones cumplen.\n- NO CUMPLE: Zona libre de vaivén (EN 1176-2, 4.10.2): (giro − asiento)·0,867 + 1,75 m + 0,5 m libres de obstáculos por lado → 3,50 m por lado = 7,00 m (límite 5,50 m)\n- NO CUMPLE: Zona libre de vaivén de la hamaca-cama (misma fórmula, cama a 0,50 m) → 3,50 m por lado = 7,00 m (límite 5,50 m)\n- NO CUMPLE: Separación entre accesorios vecinos (EN 1176-2, 4.4.1: 0,20·L + 0,30 m) → 0,495 m (límite ≥ 0,588 m)"
 }

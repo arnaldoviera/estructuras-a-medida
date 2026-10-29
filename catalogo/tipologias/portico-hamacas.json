@@ -1,22 +1,30 @@
 {
   "id": "portico-hamacas",
   "nombre": "Pórtico de hamacas en rollizos con varilla roscada",
-  "version_plugin": "v1",
+  "version_plugin": "1.2",
   "materiales_admitidos": [
     "eucalipto-impregnado",
     "pino-impregnado"
   ],
   "norma": {
-    "nombre": "EN 1176-2 (vía guía Playcentre NZ)",
-    "separacion_entre_asientos": "0,20·L + 0,20 m",
-    "separacion_asiento_pata": "0,20·L + 0,30 m",
-    "zona_libre_por_lado": "(giro − asiento)·0,867 + 1,50 m",
-    "altura_asiento_m": [
-      0.35,
-      0.5
-    ],
+    "nombre": "EN 1176-2:2017+AC:2019 (UNE-EN 1176-2:2018+AC:2020); mismos valores en EN 1176-2:2008",
+    "zona_libre_por_lado": "0,867·L + B, con B = 1,75 m (superficie al ras del entorno: césped o sintético, + 0,5 m libres de obstáculos) o 2,25 m (superficie suelta contenida: arena, chips) — apartado 4.10.2",
+    "zona_libre_B_m": {
+      "al_ras": 1.75,
+      "suelta": 2.25
+    },
+    "zona_libre_extra_al_ras_m": 0.5,
+    "separacion_entre_asientos": "0,20·L + 0,30 m — apartado 4.4.1",
+    "separacion_asiento_pata": "0,20·L + 0,20 m — apartado 4.4.1",
+    "altura_asiento_min_m": 0.35,
+    "altura_asiento_max_recomendada_m": 0.5,
     "caida_max_trapecio_m": 1.5,
-    "nota": "L = largo de la suspensión (punto de giro − asiento)."
+    "notas": [
+      "L = largo de la suspensión (punto de giro − asiento).",
+      "La guía Playcentre NZ usa 1,50 m en la zona libre y tiene invertidos los sumandos de las separaciones: no se usa como fuente de esos valores.",
+      "Altura máxima de asiento 0,50 m y caída máxima de trapecio 1,50 m: criterios de Playcentre NZ para preescolar, no normativos (se informan como recomendación)."
+    ],
+    "superficie_default": "suelta"
   },
   "calculo": {
     "factor_dinamico_default": 2.5,
