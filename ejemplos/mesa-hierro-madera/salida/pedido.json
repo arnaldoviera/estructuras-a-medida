@@ -1,0 +1,67 @@
+{
+  "barras": [
+    {
+      "descripcion": "caño estructural cuadrado 50 × 50 × 2,0, barra de 6 m",
+      "cant": 1,
+      "unidad": "barra",
+      "uso": "pata",
+      "seccion_id": "pata",
+      "desperdicio_pct": 51.8
+    },
+    {
+      "descripcion": "caño estructural cuadrado 40 × 40 × 2,5, barra de 6 m",
+      "cant": 1,
+      "unidad": "barra",
+      "uso": "bastidor",
+      "seccion_id": "bastidor",
+      "desperdicio_pct": 15.6
+    }
+  ],
+  "tableros": [
+    {
+      "descripcion": "Tablero alistonado de eucalipto 30 mm, hoja de 2.440 × 1.220",
+      "cant": 1,
+      "unidad": "hoja",
+      "uso": "alistonado-eucalipto-30",
+      "desperdicio_pct": 45.6
+    }
+  ],
+  "insumos": [
+    {
+      "descripcion": "Planchuela 32 × 5 de 60 mm con agujero ovalado (soporte de la tapa)",
+      "cant": 10,
+      "unidad": "u",
+      "uso": "fijación de la tapa"
+    },
+    {
+      "descripcion": "Tornillo para madera 8 × 1\" cabeza tanque con arandela",
+      "cant": 10,
+      "unidad": "u",
+      "uso": "fijación de la tapa (5 mm de planchuela + 20 mm en un tablero de 30; quedan 10 mm)"
+    },
+    {
+      "descripcion": "Regatón plástico interior para caño 50 × 50 (tapa de 3 mm)",
+      "cant": 4,
+      "unidad": "u",
+      "uso": "patas; suma 3 mm de alto (753 mm, dentro de la tolerancia de ±5 mm)"
+    },
+    {
+      "descripcion": "Antióxido",
+      "cant": 1,
+      "unidad": "l",
+      "uso": "hierro"
+    },
+    {
+      "descripcion": "Esmalte sintético o epoxi negro mate",
+      "cant": 1,
+      "unidad": "l",
+      "uso": "hierro"
+    },
+    {
+      "descripcion": "Laca poliuretánica o aceite para madera",
+      "cant": 1,
+      "unidad": "l",
+      "uso": "tapa"
+    }
+  ]
+}

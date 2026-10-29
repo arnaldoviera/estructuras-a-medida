@@ -1,0 +1,187 @@
+{
+  "piezas": [
+    {
+      "id": "C1, C2",
+      "pieza": "cabecero del bastidor",
+      "cant": 2,
+      "subconjunto": "estructura de hierro",
+      "seccion_id": "bastidor",
+      "seccion": "caño estructural cuadrado 40 × 40 × 2,5",
+      "largo": 680,
+      "material": "negro (antióxido + esmalte o epoxi)",
+      "operaciones": "corte recto; soldar completo, amolar la soldadura vista; antióxido y terminación",
+      "kg": 3.8
+    },
+    {
+      "id": "L1, L2",
+      "pieza": "larguero del bastidor",
+      "cant": 2,
+      "subconjunto": "estructura de hierro",
+      "seccion_id": "bastidor",
+      "seccion": "caño estructural cuadrado 40 × 40 × 2,5",
+      "largo": 1500,
+      "material": "negro (antióxido + esmalte o epoxi)",
+      "operaciones": "corte recto; soldar completo, amolar la soldadura vista; antióxido y terminación",
+      "kg": 8.5
+    },
+    {
+      "id": "P1, P2, P3, P4",
+      "pieza": "pata",
+      "cant": 4,
+      "subconjunto": "estructura de hierro",
+      "seccion_id": "pata",
+      "seccion": "caño estructural cuadrado 50 × 50 × 2,0",
+      "largo": 720,
+      "material": "negro (antióxido + esmalte o epoxi)",
+      "operaciones": "corte recto; soldar completo, amolar la soldadura vista; antióxido y terminación",
+      "kg": 8.4
+    },
+    {
+      "id": "T1",
+      "pieza": "travesaño central",
+      "cant": 1,
+      "subconjunto": "estructura de hierro",
+      "seccion_id": "bastidor",
+      "seccion": "caño estructural cuadrado 40 × 40 × 2,5",
+      "largo": 690,
+      "material": "negro (antióxido + esmalte o epoxi)",
+      "operaciones": "corte recto; soldar completo, amolar la soldadura vista; antióxido y terminación",
+      "kg": 1.9
+    },
+    {
+      "id": "M1",
+      "pieza": "tapa",
+      "cant": 1,
+      "subconjunto": "tapa",
+      "seccion_id": "alistonado-eucalipto-30",
+      "seccion": "Tablero alistonado de eucalipto 30 mm",
+      "largo": null,
+      "medida": "1.800 × 900 × 30",
+      "material": "",
+      "operaciones": "cantos redondeados r 3, lijado y laca o aceite; se fija con 10 tornillos desde abajo por planchuelas con ojal",
+      "kg": 29.2
+    }
+  ],
+  "barras_corte": {
+    "pata": [
+      {
+        "cortes": [
+          720,
+          720,
+          720,
+          720
+        ],
+        "libre": 3108,
+        "barra": 6000
+      }
+    ],
+    "bastidor": [
+      {
+        "cortes": [
+          1500,
+          1500,
+          690,
+          680,
+          680
+        ],
+        "libre": 935,
+        "barra": 6000
+      }
+    ]
+  },
+  "hojas": {
+    "alistonado-eucalipto-30": [
+      {
+        "estantes": [
+          {
+            "alto": 900,
+            "libre": 636
+          }
+        ],
+        "libre_alto": 316,
+        "piezas": [
+          [
+            "M1",
+            1800,
+            900
+          ]
+        ]
+      }
+    ]
+  },
+  "pedido": {
+    "barras": [
+      {
+        "descripcion": "caño estructural cuadrado 50 × 50 × 2,0, barra de 6 m",
+        "cant": 1,
+        "unidad": "barra",
+        "uso": "pata",
+        "seccion_id": "pata",
+        "desperdicio_pct": 51.8
+      },
+      {
+        "descripcion": "caño estructural cuadrado 40 × 40 × 2,5, barra de 6 m",
+        "cant": 1,
+        "unidad": "barra",
+        "uso": "bastidor",
+        "seccion_id": "bastidor",
+        "desperdicio_pct": 15.6
+      }
+    ],
+    "tableros": [
+      {
+        "descripcion": "Tablero alistonado de eucalipto 30 mm, hoja de 2.440 × 1.220",
+        "cant": 1,
+        "unidad": "hoja",
+        "uso": "alistonado-eucalipto-30",
+        "desperdicio_pct": 45.6
+      }
+    ],
+    "insumos": [
+      {
+        "descripcion": "Planchuela 32 × 5 de 60 mm con agujero ovalado (soporte de la tapa)",
+        "cant": 10,
+        "unidad": "u",
+        "uso": "fijación de la tapa"
+      },
+      {
+        "descripcion": "Tornillo para madera 8 × 1\" cabeza tanque con arandela",
+        "cant": 10,
+        "unidad": "u",
+        "uso": "fijación de la tapa (5 mm de planchuela + 20 mm en un tablero de 30; quedan 10 mm)"
+      },
+      {
+        "descripcion": "Regatón plástico interior para caño 50 × 50 (tapa de 3 mm)",
+        "cant": 4,
+        "unidad": "u",
+        "uso": "patas; suma 3 mm de alto (753 mm, dentro de la tolerancia de ±5 mm)"
+      },
+      {
+        "descripcion": "Antióxido",
+        "cant": 1,
+        "unidad": "l",
+        "uso": "hierro"
+      },
+      {
+        "descripcion": "Esmalte sintético o epoxi negro mate",
+        "cant": 1,
+        "unidad": "l",
+        "uso": "hierro"
+      },
+      {
+        "descripcion": "Laca poliuretánica o aceite para madera",
+        "cant": 1,
+        "unidad": "l",
+        "uso": "tapa"
+      }
+    ]
+  },
+  "cantidad": 1,
+  "peso": {
+    "total_kg": 51.8,
+    "hierro_kg": 22.7,
+    "madera_kg": 29.2,
+    "por_unidad_kg": 51.8
+  },
+  "nota": "Largos de corte al eje de cada pieza según la ficha; el herrero o carpintero ajusta los descuentos de cada unión."
+}

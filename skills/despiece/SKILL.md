@@ -11,6 +11,8 @@ Lo hace `correr.py todo <carpeta>` (`motor/portico.py → despiece`). Salidas:
 
 En `jaula-cerdas` (hierro): `salida/despiece.json` con `piezas` por subconjunto (lateral, frente, trasero, puerta, pie, uniones; id, cantidad, sección × largo de corte entre caras y operaciones: boca de pescado, venteos, agujeros), `barras_corte` agrupadas por sección (mismo tubo, misma barra; barra comercial y corte del catálogo), `pedido` (tubo, chapa y planchuela, inox, bulonería y aislación, otros, incluido el servicio de galvanizado en kg) y `peso` (total, galvanizado con 5 % de zinc, lateral). Sin precios.
 
+En `estructura-libre`: `piezas` agrupadas por subconjunto y por pieza igual (mismo nombre, sección y largo), `barras_corte` por sección (caño en barras de 6 m con 3 mm de corte; madera en el tirante comercial más corto que alcanza), `hojas` (acomodo de las placas por hoja de tablero), `pedido` (`barras`, `tableros`, `insumos` de la ficha) y `peso` (hierro y madera). Largos al eje según la ficha: los descuentos de cada unión los ajusta quien fabrica. Sin precios.
+
 Reglas:
 - Hierro: tubo estructural redondo pedido por Ø exterior en pulgadas × espesor (`catalogo/materiales.json`); nunca medidas de cañería. Inox y galvanizado se unen abulonados con aislación, nunca soldados.
 - Madera por largo comercial (`catalogo/materiales.json`): se busca el largo comercial más corto que contiene las piezas. Diámetro por rango comercial, exigiendo el de proyecto como mínimo en la punta fina.

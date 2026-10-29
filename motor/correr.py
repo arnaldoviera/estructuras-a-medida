@@ -8,9 +8,9 @@ Multipropósito: cada tipología (madera o hierro) es un módulo con modelo, val
 import datetime, hashlib, json, os, sys, re, html
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from comun import leer_json, escribir_json, escribir_txt, catalogo_tipologia, num
-import portico, jaula_cerdas, perspectiva, detalles, croquis3d, obra, propuesta_web
+import portico, jaula_cerdas, estructura_libre, perspectiva, detalles, croquis3d, obra, propuesta_web
 
-TIPOLOGIAS = {"portico-hamacas": portico, "jaula-cerdas": jaula_cerdas}
+TIPOLOGIAS = {"portico-hamacas": portico, "jaula-cerdas": jaula_cerdas, "estructura-libre": estructura_libre}
 CLAVES_VALIDACION = ("checks", "peso_propio_kg", "peso_total_kg", "volumen_madera_m3", "resumen")
 
 # claves mínimas para que la corrida no se rompa (ruta con puntos → tipo esperado)
@@ -29,6 +29,7 @@ REQUERIDOS = {
                      "diseno.tubos": dict, "diseno.largueros_z": list, "diseno.parantes_x": list, "diseno.puerta": dict, "diseno.frente.travesanos_z": list,
                      "diseno.frente.barrotes_cant": int, "diseno.pie.pletina": dict, "diseno.comedero": dict, "diseno.caida": dict,
                      "diseno.dosificador": dict, "diseno.rfid": dict},
+    "estructura-libre": {"requisitos.tipo_uso": str, "diseno.secciones": dict, "diseno.barras": list, "diseno.placas": list},
 }
 
 
@@ -62,12 +63,15 @@ def _revisar_ficha(ficha):
         datetime.date.fromisoformat(str(ficha.get("proyecto", {}).get("fecha")))
     except ValueError:
         errores.append("proyecto.fecha tiene que ir como AAAA-MM-DD")
-    for ruta in ("diseno.largueros_z", "diseno.parantes_x") if tip == "jaula-cerdas" else ("diseno.cuelgues.puestos_x",):
+    minimos = {"jaula-cerdas": ("diseno.largueros_z", "diseno.parantes_x"), "portico-hamacas": ("diseno.cuelgues.puestos_x",), "estructura-libre": ("diseno.barras",)}
+    for ruta in minimos[tip]:
         try:
             if len(_get(ficha, ruta)) < (2 if "parantes" in ruta else 1):
                 errores.append(f"{ruta} no tiene suficientes valores")
         except (KeyError, TypeError):
             pass
+    if not errores and hasattr(TIPOLOGIAS[tip], "revisar"):  # coherencia propia de la tipología (referencias, puntos)
+        errores = TIPOLOGIAS[tip].revisar(ficha)
     if errores:
         raise ErrorFicha("la ficha tiene problemas:\n  - " + "\n  - ".join(errores))
 

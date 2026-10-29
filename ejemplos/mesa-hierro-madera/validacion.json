@@ -1,0 +1,199 @@
+{
+  "checks": [
+    {
+      "id": "dim.largo",
+      "requisito": "Largo total igual al pedido",
+      "valor": "1.800 mm",
+      "limite": "1.800 ± 5 mm",
+      "estado": "cumple",
+      "nota": ""
+    },
+    {
+      "id": "dim.ancho",
+      "requisito": "Ancho total igual al pedido",
+      "valor": "900 mm",
+      "limite": "900 ± 5 mm",
+      "estado": "cumple",
+      "nota": ""
+    },
+    {
+      "id": "dim.alto",
+      "requisito": "Alto total igual al pedido",
+      "valor": "750 mm",
+      "limite": "750 ± 5 mm",
+      "estado": "cumple",
+      "nota": ""
+    },
+    {
+      "id": "mat.secciones",
+      "requisito": "Secciones en medidas comerciales (caño estructural, madera en pulgadas)",
+      "valor": "todas de catálogo",
+      "limite": "medidas de catálogo",
+      "estado": "cumple",
+      "nota": ""
+    },
+    {
+      "id": "mat.largos",
+      "requisito": "Cada barra sale de una barra o tirante comercial sin empalmes",
+      "valor": "todas entran",
+      "limite": "≤ largo comercial",
+      "estado": "cumple",
+      "nota": ""
+    },
+    {
+      "id": "mat.placas",
+      "requisito": "Cada placa sale de una hoja entera sin empalmes",
+      "valor": "todas entran",
+      "limite": "≤ medida de hoja",
+      "estado": "cumple",
+      "nota": ""
+    },
+    {
+      "id": "res.placa.M1",
+      "requisito": "Placa «tapa»: tensión por flexión entre apoyos y en el voladizo",
+      "valor": "4,2 MPa (luz 775 en x, voladizo 125)",
+      "limite": "≤ 8 MPa",
+      "estado": "cumple",
+      "nota": "Carga de uso 100 kg/m² o 100 kg en una franja de 300 mm; 60 kg en el borde del voladizo."
+    },
+    {
+      "id": "def.placa.M1",
+      "requisito": "Placa «tapa»: flecha con carga de uso (repartida o puntual)",
+      "valor": "1,4 mm",
+      "limite": "≤ L/300 = 2,6 mm",
+      "estado": "cumple",
+      "nota": ""
+    },
+    {
+      "id": "res.viga.L1",
+      "requisito": "Viga «larguero del bastidor» (L1, 1.500): tensión por flexión",
+      "valor": "145 MPa",
+      "limite": "≤ 214 MPa",
+      "estado": "cumple",
+      "nota": "Simplemente apoyada en sus puntas; toma la carga de su ancho de influencia o 100 kg en el medio; fy 235 / 1.1 con carga × 1.5."
+    },
+    {
+      "id": "def.viga.L1",
+      "requisito": "Viga «larguero del bastidor» (L1): flecha con carga de uso (repartida o 100 kg en el medio)",
+      "valor": "4,6 mm",
+      "limite": "≤ L/300 = 5,0 mm",
+      "estado": "cumple",
+      "nota": ""
+    },
+    {
+      "id": "res.viga.L2",
+      "requisito": "Viga «larguero del bastidor» (L2, 1.500): tensión por flexión",
+      "valor": "145 MPa",
+      "limite": "≤ 214 MPa",
+      "estado": "cumple",
+      "nota": "Simplemente apoyada en sus puntas; toma la carga de su ancho de influencia o 100 kg en el medio; fy 235 / 1.1 con carga × 1.5."
+    },
+    {
+      "id": "def.viga.L2",
+      "requisito": "Viga «larguero del bastidor» (L2): flecha con carga de uso (repartida o 100 kg en el medio)",
+      "valor": "4,6 mm",
+      "limite": "≤ L/300 = 5,0 mm",
+      "estado": "cumple",
+      "nota": ""
+    },
+    {
+      "id": "res.viga.C1",
+      "requisito": "Viga «cabecero del bastidor» (C1, 680): tensión por flexión",
+      "valor": "63 MPa",
+      "limite": "≤ 214 MPa",
+      "estado": "cumple",
+      "nota": "Simplemente apoyada en sus puntas; toma la carga de su ancho de influencia o 100 kg en el medio; fy 235 / 1.1 con carga × 1.5."
+    },
+    {
+      "id": "def.viga.C1",
+      "requisito": "Viga «cabecero del bastidor» (C1): flecha con carga de uso (repartida o 100 kg en el medio)",
+      "valor": "0,4 mm",
+      "limite": "≤ L/300 = 2,3 mm",
+      "estado": "cumple",
+      "nota": ""
+    },
+    {
+      "id": "res.viga.C2",
+      "requisito": "Viga «cabecero del bastidor» (C2, 680): tensión por flexión",
+      "valor": "63 MPa",
+      "limite": "≤ 214 MPa",
+      "estado": "cumple",
+      "nota": "Simplemente apoyada en sus puntas; toma la carga de su ancho de influencia o 100 kg en el medio; fy 235 / 1.1 con carga × 1.5."
+    },
+    {
+      "id": "def.viga.C2",
+      "requisito": "Viga «cabecero del bastidor» (C2): flecha con carga de uso (repartida o 100 kg en el medio)",
+      "valor": "0,4 mm",
+      "limite": "≤ L/300 = 2,3 mm",
+      "estado": "cumple",
+      "nota": ""
+    },
+    {
+      "id": "res.viga.T1",
+      "requisito": "Viga «travesaño central» (T1, 690): tensión por flexión",
+      "valor": "65 MPa",
+      "limite": "≤ 214 MPa",
+      "estado": "cumple",
+      "nota": "Simplemente apoyada en sus puntas; toma la carga de su ancho de influencia o 100 kg en el medio; fy 235 / 1.1 con carga × 1.5."
+    },
+    {
+      "id": "def.viga.T1",
+      "requisito": "Viga «travesaño central» (T1): flecha con carga de uso (repartida o 100 kg en el medio)",
+      "valor": "0,4 mm",
+      "limite": "≤ L/300 = 2,3 mm",
+      "estado": "cumple",
+      "nota": ""
+    },
+    {
+      "id": "res.pata.pata",
+      "requisito": "Patas «pata» (4): pandeo con la carga total repartida",
+      "valor": "FS 167,5",
+      "limite": "≥ 2,0",
+      "estado": "cumple",
+      "nota": "53 kg por pata; longitud efectiva 2 × 720."
+    },
+    {
+      "id": "def.meneo",
+      "requisito": "Corrimiento arriba con 30 kg de empuje lateral (peor dirección: x)",
+      "valor": "0,9 mm",
+      "limite": "≤ alto/150 = 4,8 mm",
+      "estado": "cumple",
+      "nota": "2 pórticos de patas «pata» se reparten el empuje (con la viga L1); nudos rígidos (soldadura completa), pata apoyada en el piso; cuenta la flexión de la pata y de la viga."
+    },
+    {
+      "id": "res.nudo",
+      "requisito": "Tensión en el nudo pata-bastidor por el empuje lateral (peor dirección: y)",
+      "valor": "19 MPa",
+      "limite": "≤ 214 MPa",
+      "estado": "cumple",
+      "nota": "Máximo entre la pata y la punta de la viga, con el empuje repartido en 2 pórticos."
+    },
+    {
+      "id": "est.vuelco",
+      "requisito": "Estabilidad al vuelco (peso propio contra carga en el borde o empuje arriba)",
+      "valor": "FS 3,7 (60 kg en el borde, voladizo de 85)",
+      "limite": "≥ 1,5",
+      "estado": "cumple",
+      "nota": "Sin anclar al piso ni contar la carga de uso a favor."
+    },
+    {
+      "id": "fab.pieza",
+      "requisito": "Pieza más pesada manejable por una persona",
+      "valor": "29,2 kg (tapa)",
+      "limite": "≤ 50 kg",
+      "estado": "cumple",
+      "nota": ""
+    },
+    {
+      "id": "fab.peso",
+      "requisito": "Peso total",
+      "valor": "52 kg",
+      "limite": "informativo",
+      "estado": "informativo",
+      "nota": ""
+    }
+  ],
+  "peso_propio_kg": 51.8,
+  "peso_total_kg": 51.8,
+  "resumen": "23/23 verificaciones cumplen."
+}

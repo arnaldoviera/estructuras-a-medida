@@ -12,6 +12,8 @@ Lo hace `correr.py todo <carpeta>`. Salidas en `salida/`:
 
 En `jaula-cerdas` (`motor/jaula_cerdas.py`): `planta.svg` y `lateral.svg` acotadas en mm (puerta con arco de apertura a 90° en los dos sentidos, panel ciego, trinquetes, pletinas, comedero, dosificador, línea y slats en corte) y `escena3d.json` (tubos como cilindros a→b, chapas y piezas como cajas; colores por material: galvanizado, inox, puerta, PEAD, electrónica).
 
+En `estructura-libre` (`motor/estructura_libre.py`): `frente.svg`, `planta.svg` y `lateral.svg`, proyecciones ortogonales acotadas en mm (medidas totales y separación entre ejes de patas; en planta la tapa va transparente para ver la estructura de abajo), y `escena3d.json` con las barras como cajas (caño cuadrado, madera) o cilindros (caño redondo, piezas inclinadas) y las placas como cajas; colores por terminación.
+
 Reglas fijas:
 - El 3D va SIEMPRE ARMADO. No existe vista desarmada: el cliente no puede evaluar piezas sueltas.
 - Todo sale de la ficha. Si algo se ve mal, se corrige la ficha (o el script), nunca el SVG a mano.
