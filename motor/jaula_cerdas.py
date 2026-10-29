@@ -73,7 +73,7 @@ def _escena(d, D):
     g, pz, bz, tz = P["ancho"] / 2, P["pivote_z"], P["borde_inf_z"], P["trinquete_z"]
     for s in (-1, 1):
         ye = s * (YC + RP + 20)  # leva y varilla por fuera del parante
-        caja("leva", [-30, 30], sorted([s * (YC + RP + 10), s * (YC + RP + 30)]), [pz - 60, pz + 15], "oscuro")
+        caja("leva inox", [-30, 30], sorted([s * (YC + RP + 10), s * (YC + RP + 30)]), [pz - 60, pz + 15], "inox")
         cil("varilla de mando (por fuera)", [0, ye, pz - 45], [0, ye, tz + 15], 5, "galva")
         caja("guarda de chapa", [-35, 35], sorted([s * (YC + RP + 32), s * (YC + RP + 36)]), [tz - 40, pz - 20], "galva")
         cil("perno pasante del trinquete", [0, s * (YC - RP - 10), tz], [0, s * (YC + RP + 30), tz], 5, "galva")
@@ -100,7 +100,7 @@ def _escena(d, D):
     caja("comedero inox", [co["x0"], co["x1"]], [-co["ancho"] / 2, co["ancho"] / 2], [co["z0"], co["z1"]], "inox")
     caja("pestaña de apoyo del comedero", [co["x1"], L - RL + 6], [-co["ancho"] / 2, co["ancho"] / 2], [co["z0"] - 2, co["z0"]], "inox")
     for s in (-1, 1):
-        caja("protección lateral del comedero", [co["x0"], L], sorted([s * (YC - RL - 1), s * (YC - RL - 3)]), [50, 400], "galva")
+        caja("protección lateral del comedero", [co["x0"], L - RP], sorted([s * (YC - RL - 1), s * (YC - RL - 3)]), [130, 400], "galva")
     caja("dosificador", [do["x0"], do["x1"]], [-do["ancho"] / 2, do["ancho"] / 2], [do["z0"], do["z1"]], "electro")
     xm = (do["x0"] + do["x1"]) / 2
     la = D["linea"]
@@ -266,7 +266,7 @@ def despiece(ficha, M=None):
 
     n_lat, n_pies = 2, 2 * len(PX)
     pz("L1", "Parante", n_lat * len(PX), "parante", round(H - D["pie_alto"] - dS / 2), "Lateral",
-       "Pie a escuadra con tapa soldada; cabeza con boca de pescado contra el pasamanos; venteo Ø10 cerca de cada punta, cara exterior")
+       "Pie a escuadra con tapa soldada; cabeza con boca de pescado contra el pasamanos; venteo Ø10 cerca de cada punta, en la cara ±x (adelante o atrás) y por encima de las cartelas: fuera de la fibra más cargada")
     pz("L2", "Pasamanos", n_lat, "pasamanos", round(L + dP), "Lateral", "Puntas a escuadra con tapa soldada; venteos Ø10; oreja para actuador (un lateral)")
     for i, v in enumerate(vanos):
         pz(f"L3.{i + 1}", f"Larguero, vano {i + 1}", n_lat * len(d["largueros_z"]), "larguero", v, "Lateral",
@@ -300,18 +300,24 @@ def despiece(ficha, M=None):
          math.pi * (ej / 2) ** 2 * le * 7.9e-6)
     otra("P5", "Refuerzo del agujero del eje", 2, "Planchuela 2\" × ¼\" galvanizada", "50,8 × 6,35 × 100", "Trasero",
          "Soldada por fuera del parante trasero, alineada con el agujero Ø30 del parante para el buje", 0.25)
-    otra("P6", "Buje", 2, "PEAD", "Ø30 × Ø20 × 15", "Trasero", "Aísla el eje inox del galvanizado")
-    otra("P7", "Trinquete con tope", 2, "Planchuela 2\" × ¼\" galvanizada", "50,8 × 6,35 × 80 + tope", "Trasero",
-         f"A z {P['trinquete_z']}; gira sobre un perno M10 pasante por el parante: diente adentro (traba la puerta) y brazo afuera (lo mueve la varilla); tope de goma; taco plano", 0.45)
+    otra("P6", "Buje", 4, "PEAD", "Ø30 × Ø20 × 15", "Puerta",
+         "2 en los parantes traseros y 2 en las planchuelas de la puerta (agujero Ø30): aíslan el eje inox del galvanizado")
+    ltr = round(2 * D["RP"] + 30)  # buje del trinquete: atraviesa el parante y sobresale 15 por lado
+    otra("P7", "Trinquete (diente + brazo + buje)", 2, "Planchuela 2\" × ¼\" galvanizada + tubo Ø17,2 × 2,3", f"diente 80, brazo 60, buje {ltr}", "Trasero",
+         f"A z {P['trinquete_z']}: diente (adentro, traba la puerta) y brazo (afuera, lo mueve la varilla) soldados a un buje de tubo que gira dentro de un agujero Ø20 del parante; tope de goma y taco plano de apoyo", 0.55)
+    otra("P7b", "Perno del trinquete", 2, "Bulón M10 × 100 galvanizado con tuerca autofrenante", f"M10 × 100", "Trasero",
+         f"Atraviesa el buje del trinquete ({ltr} mm) con arandelas a los dos lados")
+    otra("P12", "Leva", 2, "Chapa inox 304 6 mm", "60 × 75 × 6", "Puerta", "Soldada al eje inox, una por punta, por fuera del parante; ojal para la varilla", 0.2)
     vl = P["pivote_z"] - 20 - P["trinquete_z"] - 30
     otra("P8", "Varilla de mando", 2, "Barra redonda maciza galvanizada", f"Ø10 × {vl}", "Trasero", "Por fuera del parante, de la leva al brazo del trinquete; ojal en cada punta", 0.617 * vl / 1000)
-    otra("P9", "Guarda de la varilla", 2, "Chapa galvanizada 2 mm", f"100 × {vl}", "Trasero", "Doblada en U, abulonada al parante con 2 M8", 100 * vl * 2 * 7.85e-6)
-    otra("P11", "Gatillo, leva y palanca de destrabe", 1, "Planchuela 2\" × ¼\" galvanizada", "juego (≈ 0,4 m)", "Trasero",
-         "Gatillo a 70° hacia adentro, leva a 70° hacia afuera, palanca de destrabe manual desde el pasillo; pernos de ojal M8", 1.0)
-    lc = round(L - d["comedero"]["x0"])
-    otra("C4", "Protección lateral del comedero", 2, "Chapa galvanizada 2 mm", f"{lc} × 350", "Lateral",
-         "Del comedero al frente, z 50 a 400, abulonada por dentro de los largueros con 4 M8: la cerda de al lado no alcanza el comedero",
-         lc * 350 * 2 * 7.85e-6)
+    lg = (P["pivote_z"] - 20) - (P["trinquete_z"] - 40)
+    otra("P9", "Guarda de la varilla", 2, "Chapa galvanizada 2 mm", f"100 × {lg}", "Trasero", "Doblada en U, abulonada al parante con 2 M8; cubre leva, varilla y brazo", 100 * lg * 2 * 7.85e-6)
+    otra("P11", "Gatillo y palanca de destrabe", 1, "Planchuela 2\" × ¼\" galvanizada", "juego (≈ 0,3 m)", "Trasero",
+         "Gatillo a 70° hacia adentro (arma la traba) y palanca de destrabe manual desde el pasillo; pernos de ojal M8", 0.8)
+    lc = round(L - D["RP"] - d["comedero"]["x0"])
+    otra("C4", "Protección lateral del comedero", 2, "Chapa galvanizada 2 mm", f"{lc} × 270", "Lateral",
+         f"x {mm(d['comedero']['x0'])} a la cara del parante delantero, z 130 a 400 (por encima del apoyo trasero), cantos doblados 15 mm; "
+         "abulonada por dentro de los largueros con 4 M8: la cerda de al lado no alcanza el comedero", lc * 300 * 2 * 7.85e-6)
     otra("P10", "Resorte regulable y topes de goma", 1, "Juego", "1 resorte + 4 topes", "Puerta", "Topes en parantes traseros y en el pasamanos (90°)")
     co = d["comedero"]
     cl, ca_, ch = co["x1"] - co["x0"], co["ancho"], co["z1"] - co["z0"]
@@ -325,7 +331,7 @@ def despiece(ficha, M=None):
     otra("C3", "Separador de antena", 1, "PEAD", f"{r_['x1'] - r_['x0'] - 20} × {round(YC - dL / 2 - r_['y_cara'])} × 30", "Lateral",
          f"2 agujeros Ø9 al larguero z {mm(zr)}")
     otra("B1", "Placa base", n_pies, "Chapa 9,5 mm galvanizada", "150 × 150 × 9,5", "Lateral",
-         "Concéntrica con la pletina; parante corrido 25 mm hacia adentro; 4 agujeros Ø11 a ±55", 150 * 150 * 9.5 * 7.85e-6)
+         "Concéntrica con la pletina; parante corrido 25 mm hacia adentro; 4 agujeros Ø14 a ±55 (lugar para la vaina aislante del M10)", 150 * 150 * 9.5 * 7.85e-6)
     otra("B2", "Cartela", 3 * n_pies, "Chapa 6 mm galvanizada", "45 × 45 × 6 (±x) y 60 × 60 × 6 (afuera)", "Lateral",
          "3 por parante: hacia adelante, hacia atrás y hacia afuera; ninguna hacia adentro (no invade el ancho libre)", 0.5 * 50 * 50 * 6 * 7.85e-6)
     otra("B3", "Tapa de caño", n_pies + 2 * n_lat, "Chapa 3 mm galvanizada", "Ø50,8 × 3", "Lateral", "Pie de cada parante y puntas de pasamanos",
@@ -385,9 +391,10 @@ def despiece(ficha, M=None):
         {"id": "chapa_95", "descripcion": "Chapa 9,5 mm, placas base 150 × 150", "cant": n_pies, "unidad": "u", "uso": "B1"},
         {"id": "chapa_6", "descripcion": "Chapa 6 mm, cartelas (2 de 45 × 45 y 1 de 60 × 60 por pie)", "cant": 3 * n_pies, "unidad": "u", "uso": "B2"},
         {"id": "chapa_3", "descripcion": "Chapa 3 mm, tapas Ø50,8", "cant": n_pies + 2 * n_lat, "unidad": "u", "uso": "B3"},
-        {"id": "chapa_2", "descripcion": f"Chapa galvanizada 2 mm: zócalo {AL} × {z_tr[1] - 50} y 2 guardas 100 × {vl}", "cant": 1, "unidad": "juego", "uso": "F9, P9"},
+        {"id": "chapa_2", "descripcion": f"Chapa galvanizada 2 mm: zócalo {AL} × {z_tr[1] - 50}, 2 guardas 100 × {lg} y 2 protecciones {lc} × 300", "cant": 1, "unidad": "juego", "uso": "F9, P9, C4"},
         {"id": "barra_10", "descripcion": f"Barra redonda maciza Ø10, 2 × {vl} mm", "cant": 1, "unidad": "juego", "uso": "P8"}]
     pedido["inox"] += [
+        {"id": "inox_leva", "descripcion": "Chapa inox 304 6 mm, 2 levas 60 × 75", "cant": 1, "unidad": "juego", "uso": "P12"},
         {"id": "inox_pletina", "descripcion": f"Pletina inox 304 {PL['largo']} × {PL['ancho']} × {PL['esp']}, corte láser", "cant": n_pies, "unidad": "u", "uso": "B4"},
         {"id": "inox_contra", "descripcion": "Contrapletina inox 304 300 × 100 × 8", "cant": n_pies, "unidad": "u", "uso": "B5"},
         {"id": "inox_eje", "descripcion": f"Barra inox 304 maciza Ø{ej} × {le}", "cant": 1, "unidad": "u", "uso": "P4"},
@@ -396,17 +403,18 @@ def despiece(ficha, M=None):
     pedido["bulones_y_aislacion"] += [
         {"id": "m12_avell", "descripcion": "Bulón M12 × 140 inox, cabeza avellanada DIN 7991, tuerca autofrenante y arandela", "cant": 4 * n_pies, "unidad": "u",
          "uso": "anclaje al slat (largo según el espesor real del slat)"},
-        {"id": "m10_inox_pie", "descripcion": "Bulón M10 × 40 inox con vaina y 2 arandelas aislantes", "cant": 4 * n_pies, "unidad": "juego", "uso": "pie"},
+        {"id": "m10_inox_pie", "descripcion": "Bulón M10 × 25 inox (rosca en la pletina, no sobresale hacia el slat) con vaina y arandela aislantes", "cant": 4 * n_pies, "unidad": "juego", "uso": "pie"},
         {"id": "fenolico", "descripcion": "Junta fenólica 155 × 160 × 3", "cant": n_pies, "unidad": "u", "uso": "B6"},
-        {"id": "m10_galv", "descripcion": "Bulón M10 × 70 galvanizado con tuerca autofrenante y 2 arandelas", "cant": 4 * n_abul + 2, "unidad": "u",
-         "uso": f"uniones ({4 * n_abul}: 2 por planchuela) y trinquetes (2)"},
+        {"id": "m10_galv", "descripcion": "Bulón M10 × 70 galvanizado con tuerca autofrenante y 2 arandelas", "cant": 4 * n_abul, "unidad": "u",
+         "uso": "uniones de subconjuntos (2 por planchuela)"},
+        {"id": "m10x100_galv", "descripcion": "Bulón M10 × 100 galvanizado con tuerca autofrenante y 2 arandelas", "cant": 2, "unidad": "u", "uso": "perno de cada trinquete (P7b)"},
         {"id": "m8_inox", "descripcion": "Bulón M8 inox con buje y arandelas de nylon", "cant": 12, "unidad": "juego", "uso": "comedero (6) y panel ciego (6)"},
         {"id": "m8_galv", "descripcion": "Bulón M8 galvanizado con arandela", "cant": 24, "unidad": "u",
          "uso": "zócalo (6), separador de antena (2), guardas (4), protecciones del comedero (8) y ojales de la varilla (4)"},
         {"id": "pasador", "descripcion": "Pasador elástico Ø6 galvanizado con vaina aislante", "cant": 2, "unidad": "u", "uso": "puerta–eje"}]
     pedido["otros"] += [
         {"id": "pead_10", "descripcion": f"Placa PEAD 10 mm {pw} × {ph}", "cant": 1, "unidad": "u", "uso": "P3"},
-        {"id": "pead_buje", "descripcion": "Barra PEAD Ø30 para bujes y separador de antena", "cant": 1, "unidad": "juego", "uso": "P6, C3"},
+        {"id": "pead_buje", "descripcion": "Barra PEAD Ø30 (4 bujes) y taco de PEAD 30 mm de espesor (separador de antena)", "cant": 1, "unidad": "juego", "uso": "P6, C3"},
         {"id": "resorte", "descripcion": "Resorte de tracción regulable + 4 topes de goma", "cant": 1, "unidad": "juego", "uso": "P10"},
         {"id": "galvanizado", "descripcion": "Servicio de galvanizado por inmersión en caliente (subconjuntos ya soldados)", "cant": round(kg_tubo + kg_galv_otros),
          "unidad": "kg aprox.", "uso": "laterales, frente, trasero, puerta, chapas y planchuelas"}]
@@ -654,6 +662,8 @@ def pagina(ficha, M, val, desp, auditoria=None):
             "Espesores de caño, luz entre barrotes, métrica de bulones y resortes no están en las fuentes: son propuesta del anteproyecto, verificada con cálculo simplificado.",
             "Validar con un ingeniero matriculado y con un productor antes de fabricar en serie.",
             "Confirmar con el proveedor el largo de barra (6 o 6,40 m) y con el galpón el espesor real del slat (largo del bulón de anclaje)."]
+    if ficha.get("estado", {}).get("nota_auditoria"):
+        pend.insert(0, ficha["estado"]["nota_auditoria"])
     if auditoria:
         pend.insert(0, f"Auditoría independiente: vuelta {vu}, estado «{auditoria.get('estado')}». El detalle está en el anexo." + (" " + auditoria["_aviso"] if auditoria.get("_aviso") else ""))
     cond = "".join(f"<p>{x}</p>" for x in (

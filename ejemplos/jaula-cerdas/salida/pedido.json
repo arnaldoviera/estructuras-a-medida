@@ -64,10 +64,10 @@
     },
     {
       "id": "chapa_2",
-      "descripcion": "Chapa galvanizada 2 mm: zócalo 560 × 280 y 2 guardas 100 × 710",
+      "descripcion": "Chapa galvanizada 2 mm: zócalo 560 × 280, 2 guardas 100 × 780 y 2 protecciones 375 × 300",
       "cant": 1,
       "unidad": "juego",
-      "uso": "F9, P9"
+      "uso": "F9, P9, C4"
     },
     {
       "id": "barra_10",
@@ -78,6 +78,13 @@
     }
   ],
   "inox": [
+    {
+      "id": "inox_leva",
+      "descripcion": "Chapa inox 304 6 mm, 2 levas 60 × 75",
+      "cant": 1,
+      "unidad": "juego",
+      "uso": "P12"
+    },
     {
       "id": "inox_pletina",
       "descripcion": "Pletina inox 304 300 × 150 × 10, corte láser",
@@ -124,7 +131,7 @@
     },
     {
       "id": "m10_inox_pie",
-      "descripcion": "Bulón M10 × 40 inox con vaina y 2 arandelas aislantes",
+      "descripcion": "Bulón M10 × 25 inox (rosca en la pletina, no sobresale hacia el slat) con vaina y arandela aislantes",
       "cant": 32,
       "unidad": "juego",
       "uso": "pie"
@@ -139,9 +146,16 @@
     {
       "id": "m10_galv",
       "descripcion": "Bulón M10 × 70 galvanizado con tuerca autofrenante y 2 arandelas",
-      "cant": 30,
+      "cant": 28,
       "unidad": "u",
-      "uso": "uniones (28: 2 por planchuela) y trinquetes (2)"
+      "uso": "uniones de subconjuntos (2 por planchuela)"
+    },
+    {
+      "id": "m10x100_galv",
+      "descripcion": "Bulón M10 × 100 galvanizado con tuerca autofrenante y 2 arandelas",
+      "cant": 2,
+      "unidad": "u",
+      "uso": "perno de cada trinquete (P7b)"
     },
     {
       "id": "m8_inox",
@@ -175,7 +189,7 @@
     },
     {
       "id": "pead_buje",
-      "descripcion": "Barra PEAD Ø30 para bujes y separador de antena",
+      "descripcion": "Barra PEAD Ø30 (4 bujes) y taco de PEAD 30 mm de espesor (separador de antena)",
       "cant": 1,
       "unidad": "juego",
       "uso": "P6, C3"

@@ -219,6 +219,7 @@
   },
   "estado": {
     "validacion_aprobada": true,
-    "vueltas_auditoria": 5
+    "vueltas_auditoria": 7,
+    "nota_auditoria": "Las 7 observaciones de la auditoría vuelta 7 (perno y buje del trinquete, bujes de la puerta y leva inox, bulones y agujeros del pie, venteos, protecciones del comedero, guarda y pedido) están corregidas en el despiece y no fueron re-auditadas."
   }
 }

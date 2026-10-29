@@ -9,7 +9,7 @@
       "tubo": "parante",
       "seccion": "Ø50,8 × 3,2",
       "largo": 1085,
-      "operaciones": "Pie a escuadra con tapa soldada; cabeza con boca de pescado contra el pasamanos; venteo Ø10 cerca de cada punta, cara exterior"
+      "operaciones": "Pie a escuadra con tapa soldada; cabeza con boca de pescado contra el pasamanos; venteo Ø10 cerca de cada punta, en la cara ±x (adelante o atrás) y por encima de las cartelas: fuera de la fibra más cargada"
     },
     {
       "id": "L2",
@@ -238,26 +238,50 @@
     {
       "id": "P6",
       "pieza": "Buje",
-      "cant": 2,
-      "subconjunto": "Trasero",
+      "cant": 4,
+      "subconjunto": "Puerta",
       "material": "PEAD",
       "tubo": null,
       "seccion": "Ø30 × Ø20 × 15",
       "largo": null,
-      "operaciones": "Aísla el eje inox del galvanizado",
+      "operaciones": "2 en los parantes traseros y 2 en las planchuelas de la puerta (agujero Ø30): aíslan el eje inox del galvanizado",
       "kg_u": 0.0
     },
     {
       "id": "P7",
-      "pieza": "Trinquete con tope",
+      "pieza": "Trinquete (diente + brazo + buje)",
       "cant": 2,
       "subconjunto": "Trasero",
-      "material": "Planchuela 2\" × ¼\" galvanizada",
+      "material": "Planchuela 2\" × ¼\" galvanizada + tubo Ø17,2 × 2,3",
       "tubo": null,
-      "seccion": "50,8 × 6,35 × 80 + tope",
+      "seccion": "diente 80, brazo 60, buje 81",
       "largo": null,
-      "operaciones": "A z 300; gira sobre un perno M10 pasante por el parante: diente adentro (traba la puerta) y brazo afuera (lo mueve la varilla); tope de goma; taco plano",
-      "kg_u": 0.45
+      "operaciones": "A z 300: diente (adentro, traba la puerta) y brazo (afuera, lo mueve la varilla) soldados a un buje de tubo que gira dentro de un agujero Ø20 del parante; tope de goma y taco plano de apoyo",
+      "kg_u": 0.55
+    },
+    {
+      "id": "P7b",
+      "pieza": "Perno del trinquete",
+      "cant": 2,
+      "subconjunto": "Trasero",
+      "material": "Bulón M10 × 100 galvanizado con tuerca autofrenante",
+      "tubo": null,
+      "seccion": "M10 × 100",
+      "largo": null,
+      "operaciones": "Atraviesa el buje del trinquete (81 mm) con arandelas a los dos lados",
+      "kg_u": 0.0
+    },
+    {
+      "id": "P12",
+      "pieza": "Leva",
+      "cant": 2,
+      "subconjunto": "Puerta",
+      "material": "Chapa inox 304 6 mm",
+      "tubo": null,
+      "seccion": "60 × 75 × 6",
+      "largo": null,
+      "operaciones": "Soldada al eje inox, una por punta, por fuera del parante; ojal para la varilla",
+      "kg_u": 0.2
     },
     {
       "id": "P8",
@@ -278,22 +302,22 @@
       "subconjunto": "Trasero",
       "material": "Chapa galvanizada 2 mm",
       "tubo": null,
-      "seccion": "100 × 710",
+      "seccion": "100 × 780",
       "largo": null,
-      "operaciones": "Doblada en U, abulonada al parante con 2 M8",
-      "kg_u": 1.1146999999999998
+      "operaciones": "Doblada en U, abulonada al parante con 2 M8; cubre leva, varilla y brazo",
+      "kg_u": 1.2246
     },
     {
       "id": "P11",
-      "pieza": "Gatillo, leva y palanca de destrabe",
+      "pieza": "Gatillo y palanca de destrabe",
       "cant": 1,
       "subconjunto": "Trasero",
       "material": "Planchuela 2\" × ¼\" galvanizada",
       "tubo": null,
-      "seccion": "juego (≈ 0,4 m)",
+      "seccion": "juego (≈ 0,3 m)",
       "largo": null,
-      "operaciones": "Gatillo a 70° hacia adentro, leva a 70° hacia afuera, palanca de destrabe manual desde el pasillo; pernos de ojal M8",
-      "kg_u": 1.0
+      "operaciones": "Gatillo a 70° hacia adentro (arma la traba) y palanca de destrabe manual desde el pasillo; pernos de ojal M8",
+      "kg_u": 0.8
     },
     {
       "id": "C4",
@@ -302,10 +326,10 @@
       "subconjunto": "Lateral",
       "material": "Chapa galvanizada 2 mm",
       "tubo": null,
-      "seccion": "400 × 350",
+      "seccion": "375 × 270",
       "largo": null,
-      "operaciones": "Del comedero al frente, z 50 a 400, abulonada por dentro de los largueros con 4 M8: la cerda de al lado no alcanza el comedero",
-      "kg_u": 2.198
+      "operaciones": "x 1.840 a la cara del parante delantero, z 130 a 400 (por encima del apoyo trasero), cantos doblados 15 mm; abulonada por dentro de los largueros con 4 M8: la cerda de al lado no alcanza el comedero",
+      "kg_u": 1.7662499999999999
     },
     {
       "id": "P10",
@@ -364,7 +388,7 @@
       "tubo": null,
       "seccion": "150 × 150 × 9,5",
       "largo": null,
-      "operaciones": "Concéntrica con la pletina; parante corrido 25 mm hacia adentro; 4 agujeros Ø11 a ±55",
+      "operaciones": "Concéntrica con la pletina; parante corrido 25 mm hacia adentro; 4 agujeros Ø14 a ±55 (lugar para la vaina aislante del M10)",
       "kg_u": 1.6779374999999999
     },
     {
@@ -680,10 +704,10 @@
       },
       {
         "id": "chapa_2",
-        "descripcion": "Chapa galvanizada 2 mm: zócalo 560 × 280 y 2 guardas 100 × 710",
+        "descripcion": "Chapa galvanizada 2 mm: zócalo 560 × 280, 2 guardas 100 × 780 y 2 protecciones 375 × 300",
         "cant": 1,
         "unidad": "juego",
-        "uso": "F9, P9"
+        "uso": "F9, P9, C4"
       },
       {
         "id": "barra_10",
@@ -694,6 +718,13 @@
       }
     ],
     "inox": [
+      {
+        "id": "inox_leva",
+        "descripcion": "Chapa inox 304 6 mm, 2 levas 60 × 75",
+        "cant": 1,
+        "unidad": "juego",
+        "uso": "P12"
+      },
       {
         "id": "inox_pletina",
         "descripcion": "Pletina inox 304 300 × 150 × 10, corte láser",
@@ -740,7 +771,7 @@
       },
       {
         "id": "m10_inox_pie",
-        "descripcion": "Bulón M10 × 40 inox con vaina y 2 arandelas aislantes",
+        "descripcion": "Bulón M10 × 25 inox (rosca en la pletina, no sobresale hacia el slat) con vaina y arandela aislantes",
         "cant": 32,
         "unidad": "juego",
         "uso": "pie"
@@ -755,9 +786,16 @@
       {
         "id": "m10_galv",
         "descripcion": "Bulón M10 × 70 galvanizado con tuerca autofrenante y 2 arandelas",
-        "cant": 30,
+        "cant": 28,
         "unidad": "u",
-        "uso": "uniones (28: 2 por planchuela) y trinquetes (2)"
+        "uso": "uniones de subconjuntos (2 por planchuela)"
+      },
+      {
+        "id": "m10x100_galv",
+        "descripcion": "Bulón M10 × 100 galvanizado con tuerca autofrenante y 2 arandelas",
+        "cant": 2,
+        "unidad": "u",
+        "uso": "perno de cada trinquete (P7b)"
       },
       {
         "id": "m8_inox",
@@ -791,7 +829,7 @@
       },
       {
         "id": "pead_buje",
-        "descripcion": "Barra PEAD Ø30 para bujes y separador de antena",
+        "descripcion": "Barra PEAD Ø30 (4 bujes) y taco de PEAD 30 mm de espesor (separador de antena)",
         "cant": 1,
         "unidad": "juego",
         "uso": "P6, C3"
@@ -813,12 +851,12 @@
     ]
   },
   "peso": {
-    "total_kg": 216.6,
-    "galvanizado_kg": 161.1,
-    "otros_kg": 55.5,
+    "total_kg": 216.3,
+    "galvanizado_kg": 160.4,
+    "otros_kg": 55.9,
     "tubo_kg": 122.1,
-    "lateral_kg": 66.0,
-    "por_box_kg": 216.6,
+    "lateral_kg": 65.5,
+    "por_box_kg": 216.3,
     "boxes": 1
   },
   "barra_comercial_mm": 6000,
