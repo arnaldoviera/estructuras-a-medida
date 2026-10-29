@@ -56,9 +56,9 @@
         "tipo": "tubo-rect",
         "b": 40,
         "h": 40,
-        "esp": 1.6,
+        "esp": 2.5,
         "acabado": "negro (antióxido + esmalte o epoxi)",
-        "_origen": "supuesto: caño 40 × 40, más fino que la pata; verificado a flexión y flecha"
+        "_origen": "cálculo: caño 40 × 40 × 2,5, más fino que la pata; con 1,6 mm la flecha del larguero con 100 kg en el medio pasaba L/300 (auditoría vuelta 1). Todo el bastidor sale de una barra"
       }
     },
     "barras": [
@@ -238,7 +238,7 @@
         "_origen": "supuesto: tablero alistonado de eucalipto 30 mm, sale de una hoja de 2,44 × 1,22"
       }
     ],
-    "uniones": "Patas y bastidor soldados completos en taller (cordón perimetral); tapa atornillada desde abajo por 10 planchuelas soldadas con agujero ovalado, para que la madera trabaje.",
+    "uniones": "Patas y bastidor soldados completos en taller (cordón perimetral); tapa atornillada desde abajo por 10 planchuelas 32 × 5 soldadas con agujero ovalado, para que la madera trabaje.",
     "terminacion": "Hierro: desengrase, antióxido y esmalte sintético o epoxi negro mate. Madera: lija 120/180 y laca poliuretánica o aceite.",
     "insumos": [
       {
@@ -248,19 +248,25 @@
         "uso": "fijación de la tapa"
       },
       {
-        "descripcion": "Tornillo para madera 8 × 1 1/4\" cabeza tanque con arandela",
+        "descripcion": "Tornillo para madera 8 × 1\" cabeza tanque con arandela",
         "cant": 10,
         "unidad": "u",
-        "uso": "fijación de la tapa"
+        "uso": "fijación de la tapa (5 mm de planchuela + 25 mm en un tablero de 30)"
       },
       {
-        "descripcion": "Regatón regulable M8 para caño 50 × 50",
+        "descripcion": "Regatón plástico interior para caño 50 × 50 (tapa de 3 mm)",
         "cant": 4,
         "unidad": "u",
-        "uso": "patas"
+        "uso": "patas; no suma alto (cabe en la tolerancia de ±5 mm)"
       },
       {
-        "descripcion": "Antióxido y esmalte negro mate",
+        "descripcion": "Antióxido",
+        "cant": 1,
+        "unidad": "l",
+        "uso": "hierro"
+      },
+      {
+        "descripcion": "Esmalte sintético o epoxi negro mate",
         "cant": 1,
         "unidad": "l",
         "uso": "hierro"
@@ -287,5 +293,7 @@
     "plazo_entrega": null,
     "garantia": null
   },
-  "estado": {}
+  "estado": {
+    "vueltas_auditoria": 1
+  }
 }

@@ -94,7 +94,7 @@ def _prop(s):
         D, e = s["diam"], s["esp"]
         A = math.pi / 4 * (D ** 2 - (D - 2 * e) ** 2)
         I = math.pi / 64 * (D ** 4 - (D - 2 * e) ** 4)
-        return {"A": A, "I": I, "Imin": I, "W": 2 * I / D, "h": D, "b": D, "kg_m": A * ACERO["dens"] * 1e-6,
+        return {"A": A, "I": I, "I2": I, "Imin": I, "W": 2 * I / D, "h": D, "b": D, "kg_m": A * ACERO["dens"] * 1e-6,
                 "E": ACERO["E"], "acero": True, "f": ACERO["fy"]}
     b, h = s["b"], s["h"]
     if t == "tubo-rect":
@@ -106,9 +106,9 @@ def _prop(s):
         A, I, I2 = b * h, b * h ** 3 / 12, h * b ** 3 / 12
     if t == "madera":
         m = catalogo_materiales()["maderas_aserradas"][s["material"]]
-        return {"A": A, "I": I, "Imin": min(I, I2), "W": 2 * I / h, "h": h, "b": b, "kg_m": A * m["densidad_kg_m3"] * 1e-6,
+        return {"A": A, "I": I, "I2": I2, "Imin": min(I, I2), "W": 2 * I / h, "h": h, "b": b, "kg_m": A * m["densidad_kg_m3"] * 1e-6,
                 "E": m["E_MPa"], "acero": False, "f": m["tension_flexion_adm_MPa"], "fc": m["tension_compresion_adm_MPa"]}
-    return {"A": A, "I": I, "Imin": min(I, I2), "W": 2 * I / h, "h": h, "b": b, "kg_m": A * ACERO["dens"] * 1e-6,
+    return {"A": A, "I": I, "I2": I2, "Imin": min(I, I2), "W": 2 * I / h, "h": h, "b": b, "kg_m": A * ACERO["dens"] * 1e-6,
             "E": ACERO["E"], "acero": True, "f": ACERO["fy"]}
 
 
@@ -351,11 +351,11 @@ def validar(ficha, M=None):
         sig = max(Mq, Mp, Mv) / Wm
         fadm = t["tension_flexion_adm_MPa"]
         Ip = tt ** 3 / 12
-        fl = 5 * (q_uso + q_pp) * Lp ** 4 / (384 * t["E_MPa"] * Ip)
+        fl = max(5 * (q_uso + q_pp) * Lp ** 4, 5 * q_pp * Lp ** 4 + 8 * P_p / bp * Lp ** 3) / (384 * t["E_MPa"] * Ip)  # la misma carga que manda en la tensión
         _chk(out, f"res.placa.{p['id']}", f"Placa «{p['nombre']}»: tensión por flexión entre apoyos y en el voladizo",
              f"{num(sig, 1)} MPa (luz {mm(Lp)}, voladizo {mm(vol)})", f"≤ {num(fadm, 0)} MPa", sig <= fadm,
              f"Carga de uso {Q['distribuida_kg_m2']} kg/m² o {Q['puntual_kg']} kg en una franja de {bp} mm; {Q['carga_borde_kg']} kg en el borde del voladizo.")
-        _chk(out, f"def.placa.{p['id']}", f"Placa «{p['nombre']}»: flecha con carga de uso", f"{num(fl, 1)} mm", f"≤ L/{div} = {num(Lp / div, 1)} mm", fl <= Lp / div)
+        _chk(out, f"def.placa.{p['id']}", f"Placa «{p['nombre']}»: flecha con carga de uso (repartida o puntual)", f"{num(fl, 1)} mm", f"≤ L/{div} = {num(Lp / div, 1)} mm", fl <= Lp / div)
         for kk in (0, 1):
             limk = p["y"] if kk == 0 else p["x"]
             for b, trib in _tributarias(fam[kk], limk):
@@ -385,10 +385,10 @@ def validar(ficha, M=None):
             Md = max((c["w_uso"] + w_pp) * L ** 2 / 8, w_pp * L ** 2 / 8 + P_p * L / 4)
             lim_s, nota = P["f"], "tensión admisible de la madera con carga de uso"
         sig = Md / P["W"]
-        fl = 5 * (c["w_uso"] + w_pp) * L ** 4 / (384 * P["E"] * P["I"])
+        fl = max(5 * (c["w_uso"] + w_pp) * L ** 4, 5 * w_pp * L ** 4 + 8 * P_p * L ** 3) / (384 * P["E"] * P["I"])
         _chk(out, f"res.viga.{b['id']}", f"Viga «{b['nombre']}» ({b['id']}, {mm(L)}): tensión por flexión", f"{num(sig, 0)} MPa", f"≤ {num(lim_s, 0)} MPa", sig <= lim_s,
              f"Simplemente apoyada en sus puntas; toma la carga de su ancho de influencia o {Q['puntual_kg']} kg en el medio; {nota}.")
-        _chk(out, f"def.viga.{b['id']}", f"Viga «{b['nombre']}» ({b['id']}): flecha con carga de uso", f"{num(fl, 1)} mm", f"≤ L/{div} = {num(L / div, 1)} mm", fl <= L / div)
+        _chk(out, f"def.viga.{b['id']}", f"Viga «{b['nombre']}» ({b['id']}): flecha con carga de uso (repartida o {Q['puntual_kg']} kg en el medio)", f"{num(fl, 1)} mm", f"≤ L/{div} = {num(L / div, 1)} mm", fl <= L / div)
 
     # patas: pandeo con la carga total repartida y corrimiento por empuje lateral
     patas = M["patas"]
@@ -405,14 +405,7 @@ def validar(ficha, M=None):
         fs = min(Pcr, (P["f"] if P["acero"] else P["fc"]) * P["A"]) / N
         _chk(out, f"res.pata.{sec}", f"Patas «{sec}» ({len(grupo)}): pandeo con la carga total repartida", f"FS {num(fs, 1)}", f"≥ {num(fsp, 1)}", fs >= fsp,
              f"{num(N / G, 0)} kg por pata; longitud efectiva 2 × {mm(L)}.")
-        Hi = H / len(patas)
-        dl = Hi * L ** 3 / (3 * P["E"] * P["Imin"])
-        Md = Hi * L * (gf if P["acero"] else 1)
-        sig = Md / (2 * P["Imin"] / min(P["b"], P["h"]))
-        lim_s = P["f"] / gm if P["acero"] else P["f"]
-        _chk(out, f"def.meneo.{sec}", f"Patas «{sec}»: corrimiento arriba con {Q['empuje_lateral_kg']} kg de empuje lateral", f"{num(dl, 1)} mm",
-             f"≤ alto/{dmax} = {num(L / dmax, 1)} mm", dl <= L / dmax, "Nudos pata-bastidor rígidos (soldadura completa o unión abulonada con escuadra); la pata apoya en el piso.")
-        _chk(out, f"res.nudo.{sec}", f"Patas «{sec}»: tensión en el nudo con el bastidor por el empuje lateral", f"{num(sig, 0)} MPa", f"≤ {num(lim_s, 0)} MPa", sig <= lim_s)
+    _meneo(out, M, H, Q, gf, gm, dmax)
 
     # vuelco: empuje arriba y carga en el borde del voladizo
     hu, cg, peso = M["huella"], M["cg"], M["peso"] * G
@@ -447,6 +440,57 @@ def validar(ficha, M=None):
         _chk(out, "dur.exterior", "Hierro protegido para exterior (galvanizado o epoxi)", "todo protegido" if not sin else ", ".join(sin), "galvanizado o epoxi",
              "cumple" if not sin else "dudoso")
     return {"checks": out, "peso_propio_kg": round(M["peso"], 1), "peso_total_kg": round(M["peso"], 1), "resumen": _resumen(out)}
+
+
+def _portales(M, d):
+    """Pórticos que resisten un empuje en la dirección d: filas de patas unidas arriba por una viga paralela a d.
+    Devuelve [(patas, luz entre ejes, viga)]."""
+    o = 1 - d
+    filas = {}
+    for b in M["patas"]:
+        filas.setdefault(round(b["a"][o]), []).append(b)
+    out = []
+    for co, ps in filas.items():
+        if len(ps) < 2:
+            continue
+        tope = max(max(b["a"][2], b["b"][2]) for b in ps)
+        vigas = [v for v in M["barras"] if v["rol"] == "viga" and v["eje"] == d and abs(v["a"][o] - co) <= max(v["P"]["b"], v["P"]["h"]) / 2 + 1
+                 and abs(v["a"][2] + v["P"]["h"] / 2 - tope) <= v["P"]["h"] + 5]
+        if vigas:
+            xs = [b["a"][d] for b in ps]
+            out.append((ps, max(xs) - min(xs), min(vigas, key=lambda v: v["P"]["I"])))
+    return out
+
+
+def _meneo(out, M, H, Q, gf, gm, dmax):
+    """Corrimiento arriba y tensión en el nudo por empuje lateral, con pórticos de base articulada (pata apoyada en el piso):
+    δ = Hp·h²/(12·E)·(2h/Ic + L/Ib) por pórtico de dos patas; momento en el nudo Hp·h/2."""
+    peor = None
+    for d, eje in ((0, "x"), (1, "y")):
+        port = _portales(M, d)
+        if not port:
+            _chk(out, f"def.meneo.{eje}", f"Patas unidas arriba por una viga en {eje} (resisten un empuje lateral)", "sin viga que una las patas", "≥ 1 pórtico", False,
+                 "Sin un bastidor que una las patas arriba la estructura no resiste el empuje: agregar la viga o una riostra.")
+            continue
+        Hp = H / len(port)
+        for ps, Lb, viga in port:
+            c = max(ps, key=lambda b: b["L"])
+            P, h = c["P"], c["L"]
+            Ic = P["I2"] if d == 0 else P["I"]  # la pata vertical tiene b en x y h en y
+            Ib, E = viga["P"]["I"], P["E"]
+            dl = Hp * h ** 2 / (12 * E) * (2 * h / Ic + Lb * E / (viga["P"]["E"] * Ib))
+            prof = (P["b"] if d == 0 else P["h"]) / 2
+            sig = Hp * h / 2 * (gf if P["acero"] else 1) * prof / Ic
+            lim_s = P["f"] / gm if P["acero"] else P["f"]
+            caso = (dl / (h / dmax), dl, sig, lim_s, h, eje, c["seccion"], viga["id"])
+            if peor is None or caso[0] > peor[0]:
+                peor = caso
+    if peor:
+        _, dl, sig, lim_s, h, eje, sec, vid = peor
+        _chk(out, "def.meneo", f"Corrimiento arriba con {Q['empuje_lateral_kg']} kg de empuje lateral (peor dirección: {eje})", f"{num(dl, 1)} mm",
+             f"≤ alto/{dmax} = {num(h / dmax, 1)} mm", dl <= h / dmax,
+             f"Pórtico de patas «{sec}» con la viga {vid}, nudos rígidos (soldadura completa) y pata apoyada en el piso; cuenta la flexión de la pata y de la viga.")
+        _chk(out, "res.nudo", "Tensión en el nudo pata-bastidor por el empuje lateral", f"{num(sig, 0)} MPa", f"≤ {num(lim_s, 0)} MPa", sig <= lim_s)
 
 
 def _resumen(checks):
@@ -670,7 +714,7 @@ def _html_despiece(desp):
                      f'<td class="v">{E(medida)}</td><td>{E(p["operaciones"])}<br><small>{E(p["seccion"])}{" · " + E(p["material"]) if p["material"] else ""}</small></td></tr>')
     corte = []
     for sec, bs in desp["barras_corte"].items():
-        nom = next(r["descripcion"].split(",")[0] for r in desp["pedido"]["barras"] if r["seccion_id"] == sec)
+        nom = next(r["descripcion"].rsplit(", ", 1)[0] for r in desp["pedido"]["barras"] if r["seccion_id"] == sec)
         bars = "".join(
             f'<div class="barra"><b>{i}</b><div class="tira">'
             + "".join(f'<span class="seg" style="flex:{c}" title="{c}">{mm(c)}</span>' for c in b["cortes"])

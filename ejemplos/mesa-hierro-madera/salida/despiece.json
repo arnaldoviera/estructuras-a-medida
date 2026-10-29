@@ -6,11 +6,11 @@
       "cant": 2,
       "subconjunto": "estructura de hierro",
       "seccion_id": "bastidor",
-      "seccion": "caño estructural cuadrado 40 × 40 × 1,6",
+      "seccion": "caño estructural cuadrado 40 × 40 × 2,5",
       "largo": 680,
       "material": "negro (antióxido + esmalte o epoxi)",
       "operaciones": "corte recto; soldar completo, amolar la soldadura vista; antióxido y terminación",
-      "kg": 2.6
+      "kg": 4.0
     },
     {
       "id": "L1, L2",
@@ -18,11 +18,11 @@
       "cant": 2,
       "subconjunto": "estructura de hierro",
       "seccion_id": "bastidor",
-      "seccion": "caño estructural cuadrado 40 × 40 × 1,6",
+      "seccion": "caño estructural cuadrado 40 × 40 × 2,5",
       "largo": 1500,
       "material": "negro (antióxido + esmalte o epoxi)",
       "operaciones": "corte recto; soldar completo, amolar la soldadura vista; antióxido y terminación",
-      "kg": 5.8
+      "kg": 8.8
     },
     {
       "id": "P1, P2, P3, P4",
@@ -42,11 +42,11 @@
       "cant": 1,
       "subconjunto": "estructura de hierro",
       "seccion_id": "bastidor",
-      "seccion": "caño estructural cuadrado 40 × 40 × 1,6",
+      "seccion": "caño estructural cuadrado 40 × 40 × 2,5",
       "largo": 690,
       "material": "negro (antióxido + esmalte o epoxi)",
       "operaciones": "corte recto; soldar completo, amolar la soldadura vista; antióxido y terminación",
-      "kg": 1.3
+      "kg": 2.0
     },
     {
       "id": "M1",
@@ -120,7 +120,7 @@
         "desperdicio_pct": 51.8
       },
       {
-        "descripcion": "caño estructural cuadrado 40 × 40 × 1,6, barra de 6 m",
+        "descripcion": "caño estructural cuadrado 40 × 40 × 2,5, barra de 6 m",
         "cant": 1,
         "unidad": "barra",
         "uso": "bastidor",
@@ -145,19 +145,25 @@
         "uso": "fijación de la tapa"
       },
       {
-        "descripcion": "Tornillo para madera 8 × 1 1/4\" cabeza tanque con arandela",
+        "descripcion": "Tornillo para madera 8 × 1\" cabeza tanque con arandela",
         "cant": 10,
         "unidad": "u",
-        "uso": "fijación de la tapa"
+        "uso": "fijación de la tapa (5 mm de planchuela + 25 mm en un tablero de 30)"
       },
       {
-        "descripcion": "Regatón regulable M8 para caño 50 × 50",
+        "descripcion": "Regatón plástico interior para caño 50 × 50 (tapa de 3 mm)",
         "cant": 4,
         "unidad": "u",
-        "uso": "patas"
+        "uso": "patas; no suma alto (cabe en la tolerancia de ±5 mm)"
       },
       {
-        "descripcion": "Antióxido y esmalte negro mate",
+        "descripcion": "Antióxido",
+        "cant": 1,
+        "unidad": "l",
+        "uso": "hierro"
+      },
+      {
+        "descripcion": "Esmalte sintético o epoxi negro mate",
         "cant": 1,
         "unidad": "l",
         "uso": "hierro"
@@ -172,10 +178,10 @@
   },
   "cantidad": 1,
   "peso": {
-    "total_kg": 47.6,
-    "hierro_kg": 18.4,
+    "total_kg": 52.7,
+    "hierro_kg": 23.5,
     "madera_kg": 29.2,
-    "por_unidad_kg": 47.6
+    "por_unidad_kg": 52.7
   },
   "nota": "Largos de corte al eje de cada pieza según la ficha; el herrero o carpintero ajusta los descuentos de cada unión."
 }

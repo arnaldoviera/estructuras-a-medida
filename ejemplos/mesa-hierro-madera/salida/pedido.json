@@ -9,7 +9,7 @@
       "desperdicio_pct": 51.8
     },
     {
-      "descripcion": "caño estructural cuadrado 40 × 40 × 1,6, barra de 6 m",
+      "descripcion": "caño estructural cuadrado 40 × 40 × 2,5, barra de 6 m",
       "cant": 1,
       "unidad": "barra",
       "uso": "bastidor",
@@ -34,19 +34,25 @@
       "uso": "fijación de la tapa"
     },
     {
-      "descripcion": "Tornillo para madera 8 × 1 1/4\" cabeza tanque con arandela",
+      "descripcion": "Tornillo para madera 8 × 1\" cabeza tanque con arandela",
       "cant": 10,
       "unidad": "u",
-      "uso": "fijación de la tapa"
+      "uso": "fijación de la tapa (5 mm de planchuela + 25 mm en un tablero de 30)"
     },
     {
-      "descripcion": "Regatón regulable M8 para caño 50 × 50",
+      "descripcion": "Regatón plástico interior para caño 50 × 50 (tapa de 3 mm)",
       "cant": 4,
       "unidad": "u",
-      "uso": "patas"
+      "uso": "patas; no suma alto (cabe en la tolerancia de ±5 mm)"
     },
     {
-      "descripcion": "Antióxido y esmalte negro mate",
+      "descripcion": "Antióxido",
+      "cant": 1,
+      "unidad": "l",
+      "uso": "hierro"
+    },
+    {
+      "descripcion": "Esmalte sintético o epoxi negro mate",
       "cant": 1,
       "unidad": "l",
       "uso": "hierro"
